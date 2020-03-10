@@ -6,7 +6,7 @@ class CircularBody
 {
 public:
     //constructeurs:
-    CircularBody(const Vec2d& poscenter, const double& radius);
+    CircularBody(Vec2d poscenter, double radius);
     CircularBody(const CircularBody& other);
 
     //getters/setters:
