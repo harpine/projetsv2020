@@ -1,4 +1,4 @@
-partie1/extlib
-partie1/res
-partie1/src/CMakeLists.txt.user
-?.autosave
+partie*/extlib
+partie*/res
+partie*/src/CMakeLists.txt.user
+*.autosave
