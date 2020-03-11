@@ -1,7 +1,7 @@
 #include "CircularBody.hpp"
 
 
-CircularBody::CircularBody(const Vec2d& poscenter, const double& radius)
+CircularBody::CircularBody(const Vec2d& poscenter, const double radius)
     :poscenter_(poscenter),
      radius_(radius)
 {}
@@ -26,7 +26,7 @@ void CircularBody::setPosition(const Vec2d& poscenter)
     poscenter_ = poscenter;
 }
 
-void CircularBody::setRadius(const double& radius)
+void CircularBody::setRadius(const double radius)
 {
     radius_ = radius;
 }

@@ -23,7 +23,10 @@ référence constante ?
 [Réponse R1.3] Nous passons par référence constante tous les arguments 
 de méthodes qui ne doivent pas être modifiés et dont la copie est 
 inutile (soit tous les arguments sauf ceux de type ostream que nous 
-avons passé par référence).
+avons passé par référence et ceux de type double dont le passage par
+référence constante n'apporte aucun avantage pour la mémoire; nous les
+avons quand même passé en valeur cosntante car ils ne doivent pas être
+modifiés).
 
 [Question Q1.4] Quelles méthodes parmi celles que l'on vous a demandé de
 coder vous semble t-il judicieux de déclarer comme const ?
