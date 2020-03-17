@@ -35,5 +35,8 @@ coder vous semble t-il judicieux de déclarer comme const ?
 qui ne modifient pas l'instance traitée (getters, cointains, 
 isColliding, afficher).
 
-
+[Question Q2.7] Comme quasiment toutes les entités à modéliser, nos 
+sources de nutriments seront aussi des corps circulaires. Comment 
+proposez-vous d'utiliser la classe fournie CircularBody (dans le 
+répertoire Lab) pour modéliser cet aspect ?
 
