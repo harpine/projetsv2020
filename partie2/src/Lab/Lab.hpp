@@ -12,6 +12,7 @@ public:
 
 private:
     PetriDish petridish_;
+
 };
 
 #endif // LAB_HPP
