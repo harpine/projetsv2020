@@ -50,5 +50,4 @@ cela ? Répondez à cette question dans votre fichier REPONSES, puis dotez
 sources de nutriments seront aussi des corps circulaires. Comment 
 proposez-vous d'utiliser la classe fournie CircularBody (dans le 
 répertoire Lab) pour modéliser cet aspect ?
-=======
 
