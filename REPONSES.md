@@ -35,8 +35,20 @@ coder vous semble t-il judicieux de déclarer comme const ?
 qui ne modifient pas l'instance traitée (getters, cointains, 
 isColliding, afficher).
 
+
+[Question Q2.1] Pour pouvoir représenter graphiquement l'assiette de 
+Petri et pour pouvoir permettre d'en délimiter le contour, par exemple
+pour empêcher les bactéries d'en sortir, nous souhaitons voir l'assiette
+comme étant un corps circulaire (qui aura une position dans 
+l'environnement en deux dimensions servant de support à nos simulations 
+et bien sûr). Comment utiliser la classe CircularBody pour modéliser 
+cela ? Répondez à cette question dans votre fichier REPONSES, puis dotez
+ la classe PetriDish d'un constructeur prenant en paramètre une position
+  (un Vec2d) et un rayon (double). 
+
 [Question Q2.7] Comme quasiment toutes les entités à modéliser, nos 
 sources de nutriments seront aussi des corps circulaires. Comment 
 proposez-vous d'utiliser la classe fournie CircularBody (dans le 
 répertoire Lab) pour modéliser cet aspect ?
+=======
 
