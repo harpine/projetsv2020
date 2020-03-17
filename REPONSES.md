@@ -51,3 +51,17 @@ sources de nutriments seront aussi des corps circulaires. Comment
 proposez-vous d'utiliser la classe fournie CircularBody (dans le 
 répertoire Lab) pour modéliser cet aspect ?
 
+[Réponse R2.7] Nutriment va hériter de la classe CircularBody, étant
+que Nutriment EST un CircularBody. Pour le niveau d'accès nous avons
+décidé de mettre en "protected" au cas où il y a des sous classes à 
+nutriment qui pourraient avoir besoin de cette information.
+
+[Question Q2.8] A quoi cela peut-il bien servir d'utiliser le type 
+Quantity plutôt que tout simplement un double ?
+
+[Réponse R2.8] C'est utile au cas où nous décidons de changer le type 
+des quantités sans avoir à modifier tout le code. 
+(remplacer double par int par exemple)
+
+[Question Q2.9]
+ 

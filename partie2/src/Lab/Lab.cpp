@@ -4,3 +4,8 @@ Lab::Lab()
 {
 
 }
+
+bool contains(CircularBody circularbody)
+{
+
+}

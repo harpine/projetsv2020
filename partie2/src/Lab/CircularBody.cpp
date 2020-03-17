@@ -1,6 +1,5 @@
 #include "CircularBody.hpp"
 
-
 CircularBody::CircularBody(const Vec2d& poscenter, const double radius)
     :poscenter_(poscenter),
      radius_(radius)
