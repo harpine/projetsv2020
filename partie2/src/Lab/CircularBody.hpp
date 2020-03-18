@@ -5,19 +5,10 @@
 class CircularBody
 {
 public:
-    //constructeurs:
-    CircularBody(const Vec2d& poscenter, const double radius);
-    CircularBody(const CircularBody& other);
-
-    //getters/setters:
+    //getters:
     Vec2d getPosition() const;
     double getRadius() const;
-    void setPosition(const Vec2d& poscenter);
-    void setRadius(const double radius);
-
     //autres méthodes:
-    void move(const Vec2d& v);
-    //déplace le centre du cercle de la "distance" v
     bool contains(const CircularBody& other) const;
     //retourne true si other est dans le cercle, false autrement
     bool contains(const Vec2d& v) const;
@@ -29,6 +20,17 @@ public:
     //dans la classe car il travaille sur l'objet
 
     void afficher(std::ostream& out) const; //pour simplifier la surcharge <<
+
+protected:
+    //constructeurs:
+    CircularBody(const Vec2d& poscenter, const double radius);
+    CircularBody(const CircularBody& other);
+    //setters
+    void setPosition(const Vec2d& poscenter);
+    void setRadius(const double radius);
+    //autre méthode:
+    void move(const Vec2d& v);
+    //déplace le centre du cercle de la "distance" v
 
 private:
     //attributs:

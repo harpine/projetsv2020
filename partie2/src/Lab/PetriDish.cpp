@@ -25,6 +25,7 @@ bool PetriDish::addBacterium(Bacterium* bacterium)
 {
     bacteria_.push_back(bacterium);
     //Conditions à ajouter
+    return true;
 }
 
 bool PetriDish::addNutriment(Nutriment* nutriment)
