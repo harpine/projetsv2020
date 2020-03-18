@@ -25,6 +25,7 @@ bool PetriDish::addBacterium(Bacterium* bacterium)
 {
     bacteria_.push_back(bacterium);
     //Conditions à ajouter
+    return true;
 }
 
 bool PetriDish::addNutriment(Nutriment* nutriment)
@@ -91,7 +92,6 @@ void PetriDish::resetTemperature()
 {
     temperature_ = getAppConfig()["petri dish"]["temperature"]["default"].toDouble();
 }
-
 
 
 

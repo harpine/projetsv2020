@@ -59,6 +59,3 @@ void Lab::resetTemperature()
 {
     petridish_.resetTemperature();
 }
-
-
-

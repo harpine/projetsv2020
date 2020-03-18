@@ -46,7 +46,6 @@ public:
     //Réinitialise la température à sa valeur par défaut
 
 
-
 private:
     std::vector<Bacterium*> bacteria_;
     std::vector<Nutriment*> nutriments_;
