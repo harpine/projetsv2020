@@ -3,9 +3,11 @@
 #include <vector>
 #include "Utility/Vec2d.hpp"
 #include "Utility/Utility.hpp"
+#include "../Application.hpp"
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
-    : CircularBody(poscenter, radius)
+    : CircularBody(poscenter, radius),
+     temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble())
 {}
 
 PetriDish::~PetriDish()
@@ -13,7 +15,10 @@ PetriDish::~PetriDish()
     reset();
 }
 
-
+double PetriDish::getTemperature()
+{
+    return temperature_;
+}
 
 bool PetriDish::addBacterium(Bacterium* bacterium)
 {
@@ -23,12 +28,20 @@ bool PetriDish::addBacterium(Bacterium* bacterium)
 
 bool PetriDish::addNutriment(Nutriment* nutriment)
 {
-    nutriments_.push_back(nutriment);
-
+    if (contains(*nutriment))
+    {
+        nutriments_.push_back(nutriment);
+        return true;
+    }
+    return false;
 }
 
 void PetriDish::update(sf::Time dt)
 {
+    for (auto nutriment: nutriments_)
+    {
+       // *nutriment->update();
+    }
     //A remplir : fonciton qui fait evoluer toutes les bacteries/nutriments)
     //à chaque pas de temps
 }
@@ -37,6 +50,12 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
 {
     auto border = buildAnnulus(getPosition(), getRadius(), sf::Color::Black, 5);
     targetWindow.draw(border);
+    for (size_t i(0); i< nutriments_.size(); ++i)
+    {
+        //à décommenter plus tard
+        // nutriments_[i]->update();
+        nutriments_[i]->drawOn(targetWindow);
+    }
 }
 
 void PetriDish::reset()
@@ -54,9 +73,18 @@ void PetriDish::reset()
         delete nutriment;
     }
     nutriments_.clear();
+    temperature_ = (getAppConfig()["petri dish"]["temperature"]["default"].toDouble());
 }
 
+void PetriDish::increaseTemperature()
+{
+    temperature_ += getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
+}
 
+void PetriDish::decreaseTemperature()
+{
+  temperature_ -= getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
+}
 
 
 

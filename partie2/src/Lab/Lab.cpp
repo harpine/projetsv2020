@@ -9,12 +9,15 @@ Lab::Lab()
     avec un diamètre occupant 95% de la largeur de la fenêtre */
 {}
 
-/*
-bool Lab::contains(CircularBody circularbody) const
+bool Lab::contains(const CircularBody& circularbody) const
 {
-
+    if (petridish_.contains(circularbody))
+    {
+        return true;
+    }
+    return false;
 }
-*/
+
 
 void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
@@ -29,4 +32,25 @@ void Lab::update(sf::Time dt)
 void Lab::reset()
 {
     petridish_.reset();
+}
+
+void Lab::addNutriment(Nutriment* nutriment)
+{
+    petridish_.addNutriment(nutriment);
+}
+
+double Lab::getTemperature()
+{
+    return petridish_.getTemperature();
+}
+
+
+ void Lab::increaseTemperature()
+{
+    petridish_.increaseTemperature();
+}
+
+void Lab::decreaseTemperature()
+{
+    petridish_.decreaseTemperature();
 }

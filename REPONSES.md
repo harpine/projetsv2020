@@ -89,5 +89,59 @@ Quantity plutôt que tout simplement un double ?
 des quantités sans avoir à modifier tout le code. 
 (remplacer double par int par exemple)
 
-[Question Q2.9]
- 
+[Question Q2.9] En examinant le code du test fourni pour cette partie 
+(src/Tests/GraphicalTests/NutrimentTest.cc) quelle méthode doit-elle 
+être ajoutée à la classe Lab pour permettre l'ajout de nutriments à 
+l'assiette de Petri lorsque l'on appuie sur la touche 'N', une fois la 
+ligne en question décommentée  ? Quelle méthode existante doit être 
+modifiée pour permettre le dessin des sources de nutriments nouvellement
+ajoutées? 
+
+[Réponse R2.9] 
+la méthode addNutriment(nutriment*) permettant d'ajouter un nutriment à 
+l'assiette de Petri doit être ajoutée à la classe Lab.
+Nous avons modifié la fonction drawOn de petridish, (car la boîte de 
+petri contient les nutriments (en attribut)) en y ajoutant la méthode
+drawOn de Nutriment.
+
+[Question Q2.10] On souhaite que la classe Lab ne donne pas d'accès à sa
+PetriDish via un getter. En utilisant Application::getAppEnv, comment 
+permettre à Nutriment::update de connaître la température de l'assiette
+de Petri ? Répondez à cette question dans le fichier REPONSES et 
+programmez ce qui est nécessaire.
+
+[Réponse R2.10] 
+Nous avons une fonction getter dans la classe Lab qui accède à la 
+température de sa boîte de petri. Grâce à getAppEnv().getTemperature() 
+nous pouvons donc y accéder.
+
+[Question Q2.11] Quelles méthodes de Lab et de PetriDish faut-il 
+modifier et comment pour que la croissance des nutriments deviennent
+visible lors de l'exécution du test graphique ?
+
+[Réponse R2.11] la méthode drawOn(). Il n'y a besoin de modifier 
+uniquement celle de Petridish car celle de Lab y fait appel.
+(????)
+
+[Question Q2.12] Quelles méthodes devez vous ajouter et dans quelles 
+classes pour que appuyer sur 'PgUp' ou 'PgDn' permette respectivement 
+d'augmenter ou diminuer la température de l'assiette de 
+["petri dish"]["temperature"]["delta"] (un double) ? 
+
+Quelles méthode(s) devez vous également ajouter et à quelle(s) classe(s)
+pour que les touches 'R' et 'C' permettent aussi (en plus de ce 
+qu'elles font) de réinitialiser l'attribut température à la valeur du 
+fichier de configuration (["petri dish"]["temperature"]["default"]) 
+tout en évitant toute duplication de code ?
+
+[Réponse R2.11] Dans Application, 'PgUp/Dn' font appel à 
+mLab->in/decreaseTemperature(), donc il faut ajouter 
+in/decreasTemperature() à la classe Lab, et donc les ajouter dans la
+classe petridish aussi. (celle de Lab fait appel à celle de PetriDish).
+
+_________________________________________________ R & C
+
+
+
+
+
