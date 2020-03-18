@@ -4,6 +4,7 @@
 #include "Utility/Vec2d.hpp"
 #include "Utility/Utility.hpp"
 #include "../Application.hpp"
+#include "Nutriment.hpp"
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
@@ -38,9 +39,9 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
 
 void PetriDish::update(sf::Time dt)
 {
-    for (auto nutriment: nutriments_)
+    for (auto nutriment : nutriments_)
     {
-       // *nutriment->update();
+       (*nutriment).update(dt);
     }
     //A remplir : fonciton qui fait evoluer toutes les bacteries/nutriments)
     //à chaque pas de temps
@@ -73,7 +74,7 @@ void PetriDish::reset()
         delete nutriment;
     }
     nutriments_.clear();
-    temperature_ = (getAppConfig()["petri dish"]["temperature"]["default"].toDouble());
+    resetTemperature();
 }
 
 void PetriDish::increaseTemperature()
@@ -84,6 +85,11 @@ void PetriDish::increaseTemperature()
 void PetriDish::decreaseTemperature()
 {
   temperature_ -= getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
+}
+
+void PetriDish::resetTemperature()
+{
+    temperature_ = getAppConfig()["petri dish"]["temperature"]["default"].toDouble();
 }
 
 

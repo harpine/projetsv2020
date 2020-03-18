@@ -26,6 +26,8 @@ public:
     void increaseTemperature();
     void decreaseTemperature();
     //Permet de modifier la température de la boîte de petri
+    void resetTemperature();
+    //Réinitialise la température avec la valeur par défaut
 
 private:
     PetriDish petridish_;
