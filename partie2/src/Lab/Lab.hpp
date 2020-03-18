@@ -7,7 +7,7 @@
 class Lab
 {
 public:
-    Lab();
+    Lab(); //à décommenter lors du codage de la boîte de Petri
     bool contains(const CircularBody& circularbody);
 
 private:
