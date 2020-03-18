@@ -1,6 +1,5 @@
 #ifndef LAB_HPP
 #define LAB_HPP
-
 #include "CircularBody.hpp"
 #include "PetriDish.hpp"
 #include <SFML/Graphics.hpp>
@@ -8,7 +7,6 @@
 class Lab
 {
 public:
-
     //Constructeurs:
     Lab();
 
