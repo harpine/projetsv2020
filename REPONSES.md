@@ -58,19 +58,33 @@ l'instance, soit la méthode PetrriDish::drawOn.
 l'affectation. Quelle(s) solution(s) proposeriez-vous pour satisfaire 
 cette contrainte?
 
-[Question R2.3] 
+[Réponse R2.3] Pour ce faire, on delete explicitement le constructeur 
+de copie ainsi que l'opérateur = (entre deux PetriDish).
 
+[Question Q2.4] La question Q2.3 suggère que chaque simulation 
+s'intéressera à une assiette unique disposant de son propre ensemble de 
+bactéries et de nutriments. Il ne fait par ailleurs pas beaucoup de sens
+de faire vivre les bactéries sans les rattacher à une assiette. Une 
+PetriDish peut donc être considéré comme responsable de la durée de vie
+des bactéries et des nutriments amenés à être créés dans la simulation. 
+Quelle incidence cela a t-il sur la destruction d'une assiette de Petri?
+La destruction peut-elle se faire en utilisant une méthode existante de 
+la classe PetriDish?
 
+[Réponse R2.4] Le destructeur de la classe PetriDish doit donc 
+simultanément éliminer les nutriments et les bactéries créées dans 
+l'assiette. Dans le corps du destructeur, on peut donc utiliser la 
+fonction préexistante reset() qui va delete tous les pointeurs et 
+tranasformer les vecteurs nutriments_ et bacteria_ en vecteurs nuls.
 
+[Question Q2.5] Pour le moment, faire évoluer un Lab c'est simplement 
+faire évoluer son assiette de Petri unique et le dessiner c'est aussi 
+dessiner cette assiette de Petri. Comment proposez-vous de coder le 
+corps des méthodes Lab::drawOn et Lab::update ? 
 
-
-
-
-
-
-
-
-
+[Réponse R2.5] On code ces deux fonctions par le biais d'un appel des 
+foncitons de même nom de la classe PetriDish (PetriDish::drawOn et 
+PetriDish::update).
 
 [Question Q2.7] Comme quasiment toutes les entités à modéliser, nos 
 sources de nutriments seront aussi des corps circulaires. Comment 

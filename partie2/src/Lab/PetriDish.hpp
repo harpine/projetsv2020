@@ -13,19 +13,19 @@ class PetriDish : public CircularBody
 public:
 
     //Constructeurs et destructeurs:
-    //Constructeur :
     PetriDish(const Vec2d& poscenter, const double radius);
-    //Interdiction de copie d'une assiette de pétri
+    //Constructeur :
     PetriDish(const PetriDish& p) = delete;
-    //Destruction de l'assiette de pétri ainsi que des nutriments et bactéries qui l'habitent
+    //Interdiction de copie d'une assiette de pétri
     ~PetriDish();
+    //Destruction de l'assiette de pétri ainsi que des nutriments et bactéries qui l'habitent
 
-    //getters et setters
+    //getters et setters:
     double getTemperature();
 
     //Surcharges d'operateurs :
-    //Interdiction d'affectation entre assiettes de pétri
     PetriDish& operator=(const PetriDish& p) = delete;
+    //Interdiction d'affectation entre assiettes de pétri
 
 
     //Methodes :
