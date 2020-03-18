@@ -65,7 +65,7 @@ void Nutriment::update(sf::Time dt)
     {
     double speed(getConfig()["growth"]["speed"].toDouble());
     auto growth = speed * dt.asSeconds();
-    quantity_+= growth;
+    quantity_ += growth;
     setRadius(quantity_);
     }
 }

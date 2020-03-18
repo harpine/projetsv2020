@@ -55,5 +55,7 @@ void Lab::decreaseTemperature()
     petridish_.decreaseTemperature();
 }
 
-void Lab::setparametres()
-{}
+void Lab::resetTemperature()
+{
+    petridish_.resetTemperature();
+}

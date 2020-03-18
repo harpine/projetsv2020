@@ -41,10 +41,36 @@ Petri et pour pouvoir permettre d'en délimiter le contour, par exemple
 pour empêcher les bactéries d'en sortir, nous souhaitons voir l'assiette
 comme étant un corps circulaire (qui aura une position dans 
 l'environnement en deux dimensions servant de support à nos simulations 
-et bien sûr). Comment utiliser la classe CircularBody pour modéliser 
-cela ? Répondez à cette question dans votre fichier REPONSES, puis dotez
- la classe PetriDish d'un constructeur prenant en paramètre une position
-  (un Vec2d) et un rayon (double). 
+et bien sûr).
+
+[Réponse R2.1] Pour effectuer ceci, Petridish sera une sous-classe de 
+CircularBody et va donc hériter de ses attributs (poscenter_ et radius_)
+ainsi que des méthodes, ce qui permet de la représenter graphiquement 
+comme un cercle, et on peut empêcher les bactéries de sortir.
+
+[Question Q2.2] Quelles méthodes vous semble t-il judicieux de déclarer 
+comme const?
+
+[Réponse R2.2] On déclare comme const les méthodes qui ne modifient pas 
+l'instance, soit la méthode PetrriDish::drawOn.
+
+[Question Q2.3] On souhaite ne pas permettre la copie d'une PetriDish ni
+l'affectation. Quelle(s) solution(s) proposeriez-vous pour satisfaire 
+cette contrainte?
+
+[Question R2.3] 
+
+
+
+
+
+
+
+
+
+
+
+
 
 [Question Q2.7] Comme quasiment toutes les entités à modéliser, nos 
 sources de nutriments seront aussi des corps circulaires. Comment 

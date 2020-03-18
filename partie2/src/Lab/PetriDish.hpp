@@ -42,6 +42,8 @@ public:
     void increaseTemperature();
     void decreaseTemperature();
     //Permet de modifier la température de la boîte de petri
+    void resetTemperature();
+    //Réinitialise la température à sa valeur par défaut
 
 
 private:
