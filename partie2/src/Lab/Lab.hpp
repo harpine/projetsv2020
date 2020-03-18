@@ -1,14 +1,28 @@
 #ifndef LAB_HPP
 #define LAB_HPP
 #include "CircularBody.hpp"
-#include "../Application.hpp"
 #include "PetriDish.hpp"
+#include <SFML/Graphics.hpp>
 
 class Lab
 {
 public:
-    Lab(); //à décommenter lors du codage de la boîte de Petri
+    //Constructeurs:
+    Lab();
+
+    //Méthodes:
+
+    /*
     bool contains(const CircularBody& circularbody);
+    */
+
+    //Dessine Lab
+    void drawOn(sf::RenderTarget& targetWindow) const;
+    //Fait évoluer Lab
+    void update(sf::Time dt);
+    //Vide l'assiette de pétri associée à Lab
+    void reset();
+
 
 private:
     PetriDish petridish_;

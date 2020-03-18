@@ -35,8 +35,8 @@ void PetriDish::update(sf::Time dt)
 
 void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
 {
-    auto border = buildAnnulus(poscenter_, radius_, sf::Color::Black, 5);
-    target.draw(border);
+    auto border = buildAnnulus(getPosition(), getRadius(), sf::Color::Black, 5);
+    targetWindow.draw(border);
 }
 
 void PetriDish::reset()
