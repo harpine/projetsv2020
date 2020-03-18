@@ -43,21 +43,19 @@ void NutrimentTest::onEvent(sf::Event event, sf::RenderWindow&)
         default:
             break;
 
+        // to add a nutriment
         case sf::Keyboard::N:
-			/*
-			  lastCreated = new Nutriment(NUT_QTY, getCursorPositionInView());
-			  getEnv().addNutriment(lastCreated);
-			*/
+            lastCreated = new Nutriment(NUT_QTY, getCursorPositionInView());
+            getEnv().addNutriment(lastCreated);
             break;
 
         // to test takeQuantity
         case sf::Keyboard::T:
-			/*
             if (lastCreated != nullptr) {
                 lastCreated->takeQuantity(15);
             }
-			*/
             break;
+        //to reset the lab
         case sf::Keyboard::R:
             getAppEnv().reset();
             break;

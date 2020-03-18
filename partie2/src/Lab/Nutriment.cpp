@@ -9,10 +9,17 @@ Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
 
 Quantity Nutriment::takeQuantity(const Quantity totake)
 {
-    if (totake >= quantity_)
+    if (totake <= quantity_)
     {
         quantity_ -= totake;
+        return totake;
     }
+    double quantite(quantity_);
+    quantity_ = 0;
+    std::cerr<< quantity_;
+    return quantite;
+
+
 }
 
 void Nutriment::setQuantity(Quantity newquantity)
@@ -40,9 +47,9 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
 
     if (isDebugOn()) //mode debug
     {
-        //std::string chaine(std::to_string(quantity_));
-        sf::Text const texte = buildText(std::to_string(quantity_),
-                            Vec2d(20,20),getAppFont(), 15, sf::Color::Black);
+        sf::Text const texte = buildText(std::to_string((int)(quantity_)),
+                            Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
+                                         getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
     }
 }
@@ -51,4 +58,36 @@ j::Value const& Nutriment::getConfig() const
 {
     return getAppConfig()["nutriments"];
 }
+
+void Nutriment::update(sf::Time dt)
+{
+    if (cangrow()) //fait les tests avant la croissance et non après... à revoir?
+    {
+    double speed(getAppConfig()["growth"]["speed"].toDouble());
+    auto growth = speed * dt.asSeconds();
+
+    }
+}
+
+bool Nutriment::cangrow()
+{
+    double temperature(getAppEnv().getTemperature());
+    if (temperature >= getAppConfig()["growth"]["min temperature"].toDouble() and
+            temperature < getAppConfig()["growth"]["max temperature"].toDouble() and
+            quantity_ < 2* getAppConfig()["quantity"]["max"].toDouble() and
+            getAppEnv().contains(*this))
+    {
+        return true;
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
 

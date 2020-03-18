@@ -4,7 +4,7 @@
 #include "Utility/Types.hpp"
 #include <SFML/Graphics.hpp>
 
-class Nutriment : protected CircularBody::CircularBody
+class Nutriment : public CircularBody
 {
 public:
     //constructeurs
@@ -22,6 +22,11 @@ public:
     //mode debug est activé
     j::Value const& getConfig() const;
     //permet d'accéder aux configs des nutriments sans devoir écrire ["nutriments"]
+    void update(sf::Time dt);
+    //calcul l'évolution du nutriment après écoulement d'un pas de temps dt
+    bool cangrow();
+    //indique si la croissance est possible
+
 
 private:
     Quantity quantity_;

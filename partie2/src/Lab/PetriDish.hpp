@@ -20,29 +20,35 @@ public:
     //Destruction de l'assiette de pétri ainsi que des nutriments et bactéries qui l'habitent
     ~PetriDish();
 
+    //getters et setters
+    double getTemperature();
+
     //Surcharges d'operateurs :
     //Interdiction d'affectation entre assiettes de pétri
     PetriDish& operator=(const PetriDish& p) = delete;
 
 
     //Methodes :
-    //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
     bool addBacterium(Bacterium* bacterium);
-    //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
+    //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
     bool addNutriment(Nutriment* nutriment);
-    //Fait évoluer l'assiette de pétri à chaque intervalle de temps
+    //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
     void update(sf::Time dt);
-    //Représentation graphique de l'assiette de pétri
+    //Fait évoluer l'assiette de pétri à chaque intervalle de temps
     void drawOn(sf::RenderTarget& targetWindow) const;
-    //Supprime nutriments et bactéries de l'assiette
+    //Représentation graphique de l'assiette de pétri et de ses contenants
     void reset();
-
+    //Supprime nutriments et bactéries de l'assiette, réinitialise la température
+    void increaseTemperature();
+    void decreaseTemperature();
+    //Permet de modifier la température de la boîte de petri
 
 
 
 private:
     std::vector<Bacterium*> bacteria_;
     std::vector<Nutriment*> nutriments_;
+    double temperature_;
 
 };
 
