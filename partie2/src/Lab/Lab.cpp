@@ -1,11 +1,32 @@
 #include "Lab.hpp"
+#include "../Application.hpp"
+#include "PetriDish.hpp"
+#include <SFML/Graphics.hpp>
 
 Lab::Lab()
+    :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2)
+    /*Positonne l'assiette de pétri au centre de la fenêtre graphique
+    avec un diamètre occupant 95% de la largeur de la fenêtre */
+{}
+
+/*
+bool Lab::contains(CircularBody circularbody) const
 {
 
 }
+*/
 
-bool contains(CircularBody circularbody)
+void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
+    petridish_.drawOn(targetWindow);
+}
 
+void Lab::update(sf::Time dt)
+{
+    petridish_.update(dt);
+}
+
+void Lab::reset()
+{
+    petridish_.reset();
 }

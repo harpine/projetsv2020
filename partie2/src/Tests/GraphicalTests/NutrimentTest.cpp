@@ -58,6 +58,9 @@ void NutrimentTest::onEvent(sf::Event event, sf::RenderWindow&)
             }
 			*/
             break;
+        case sf::Keyboard::R:
+            getAppEnv().reset();
+            break;
         }
     }
 }
