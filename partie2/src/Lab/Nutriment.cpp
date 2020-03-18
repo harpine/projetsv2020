@@ -63,18 +63,19 @@ void Nutriment::update(sf::Time dt)
 {
     if (cangrow()) //fait les tests avant la croissance et non après... à revoir?
     {
-    double speed(getAppConfig()["growth"]["speed"].toDouble());
+    double speed(getConfig()["growth"]["speed"].toDouble());
     auto growth = speed * dt.asSeconds();
-
+    quantity_+= growth;
+    setRadius(quantity_);
     }
 }
 
 bool Nutriment::cangrow()
 {
     double temperature(getAppEnv().getTemperature());
-    if (temperature >= getAppConfig()["growth"]["min temperature"].toDouble() and
-            temperature < getAppConfig()["growth"]["max temperature"].toDouble() and
-            quantity_ < 2* getAppConfig()["quantity"]["max"].toDouble() and
+    if (temperature >= getConfig()["growth"]["min temperature"].toDouble() and
+            temperature < getConfig()["growth"]["max temperature"].toDouble() and
+            quantity_ < 2* getConfig()["quantity"]["max"].toDouble() and
             getAppEnv().contains(*this))
     {
         return true;

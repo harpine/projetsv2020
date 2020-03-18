@@ -112,8 +112,13 @@ tout en évitant toute duplication de code ?
 mLab->in/decreaseTemperature(), donc il faut ajouter 
 in/decreasTemperature() à la classe Lab, et donc les ajouter dans la
 classe petridish aussi. (celle de Lab fait appel à celle de PetriDish).
+(car la température est un attribut de PetriDish car le laboratoire
+pourrait avoir un frigo et four par exemple...)
 
-_________________________________________________ R & C
+Pour R & C, nou avons ajouté la méthode resettemperature() dans lab, qui
+fait appelle à resettemperature() de petridish. Nous les avons appelées
+lors de l'appel des fonctions reset() et dans le fichier application 
+lorsque la touche C est appuyée.
 
 
 

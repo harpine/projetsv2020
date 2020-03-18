@@ -44,7 +44,6 @@ public:
     //Permet de modifier la température de la boîte de petri
 
 
-
 private:
     std::vector<Bacterium*> bacteria_;
     std::vector<Nutriment*> nutriments_;
