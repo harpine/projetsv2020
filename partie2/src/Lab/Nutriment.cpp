@@ -9,15 +9,14 @@ Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
 
 Quantity Nutriment::takeQuantity(const Quantity totake)
 {
+    double quantity(quantity_);
     if (totake <= quantity_)
     {
-        quantity_ -= totake;
-        return totake;
+        quantity = totake;
     }
-    double quantite(quantity_);
-    quantity_ = 0;
-    std::cerr<< quantity_;
-    return quantite;
+    quantity_ -= quantity;
+    setRadius(quantity_);
+    return quantity;
 
 
 }

@@ -13,12 +13,12 @@ public:
     //Méthodes:
     bool contains(const CircularBody& circularbody)  const;
     //renvoie true si circularbody est dans l'assiette de petri du lab
-    //Dessine Lab
     void drawOn(sf::RenderTarget& targetWindow) const;
-    //Fait évoluer Lab
+    //Dessine Lab
     void update(sf::Time dt);
-    //Vide l'assiette de pétri associée à Lab et réinitialise la température
+    //Fait évoluer Lab
     void reset();
+    //Vide l'assiette de pétri associée à Lab et réinitialise la température
     void addNutriment(Nutriment* nutriment);
     // ajoute un nutriment à l'assiette de petri
     double getTemperature();
