@@ -17,8 +17,6 @@ Quantity Nutriment::takeQuantity(const Quantity totake)
     quantity_ -= quantity;
     setRadius(quantity_);
     return quantity;
-
-
 }
 
 void Nutriment::setQuantity(Quantity newquantity)
@@ -60,7 +58,8 @@ j::Value const& Nutriment::getConfig() const
 
 void Nutriment::update(sf::Time dt)
 {
-    if (cangrow()) //fait les tests avant la croissance et non après... à revoir?
+    if (cangrow()) //fait les tests avant la croissance et non après...
+        //(le nutriment peut grandir un pas de trop) à améliorer?
     {
     double speed(getConfig()["growth"]["speed"].toDouble());
     auto growth = speed * dt.asSeconds();

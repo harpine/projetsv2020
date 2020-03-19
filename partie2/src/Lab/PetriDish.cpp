@@ -54,8 +54,6 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
     targetWindow.draw(border);
     for (size_t i(0); i< nutriments_.size(); ++i)
     {
-        //à décommenter plus tard
-        //nutriments_[i]->update();
         nutriments_[i]->drawOn(targetWindow);
     }
 }

@@ -133,9 +133,11 @@ nous pouvons donc y accéder.
 modifier et comment pour que la croissance des nutriments deviennent
 visible lors de l'exécution du test graphique ?
 
-[Réponse R2.11] la méthode drawOn(). Il n'y a besoin de modifier 
-uniquement celle de Petridish car celle de Lab y fait appel.
-(????)
+[Réponse R2.11] Uniquement la méthode update de nutriment, car celle de
+Lab fait appel à la méthode de petridish qui fait appel à celle-ci.
+(on appelle setRadius(quantity_)) pour adapter le rayon à la quantité
+La méthode drawOn met à jour le sprite en fonction du rayon donc il n'y
+a rien à changer. 
 
 [Question Q2.12] Quelles méthodes devez vous ajouter et dans quelles 
 classes pour que appuyer sur 'PgUp' ou 'PgDn' permette respectivement 
