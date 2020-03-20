@@ -11,11 +11,7 @@ Lab::Lab()
 
 bool Lab::contains(const CircularBody& circularbody) const
 {
-    if (petridish_.contains(circularbody))
-    {
-        return true;
-    }
-    return false;
+    return (petridish_.contains(circularbody));
 }
 
 

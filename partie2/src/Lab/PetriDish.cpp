@@ -9,7 +9,7 @@
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
      temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble())
-{}
+{std::cerr << poscenter;}
 
 PetriDish::~PetriDish()
 {
