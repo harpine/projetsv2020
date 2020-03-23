@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Bacteria_Simulator_SSV_2020_STEP3"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake_modules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nutrimentTest">
+				<Option output="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/nutrimentTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 nutrimentTest"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nutrimentTest/fast">
+				<Option output="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/nutrimentTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 nutrimentTest/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vec2dTest">
+				<Option output="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/vec2dTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 vec2dTest"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="vec2dTest/fast">
+				<Option output="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/vec2dTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 vec2dTest/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="application-run">
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 application-run"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="circularBodyTest">
+				<Option output="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/circularBodyTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 circularBodyTest"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="circularBodyTest/fast">
+				<Option output="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/circularBodyTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 circularBodyTest/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/extlib/Catch/include/catch.hpp">
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Drawable.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Updatable.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONImpl.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONImpl.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONSerialiser.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONSerialiser.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Lab.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Lab.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/Random.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/Random.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/RandomGenerator.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/RandomGenerator.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests/GraphicalTests/NutrimentTest.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests/UnitTests/CatchTests.cpp">
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests/UnitTests/CheckUtility.hpp">
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests/UnitTests/CircularBodyTest.cpp">
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests/UnitTests/Vec2dTest.cpp">
+			<Option target="vec2dTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Constants.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/DiffEqSolver.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Types.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.cpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.hpp">
+			<Option target="nutrimentTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/cmake_modules/FindSFML.cmake">
+			<Option virtualFolder="CMake Files\cmake_modules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
