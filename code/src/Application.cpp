@@ -486,7 +486,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 			delete mConfig;
             mConfig = new Config(mAppDirectory + mCfgFile); // reconstruct
 			getEnv().resetTemperature();  //Notre code à nous
-			getEnv().resetControls();  
+            getEnv().reset();
             break;
 
         // Toggle pause for simulation

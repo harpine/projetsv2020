@@ -1,8 +1,9 @@
 #ifndef BACTERIUM_HPP
 #define BACTERIUM_HPP
+#include "../Interface/Drawable.hpp"
+#include "../Interface/Updatable.hpp"
 
-
-class Bacterium
+class Bacterium : public Drawable, public Updatable
 {
 public:
     Bacterium();

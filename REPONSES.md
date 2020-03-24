@@ -92,9 +92,9 @@ proposez-vous d'utiliser la classe fournie CircularBody (dans le
 répertoire Lab) pour modéliser cet aspect ?
 
 [Réponse R2.7] Nutriment va hériter de la classe CircularBody, étant
-que Nutriment EST un CircularBody. Pour le niveau d'accès nous avons
-décidé de mettre en "protected" au cas où il y a des sous classes à 
-nutriment qui pourraient avoir besoin de cette information.
+donné que Nutriment EST un CircularBody. Pour le niveau d'accès nous 
+avons décidé de mettre en "public" pour que l'extérieur puisse aussi
+percevoir Nutriment comme un CircularBody.
 
 [Question Q2.8] A quoi cela peut-il bien servir d'utiliser le type 
 Quantity plutôt que tout simplement un double ?
@@ -161,6 +161,53 @@ Pour R & C, nou avons ajouté la méthode resettemperature() dans lab, qui
 fait appelle à resettemperature() de petridish. Nous les avons appelées
 lors de l'appel des fonctions reset() et dans le fichier application 
 lorsque la touche C est appuyée.
+
+
+[Question Q3.1 ] : les classes fournies dans le répertoire Interface, à 
+savoir Drawable et Updatable, fournissent deux méthodes polymorphiques 
+drawOn et update. Quelles classes de votre conception actuelle serait-il
+bon de faire hériter de ces sous-classes ? Quel plus cela amène t-il à 
+la conception ? 
+
+[Réponse R3.1] Toutes les classes qui ont besoin d'avoir un affichage 
+graphique et/ou qui évoluent au fil du temps.
+(Lab, Petridish, Nutriment, Bactérie)
+Une meilleure conception de la hiérarchie ainsi que des fonctions des
+classes. De plus, suivant comment on peut généraliser les méthodes et
+avoir un meilleur contrôle sur les instances réellement visées.
+
+[Question Q3.2] : Qu'implique cette contrainte au niveau des définitions
+de drawOn et update.
+
+[Réponse R3.2]  Elles doivent être définies comme virtuelles dans la 
+classe Nutriment (et donc en "override" dans NutrimentA et NutrimentB.
+
+[Question Q3.3] : Comment doit-être codée la méthode getConfig dans la 
+hiérarchie de classes pour satisfaire cette contrainte ? 
+
+[Réponse R3.3] Elle doit être définie comme virtuelle pure dans 
+Nutriment (=0 dans le  prototype), puis redéfinie en override dans les 
+sous classes NutrimentA/B.
+
+[Question Q3.4] : Qu'est-ce qui fait que sans modifier les méthodes 
+drawOn et update dans les sous-classes, l'affichage graphique peut 
+faire usage de textures différentes (les couleurs pour NutrimentA et 
+NutrimentB ne sont pas les mêmes) et la croissance dépend de conditions 
+différentes ? 
+
+[Réponse R3.4] L'affichafe graphique peut faire usage de textures 
+différentes sans modifier les méthodes drawOn et update, car c'est la 
+méthode GetConfig() qui leur fournit les valeurs nécessaires à la 
+paramétrisations.
+
+[Question Q3.5] Quelle modification doit être faite dans Lab et dans 
+quelle méthode pour permettre au générateur d'effectivement générer des 
+sources de nutriments dans l'assiette de Petri qui lui est associée ?
+
+[Réponse R3.4] Nous devons modifier la méthode update de lab, en y 
+ajoutant un appel à la méthode update de NutrimentGenerator (au début).
+
+
 
 
 

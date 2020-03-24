@@ -26,11 +26,13 @@ void Lab::drawOn(sf::RenderTarget& targetWindow) const
 
 void Lab::update(sf::Time dt)
 {
+    nutrimentGenerator_.update(dt);
     petridish_.update(dt);
 }
 
 void Lab::reset()
 {
+    nutrimentGenerator_.reset();
     petridish_.reset();
 }
 
