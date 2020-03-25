@@ -161,9 +161,35 @@ CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp -o CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.s
 
+CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.o: CMakeFiles/vec2dTest.dir/flags.make
+CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+
+CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp > CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.i
+
+CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp -o CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.s
+
+CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.o: CMakeFiles/vec2dTest.dir/flags.make
+CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+
+CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp > CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.i
+
+CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp -o CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.s
+
 CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o: CMakeFiles/vec2dTest.dir/flags.make
 CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
 
 CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.i: cmake_force
@@ -176,7 +202,7 @@ CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.s: cmake_force
 
 CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o: CMakeFiles/vec2dTest.dir/flags.make
 CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
 
 CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.i: cmake_force
@@ -197,6 +223,8 @@ vec2dTest_OBJECTS = \
 "CMakeFiles/vec2dTest.dir/Random/RandomGenerator.cpp.o" \
 "CMakeFiles/vec2dTest.dir/Tests/UnitTests/CatchTests.cpp.o" \
 "CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.o" \
+"CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.o" \
+"CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.o" \
 "CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o" \
 "CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o"
 
@@ -211,6 +239,8 @@ vec2dTest: CMakeFiles/vec2dTest.dir/Random/Random.cpp.o
 vec2dTest: CMakeFiles/vec2dTest.dir/Random/RandomGenerator.cpp.o
 vec2dTest: CMakeFiles/vec2dTest.dir/Tests/UnitTests/CatchTests.cpp.o
 vec2dTest: CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.o
+vec2dTest: CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.o
+vec2dTest: CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.o
 vec2dTest: CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o
 vec2dTest: CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o
 vec2dTest: CMakeFiles/vec2dTest.dir/build.make
@@ -218,7 +248,7 @@ vec2dTest: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 vec2dTest: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 vec2dTest: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 vec2dTest: CMakeFiles/vec2dTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable vec2dTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable vec2dTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vec2dTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

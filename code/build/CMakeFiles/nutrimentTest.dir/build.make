@@ -278,9 +278,35 @@ CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp -o CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.s
 
+CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+
+CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp > CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.i
+
+CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp -o CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.s
+
+CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+
+CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp > CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.i
+
+CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp -o CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.s
+
 CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
 CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
 
 CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.i: cmake_force
@@ -293,7 +319,7 @@ CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.s: cmake_force
 
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
 
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.i: cmake_force
@@ -323,6 +349,8 @@ nutrimentTest_OBJECTS = \
 "CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o" \
+"CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o" \
+"CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o"
 
@@ -346,6 +374,8 @@ nutrimentTest: CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o
+nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o
+nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/build.make
@@ -353,7 +383,7 @@ nutrimentTest: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 nutrimentTest: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 nutrimentTest: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 nutrimentTest: CMakeFiles/nutrimentTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX executable nutrimentTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable nutrimentTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nutrimentTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

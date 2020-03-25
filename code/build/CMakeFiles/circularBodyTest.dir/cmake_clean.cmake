@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/circularBodyTest.dir/Random/RandomGenerator.cpp.o"
   "CMakeFiles/circularBodyTest.dir/Tests/UnitTests/CatchTests.cpp.o"
   "CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.o"
+  "CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o"
+  "CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o"
   "CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o"
   "CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o"
   "circularBodyTest.pdb"

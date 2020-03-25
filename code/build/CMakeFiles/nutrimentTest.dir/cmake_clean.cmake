@@ -16,6 +16,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o"
+  "CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o"
+  "CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o"
   "nutrimentTest.pdb"

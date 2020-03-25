@@ -174,9 +174,35 @@ CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp -o CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.s
 
+CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o: CMakeFiles/circularBodyTest.dir/flags.make
+CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+
+CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp > CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.i
+
+CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp -o CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.s
+
+CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o: CMakeFiles/circularBodyTest.dir/flags.make
+CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+
+CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp > CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.i
+
+CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp -o CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.s
+
 CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o: CMakeFiles/circularBodyTest.dir/flags.make
 CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
 
 CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.i: cmake_force
@@ -189,7 +215,7 @@ CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.s: cmake_force
 
 CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o: CMakeFiles/circularBodyTest.dir/flags.make
 CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
 
 CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.i: cmake_force
@@ -211,6 +237,8 @@ circularBodyTest_OBJECTS = \
 "CMakeFiles/circularBodyTest.dir/Random/RandomGenerator.cpp.o" \
 "CMakeFiles/circularBodyTest.dir/Tests/UnitTests/CatchTests.cpp.o" \
 "CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.o" \
+"CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o" \
+"CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o" \
 "CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o" \
 "CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o"
 
@@ -226,6 +254,8 @@ circularBodyTest: CMakeFiles/circularBodyTest.dir/Random/Random.cpp.o
 circularBodyTest: CMakeFiles/circularBodyTest.dir/Random/RandomGenerator.cpp.o
 circularBodyTest: CMakeFiles/circularBodyTest.dir/Tests/UnitTests/CatchTests.cpp.o
 circularBodyTest: CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.o
+circularBodyTest: CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o
+circularBodyTest: CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o
 circularBodyTest: CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o
 circularBodyTest: CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o
 circularBodyTest: CMakeFiles/circularBodyTest.dir/build.make
@@ -233,7 +263,7 @@ circularBodyTest: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 circularBodyTest: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 circularBodyTest: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 circularBodyTest: CMakeFiles/circularBodyTest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable circularBodyTest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable circularBodyTest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/circularBodyTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

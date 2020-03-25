@@ -26,12 +26,12 @@ public:
     //permet d'accéder aux configs des nutriments sans devoir écrire ["nutriments"]
     virtual void update(sf::Time dt) override;
     //calcul l'évolution du nutriment après écoulement d'un pas de temps dt
-    bool canGrow();
-    //indique si la croissance est possible
-
 
 private:
     Quantity quantity_;
+    //méthodes
+    bool canGrow();
+    //indique si la croissance est possible
 };
 
 #endif // NUTRIMENT_HPP

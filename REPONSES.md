@@ -204,12 +204,24 @@ paramétrisations.
 quelle méthode pour permettre au générateur d'effectivement générer des 
 sources de nutriments dans l'assiette de Petri qui lui est associée ?
 
-[Réponse R3.4] Nous devons modifier la méthode update de lab, en y 
+[Réponse R3.5] Nous devons modifier la méthode update de lab, en y 
 ajoutant un appel à la méthode update de NutrimentGenerator (au début).
 
+[Question Q3.6] Quelles méthodes parmi celles suggérées pour un 
+MutableNumber devront procéder au plafonnage de la valeur entre la borne
+inférieure et la borne supérieure ? Comment éviter les duplications de 
+code si ce traitement est amené à se répéter à plusieurs endroits ? 
 
+[Réponse R3.6] Nous avons créé une fonction "controlvalue" qui renvoie
+la valeur à inscrire (valeur minimum si la valeur donnée est en dessous
+de celle-ci, maximum ci en dessus, et valeur originale si celle-ci est 
+comprise à l'intérieur des bornes. Ceci permet d'éviter les duplicatats.
+J'ai donc ajouté cette méthode aux méthodes mutate et set() ainsi qu'aux
+deux constructeurs.
 
+[Question Q3.7] Comment faut-il procéder pour que ces méthodes puissent 
+être invoquées sans passer par la création d'une instance de 
+MutableNumber ? 
 
-
-
-
+[Réponse R3.7] En déclarant ces méthodes comme static, il n'y aura pas
+besoin de créer d'instance pour pouvoir les utiliser.

@@ -150,6 +150,19 @@ vec2dTest/fast:
 .PHONY : vec2dTest/fast
 
 #=============================================================================
+# Target rules for targets named mutableTest
+
+# Build rule for target.
+mutableTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mutableTest
+.PHONY : mutableTest
+
+# fast build rule for target.
+mutableTest/fast:
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/build
+.PHONY : mutableTest/fast
+
+#=============================================================================
 # Target rules for targets named nutrimentTest
 
 # Build rule for target.
@@ -224,6 +237,7 @@ JSON/JSON.o: JSON/JSON.cpp.o
 JSON/JSON.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSON.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSON.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSON.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSON.cpp.o
 .PHONY : JSON/JSON.cpp.o
 
@@ -235,6 +249,7 @@ JSON/JSON.i: JSON/JSON.cpp.i
 JSON/JSON.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSON.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSON.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSON.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSON.cpp.i
 .PHONY : JSON/JSON.cpp.i
 
@@ -246,6 +261,7 @@ JSON/JSON.s: JSON/JSON.cpp.s
 JSON/JSON.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSON.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSON.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSON.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSON.cpp.s
 .PHONY : JSON/JSON.cpp.s
 
@@ -257,6 +273,7 @@ JSON/JSONImpl.o: JSON/JSONImpl.cpp.o
 JSON/JSONImpl.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSONImpl.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSONImpl.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSONImpl.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSONImpl.cpp.o
 .PHONY : JSON/JSONImpl.cpp.o
 
@@ -268,6 +285,7 @@ JSON/JSONImpl.i: JSON/JSONImpl.cpp.i
 JSON/JSONImpl.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSONImpl.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSONImpl.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSONImpl.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSONImpl.cpp.i
 .PHONY : JSON/JSONImpl.cpp.i
 
@@ -279,6 +297,7 @@ JSON/JSONImpl.s: JSON/JSONImpl.cpp.s
 JSON/JSONImpl.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSONImpl.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSONImpl.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSONImpl.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSONImpl.cpp.s
 .PHONY : JSON/JSONImpl.cpp.s
 
@@ -290,6 +309,7 @@ JSON/JSONSerialiser.o: JSON/JSONSerialiser.cpp.o
 JSON/JSONSerialiser.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSONSerialiser.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSONSerialiser.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSONSerialiser.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSONSerialiser.cpp.o
 .PHONY : JSON/JSONSerialiser.cpp.o
 
@@ -301,6 +321,7 @@ JSON/JSONSerialiser.i: JSON/JSONSerialiser.cpp.i
 JSON/JSONSerialiser.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSONSerialiser.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSONSerialiser.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSONSerialiser.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSONSerialiser.cpp.i
 .PHONY : JSON/JSONSerialiser.cpp.i
 
@@ -312,6 +333,7 @@ JSON/JSONSerialiser.s: JSON/JSONSerialiser.cpp.s
 JSON/JSONSerialiser.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/JSON/JSONSerialiser.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/JSON/JSONSerialiser.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/JSON/JSONSerialiser.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/JSON/JSONSerialiser.cpp.s
 .PHONY : JSON/JSONSerialiser.cpp.s
 
@@ -349,6 +371,7 @@ Lab/CircularBody.o: Lab/CircularBody.cpp.o
 # target to build an object file
 Lab/CircularBody.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Lab/CircularBody.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Lab/CircularBody.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/CircularBody.cpp.o
 .PHONY : Lab/CircularBody.cpp.o
 
@@ -359,6 +382,7 @@ Lab/CircularBody.i: Lab/CircularBody.cpp.i
 # target to preprocess a source file
 Lab/CircularBody.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Lab/CircularBody.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Lab/CircularBody.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/CircularBody.cpp.i
 .PHONY : Lab/CircularBody.cpp.i
 
@@ -369,6 +393,7 @@ Lab/CircularBody.s: Lab/CircularBody.cpp.s
 # target to generate assembly for a file
 Lab/CircularBody.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Lab/CircularBody.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Lab/CircularBody.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/CircularBody.cpp.s
 .PHONY : Lab/CircularBody.cpp.s
 
@@ -542,6 +567,7 @@ Random/Random.o: Random/Random.cpp.o
 Random/Random.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Random/Random.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Random/Random.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Random/Random.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o
 .PHONY : Random/Random.cpp.o
 
@@ -553,6 +579,7 @@ Random/Random.i: Random/Random.cpp.i
 Random/Random.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Random/Random.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Random/Random.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Random/Random.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Random/Random.cpp.i
 .PHONY : Random/Random.cpp.i
 
@@ -564,6 +591,7 @@ Random/Random.s: Random/Random.cpp.s
 Random/Random.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Random/Random.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Random/Random.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Random/Random.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Random/Random.cpp.s
 .PHONY : Random/Random.cpp.s
 
@@ -575,6 +603,7 @@ Random/RandomGenerator.o: Random/RandomGenerator.cpp.o
 Random/RandomGenerator.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Random/RandomGenerator.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Random/RandomGenerator.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Random/RandomGenerator.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o
 .PHONY : Random/RandomGenerator.cpp.o
 
@@ -586,6 +615,7 @@ Random/RandomGenerator.i: Random/RandomGenerator.cpp.i
 Random/RandomGenerator.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Random/RandomGenerator.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Random/RandomGenerator.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Random/RandomGenerator.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.i
 .PHONY : Random/RandomGenerator.cpp.i
 
@@ -597,6 +627,7 @@ Random/RandomGenerator.s: Random/RandomGenerator.cpp.s
 Random/RandomGenerator.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Random/RandomGenerator.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Random/RandomGenerator.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Random/RandomGenerator.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.s
 .PHONY : Random/RandomGenerator.cpp.s
 
@@ -635,6 +666,7 @@ Tests/UnitTests/CatchTests.o: Tests/UnitTests/CatchTests.cpp.o
 Tests/UnitTests/CatchTests.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Tests/UnitTests/CatchTests.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Tests/UnitTests/CatchTests.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Tests/UnitTests/CatchTests.cpp.o
 .PHONY : Tests/UnitTests/CatchTests.cpp.o
 
 Tests/UnitTests/CatchTests.i: Tests/UnitTests/CatchTests.cpp.i
@@ -645,6 +677,7 @@ Tests/UnitTests/CatchTests.i: Tests/UnitTests/CatchTests.cpp.i
 Tests/UnitTests/CatchTests.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Tests/UnitTests/CatchTests.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Tests/UnitTests/CatchTests.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Tests/UnitTests/CatchTests.cpp.i
 .PHONY : Tests/UnitTests/CatchTests.cpp.i
 
 Tests/UnitTests/CatchTests.s: Tests/UnitTests/CatchTests.cpp.s
@@ -655,6 +688,7 @@ Tests/UnitTests/CatchTests.s: Tests/UnitTests/CatchTests.cpp.s
 Tests/UnitTests/CatchTests.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Tests/UnitTests/CatchTests.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Tests/UnitTests/CatchTests.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Tests/UnitTests/CatchTests.cpp.s
 .PHONY : Tests/UnitTests/CatchTests.cpp.s
 
 Tests/UnitTests/CircularBodyTest.o: Tests/UnitTests/CircularBodyTest.cpp.o
@@ -683,6 +717,33 @@ Tests/UnitTests/CircularBodyTest.s: Tests/UnitTests/CircularBodyTest.cpp.s
 Tests/UnitTests/CircularBodyTest.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Tests/UnitTests/CircularBodyTest.cpp.s
 .PHONY : Tests/UnitTests/CircularBodyTest.cpp.s
+
+Tests/UnitTests/MutablePropertyTest.o: Tests/UnitTests/MutablePropertyTest.cpp.o
+
+.PHONY : Tests/UnitTests/MutablePropertyTest.o
+
+# target to build an object file
+Tests/UnitTests/MutablePropertyTest.cpp.o:
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Tests/UnitTests/MutablePropertyTest.cpp.o
+.PHONY : Tests/UnitTests/MutablePropertyTest.cpp.o
+
+Tests/UnitTests/MutablePropertyTest.i: Tests/UnitTests/MutablePropertyTest.cpp.i
+
+.PHONY : Tests/UnitTests/MutablePropertyTest.i
+
+# target to preprocess a source file
+Tests/UnitTests/MutablePropertyTest.cpp.i:
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Tests/UnitTests/MutablePropertyTest.cpp.i
+.PHONY : Tests/UnitTests/MutablePropertyTest.cpp.i
+
+Tests/UnitTests/MutablePropertyTest.s: Tests/UnitTests/MutablePropertyTest.cpp.s
+
+.PHONY : Tests/UnitTests/MutablePropertyTest.s
+
+# target to generate assembly for a file
+Tests/UnitTests/MutablePropertyTest.cpp.s:
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Tests/UnitTests/MutablePropertyTest.cpp.s
+.PHONY : Tests/UnitTests/MutablePropertyTest.cpp.s
 
 Tests/UnitTests/Vec2dTest.o: Tests/UnitTests/Vec2dTest.cpp.o
 
@@ -719,6 +780,7 @@ Utility/DiffEqSolver.o: Utility/DiffEqSolver.cpp.o
 Utility/DiffEqSolver.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/DiffEqSolver.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o
 .PHONY : Utility/DiffEqSolver.cpp.o
 
@@ -730,6 +792,7 @@ Utility/DiffEqSolver.i: Utility/DiffEqSolver.cpp.i
 Utility/DiffEqSolver.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/DiffEqSolver.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.i
 .PHONY : Utility/DiffEqSolver.cpp.i
 
@@ -741,8 +804,81 @@ Utility/DiffEqSolver.s: Utility/DiffEqSolver.cpp.s
 Utility/DiffEqSolver.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/DiffEqSolver.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/DiffEqSolver.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/DiffEqSolver.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.s
 .PHONY : Utility/DiffEqSolver.cpp.s
+
+Utility/MutableColor.o: Utility/MutableColor.cpp.o
+
+.PHONY : Utility/MutableColor.o
+
+# target to build an object file
+Utility/MutableColor.cpp.o:
+	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.o
+	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/MutableColor.cpp.o
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o
+.PHONY : Utility/MutableColor.cpp.o
+
+Utility/MutableColor.i: Utility/MutableColor.cpp.i
+
+.PHONY : Utility/MutableColor.i
+
+# target to preprocess a source file
+Utility/MutableColor.cpp.i:
+	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.i
+	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/MutableColor.cpp.i
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.i
+.PHONY : Utility/MutableColor.cpp.i
+
+Utility/MutableColor.s: Utility/MutableColor.cpp.s
+
+.PHONY : Utility/MutableColor.s
+
+# target to generate assembly for a file
+Utility/MutableColor.cpp.s:
+	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/MutableColor.cpp.s
+	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/MutableColor.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/MutableColor.cpp.s
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.s
+.PHONY : Utility/MutableColor.cpp.s
+
+Utility/MutableNumber.o: Utility/MutableNumber.cpp.o
+
+.PHONY : Utility/MutableNumber.o
+
+# target to build an object file
+Utility/MutableNumber.cpp.o:
+	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.o
+	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/MutableNumber.cpp.o
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o
+.PHONY : Utility/MutableNumber.cpp.o
+
+Utility/MutableNumber.i: Utility/MutableNumber.cpp.i
+
+.PHONY : Utility/MutableNumber.i
+
+# target to preprocess a source file
+Utility/MutableNumber.cpp.i:
+	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.i
+	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/MutableNumber.cpp.i
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.i
+.PHONY : Utility/MutableNumber.cpp.i
+
+Utility/MutableNumber.s: Utility/MutableNumber.cpp.s
+
+.PHONY : Utility/MutableNumber.s
+
+# target to generate assembly for a file
+Utility/MutableNumber.cpp.s:
+	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/MutableNumber.cpp.s
+	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/MutableNumber.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/MutableNumber.cpp.s
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.s
+.PHONY : Utility/MutableNumber.cpp.s
 
 Utility/Utility.o: Utility/Utility.cpp.o
 
@@ -752,6 +888,7 @@ Utility/Utility.o: Utility/Utility.cpp.o
 Utility/Utility.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/Utility.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o
 .PHONY : Utility/Utility.cpp.o
 
@@ -763,6 +900,7 @@ Utility/Utility.i: Utility/Utility.cpp.i
 Utility/Utility.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/Utility.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.i
 .PHONY : Utility/Utility.cpp.i
 
@@ -774,6 +912,7 @@ Utility/Utility.s: Utility/Utility.cpp.s
 Utility/Utility.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/Utility.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/Utility.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/Utility.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.s
 .PHONY : Utility/Utility.cpp.s
 
@@ -785,6 +924,7 @@ Utility/Vec2d.o: Utility/Vec2d.cpp.o
 Utility/Vec2d.cpp.o:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.o
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.o
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/Vec2d.cpp.o
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o
 .PHONY : Utility/Vec2d.cpp.o
 
@@ -796,6 +936,7 @@ Utility/Vec2d.i: Utility/Vec2d.cpp.i
 Utility/Vec2d.cpp.i:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.i
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.i
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/Vec2d.cpp.i
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.i
 .PHONY : Utility/Vec2d.cpp.i
 
@@ -807,6 +948,7 @@ Utility/Vec2d.s: Utility/Vec2d.cpp.s
 Utility/Vec2d.cpp.s:
 	$(MAKE) -f CMakeFiles/circularBodyTest.dir/build.make CMakeFiles/circularBodyTest.dir/Utility/Vec2d.cpp.s
 	$(MAKE) -f CMakeFiles/vec2dTest.dir/build.make CMakeFiles/vec2dTest.dir/Utility/Vec2d.cpp.s
+	$(MAKE) -f CMakeFiles/mutableTest.dir/build.make CMakeFiles/mutableTest.dir/Utility/Vec2d.cpp.s
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.s
 .PHONY : Utility/Vec2d.cpp.s
 
@@ -817,11 +959,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... application-run"
 	@echo "... circularBodyTest"
 	@echo "... vec2dTest"
+	@echo "... mutableTest"
 	@echo "... nutrimentTest"
-	@echo "... edit_cache"
 	@echo "... Application.o"
 	@echo "... Application.i"
 	@echo "... Application.s"
@@ -876,12 +1019,21 @@ help:
 	@echo "... Tests/UnitTests/CircularBodyTest.o"
 	@echo "... Tests/UnitTests/CircularBodyTest.i"
 	@echo "... Tests/UnitTests/CircularBodyTest.s"
+	@echo "... Tests/UnitTests/MutablePropertyTest.o"
+	@echo "... Tests/UnitTests/MutablePropertyTest.i"
+	@echo "... Tests/UnitTests/MutablePropertyTest.s"
 	@echo "... Tests/UnitTests/Vec2dTest.o"
 	@echo "... Tests/UnitTests/Vec2dTest.i"
 	@echo "... Tests/UnitTests/Vec2dTest.s"
 	@echo "... Utility/DiffEqSolver.o"
 	@echo "... Utility/DiffEqSolver.i"
 	@echo "... Utility/DiffEqSolver.s"
+	@echo "... Utility/MutableColor.o"
+	@echo "... Utility/MutableColor.i"
+	@echo "... Utility/MutableColor.s"
+	@echo "... Utility/MutableNumber.o"
+	@echo "... Utility/MutableNumber.i"
+	@echo "... Utility/MutableNumber.s"
 	@echo "... Utility/Utility.o"
 	@echo "... Utility/Utility.i"
 	@echo "... Utility/Utility.s"

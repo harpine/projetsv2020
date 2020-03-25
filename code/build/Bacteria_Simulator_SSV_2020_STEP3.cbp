@@ -27,6 +27,16 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="application-run">
 				<Option working_dir="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build"/>
 				<Option type="4"/>
@@ -141,6 +151,58 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="mutableTest">
+				<Option output="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/mutableTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src"/>
+					<Add directory="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 mutableTest"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mutableTest/fast">
+				<Option output="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/mutableTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src"/>
+					<Add directory="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/../extlib/Catch/include"/>
+					<Add directory="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests"/>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 mutableTest/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="nutrimentTest">
 				<Option output="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/nutrimentTest" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build"/>
@@ -193,20 +255,11 @@
 					<DistClean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 		</Build>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/extlib/Catch/include/catch.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.cpp">
 			<Option target="nutrimentTest"/>
@@ -229,31 +282,37 @@
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSON.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSON.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONImpl.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONImpl.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONSerialiser.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONSerialiser.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.cpp">
@@ -264,10 +323,12 @@
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/CircularBody.cpp">
 			<Option target="circularBodyTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/CircularBody.hpp">
 			<Option target="circularBodyTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Lab.cpp">
@@ -309,21 +370,25 @@
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/Random.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/Random.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/RandomGenerator.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/RandomGenerator.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests/GraphicalTests/NutrimentTest.cpp">
@@ -332,13 +397,18 @@
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests/UnitTests/CatchTests.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests/UnitTests/CheckUtility.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests/UnitTests/CircularBodyTest.cpp">
 			<Option target="circularBodyTest"/>
+		</Unit>
+		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests/UnitTests/MutablePropertyTest.cpp">
+			<Option target="mutableTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests/UnitTests/Vec2dTest.cpp">
 			<Option target="vec2dTest"/>
@@ -346,41 +416,73 @@
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Constants.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/DiffEqSolver.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp">
+			<Option target="circularBodyTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.hpp">
+			<Option target="circularBodyTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp">
+			<Option target="circularBodyTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp">
+			<Option target="circularBodyTest"/>
+			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Types.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.hpp">
 			<Option target="circularBodyTest"/>
 			<Option target="vec2dTest"/>
+			<Option target="mutableTest"/>
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/CMakeLists.txt">
