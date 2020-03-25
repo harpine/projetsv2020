@@ -1,6 +1,6 @@
 #include "MutableNumber.hpp"
 #include <Random/Random.hpp>
-#include <iostream> //à enlever
+
 MutableNumber::MutableNumber(double value, double probability, double sigma,
                                  bool inf, double infval, bool sup, double supval)
     :probability_(probability), inf_(inf), sup_(sup),
@@ -29,12 +29,9 @@ void MutableNumber::set(double value)
 
 void MutableNumber::mutate() //
 {
-    //std::cerr << " proba:" << probability_;
     if (bernoulli(probability_))
     {
-        //std::cerr <<"value" << value_ << "ok" << sigma_ * sigma_;
         value_ = controlvalue(value_ + normal(0, sigma_*sigma_));
-        //std::cerr << "valueafter" << value_; //cette valeur oscille entre 0 et 1...
     }
 }
 
