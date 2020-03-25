@@ -13,12 +13,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/nutrimentTest.dir/Lab/NutrimentB.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Lab/NutrimentGenerator.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o"
-<<<<<<< HEAD
   "CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o"
-=======
   "CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o"
->>>>>>> 421d014922884dd470174282d4936575f9f41509
   "CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o"
   "CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o"

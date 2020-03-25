@@ -352,17 +352,7 @@
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentB.cpp">
 			<Option target="nutrimentTest"/>
 		</Unit>
-<<<<<<< HEAD
-		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp">
-			<Option target="nutrimentTest"/>
-		</Unit>
-		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp">
-			<Option target="nutrimentTest"/>
-		</Unit>
-		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/Random.cpp">
-=======
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentB.hpp">
->>>>>>> 421d014922884dd470174282d4936575f9f41509
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentGenerator.cpp">
@@ -375,6 +365,12 @@
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/PetriDish.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp">
 			<Option target="nutrimentTest"/>
 		</Unit>
 		<Unit filename="/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/Random.cpp">

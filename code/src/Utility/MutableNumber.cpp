@@ -27,7 +27,7 @@ void MutableNumber::set(double value)
     value_ = controlvalue(value);
 }
 
-void MutableNumber::mutate() //
+void MutableNumber::mutate()
 {
     if (bernoulli(probability_))
     {

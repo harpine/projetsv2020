@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/aline/Documents/EPFL/BA2
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fc47f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fc47f.dir/build.make CMakeFiles/cmTC_fc47f.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_715ea/fast"
+/usr/bin/make -f CMakeFiles/cmTC_715ea.dir/build.make CMakeFiles/cmTC_715ea.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_fc47f.dir/testCCompiler.c.o
-/usr/bin/gcc    -o CMakeFiles/cmTC_fc47f.dir/testCCompiler.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_fc47f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc47f.dir/link.txt --verbose=1
-/usr/bin/gcc      CMakeFiles/cmTC_fc47f.dir/testCCompiler.c.o  -o cmTC_fc47f 
+Building C object CMakeFiles/cmTC_715ea.dir/testCCompiler.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTC_715ea.dir/testCCompiler.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_715ea
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_715ea.dir/link.txt --verbose=1
+/usr/bin/gcc      CMakeFiles/cmTC_715ea.dir/testCCompiler.c.o  -o cmTC_715ea 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ff8e4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ff8e4.dir/build.make CMakeFiles/cmTC_ff8e4.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_e1ac6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e1ac6.dir/build.make CMakeFiles/cmTC_e1ac6.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o
-/usr/bin/gcc    -o CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.13/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_ff8e4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff8e4.dir/link.txt --verbose=1
-/usr/bin/gcc     -v CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o  -o cmTC_ff8e4 
+Building C object CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o
+/usr/bin/gcc    -o CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.13/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_e1ac6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1ac6.dir/link.txt --verbose=1
+/usr/bin/gcc     -v CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o  -o cmTC_e1ac6 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/gcc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -61,9 +61,9 @@ Thread model: posix
 gcc version 9.2.1 20191008 (Ubuntu 9.2.1-9ubuntu2) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ff8e4' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc1s7Kb.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ff8e4 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ff8e4' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e1ac6' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4spSnS.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e1ac6 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e1ac6' '-mtune=generic' '-march=x86-64'
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -71,14 +71,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_ff8e4/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_ff8e4.dir/build.make CMakeFiles/cmTC_ff8e4.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_e1ac6/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_e1ac6.dir/build.make CMakeFiles/cmTC_e1ac6.dir/build]
   ignore line: [make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »]
-  ignore line: [Building C object CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/gcc    -o CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.13/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_ff8e4]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff8e4.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/gcc     -v CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o  -o cmTC_ff8e4 ]
+  ignore line: [Building C object CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/gcc    -o CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.13/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_e1ac6]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1ac6.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/gcc     -v CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o  -o cmTC_e1ac6 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -90,13 +90,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 9.2.1 20191008 (Ubuntu 9.2.1-9ubuntu2) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ff8e4' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccc1s7Kb.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_ff8e4 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e1ac6' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc4spSnS.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e1ac6 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccc1s7Kb.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc4spSnS.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -114,7 +114,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ff8e4] ==> ignore
+    arg [cmTC_e1ac6] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> ignore
@@ -126,7 +126,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
-    arg [CMakeFiles/cmTC_ff8e4.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_e1ac6.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -158,14 +158,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_64d7e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_64d7e.dir/build.make CMakeFiles/cmTC_64d7e.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_b8778/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b8778.dir/build.make CMakeFiles/cmTC_b8778.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_64d7e.dir/feature_tests.c.o
-/usr/bin/gcc   -std=c11 -o CMakeFiles/cmTC_64d7e.dir/feature_tests.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_64d7e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_64d7e.dir/link.txt --verbose=1
-/usr/bin/gcc      CMakeFiles/cmTC_64d7e.dir/feature_tests.c.o  -o cmTC_64d7e 
+Building C object CMakeFiles/cmTC_b8778.dir/feature_tests.c.o
+/usr/bin/gcc   -std=c11 -o CMakeFiles/cmTC_b8778.dir/feature_tests.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_b8778
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8778.dir/link.txt --verbose=1
+/usr/bin/gcc      CMakeFiles/cmTC_b8778.dir/feature_tests.c.o  -o cmTC_b8778 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -178,14 +178,14 @@ make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programma
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_216b5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_216b5.dir/build.make CMakeFiles/cmTC_216b5.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_57520/fast"
+/usr/bin/make -f CMakeFiles/cmTC_57520.dir/build.make CMakeFiles/cmTC_57520.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_216b5.dir/feature_tests.c.o
-/usr/bin/gcc   -std=c99 -o CMakeFiles/cmTC_216b5.dir/feature_tests.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_216b5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_216b5.dir/link.txt --verbose=1
-/usr/bin/gcc      CMakeFiles/cmTC_216b5.dir/feature_tests.c.o  -o cmTC_216b5 
+Building C object CMakeFiles/cmTC_57520.dir/feature_tests.c.o
+/usr/bin/gcc   -std=c99 -o CMakeFiles/cmTC_57520.dir/feature_tests.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_57520
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57520.dir/link.txt --verbose=1
+/usr/bin/gcc      CMakeFiles/cmTC_57520.dir/feature_tests.c.o  -o cmTC_57520 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -198,14 +198,14 @@ make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programma
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9194a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9194a.dir/build.make CMakeFiles/cmTC_9194a.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_212b8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_212b8.dir/build.make CMakeFiles/cmTC_212b8.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_9194a.dir/feature_tests.c.o
-/usr/bin/gcc   -std=c90 -o CMakeFiles/cmTC_9194a.dir/feature_tests.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_9194a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9194a.dir/link.txt --verbose=1
-/usr/bin/gcc      CMakeFiles/cmTC_9194a.dir/feature_tests.c.o  -o cmTC_9194a 
+Building C object CMakeFiles/cmTC_212b8.dir/feature_tests.c.o
+/usr/bin/gcc   -std=c90 -o CMakeFiles/cmTC_212b8.dir/feature_tests.c.o   -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_212b8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_212b8.dir/link.txt --verbose=1
+/usr/bin/gcc      CMakeFiles/cmTC_212b8.dir/feature_tests.c.o  -o cmTC_212b8 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -216,28 +216,28 @@ make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programma
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_78107/fast"
-/usr/bin/make -f CMakeFiles/cmTC_78107.dir/build.make CMakeFiles/cmTC_78107.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a033e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a033e.dir/build.make CMakeFiles/cmTC_a033e.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_78107.dir/testCXXCompiler.cxx.o
-/usr/bin/g++     -o CMakeFiles/cmTC_78107.dir/testCXXCompiler.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_78107
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78107.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_78107.dir/testCXXCompiler.cxx.o  -o cmTC_78107 
+Building CXX object CMakeFiles/cmTC_a033e.dir/testCXXCompiler.cxx.o
+/usr/bin/g++     -o CMakeFiles/cmTC_a033e.dir/testCXXCompiler.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_a033e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a033e.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_a033e.dir/testCXXCompiler.cxx.o  -o cmTC_a033e 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a2b49/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a2b49.dir/build.make CMakeFiles/cmTC_a2b49.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_bbf41/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bbf41.dir/build.make CMakeFiles/cmTC_bbf41.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/g++     -o CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_a2b49
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2b49.dir/link.txt --verbose=1
-/usr/bin/g++      -v CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_a2b49 
+Building CXX object CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/g++     -o CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_bbf41
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbf41.dir/link.txt --verbose=1
+/usr/bin/g++      -v CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_bbf41 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/g++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
@@ -249,9 +249,9 @@ Thread model: posix
 gcc version 9.2.1 20191008 (Ubuntu 9.2.1-9ubuntu2) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a2b49' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGiBDd7.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a2b49 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a2b49' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bbf41' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfhmKlW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_bbf41 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bbf41' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -259,14 +259,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_a2b49/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_a2b49.dir/build.make CMakeFiles/cmTC_a2b49.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_bbf41/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_bbf41.dir/build.make CMakeFiles/cmTC_bbf41.dir/build]
   ignore line: [make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »]
-  ignore line: [Building CXX object CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/g++     -o CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_a2b49]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2b49.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/g++      -v CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_a2b49 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/g++     -o CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.13/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_bbf41]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bbf41.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/g++      -v CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_bbf41 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/g++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
@@ -278,13 +278,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 9.2.1 20191008 (Ubuntu 9.2.1-9ubuntu2) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a2b49' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccGiBDd7.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_a2b49 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bbf41' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfhmKlW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_bbf41 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccGiBDd7.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccfhmKlW.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -302,7 +302,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_a2b49] ==> ignore
+    arg [cmTC_bbf41] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> ignore
@@ -314,7 +314,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
-    arg [CMakeFiles/cmTC_a2b49.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_bbf41.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -342,14 +342,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++2a] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c55e6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c55e6.dir/build.make CMakeFiles/cmTC_c55e6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_853d0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_853d0.dir/build.make CMakeFiles/cmTC_853d0.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_c55e6.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++2a -o CMakeFiles/cmTC_c55e6.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c55e6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c55e6.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_c55e6.dir/feature_tests.cxx.o  -o cmTC_c55e6 
+Building CXX object CMakeFiles/cmTC_853d0.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++2a -o CMakeFiles/cmTC_853d0.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_853d0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_853d0.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_853d0.dir/feature_tests.cxx.o  -o cmTC_853d0 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -415,14 +415,14 @@ make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programma
 Detecting CXX [-std=c++17] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a6f3c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a6f3c.dir/build.make CMakeFiles/cmTC_a6f3c.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_0ad86/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0ad86.dir/build.make CMakeFiles/cmTC_0ad86.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_a6f3c.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++17 -o CMakeFiles/cmTC_a6f3c.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_a6f3c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a6f3c.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_a6f3c.dir/feature_tests.cxx.o  -o cmTC_a6f3c 
+Building CXX object CMakeFiles/cmTC_0ad86.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++17 -o CMakeFiles/cmTC_0ad86.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_0ad86
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ad86.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_0ad86.dir/feature_tests.cxx.o  -o cmTC_0ad86 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -488,14 +488,14 @@ make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programma
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_51405/fast"
-/usr/bin/make -f CMakeFiles/cmTC_51405.dir/build.make CMakeFiles/cmTC_51405.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f0275/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f0275.dir/build.make CMakeFiles/cmTC_f0275.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_51405.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++14 -o CMakeFiles/cmTC_51405.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_51405
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51405.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_51405.dir/feature_tests.cxx.o  -o cmTC_51405 
+Building CXX object CMakeFiles/cmTC_f0275.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++14 -o CMakeFiles/cmTC_f0275.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_f0275
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f0275.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_f0275.dir/feature_tests.cxx.o  -o cmTC_f0275 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -561,14 +561,14 @@ make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programma
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_50f78/fast"
-/usr/bin/make -f CMakeFiles/cmTC_50f78.dir/build.make CMakeFiles/cmTC_50f78.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7dc10/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7dc10.dir/build.make CMakeFiles/cmTC_7dc10.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_50f78.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++11 -o CMakeFiles/cmTC_50f78.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_50f78
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_50f78.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_50f78.dir/feature_tests.cxx.o  -o cmTC_50f78 
+Building CXX object CMakeFiles/cmTC_7dc10.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++11 -o CMakeFiles/cmTC_7dc10.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_7dc10
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7dc10.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_7dc10.dir/feature_tests.cxx.o  -o cmTC_7dc10 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 
@@ -634,14 +634,14 @@ make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programma
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c6673/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c6673.dir/build.make CMakeFiles/cmTC_c6673.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_78340/fast"
+/usr/bin/make -f CMakeFiles/cmTC_78340.dir/build.make CMakeFiles/cmTC_78340.dir/build
 make[1] : on entre dans le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_c6673.dir/feature_tests.cxx.o
-/usr/bin/g++    -std=c++98 -o CMakeFiles/cmTC_c6673.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c6673
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c6673.dir/link.txt --verbose=1
-/usr/bin/g++       CMakeFiles/cmTC_c6673.dir/feature_tests.cxx.o  -o cmTC_c6673 
+Building CXX object CMakeFiles/cmTC_78340.dir/feature_tests.cxx.o
+/usr/bin/g++    -std=c++98 -o CMakeFiles/cmTC_78340.dir/feature_tests.cxx.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_78340
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78340.dir/link.txt --verbose=1
+/usr/bin/g++       CMakeFiles/cmTC_78340.dir/feature_tests.cxx.o  -o cmTC_78340 
 make[1] : on quitte le répertoire « /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles/CMakeTmp »
 
 

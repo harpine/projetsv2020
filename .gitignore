@@ -2,3 +2,4 @@ partie*/src/CMakeLists.txt.user
 *.autosave
 partie*/build/*
 code/build/*
+*.orig

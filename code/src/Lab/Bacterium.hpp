@@ -5,8 +5,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "CircularBody.hpp"
-#include "MutableColor.hpp"
-#include "MutableNumber.hpp"
+#include "../Utility/MutableColor.hpp"
+#include "../Utility/MutableNumber.hpp"
 #include "../Utility/Vec2d.hpp"
 #include "../Utility/Types.hpp"
 #include <string>
@@ -17,11 +17,13 @@ class Bacterium : public CircularBody, public Drawable, public Updatable
 public:
 
     //Construcuteurs:
-    Bacterium();
+    Bacterium(const Quantity energy, const Vec2d& poscenter,
+              const Vec2d& direction, const double radius,
+              const MutableColor color);
 
     //Getters utilitaires :
     Quantity getDivisionEnergy() const;
-    sf::seconds getMealDelay() const;
+    sf::Time getMealDelay() const;
     Quantity getDisplacementEnergy() const;
     Quantity getMealQuantity() const;
 
@@ -54,7 +56,7 @@ private:
     Vec2d direction_;
     bool abstinence_;
     Quantity energy_;
-    std::map<string, MutableNumber> mutableParameters_;
+    std::map<std::string, MutableNumber> mutableParameters_;
     sf::Clock clock_;
 
 
