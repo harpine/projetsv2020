@@ -139,8 +139,28 @@ string
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.cpp
 Bacterium.hpp
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
+../Utility/Utility.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.hpp
+../Application.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp
+Nutriment.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
 
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
+SFML/Graphics.hpp
+-
+CircularBody.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.hpp
+MutableColor.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/MutableColor.hpp
+MutableNumber.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/MutableNumber.hpp
+../Utility/Vec2d.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.hpp
+../Utility/Types.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Types.hpp
+string
+-
 
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.cpp
 CircularBody.hpp
@@ -169,6 +189,8 @@ PetriDish.hpp
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.hpp
 SFML/Graphics.hpp
 -
+Nutriment.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
 
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.cpp
 Nutriment.hpp
@@ -201,6 +223,8 @@ Utility/Utility.hpp
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp
 Nutriment.hpp
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
+Bacterium.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
 
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.hpp
 vector
@@ -215,6 +239,14 @@ Nutriment.hpp
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
 Utility/Vec2d.hpp
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Utility/Vec2d.hpp
+
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp
+SimpleBacterium.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp
+
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp
+Bacterium.hpp
+/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
 
 /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/Random.cpp
 Random/Random.hpp

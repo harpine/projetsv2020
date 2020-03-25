@@ -165,4 +165,98 @@ lorsque la touche C est appuyée.
 
 
 
+[Question Q3.8] Au vu de ce qui précède, comment proposez-vous de 
+modéliser la classe Bacterium (héritage, attributs, méthodes , ...) ?
+
+[Réponse R3.8] La classe Bacterium peut être modélisée comme sous-classe
+de CircularBody, de niveau d'accès publique pour qu'elle soit perçue 
+comme tel à l'extérieur (notamment dans Lab). En plus de ses attributs
+hérités, elle admet les attributs spécifiques de couleur (MutableColor 
+color_), de direction de mouvement (Vec2d direction_), un booléen 
+indiquant son état d'abstinence (bool abstinence_), son énergie 
+(Qunatity energy_) et un ensemble de paramètre mutables 
+(std::map<string, MutableNumber> mutableParameters_). On crée aussi des 
+méthodes spécifiques : le constructeur ainsi que drawOn, update, move,
+mutate, clone et death.
+
+[Question Q3.9] Quelles méthodes parmi celles suggérées pour une 
+Bacterium devront vraisemblablement être virtuelles/virtuelles pures ? 
+
+[Réponse R3.9] Les méthodes qui vont être redéfinies spécifiquement à 
+chaque bactérie et qui doivent donc être virtuelles sont 
+Bacterium::drawOn ainsi que Bacterium::update. La méthode 
+Bacterium::move doit est quant à elle virtuelle pure car elle ne peut 
+pas être définie de manière générique pour toutes les bactéries. 
+
+[Question Q3.10] La méthode getConfig est-elle virtuelle pure selon 
+vous ?
+
+[Réponse R3.10] La méthode getConfig est virtuelle pure d'après nous 
+car elle ne peut être définie de manière générique pour toutes les 
+bactéries. En effet, elle doit justement rediriger le choix des 
+paramètres vers ceux spécifiques à un type de bactéries précis. On ne 
+peut donc pas écrire de corps de fonction général. De plus, nous 
+souhaitons forcer la redéfinition de cette méthode dans les sous-classes
+ce qui est rendu possible avec une méthode virtuelle pure.
+
+[Question Q3.11] Comment retrouvez-vous la couleur SFML de la bactérie
+à partir de son attribut de type MutableColor ? 
+
+[Réponse R3.11] L'attribut color_ de la bactérie est de type 
+MutableColor, classe que nous avons prédéfinie auparavant. Or cette 
+classe est munie d'une méthode get() qui retourne la couleur associée 
+sous un format que SFML reconnait (de type sf::Color). Ainsi, on peut 
+utiliser cette méthode. 
+
+[Question Q3.12] Le fait qu'aucune méthode de déplacement concrète 
+n'existe encore est-elle un frein à l'écriture de la méthode update ?
+
+[Réponse R3.12] La méthode update peut tout de même être écrite car elle
+utilise uniquement ce que fait move, mais n'a pas besoin de comprendre
+comment move foncitonne. En fonction de la sous-classe de bactérie, 
+move sera implémentée différemment la position étant stockée dans les 
+attributs, update peut continuer ses tests sans s'en préoccuper. 
+
+[Question Q3.13] La classe PetriDish ne donne pas d'accès à sa 
+collection de nutriments, comment procéder dans ce cas pour coder 
+Lab::getNutrimentColliding(CircularBody const& body) ? 
+
+[Réponse R3.12] On peut faire appel à une fonction de même nom de 
+la classe PetriDish qui peut alors accéder à l'ensemble des nutrmients
+via son attribut nutriments_.
+
+[Question Q3.14] Quelle méthode de la classe PetriDish doit être 
+modifiée pour permettre la simulation de l'évolution des bactéries ? 
+Comment doit-elle être modifiée ?  
+
+[Réponse R3.14] La méthode qui doit être modifiée est PetriDish::update 
+qui doit non seulement faire évoluer les nutriments, mais aussi prendre 
+en compte l'évolution des bactéries par l'appel de Bacterium::update sur
+les bactéries de l'assiette.
+
+[Question Q3.15] Que devez-vous modifier et dans quelle classe pour 
+faire en sorte que les bactéries et sources de nutriments de votre 
+simulation meurent/disparaissent si leur énergie/quantité devient 
+nulle ? 
+
+[Réponse R3.15] Grâce à la méthode Bacterium::death, on peut identifier 
+les bactéries mortes, dont l'énergie est inférieure ou égale à 0. Dans 
+la classe PetriDish, il faut donc faire disparaître bactéries et 
+nutriments des vectors nutirments_ et bacteria_. La méthode PetriDish::
+update doit donc également comprendre la transformation des nutriments 
+épuisés et des bactéries mortes et nullptr puis les faire disparaître. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

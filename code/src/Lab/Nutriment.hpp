@@ -24,8 +24,10 @@ public:
     //permet d'accéder aux configs des nutriments sans devoir écrire ["nutriments"]
     void update(sf::Time dt);
     //calcul l'évolution du nutriment après écoulement d'un pas de temps dt
-    bool cangrow();
+    bool cangrow() const;
     //indique si la croissance est possible
+    bool depleted() const;
+    //indique si le nutriment est épuisé
 
 
 private:

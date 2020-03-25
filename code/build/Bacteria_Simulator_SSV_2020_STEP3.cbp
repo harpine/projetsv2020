@@ -288,6 +288,12 @@
 		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.hpp">
 			<Option target="nutrimentTest"/>
 		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
+		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp">
+			<Option target="nutrimentTest"/>
+		</Unit>
 		<Unit filename="/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/Random.cpp">
 			<Option target="nutrimentTest"/>
 			<Option target="vec2dTest"/>

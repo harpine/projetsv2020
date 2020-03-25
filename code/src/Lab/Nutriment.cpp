@@ -68,7 +68,7 @@ void Nutriment::update(sf::Time dt)
     }
 }
 
-bool Nutriment::cangrow()
+bool Nutriment::cangrow() const
 {
     double temperature(getAppEnv().getTemperature());
     if (temperature >= getConfig()["growth"]["min temperature"].toDouble() and
@@ -81,7 +81,10 @@ bool Nutriment::cangrow()
     return false;
 }
 
-
+bool Nutriment::depleted() const
+{
+    return quantity_ <= 0;
+}
 
 
 

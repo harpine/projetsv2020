@@ -33,6 +33,8 @@ public:
     //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
     bool addNutriment(Nutriment* nutriment);
     //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
+    Nutriment* getNutrimentColliding(const CircularBody& body) const;
+    //retourne la source de nutriment en collision avec body
     void update(sf::Time dt);
     //Fait évoluer l'assiette de pétri à chaque intervalle de temps
     void drawOn(sf::RenderTarget& targetWindow) const;
