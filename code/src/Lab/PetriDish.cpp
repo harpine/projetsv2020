@@ -5,6 +5,7 @@
 #include "Utility/Utility.hpp"
 #include "../Application.hpp"
 #include "Nutriment.hpp"
+#include "Bacterium.hpp"
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
@@ -23,9 +24,12 @@ double PetriDish::getTemperature()
 
 bool PetriDish::addBacterium(Bacterium* bacterium)
 {
-    bacteria_.push_back(bacterium);
-    //Conditions à ajouter
-    return true;
+    if (contains(*bacterium))
+    {
+        bacteria_.push_back(bacterium);
+        return true;
+    }
+    return false;
 }
 
 bool PetriDish::addNutriment(Nutriment* nutriment)
@@ -38,14 +42,40 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
     return false;
 }
 
+Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
+{
+    for (auto nutriment : nutriments_)
+    {
+        if (*nutriment->isColliding(body))
+        {
+            return nutriment;
+        }
+    }
+    return nullptr;
+}
+
+
 void PetriDish::update(sf::Time dt)
 {
     for (auto nutriment : nutriments_)
     {
        (*nutriment).update(dt);
+        if ((*nutriment).depleted())
+        {
+            delete nutriment;
+            nutriment = nullptr;
+        }
     }
-    //A remplir : fonciton qui fait evoluer toutes les bacteries/nutriments)
-    //à chaque pas de temps
+    nutriments_.erase(std::remove(nutriments_.begin(), nutriments_.end(), nullptr), nutriments_.end());
+    for (auto bacterium : bacteria_)
+    {
+        (*bacterium).update(dt);
+        if ((*bacterium).death())
+        {
+            delete bacterium;
+            bacterium = nullptr;
+        }
+    }
 }
 
 void PetriDish::drawOn(sf::RenderTarget& targetWindow) const

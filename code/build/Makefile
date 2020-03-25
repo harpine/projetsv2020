@@ -559,6 +559,33 @@ Lab/PetriDish.cpp.s:
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.s
 .PHONY : Lab/PetriDish.cpp.s
 
+Lab/SimpleBacterium.o: Lab/SimpleBacterium.cpp.o
+
+.PHONY : Lab/SimpleBacterium.o
+
+# target to build an object file
+Lab/SimpleBacterium.cpp.o:
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o
+.PHONY : Lab/SimpleBacterium.cpp.o
+
+Lab/SimpleBacterium.i: Lab/SimpleBacterium.cpp.i
+
+.PHONY : Lab/SimpleBacterium.i
+
+# target to preprocess a source file
+Lab/SimpleBacterium.cpp.i:
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.i
+.PHONY : Lab/SimpleBacterium.cpp.i
+
+Lab/SimpleBacterium.s: Lab/SimpleBacterium.cpp.s
+
+.PHONY : Lab/SimpleBacterium.s
+
+# target to generate assembly for a file
+Lab/SimpleBacterium.cpp.s:
+	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.s
+.PHONY : Lab/SimpleBacterium.cpp.s
+
 Random/Random.o: Random/Random.cpp.o
 
 .PHONY : Random/Random.o
@@ -1004,6 +1031,9 @@ help:
 	@echo "... Lab/PetriDish.o"
 	@echo "... Lab/PetriDish.i"
 	@echo "... Lab/PetriDish.s"
+	@echo "... Lab/SimpleBacterium.o"
+	@echo "... Lab/SimpleBacterium.i"
+	@echo "... Lab/SimpleBacterium.s"
 	@echo "... Random/Random.o"
 	@echo "... Random/Random.i"
 	@echo "... Random/Random.s"

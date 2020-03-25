@@ -8,12 +8,14 @@ public:
     //getters:
     Vec2d getPosition() const;
     double getRadius() const;
+
     //autres méthodes:
     bool contains(const CircularBody& other) const;
     //retourne true si other est dans le cercle, false autrement
     bool contains(const Vec2d& v) const;
     //retourne true si le point v est dans le cercle, false autrement
     bool isColliding(const CircularBody& other) const;
+    //retourne true si other est en collision avec le cercle
 
     //surcharge d'opérateurs:
     CircularBody& operator=(const CircularBody& circle);

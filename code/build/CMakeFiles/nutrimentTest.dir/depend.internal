@@ -46,10 +46,28 @@ CMakeFiles/nutrimentTest.dir/JSON/JSONSerialiser.cpp.o
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONSerialiser.cpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONSerialiser.hpp
 CMakeFiles/nutrimentTest.dir/Lab/Bacterium.cpp.o
+<<<<<<< HEAD
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONImpl.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.cpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Lab.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Constants.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Types.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.tpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.hpp
+=======
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Drawable.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Updatable.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.cpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.hpp
+>>>>>>> 421d014922884dd470174282d4936575f9f41509
 CMakeFiles/nutrimentTest.dir/Lab/CircularBody.cpp.o
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSON.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONImpl.hpp
@@ -151,6 +169,33 @@ CMakeFiles/nutrimentTest.dir/Lab/NutrimentGenerator.cpp.o
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Types.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.hpp
 CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o
+<<<<<<< HEAD
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONImpl.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Lab.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.cpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Constants.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Types.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.tpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.hpp
+CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONImpl.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Constants.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Types.hpp
+ /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.hpp
+=======
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Config.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Drawable.hpp
@@ -169,6 +214,7 @@ CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.tpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.hpp
+>>>>>>> 421d014922884dd470174282d4936575f9f41509
 CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSON.hpp
  /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONImpl.hpp

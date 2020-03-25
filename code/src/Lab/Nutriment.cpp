@@ -50,6 +50,12 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
         target.draw(texte);
     }
 }
+
+j::Value const& Nutriment::getConfig() const
+{
+    return getAppConfig()["nutriments"];
+}
+
 void Nutriment::update(sf::Time dt)
 {
     if (canGrow()) //fait les tests avant la croissance et non après...
@@ -62,7 +68,7 @@ void Nutriment::update(sf::Time dt)
     }
 }
 
-bool Nutriment::canGrow()
+bool Nutriment::cangrow() const
 {
     double temperature(getAppEnv().getTemperature());
     return (temperature >= getConfig()["growth"]["min temperature"].toDouble() and
@@ -71,7 +77,10 @@ bool Nutriment::canGrow()
             getAppEnv().contains(*this));
 }
 
-
+bool Nutriment::depleted() const
+{
+    return quantity_ <= 0;
+}
 
 
 

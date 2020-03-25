@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
+<!-- Written by QtCreator 4.5.2, 2020-03-24T21:28:00. -->
+=======
 <!-- Written by QtCreator 4.8.2, 2020-03-25T10:49:47. -->
+>>>>>>> 421d014922884dd470174282d4936575f9f41509
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -165,6 +169,13 @@
      <value type="int">13</value>
      <value type="int">14</value>
     </valuelist>
+<<<<<<< HEAD
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguation.Title">vec2dTest</value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments"></value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory.default">/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build</value>
+=======
+>>>>>>> 421d014922884dd470174282d4936575f9f41509
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">circularBodyTest</value>
@@ -221,7 +232,15 @@
      <value type="int">13</value>
      <value type="int">14</value>
     </valuelist>
+<<<<<<< HEAD
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguation.Title">circularBodyTest</value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments"></value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory.default">/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build</value>
+    <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
+=======
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+>>>>>>> 421d014922884dd470174282d4936575f9f41509
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">vec2dTest</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
@@ -277,7 +296,15 @@
      <value type="int">13</value>
      <value type="int">14</value>
     </valuelist>
+<<<<<<< HEAD
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguation.Title">nutrimentTest</value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.Arguments"></value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory"></value>
+    <value type="QString" key="CMakeProjectManager.CMakeRunConfiguration.UserWorkingDirectory.default">/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build</value>
+    <value type="int" key="PE.EnvironmentAspect.Base">-1</value>
+=======
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+>>>>>>> 421d014922884dd470174282d4936575f9f41509
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">nutrimentTest</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>

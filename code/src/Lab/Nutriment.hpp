@@ -26,11 +26,13 @@ public:
     //permet d'accéder aux configs des nutriments sans devoir écrire ["nutriments"]
     virtual void update(sf::Time dt) override;
     //calcul l'évolution du nutriment après écoulement d'un pas de temps dt
+    bool depleted() const;
+    //indique si le nutriment est épuisé
 
 private:
     Quantity quantity_;
     //méthodes
-    bool canGrow();
+    bool canGrow() const;
     //indique si la croissance est possible
 };
 

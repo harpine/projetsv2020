@@ -11,13 +11,21 @@ Lab::Lab()
 
 bool Lab::contains(const CircularBody& circularbody) const
 {
-    if (petridish_.contains(circularbody))
-    {
-        return true;
-    }
-    return false;
+    return petridish_.contains(circularbody);
 }
 
+bool Lab::doesCollideWithDish(const CircularBody& body) const
+{
+    return !petridish_.contains(body);
+    //Sachant que la bactérie créée est forcément dans l'assiette de
+    //petri, si elle n'est plus contenue, cela signifie qu'elle entre
+    //en collision avec les parois de l'assiette.
+}
+
+Nutriment* Lab::getNutrimentColliding(const CircularBody& body) const
+{
+    return petridish_.getNutrimentColliding(body);
+}
 
 void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
@@ -39,6 +47,11 @@ void Lab::reset()
 void Lab::addNutriment(Nutriment* nutriment)
 {
     petridish_.addNutriment(nutriment);
+}
+
+void Lab::addBacterium(Bacterium* bacterium)
+{
+    petridish_.addBacterium(bacterium);
 }
 
 double Lab::getTemperature()
