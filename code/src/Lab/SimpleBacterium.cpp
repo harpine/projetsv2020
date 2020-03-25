@@ -1,11 +1,9 @@
 #include "SimpleBacterium.hpp"
+#include "../Application.hpp"
 
-SimpleBacterium::SimpleBacterium()
-{
 
-}
 
-virtual j::Value& getConfig() override
+j::Value& SimpleBacterium::getConfig() const
 {
     return getAppConfig()["simple bacterium"];
 }

@@ -5,8 +5,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "CircularBody.hpp"
-#include "MutableColor.hpp"
-#include "MutableNumber.hpp"
+#include "../Utility/MutableColor.hpp"
+#include "../Utility/MutableNumber.hpp"
 #include "../Utility/Vec2d.hpp"
 #include "../Utility/Types.hpp"
 #include <string>
@@ -17,11 +17,13 @@ class Bacterium : public CircularBody, public Drawable, public Updatable
 public:
 
     //Construcuteurs:
-    Bacterium();
+    Bacterium(const Quantity energy, const Vec2d& poscenter,
+              const Vec2d& direction, const double radius,
+              const MutableColor color);
 
     //Getters utilitaires :
     Quantity getDivisionEnergy() const;
-    sf::seconds getMealDelay() const;
+    sf::Time getMealDelay() const;
     Quantity getDisplacementEnergy() const;
     Quantity getMealQuantity() const;
 
@@ -44,9 +46,11 @@ public:
     bool death() const;
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau
     //d'energie (energy_) est nul ou inférieur à 0.
-    virtual j::Value& getConfig() = 0;
+    virtual j::Value& getConfig() const = 0;
     //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
     //pour atteindre ses paramètres.
+    void consumeEnergy(const Quantity qt);
+    //Décrémente l'energie de la bactérie d'une quantité donnée
 
 
 private:
@@ -54,8 +58,8 @@ private:
     Vec2d direction_;
     bool abstinence_;
     Quantity energy_;
-    std::map<string, MutableNumber> mutableParameters_;
-    sf::Clock clock_;
+    std::map<std::string, MutableNumber> mutableParameters_;
+    sf::Time clock_;
 
 
 

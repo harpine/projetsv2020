@@ -22,9 +22,9 @@ Quantity Bacterium::getDivisionEnergy() const
     return getConfig()["energy"]["division"].toDouble();
 }
 
-sf::seconds Bacterium::getMealDelay() const
+sf::Time Bacterium::getMealDelay() const
 {
-    return sf::seconds(getConfig()["meal"]["delay"]);
+    return sf::seconds(getConfig()["meal"]["delay"].toDouble());
 }
 
 Quantity Bacterium::getDisplacementEnergy() const
@@ -34,13 +34,13 @@ Quantity Bacterium::getDisplacementEnergy() const
 
 Quantity Bacterium::getMealQuantity() const
 {
-    return getConfig()["meal"]["max"];
+    return getConfig()["meal"]["max"].toDouble();
 }
 
 //Méthodes:
-virtual void Bacterium::drawOn(sf::RenderTarget& target) const
+void Bacterium::drawOn(sf::RenderTarget& target) const
 {
-    auto const circle = buildCircle(poscenter_, radius_, color_.get());
+    auto const circle = buildCircle(getPosition(), getRadius(), color_.get());
     target.draw(circle);
     //Dessine une bactérie circulaire.
 
@@ -54,7 +54,7 @@ virtual void Bacterium::drawOn(sf::RenderTarget& target) const
 
 }
 
-virtual void Bacterium::update(sf::Time dt)
+void Bacterium::update(sf::Time dt)
 {
     move(dt);
     if (getAppEnv().doesCollideWithDish(*this))
@@ -69,26 +69,33 @@ void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJ
 {
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
             and !abstinence_
-            and clock_.getElapsedTime().asSeconds() >= getMealDelay())
+            and clock_ >= getMealDelay())
     {
         energy_ = getAppEnv().getNutrimentColliding(*this)->takeQuantity(getMealQuantity());
-        clock_ = 0;
+        clock_ = sf::Time::Zero ;
     }
 }
 
+/*
 void Bacterium::mutate()
 {
 
-}
+} */
 
+/*
 Bacterium* Bacterium::clone() const
 {
     Bacterium* cloned(new Bacterium);
     *cloned = *this;
     return cloned;
-}
+} */
 
 bool Bacterium::death() const
 {
    return energy_ <= 0 ;
+}
+
+void Bacterium::consumeEnergy(const Quantity qt)
+{
+    energy_ -= qt;
 }

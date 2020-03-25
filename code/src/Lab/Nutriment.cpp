@@ -68,7 +68,7 @@ void Nutriment::update(sf::Time dt)
     }
 }
 
-bool Nutriment::cangrow() const
+bool Nutriment::canGrow() const
 {
     double temperature(getAppEnv().getTemperature());
     return (temperature >= getConfig()["growth"]["min temperature"].toDouble() and

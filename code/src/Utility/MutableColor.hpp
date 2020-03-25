@@ -10,7 +10,7 @@ public:
     MutableColor(j::Value const& config);
 
     //getters:
-    sf::Color get();
+    sf::Color get() const;
 
     //méthodes:
     void mutate();

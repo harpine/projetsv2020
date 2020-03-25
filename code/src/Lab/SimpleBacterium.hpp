@@ -2,12 +2,12 @@
 #define SIMPLEBACTERIUM_HPP
 
 #include "Bacterium.hpp"
+#include "JSON/JSON.hpp"
 
 class SimpleBacterium : public Bacterium
 {
 public:
-    SimpleBacterium();
-    virtual j::Value& getConfig() override;
+    virtual j::Value& getConfig() const override;
 };
 
 #endif // SIMPLEBACTERIUM_HPP
