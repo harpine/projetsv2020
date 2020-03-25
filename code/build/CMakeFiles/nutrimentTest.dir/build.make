@@ -310,17 +310,49 @@ CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/PetriDish.cpp -o CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.s
 
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o.requires:
+=======
+CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp
+
+CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp > CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.i
+
+CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp -o CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.s
+
+CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/Random.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/Random.cpp
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 .PHONY : CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o.requires
 
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o.provides: CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o.requires
 	$(MAKE) -f CMakeFiles/nutrimentTest.dir/build.make CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o.provides.build
 .PHONY : CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o.provides
+=======
+CMakeFiles/nutrimentTest.dir/Random/Random.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nutrimentTest.dir/Random/Random.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/Random.cpp -o CMakeFiles/nutrimentTest.dir/Random/Random.cpp.s
+
+CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/RandomGenerator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/RandomGenerator.cpp
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o.provides.build: CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o
 
 
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
 CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o: /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o"
@@ -349,6 +381,12 @@ CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o: CMakeFiles/nutrimentTes
 CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o: /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o -c /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp
+=======
+CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.i"
@@ -370,9 +408,15 @@ CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o.provides.build: CMakeFil
 
 
 CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o: /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableColor.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o -c /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableColor.cpp
+=======
+CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.i"
@@ -394,9 +438,15 @@ CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o.provides.build: CMakeFil
 
 
 CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o: /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o -c /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+=======
+CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.i"
@@ -418,9 +468,15 @@ CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o.provides.build: CMakeFi
 
 
 CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o: /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o -c /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.cpp
+=======
+CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.cpp
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.i"
@@ -442,9 +498,15 @@ CMakeFiles/nutrimentTest.dir/Utility/Utility.cpp.o.provides.build: CMakeFiles/nu
 
 
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o: CMakeFiles/nutrimentTest.dir/flags.make
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o: /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o"
 	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o -c /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.cpp
+=======
+CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o: /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o -c /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.i"
@@ -452,6 +514,7 @@ CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.i: cmake_force
 
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.s"
+<<<<<<< HEAD
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.cpp -o CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.s
 
 CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.o.requires:
@@ -584,6 +647,9 @@ CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o.provides: CMakeFiles/n
 
 CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o.provides.build: CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o
 
+=======
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.cpp -o CMakeFiles/nutrimentTest.dir/Utility/Vec2d.cpp.s
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 # Object files for target nutrimentTest
 nutrimentTest_OBJECTS = \
@@ -599,6 +665,11 @@ nutrimentTest_OBJECTS = \
 "CMakeFiles/nutrimentTest.dir/Lab/NutrimentGenerator.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o" \
+<<<<<<< HEAD
+=======
+"CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o" \
+"CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o" \
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 "CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o" \
 "CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o" \
@@ -625,6 +696,11 @@ nutrimentTest: CMakeFiles/nutrimentTest.dir/Lab/NutrimentB.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Lab/NutrimentGenerator.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Lab/PetriDish.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Lab/SimpleBacterium.cpp.o
+<<<<<<< HEAD
+=======
+nutrimentTest: CMakeFiles/nutrimentTest.dir/Random/Random.cpp.o
+nutrimentTest: CMakeFiles/nutrimentTest.dir/Random/RandomGenerator.cpp.o
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/DiffEqSolver.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/MutableColor.cpp.o
 nutrimentTest: CMakeFiles/nutrimentTest.dir/Utility/MutableNumber.cpp.o
@@ -640,7 +716,11 @@ nutrimentTest: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
 nutrimentTest: /usr/lib/x86_64-linux-gnu/libsfml-window.so
 nutrimentTest: /usr/lib/x86_64-linux-gnu/libsfml-system.so
 nutrimentTest: CMakeFiles/nutrimentTest.dir/link.txt
+<<<<<<< HEAD
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable nutrimentTest"
+=======
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable nutrimentTest"
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/nutrimentTest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -648,6 +728,7 @@ CMakeFiles/nutrimentTest.dir/build: nutrimentTest
 
 .PHONY : CMakeFiles/nutrimentTest.dir/build
 
+<<<<<<< HEAD
 CMakeFiles/nutrimentTest.dir/requires: CMakeFiles/nutrimentTest.dir/Tests/GraphicalTests/NutrimentTest.cpp.o.requires
 CMakeFiles/nutrimentTest.dir/requires: CMakeFiles/nutrimentTest.dir/Application.cpp.o.requires
 CMakeFiles/nutrimentTest.dir/requires: CMakeFiles/nutrimentTest.dir/Config.cpp.o.requires
@@ -673,6 +754,8 @@ CMakeFiles/nutrimentTest.dir/requires: CMakeFiles/nutrimentTest.dir/Random/Rando
 
 .PHONY : CMakeFiles/nutrimentTest.dir/requires
 
+=======
+>>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 CMakeFiles/nutrimentTest.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/nutrimentTest.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/nutrimentTest.dir/clean
