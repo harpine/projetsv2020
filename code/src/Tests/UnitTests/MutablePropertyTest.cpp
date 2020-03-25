@@ -5,7 +5,7 @@
 
 #include <Tests/UnitTests/CheckUtility.hpp>
 #include <Utility/MutableNumber.hpp>
-
+#include <iostream> //à enlever!
 SCENARIO("Testing mutable parameters", "[MutableParameter]")
 {
     GIVEN("a positive mutable number")
@@ -68,6 +68,7 @@ SCENARIO("Testing mutable parameters", "[MutableParameter]")
                 for (auto i = 0; i < 1000; ++i) {
                     auto last = number.get();
                     number.mutate();
+                    std::cerr << last;
                     CHECK(last != number.get());
                 }
             }

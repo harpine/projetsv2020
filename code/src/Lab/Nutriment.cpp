@@ -9,14 +9,14 @@ Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
 
 Quantity Nutriment::takeQuantity(const Quantity totake)
 {
-    double quantity(quantity_);
+    double taken(quantity_);
     if (totake <= quantity_)
     {
-        quantity = totake;
+        taken = totake;
     }
-    quantity_ -= quantity;
+    quantity_ -= taken;
     setRadius(quantity_);
-    return quantity;
+    return taken;
 }
 
 void Nutriment::setQuantity(Quantity newquantity)
@@ -58,7 +58,7 @@ j::Value const& Nutriment::getConfig() const
 
 void Nutriment::update(sf::Time dt)
 {
-    if (cangrow()) //fait les tests avant la croissance et non après...
+    if (canGrow()) //fait les tests avant la croissance et non après...
         //(le nutriment peut grandir un pas de trop) à améliorer?
     {
     double speed(getConfig()["growth"]["speed"].toDouble());
@@ -71,14 +71,10 @@ void Nutriment::update(sf::Time dt)
 bool Nutriment::cangrow() const
 {
     double temperature(getAppEnv().getTemperature());
-    if (temperature >= getConfig()["growth"]["min temperature"].toDouble() and
+    return (temperature >= getConfig()["growth"]["min temperature"].toDouble() and
             temperature < getConfig()["growth"]["max temperature"].toDouble() and
             quantity_ < 2* getConfig()["quantity"]["max"].toDouble() and
-            getAppEnv().contains(*this))
-    {
-        return true;
-    }
-    return false;
+            getAppEnv().contains(*this));
 }
 
 bool Nutriment::depleted() const

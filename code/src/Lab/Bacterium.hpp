@@ -1,5 +1,7 @@
 #ifndef BACTERIUM_HPP
 #define BACTERIUM_HPP
+#include "../Interface/Drawable.hpp"
+#include "../Interface/Updatable.hpp"
 
 #include <SFML/Graphics.hpp>
 #include "CircularBody.hpp"
@@ -9,7 +11,8 @@
 #include "../Utility/Types.hpp"
 #include <string>
 
-class Bacterium : public CircularBody
+class Bacterium : public CircularBody, public Drawable, public Updatable
+
 {
 public:
 

@@ -4,8 +4,11 @@
 #include "PetriDish.hpp"
 #include <SFML/Graphics.hpp>
 #include "Nutriment.hpp"
+#include "../Interface/Drawable.hpp"
+#include "../Interface/Updatable.hpp"
+#include "NutrimentGenerator.hpp"
 
-class Lab
+class Lab : public Drawable, public Updatable
 {
 public:
     //Constructeurs:
@@ -41,6 +44,7 @@ public:
 
 private:
     PetriDish petridish_;
+    NutrimentGenerator nutrimentGenerator_;
 
 };
 
