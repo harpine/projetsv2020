@@ -6,111 +6,6 @@
 
 #IncludeRegexTransform: 
 
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.cpp
-Application.hpp
--
-Config.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.hpp
-JSON/JSONSerialiser.hpp
--
-Utility/Constants.hpp
--
-Utility/Utility.hpp
--
-iomanip
--
-sstream
--
-fstream
--
-algorithm
--
-cassert
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp
-Lab/Lab.hpp
--
-JSON/JSON.hpp
--
-Config.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.hpp
-Utility/Vec2d.hpp
--
-SFML/Graphics.hpp
--
-iostream
--
-list
--
-map
--
-stdexcept
--
-string
--
-vector
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.cpp
-Config.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.hpp
-JSON/JSONSerialiser.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Config.hpp
-string
--
-JSON/JSON.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.hpp
-SFML/Graphics.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Drawable.hpp
-SFML/Graphics.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Updatable.hpp
-SFML/System.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.cpp
-JSON/JSON.hpp
--
-JSON/JSONImpl.hpp
--
-Utility/Utility.hpp
--
-cassert
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSON.hpp
-JSON/JSONImpl.hpp
-=======
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.cpp
-Application.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
--
-Config.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Config.hpp
-JSON/JSONSerialiser.hpp
--
-Utility/Constants.hpp
--
-Utility/Utility.hpp
--
-iomanip
--
-sstream
--
-fstream
--
-algorithm
--
-cassert
--
-
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.hpp
 Lab/Lab.hpp
 -
@@ -135,21 +30,7 @@ string
 vector
 -
 
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONImpl.cpp
-JSON/JSON.hpp
--
-JSON/JSONImpl.hpp
--
-cassert
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONImpl.hpp
-memory
--
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Config.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 string
 -
 JSON/JSON.hpp
@@ -161,13 +42,8 @@ SFML/Graphics.hpp
 SFML/Graphics.hpp
 -
 
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/JSON/JSONSerialiser.cpp
-JSON/JSONSerialiser.hpp
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Updatable.hpp
 SFML/System.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 -
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSON.hpp
@@ -196,39 +72,6 @@ unordered_map
 vector
 -
 
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/JSON/JSONSerialiser.hpp
-JSON/JSON.hpp
--
-stdexcept
--
-string
--
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.cpp
-Bacterium.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.hpp
-../Utility/Utility.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.hpp
-../Application.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.hpp
-Nutriment.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
-
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
-../Interface/Drawable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Drawable.hpp
-../Interface/Updatable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Updatable.hpp
-SFML/Graphics.hpp
--
-CircularBody.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/CircularBody.hpp
-../Utility/MutableColor.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableColor.hpp
-../Utility/MutableNumber.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.hpp
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.hpp
 ../Interface/Drawable.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Drawable.hpp
@@ -242,7 +85,6 @@ CircularBody.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.hpp
 ../Utility/MutableNumber.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 ../Utility/Vec2d.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.hpp
 ../Utility/Types.hpp
@@ -256,16 +98,6 @@ Utility/Vec2d.hpp
 iostream
 -
 
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Lab.cpp
-Lab.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Lab.hpp
-../Application.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.hpp
-PetriDish.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/PetriDish.hpp
-SFML/Graphics.hpp
--
-
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Lab.hpp
 CircularBody.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/CircularBody.hpp
@@ -274,15 +106,6 @@ PetriDish.hpp
 SFML/Graphics.hpp
 -
 Nutriment.hpp
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
-../Interface/Drawable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Drawable.hpp
-../Interface/Updatable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Updatable.hpp
-NutrimentGenerator.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentGenerator.hpp
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
 ../Interface/Drawable.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Drawable.hpp
@@ -290,15 +113,6 @@ NutrimentGenerator.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Updatable.hpp
 NutrimentGenerator.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentGenerator.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.cpp
-Nutriment.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
-../Application.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.hpp
-../Utility/Utility.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.hpp
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
 CircularBody.hpp
@@ -312,96 +126,13 @@ SFML/Graphics.hpp
 ../Interface/Updatable.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Updatable.hpp
 
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentA.cpp
-Lab/NutrimentA.hpp
--
-Application.hpp
--
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentA.hpp
-Nutriment.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentB.cpp
-NutrimentB.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentB.hpp
-../Application.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Application.hpp
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentB.hpp
-Nutriment.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentGenerator.cpp
-NutrimentGenerator.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentGenerator.hpp
-Random/Random.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Random/Random.hpp
-Application.hpp
--
-Lab.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Lab.hpp
-NutrimentA.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentA.hpp
-NutrimentB.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentB.hpp
-
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/NutrimentGenerator.hpp
 SFML/Graphics.hpp
 -
-<<<<<<< HEAD
-../Interface/Drawable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Drawable.hpp
-../Interface/Updatable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Updatable.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentA.cpp
-Lab/NutrimentA.hpp
--
-Application.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentA.hpp
-Nutriment.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentB.cpp
-NutrimentB.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentB.hpp
-../Application.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentB.hpp
-Nutriment.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentGenerator.cpp
-NutrimentGenerator.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentGenerator.hpp
-Random/Random.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Random/Random.hpp
-Application.hpp
--
-Lab.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Lab.hpp
-NutrimentA.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentA.hpp
-NutrimentB.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentB.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/NutrimentGenerator.hpp
-SFML/Graphics.hpp
--
-../Interface/Updatable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Updatable.hpp
-Nutriment.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Nutriment.hpp
-=======
 ../Interface/Updatable.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Updatable.hpp
 Nutriment.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/PetriDish.cpp
 PetriDish.hpp
@@ -420,6 +151,8 @@ Nutriment.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
 Bacterium.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.hpp
+iostream
+-
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/PetriDish.hpp
 vector
@@ -433,174 +166,31 @@ Bacterium.hpp
 Nutriment.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Nutriment.hpp
 Utility/Vec2d.hpp
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Utility/Vec2d.hpp
-../Interface/Drawable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Drawable.hpp
-../Interface/Updatable.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Interface/Updatable.hpp
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Utility/Vec2d.hpp
 ../Interface/Drawable.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Drawable.hpp
 ../Interface/Updatable.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Interface/Updatable.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.cpp
-SimpleBacterium.hpp
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp
-../Application.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Application.hpp
-=======
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/SimpleBacterium.hpp
-Bacterium.hpp
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/Bacterium.hpp
-JSON/JSON.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Lab/JSON/JSON.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/Random.cpp
-Random/Random.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/Random.hpp
-=======
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Lab/Bacterium.hpp
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Random/Random.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
-JSON/JSON.hpp
--
-Random/RandomGenerator.hpp
--
-Utility/Vec2d.hpp
--
-type_traits
--
-random
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/RandomGenerator.cpp
-Random/RandomGenerator.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Random/RandomGenerator.hpp
-random
--
-
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Tests/GraphicalTests/NutrimentTest.cpp
-=======
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Tests/GraphicalTests/NutrimentTest.cpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
-Application.hpp
--
-Lab/NutrimentA.hpp
--
-Lab/NutrimentB.hpp
--
-
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Constants.hpp
-string
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/DiffEqSolver.cpp
-Utility/DiffEqSolver.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/DiffEqSolver.hpp
-Utility/Vec2d.hpp
--
-SFML/System.hpp
--
-functional
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableColor.cpp
-MutableColor.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableColor.hpp
-MutableNumber.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableColor.hpp
-MutableNumber.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.hpp
-array
--
-SFML/Graphics.hpp
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.cpp
-MutableNumber.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.hpp
-Random/Random.hpp
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Constants.hpp
 string
 -
 
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
-MutableColor.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.hpp
-MutableNumber.hpp
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
-
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.hpp
 MutableNumber.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
 array
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 -
 SFML/Graphics.hpp
 -
 
-<<<<<<< HEAD
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
-MutableNumber.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
-Random/Random.hpp
--
-
-/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
-=======
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/MutableNumber.hpp
->>>>>>> d267cdad89d41b75a0c1416a4ec89eb8174d1e38
 JSON/JSON.hpp
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/JSON/JSON.hpp
+/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/JSON/JSON.hpp
 
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Types.hpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.cpp
-Utility/Utility.hpp
--
-algorithm
--
-cassert
--
-cmath
--
-iterator
--
-sstream
--
-string
--
-vector
--
-
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.hpp
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Types.hpp
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 Utility/Types.hpp
 -
 Utility/Vec2d.hpp
@@ -618,27 +208,6 @@ iomanip
 sstream
 -
 Utility.tpp
-<<<<<<< HEAD
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.tpp
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Utility.tpp
-algorithm
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.cpp
-Random/Random.hpp
--
-Utility/Utility.hpp
--
-Utility/Vec2d.hpp
--
-cassert
--
-cmath
--
-
-/home/helena/Documents/EPFL/Programmation/Projet/projetsv2020/code/src/Utility/Vec2d.hpp
-=======
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.tpp
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Utility.tpp
@@ -646,7 +215,6 @@ algorithm
 -
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/Vec2d.hpp
->>>>>>> ab97c3fe772e028d58c8309d4c86403b209e524e
 JSON/JSON.hpp
 -
 Utility/Constants.hpp

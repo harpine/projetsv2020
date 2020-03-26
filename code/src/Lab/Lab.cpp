@@ -2,7 +2,7 @@
 #include "../Application.hpp"
 #include "PetriDish.hpp"
 #include <SFML/Graphics.hpp>
-
+#include <iostream> //à enlever
 Lab::Lab()
     :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2)
     /*Positonne l'assiette de pétri au centre de la fenêtre graphique
