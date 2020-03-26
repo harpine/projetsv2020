@@ -2,17 +2,19 @@
 #include "../Utility/Utility.hpp"
 #include "../Application.hpp"
 #include "Nutriment.hpp"
+#include <iostream> //à enlever
 
 //Constructeurs:
 Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
                      const Vec2d& direction, const double radius,
                      const MutableColor color)
     : CircularBody(poscenter, radius),
-      energy_(energy),
-      direction_(direction),
       color_(color),
+      direction_(direction),
       abstinence_(false),
+      energy_(energy),
       mutableParameters_({})
+
 {}
 
 
@@ -51,11 +53,11 @@ void Bacterium::drawOn(sf::RenderTarget& target) const
                                          getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
     }
-
 }
 
 void Bacterium::update(sf::Time dt)
 {
+    clock_ += dt;
     move(dt);
     if (getAppEnv().doesCollideWithDish(*this))
     {
@@ -71,7 +73,7 @@ void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJ
             and !abstinence_
             and clock_ >= getMealDelay())
     {
-        energy_ = getAppEnv().getNutrimentColliding(*this)->takeQuantity(getMealQuantity());
+        energy_ += getAppEnv().getNutrimentColliding(*this)->takeQuantity(getMealQuantity());
         clock_ = sf::Time::Zero ;
     }
 }
@@ -92,7 +94,7 @@ Bacterium* Bacterium::clone() const
 
 bool Bacterium::death() const
 {
-   return energy_ <= 0 ;
+   return (energy_ <= 0) ;
 }
 
 void Bacterium::consumeEnergy(const Quantity qt)

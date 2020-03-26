@@ -6,6 +6,7 @@
 #include "../Application.hpp"
 #include "Nutriment.hpp"
 #include "Bacterium.hpp"
+#include <iostream> //à enlever
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
@@ -44,7 +45,7 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
 
 Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
 {
-    for (auto nutriment : nutriments_)
+    for (auto& nutriment : nutriments_)
     {
         if (nutriment->isColliding(body))
         {
@@ -57,7 +58,7 @@ Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
 
 void PetriDish::update(sf::Time dt)
 {
-    for (auto nutriment : nutriments_)
+    for (auto& nutriment : nutriments_)
     {
        (*nutriment).update(dt);
         if ((*nutriment).depleted())
@@ -67,7 +68,8 @@ void PetriDish::update(sf::Time dt)
         }
     }
     nutriments_.erase(std::remove(nutriments_.begin(), nutriments_.end(), nullptr), nutriments_.end());
-    for (auto bacterium : bacteria_)
+
+    for (auto& bacterium : bacteria_)
     {
         (*bacterium).update(dt);
         if ((*bacterium).death())
@@ -87,6 +89,11 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
     {
         nutriments_[i]->drawOn(targetWindow);
     }
+    for (size_t i(0); i< bacteria_.size(); ++i)
+    {
+        bacteria_[i]->drawOn(targetWindow);
+    }
+
 }
 
 void PetriDish::reset()
