@@ -46,9 +46,11 @@ public:
     bool death() const;
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau
     //d'energie (energy_) est nul ou inférieur à 0.
-    virtual j::Value& getConfig() = 0;
+    virtual j::Value& getConfig() const = 0;
     //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
     //pour atteindre ses paramètres.
+    void consumeEnergy(const Quantity qt);
+    //Décrémente l'energie de la bactérie d'une quantité donnée
 
 
 private:
@@ -57,7 +59,8 @@ private:
     bool abstinence_;
     Quantity energy_;
     std::map<std::string, MutableNumber> mutableParameters_;
-    sf::Clock clock_;
+    sf::Time clock_;
+
 
 
 

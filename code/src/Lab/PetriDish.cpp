@@ -46,7 +46,7 @@ Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
 {
     for (auto nutriment : nutriments_)
     {
-        if (*nutriment->isColliding(body))
+        if (nutriment->isColliding(body))
         {
             return nutriment;
         }
@@ -76,6 +76,7 @@ void PetriDish::update(sf::Time dt)
             bacterium = nullptr;
         }
     }
+    bacteria_.erase(std::remove(bacteria_.begin(), bacteria_.end(), nullptr), bacteria_.end());
 }
 
 void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
