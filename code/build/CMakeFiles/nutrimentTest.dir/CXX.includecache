@@ -298,12 +298,24 @@ Lab/NutrimentB.hpp
 string
 -
 
+/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.cpp
+MutableColor.hpp
+/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.hpp
+MutableNumber.hpp
+/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
+
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableColor.hpp
 MutableNumber.hpp
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
 array
 -
 SFML/Graphics.hpp
+-
+
+/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.cpp
+MutableNumber.hpp
+/home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp
+Random/Random.hpp
 -
 
 /home/aline/Documents/EPFL/BA2/Programmation/projet/projetsv2020/code/src/Utility/MutableNumber.hpp

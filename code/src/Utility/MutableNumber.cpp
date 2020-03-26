@@ -17,7 +17,7 @@ MutableNumber::MutableNumber(j::Value const& config)
     value_ = controlvalue(config["initial"].toDouble());
 }
 
-double MutableNumber::get()
+double MutableNumber::get() const
 {
     return value_;
 }

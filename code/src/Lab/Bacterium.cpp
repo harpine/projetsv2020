@@ -38,7 +38,7 @@ Quantity Bacterium::getMealQuantity() const
 }
 
 //Méthodes:
-virtual void Bacterium::drawOn(sf::RenderTarget& target) const
+void Bacterium::drawOn(sf::RenderTarget& target) const
 {
     auto const circle = buildCircle(poscenter_, radius_, color_.get());
     target.draw(circle);
@@ -54,7 +54,7 @@ virtual void Bacterium::drawOn(sf::RenderTarget& target) const
 
 }
 
-virtual void Bacterium::update(sf::Time dt)
+void Bacterium::update(sf::Time dt)
 {
     move(dt);
     if (getAppEnv().doesCollideWithDish(*this))

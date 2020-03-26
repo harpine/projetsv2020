@@ -11,7 +11,7 @@ public:
                   bool sup = false, double supval= 0);
     MutableNumber(j::Value const& config);
     //getters & setters:
-    double get();
+    double get() const;
     //renvoie la valeur du nb
     void set(double value);
     //permet d'attribuer une valeur au nombre
