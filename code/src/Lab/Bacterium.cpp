@@ -4,6 +4,7 @@
 #include "Nutriment.hpp"
 #include <iostream> //à enlever
 
+std::map<std::string, MutableNumber> Bacterium::mutableParameters_;
 //Constructeurs:
 Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
                      const Vec2d& direction, const double radius,
@@ -12,10 +13,10 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
       color_(color),
       direction_(direction),
       abstinence_(false),
-      energy_(energy),
-      mutableParameters_({})
-
-{}
+      energy_(energy)
+{
+    std::cerr << mutableParameters_.empty();
+}
 
 
 //Getters utilitaires :

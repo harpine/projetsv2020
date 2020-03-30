@@ -1,3 +1,6 @@
+[Groupe 38, Aline Brunner et Helena Binková, coachée par Sébastien 
+Gachoud]
+
 [Semaine 1]
 
 Nous avons mis en place l'environnement de programmation et avons pris 
