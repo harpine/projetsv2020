@@ -58,7 +58,7 @@ private:
     Vec2d direction_;
     bool abstinence_;
     Quantity energy_;
-    std::map<std::string, MutableNumber> mutableParameters_;
+    static std::map<std::string, MutableNumber> mutableParameters_;
     sf::Time clock_;
 
 
