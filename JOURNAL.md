@@ -22,7 +22,7 @@ CircularBody et comporte une température. À ce stade, toutes les
 méthodes de Lab font appel aux méthodes de PetriDish. Nous ne comprenons 
 pas encore l'utilité de deux classes distinctes. 
 
-Nous avons aussi répondu au questions dans le fichier REPONSES. Tous les 
+Nous avons aussi répondu aux questions dans le fichier REPONSES. Tous les 
 tests sont passés avec succès.
 
 Actuellement, nous avons donc une assiette de pétri dont nous pouvons 
@@ -36,7 +36,7 @@ la partie 3.3. Pour ce faire, Aline a créé les classes
 NutrimentGenerator, MutableNumber et MutableColor (3.1 et 3.2). Helena 
 a ensuite créé la classe Bacterium (3.3). 
 
-Nous avons aussi répondu au questions dans le fichier REPONSES. Les 
+Nous avons aussi répondu aux questions dans le fichier REPONSES. Les 
 tests unitaires et graphiques sont passés avec succès. 
 
 Actuellement, nous avons donc une assiette de pétri dont les nutriments 
