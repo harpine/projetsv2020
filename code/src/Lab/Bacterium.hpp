@@ -20,15 +20,20 @@ public:
     Bacterium(const Quantity energy, const Vec2d& poscenter,
               const Vec2d& direction, const double radius,
               const MutableColor color);
+    Bacterium(const Bacterium& other);
 
     //Getters utilitaires :
     Quantity getDivisionEnergy() const;
     sf::Time getMealDelay() const;
     Quantity getDisplacementEnergy() const;
+    //renvoie le consumption factor
     Quantity getMealQuantity() const;
     Vec2d getDirection() const;
-    void setDirection(const Vec2d& speed);
-
+    //renvoie la direction de la bactérie
+    virtual void addProperty(const std::string& key, MutableNumber mutablenumber);
+    //ajouter un paramètre mutable
+    virtual MutableNumber getProperty(const std::string& key) const;
+    //Permet de retrouver une valeur mutable associée à une clé donnée
 
     //Méthodes:
     virtual void drawOn(sf::RenderTarget& target) const;
@@ -41,9 +46,7 @@ public:
     //Méthode virtuelle pure.
     void eat();
     //Permet à la bactérie de se nourrir si possible dans l'assiette
-    void mutate();
-    //Mute la bactérie.
-    virtual Bacterium* clone() const =0;
+    virtual Bacterium* clone();
     //Division de la bactérie en deux bactéries identiques.
     bool death() const;
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau
@@ -53,7 +56,10 @@ public:
     //pour atteindre ses paramètres.
     void consumeEnergy(const Quantity qt);
     //Décrémente l'energie de la bactérie d'une quantité donnée
-
+    virtual void mutate();
+    //Mute la bactérie.
+    virtual Bacterium* copie() =0;
+    //permet de copier une bactérie
 
 private:
     MutableColor color_;

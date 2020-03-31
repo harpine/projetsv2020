@@ -59,7 +59,6 @@ double Lab::getTemperature()
     return petridish_.getTemperature();
 }
 
-
  void Lab::increaseTemperature()
 {
     petridish_.increaseTemperature();
@@ -73,4 +72,9 @@ void Lab::decreaseTemperature()
 void Lab::resetTemperature()
 {
     petridish_.resetTemperature();
+}
+
+void Lab::addClone(Bacterium* bacterium)
+{
+    petridish_.addClone(bacterium);
 }

@@ -14,12 +14,37 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
      uniform(getConfig()["radius"]["max"].toDouble(),
       getConfig()["radius"]["min"].toDouble()),
      getConfig()["color"])
-{}
+{
+    addProperty("speed",MutableNumber(getSpeedConfig()["initial"].toDouble(),
+            getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), 1));
+
+    addProperty("tumble better",MutableNumber(getBetterConfig()["initial"].toDouble(),
+                getBetterConfig()["rate"].toDouble(), getBetterConfig()["sigma"].toDouble(), 1));
+
+    addProperty("tumble worse",MutableNumber(getWorseConfig()["initial"].toDouble(),
+                getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble(), 1));
+}
 
 j::Value& SimpleBacterium::getConfig() const
 {
     return getAppConfig()["simple bacterium"];
 }
+j::Value& SimpleBacterium::getSpeedConfig() const
+{
+    return getConfig()["speed"];
+}
+
+j::Value& SimpleBacterium::getWorseConfig() const
+{
+    return getConfig()["tumble"]["worse"];
+}
+
+j::Value& SimpleBacterium::getBetterConfig() const
+{
+    return getConfig()["tumble"]["better"];
+}
+
+//Méthodes:
 
 Vec2d SimpleBacterium::f(Vec2d position, Vec2d speed) const
 {
@@ -34,24 +59,18 @@ void SimpleBacterium::move(sf::Time dt)
     if ((result.position- getPosition()).lengthSquared() > 0.001)
     {
         setPosition(result.position);
-
     }
 
-    consumeEnergy(getConfig()["energy"]["consumption factor"].toDouble()
-            * distance(result.position, getPosition())); //distance renvoie length des 2 Vec2d
+    consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
+    //distance renvoie length des 2 Vec2d
 }
 
 Vec2d SimpleBacterium::getSpeedVector() const
 {
-    return getDirection() * 5;
+    return getDirection() * getProperty("speed").get();
 }
 
-void SimpleBacterium::setSpeedVector(const Vec2d& speed)
+Bacterium* SimpleBacterium::copie()
 {
-    setDirection(speed);
-}
-
-Bacterium* SimpleBacterium::clone() const
-{
-
+    return new SimpleBacterium(*this);
 }

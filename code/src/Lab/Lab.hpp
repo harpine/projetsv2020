@@ -41,7 +41,8 @@ public:
     //Permet de modifier la température de la boîte de petri
     void resetTemperature();
     //Réinitialise la température avec la valeur par défaut
-
+    void addClone(Bacterium* bacterium);
+    //ajoute un clone au lab
 private:
     PetriDish petridish_;
     NutrimentGenerator nutrimentGenerator_;

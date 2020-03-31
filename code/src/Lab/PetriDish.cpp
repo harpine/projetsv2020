@@ -68,11 +68,16 @@ void PetriDish::update(sf::Time dt)
         }
     }
     nutriments_.erase(std::remove(nutriments_.begin(), nutriments_.end(), nullptr), nutriments_.end());
-
+    append(cloned_,bacteria_);
+    for (auto& clone : cloned_)
+    {
+        clone = nullptr;
+    }
+    cloned_.erase(std::remove(cloned_.begin(), cloned_.end(), nullptr), cloned_.end());
     for (auto& bacterium : bacteria_)
     {
         (*bacterium).update(dt);
-        if ((*bacterium).death())
+        if (bacterium->death())
         {
             delete bacterium;
             bacterium = nullptr;
@@ -129,7 +134,13 @@ void PetriDish::resetTemperature()
     temperature_ = getAppConfig()["petri dish"]["temperature"]["default"].toDouble();
 }
 
-
+void PetriDish::addClone(Bacterium* bacterium)
+{
+    if (bacterium != nullptr)
+    {
+        cloned_.push_back(bacterium);
+    }
+}
 
 
 

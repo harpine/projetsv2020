@@ -1,5 +1,7 @@
-[Groupe 38, Aline Brunner et Helena Binková, coachée par Sébastien 
-Gachoud]
+##Groupe 38, Aline Brunner et Helena Binková, coachées par Sébastien 
+Gachoud
+
+# Journal 
 
 [Semaine 1]
 

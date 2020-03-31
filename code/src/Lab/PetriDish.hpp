@@ -48,10 +48,13 @@ public:
     //Permet de modifier la température de la boîte de petri
     void resetTemperature();
     //Réinitialise la température à sa valeur par défaut
+    void addClone(Bacterium* bacterium);
+    //ajoute le clone dans l'assiette
 
 
 private:
     std::vector<Bacterium*> bacteria_;
+    std::vector<Bacterium*> cloned_;
     std::vector<Nutriment*> nutriments_;
     double temperature_;
 

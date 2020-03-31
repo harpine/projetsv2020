@@ -13,13 +13,17 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
       direction_(direction),
       abstinence_(false),
       energy_(energy)
-    //mutableParameters_();
-{
-    //std::map<std::string, MutableNumber> mutableParameters_;
-    //Pour Helena: Constructeur par défaut = vide si on l'appelle pas
-    //dans le constructeur de bactérie
-}
+{}
 
+Bacterium::Bacterium(const Bacterium& other)
+    :Bacterium(other.energy_ ,other.getPosition(), other.direction_,
+               other.getRadius(),other.color_)
+{
+    for (auto pair : other.mutableParameters_)
+    {
+        mutableParameters_ = other.mutableParameters_;
+    }
+}
 
 //Getters utilitaires :
 Quantity Bacterium::getDivisionEnergy() const
@@ -47,9 +51,25 @@ Vec2d Bacterium::getDirection() const
     return direction_;
 }
 
-void Bacterium::setDirection(const Vec2d& speed)
+void Bacterium::addProperty(const std::string& key,MutableNumber mutablenumber)
 {
-    direction_ = speed;
+    if (mutableParameters_.find(key) != mutableParameters_.end())
+    {
+        throw std::invalid_argument("ce paramètre existe déjà");
+    }
+    mutableParameters_[key] = mutablenumber;
+}
+
+MutableNumber Bacterium::getProperty(const std::string& key) const
+{
+    auto pair = mutableParameters_.find(key);
+    //pair -> first = key, pair->second = valeur
+
+    if (pair == mutableParameters_.end()) //si key n'existe pas
+    {
+        throw std::out_of_range("ce paramètre mutable n'existe pas");
+    }
+    return pair->second;
 }
 
 
@@ -78,6 +98,7 @@ void Bacterium::update(sf::Time dt)
         direction_ *= -1;
     }
     eat();
+    getAppEnv().addClone(clone());
 }
 
 void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJOUTE
@@ -91,19 +112,18 @@ void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJ
     }
 }
 
-/*
-void Bacterium::mutate()
+Bacterium* Bacterium::clone()
 {
-
-} */
-
-/*
-Bacterium* Bacterium::clone() const
-{
-    Bacterium* cloned(new Bacterium);
-    *cloned = *this;
-    return cloned;
-} */
+    if (energy_ >= getDivisionEnergy())
+    {
+        energy_/=2;
+        Bacterium* nouvelle(copie());
+        nouvelle->mutate();
+        direction_ *= -1;
+        return nouvelle;
+    }
+    return nullptr;
+}
 
 bool Bacterium::death() const
 {
@@ -113,4 +133,15 @@ bool Bacterium::death() const
 void Bacterium::consumeEnergy(const Quantity qt)
 {
     energy_ -= qt;
+}
+
+void Bacterium::mutate()
+{
+    for (auto& pair: mutableParameters_)
+    {
+        pair.second.mutate();
+    }
+    std::cerr << color_.rgba_[2].get();
+    color_.mutate();
+    std::cerr << color_.rgba_[2].get();
 }

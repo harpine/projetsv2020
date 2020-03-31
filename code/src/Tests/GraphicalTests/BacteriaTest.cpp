@@ -24,6 +24,7 @@ public:
 	j::Value& getConfig() const {
 		return getAppConfig()["simple bacterium"];
 	}
+    MockBacterium* copie() override;
 
 	
 protected:
@@ -87,4 +88,9 @@ void BacteriaTest::onEvent(sf::Event event, sf::RenderWindow&)
 std::string BacteriaTest::getHelpTextFile() const
 {
 	return RES_LOCATION + "bact_help_step3.txt";
+}
+
+MockBacterium* MockBacterium::copie()
+{
+    return new MockBacterium(*this);
 }

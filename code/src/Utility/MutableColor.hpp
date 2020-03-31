@@ -15,8 +15,9 @@ public:
     //méthodes:
     void mutate();
     //fait muter chaque couleur
+        std::array<MutableNumber, 4> rgba_; //attention remettre dans privé!!!!
 private:
-    std::array<MutableNumber, 4> rgba_;
+
 };
 
 #endif // MUTABLECOLOR_HPP

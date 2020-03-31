@@ -8,7 +8,7 @@ MutableColor::MutableColor(j::Value const& config)
 
 void MutableColor::mutate()
 {
-    for (auto color: rgba_)
+    for (auto& color: rgba_)
     {
         color.mutate();
     }

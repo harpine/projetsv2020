@@ -10,6 +10,7 @@ public:
                   bool inf = false,double infval = 0,
                   bool sup = false, double supval= 0);
     MutableNumber(j::Value const& config);
+    MutableNumber() = default;
     //getters & setters:
     double get() const;
     //renvoie la valeur du nb
