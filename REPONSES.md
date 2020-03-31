@@ -306,12 +306,56 @@ nutriments des vectors nutirments_ et bacteria_. La méthode PetriDish::
 update doit donc également comprendre la transformation des nutriments 
 épuisés et des bactéries mortes et nullptr puis les faire disparaître. 
 
+[Question Q3.16] La classe DiffEqFunction (aussi contenue dans le 
+fichier Utility/DiffEqSolver.hpp) permet justement de modéliser une 
+force f à évaluer en fonction d'une position et d'une vitesse. Expliquez
+dans votre fichier REPONSES comment vous proposez d'utiliser cette 
+classe pour doter une bactérie simple d'une méthode qui calcule la force
+f régissant son déplacement ? (indication : utilise t-on la composition 
+ou l'héritage ?) 
 
+[Réponse R3.16] Nous nous sommes tournées vers l'héritage (comme les 
+fonctions sont déclarées virtuelles) -> est doté d'un attribut force
+héritage de DiffEqFunction
 
+[Question Q3.17] Où déclarer et initialiser le temps t ?
 
+[Réponse R3.17] attribut de SimpleBacterium?
 
+[Question Q3.18] Comment mémoriser l'angle de direction et à quel 
+endroit du code l'initialiser et le mettre à jour si l'on considère que
+toutes les bactéries ont une direction et un angle de direction? 
 
+[Réponse R3.18] Attribut dans la classe Bacterium?
 
+[Question Q3.19] Comment devez-vous modifier PetriDish pour mettre en 
+oeuvre cette fonctionnalité ?
 
+[Réponse Q3.19] Ajouter la méthode getPositionScore(const Vec2d&) ainsi
+que l'attribut exposant (+initialiser à "Gradient exponent") dans 
+Petridish.
 
+[Question Q3.20] Quel(s) attributs suggérez-vous d'ajouter à la 
+représentation des bactéries (simples ou "tout court") pour permettre 
+la mise en oeuvre cet algorithme ? Comment initialiser ces attributs et 
+à quels endroits devez-vous les mettre à jour ? 
 
+[Réponse Q3.20] Un score et un temps.
+
+[Question Q3.21] Dans quelle classe proposez-vous d'ajouter la méthode 
+de mutation ?
+
+[Réponse Q3.21] Dans Bacterium car toutes les bactéries vont muter et 
+les sous classes héritent de bactérie (gérer la couleur dans Bacterium)
+le reste dans SimpleBacterium. (vitesse -> positive mutablenumber)
+[poids->muter lambda]
+
+[Question Q3.22] Dans quelle classe proposez-vous d'ajouter ces 
+méthodes ?
+
+[Réponse Q3.22] Bacterium [ajouter à la map en testant si c pas déjà là]
+
+[Question Q3.23] Où choisissez-vous de placer la méthode de division 
+d'une bactérie ?
+
+[Réponse Q3.23] Dans Bacterium. 

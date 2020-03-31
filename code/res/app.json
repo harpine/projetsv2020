@@ -12,7 +12,7 @@
     },
     "generator" : {
         "nutriment" : {
-            "delay" : 0.5,
+            "delay" : 2,
             "prob" : 0.5
         }
     },
@@ -163,7 +163,7 @@
                 "clamp max" : true,
                 "clamp min" : true,
                 "initial" : 0.2,
-                "max" : 0,
+                "max" : 1,
                 "min" : 0,
                 "rate" : 0.95,
                 "sigma" : 0.15

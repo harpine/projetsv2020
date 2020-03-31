@@ -26,6 +26,8 @@ public:
     sf::Time getMealDelay() const;
     Quantity getDisplacementEnergy() const;
     Quantity getMealQuantity() const;
+    Vec2d getDirection() const;
+    void setDirection(const Vec2d& speed);
 
 
     //Méthodes:
@@ -41,7 +43,7 @@ public:
     //Permet à la bactérie de se nourrir si possible dans l'assiette
     void mutate();
     //Mute la bactérie.
-    Bacterium* clone() const;
+    virtual Bacterium* clone() const =0;
     //Division de la bactérie en deux bactéries identiques.
     bool death() const;
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau

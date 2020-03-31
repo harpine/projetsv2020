@@ -4,8 +4,6 @@
 #include "Nutriment.hpp"
 #include <iostream> //à enlever
 
-
-
 //Constructeurs:
 Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
                      const Vec2d& direction, const double radius,
@@ -15,8 +13,11 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
       direction_(direction),
       abstinence_(false),
       energy_(energy)
+    //mutableParameters_();
 {
-    std::map<std::string, MutableNumber> mutableParameters_;
+    //std::map<std::string, MutableNumber> mutableParameters_;
+    //Pour Helena: Constructeur par défaut = vide si on l'appelle pas
+    //dans le constructeur de bactérie
 }
 
 
@@ -40,6 +41,17 @@ Quantity Bacterium::getMealQuantity() const
 {
     return getConfig()["meal"]["max"].toDouble();
 }
+
+Vec2d Bacterium::getDirection() const
+{
+    return direction_;
+}
+
+void Bacterium::setDirection(const Vec2d& speed)
+{
+    direction_ = speed;
+}
+
 
 //Méthodes:
 void Bacterium::drawOn(sf::RenderTarget& target) const
@@ -66,7 +78,6 @@ void Bacterium::update(sf::Time dt)
         direction_ *= -1;
     }
     eat();
-
 }
 
 void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJOUTE
