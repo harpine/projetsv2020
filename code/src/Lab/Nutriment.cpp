@@ -32,6 +32,11 @@ void Nutriment::setQuantity(Quantity newquantity)
     setRadius(quantity_);
 }
 
+Quantity Nutriment::getQuantity() const
+{
+    return quantity_;
+}
+
 void Nutriment::drawOn(sf::RenderTarget& target) const
 {
 

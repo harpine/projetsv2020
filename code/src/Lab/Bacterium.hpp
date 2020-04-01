@@ -22,18 +22,30 @@ public:
               const MutableColor color);
     Bacterium(const Bacterium& other);
 
-    //Getters utilitaires :
+    //Getters utilitaires et setters:
     Quantity getDivisionEnergy() const;
+    //renvoie l'energie nécessaire à la division
     sf::Time getMealDelay() const;
+    //renvoie le "meal" "delay"
     Quantity getDisplacementEnergy() const;
-    //renvoie le consumption factor
+    //renvoie le "consumption factor"
     Quantity getMealQuantity() const;
+    //renvoie le "meal" "max"
     Vec2d getDirection() const;
     //renvoie la direction de la bactérie
     virtual void addProperty(const std::string& key, MutableNumber mutablenumber);
     //ajouter un paramètre mutable
     virtual MutableNumber getProperty(const std::string& key) const;
     //Permet de retrouver une valeur mutable associée à une clé donnée
+    void setDirection(const Vec2d& direction);
+    //met à jour la direction de la bactérie
+    MutableColor getColor() const;
+    //renvoie la couleur de la bactérie
+    double getAngle() const;
+    //renvoie l'angle de la direction de la bactérie
+    void setAngle(const double angle);
+    //met à jour l'angle de direction de la bactérie
+
 
     //Méthodes:
     virtual void drawOn(sf::RenderTarget& target) const;
@@ -64,11 +76,11 @@ public:
 private:
     MutableColor color_;
     Vec2d direction_;
+    double angle_; //indique l'angle de direction (en degré) d'une bactérie
     bool abstinence_;
     Quantity energy_;
     std::map<std::string, MutableNumber> mutableParameters_;
     sf::Time clock_;
-
 
 
 

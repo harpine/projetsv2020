@@ -23,7 +23,8 @@ public:
     //Destruction de l'assiette de pétri ainsi que des nutriments et bactéries qui l'habitent
 
     //getters et setters:
-    double getTemperature();
+    double getTemperature() const;
+    double getGradientExponent() const;
 
     //Surcharges d'operateurs :
     PetriDish& operator=(const PetriDish& p) = delete;
@@ -51,12 +52,22 @@ public:
     void addClone(Bacterium* bacterium);
     //ajoute le clone dans l'assiette
 
+    double getPositionScore(const Vec2d& p) const;
+    //retourne le score associé à une position donnée
+
+    void increaseGradientExponent();
+    void decreaseGradientExponent();
+    //Permet de modifier la température de la boîte de pétri
+    void resetGradientExponent();
+    //Réinitialise la puissance à sa valeur par défaut
+
 
 private:
     std::vector<Bacterium*> bacteria_;
     std::vector<Bacterium*> cloned_;
     std::vector<Nutriment*> nutriments_;
     double temperature_;
+    double exponent_;
 
 };
 

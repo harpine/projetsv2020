@@ -9,6 +9,11 @@ Lab::Lab()
     avec un diamètre occupant 95% de la largeur de la fenêtre */
 {}
 
+Vec2d Lab::getCenter() const
+{
+    return petridish_.getPosition();
+}
+
 bool Lab::contains(const CircularBody& circularbody) const
 {
     return petridish_.contains(circularbody);
@@ -54,7 +59,7 @@ void Lab::addBacterium(Bacterium* bacterium)
     petridish_.addBacterium(bacterium);
 }
 
-double Lab::getTemperature()
+double Lab::getTemperature() const
 {
     return petridish_.getTemperature();
 }
@@ -78,3 +83,33 @@ void Lab::addClone(Bacterium* bacterium)
 {
     petridish_.addClone(bacterium);
 }
+
+double Lab::getPositionScore(const Vec2d& p) const
+{
+    return petridish_.getPositionScore(p);
+}
+
+double Lab::getGradientExponent() const
+{
+    return petridish_.getGradientExponent();
+}
+
+void Lab::increaseGradientExponent()
+{
+    petridish_.increaseGradientExponent();
+}
+
+void Lab::decreaseGradientExponent()
+{
+    petridish_.decreaseGradientExponent();
+}
+
+void Lab::resetGradientExponent()
+{
+    petridish_.resetGradientExponent();
+}
+
+
+
+
+>>>>>>> 16e72bc1e65a687a680641121ac1426c4a2b79f9

@@ -10,7 +10,8 @@
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
-     temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble())
+     temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble()),
+     exponent_((getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2)
 {}
 
 PetriDish::~PetriDish()
@@ -18,9 +19,14 @@ PetriDish::~PetriDish()
     reset();
 }
 
-double PetriDish::getTemperature()
+double PetriDish::getTemperature() const
 {
     return temperature_;
+}
+
+double PetriDish::getGradientExponent() const
+{
+    return exponent_;
 }
 
 bool PetriDish::addBacterium(Bacterium* bacterium)
@@ -76,7 +82,7 @@ void PetriDish::update(sf::Time dt)
     cloned_.erase(std::remove(cloned_.begin(), cloned_.end(), nullptr), cloned_.end());
     for (auto& bacterium : bacteria_)
     {
-        (*bacterium).update(dt);
+        bacterium->update(dt);
         if (bacterium->death())
         {
             delete bacterium;
@@ -117,6 +123,7 @@ void PetriDish::reset()
     }
     nutriments_.clear();
     resetTemperature();
+    resetGradientExponent();
 }
 
 void PetriDish::increaseTemperature()
@@ -142,7 +149,30 @@ void PetriDish::addClone(Bacterium* bacterium)
     }
 }
 
+double PetriDish::getPositionScore(const Vec2d& p) const
+{
+    double score(0);
+    for (auto& nutriment : nutriments_)
+    {
+        score += nutriment->getQuantity() / std::pow((distance(p, nutriment->getPosition())), exponent_);
+    }
+    return score;
+}
 
+void PetriDish::increaseGradientExponent()
+{
+    exponent_ += getAppConfig()["petri dish"]["gradient"]["exponent"]["delta"].toDouble();
+}
+
+void PetriDish::decreaseGradientExponent()
+{
+    exponent_ -= getAppConfig()["petri dish"]["gradient"]["exponent"]["delta"].toDouble();
+}
+
+void PetriDish::resetGradientExponent()
+{
+    exponent_ = (getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2;
+}
 
 
 
