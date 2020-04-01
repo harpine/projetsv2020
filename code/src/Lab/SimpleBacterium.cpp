@@ -25,6 +25,8 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble(), 1));
 }
 
+//Getters
+
 j::Value& SimpleBacterium::getConfig() const
 {
     return getAppConfig()["simple bacterium"];
@@ -58,7 +60,11 @@ void SimpleBacterium::move(sf::Time dt)
     //this est une DiffEqFunction
     if ((result.position- getPosition()).lengthSquared() > 0.001)
     {
-        setPosition(result.position);
+        this->CircularBody::move(result.position- getPosition());
+        //setPosition(result.position); //plus simple que de passer par la méthode move() de
+        //circularbody étant donnée que result contient la
+        //position final et non le vecteur de déplacement ??
+        //set vitesse??
     }
 
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
@@ -67,7 +73,7 @@ void SimpleBacterium::move(sf::Time dt)
 
 Vec2d SimpleBacterium::getSpeedVector() const
 {
-    return getDirection() * getProperty("speed").get();
+    return getDirection().normalised() * getProperty("speed").get();
 }
 
 Bacterium* SimpleBacterium::copie()
