@@ -67,7 +67,7 @@ void PetriDish::update(sf::Time dt)
 {
     for (auto& nutriment : nutriments_)
     {
-        (*nutriment).update(dt);
+        nutriment->update(dt);
         if ((*nutriment).depleted())
         {
             std::cerr << "mort";
