@@ -21,13 +21,25 @@ public:
               const Vec2d& direction, const double radius,
               const MutableColor color);
 
-    //Getters utilitaires :
+    //Getters utilitaires et setters:
     Quantity getDivisionEnergy() const;
+    //renvoie l'energie nécessaire à la division
     sf::Time getMealDelay() const;
+    //renvoie le "meal" "delay"
     Quantity getDisplacementEnergy() const;
+    //renvoie le "consumption factor"
     Quantity getMealQuantity() const;
+    //renvoie le "meal" "max"
     Vec2d getDirection() const;
-    void setDirection(const Vec2d& speed);
+    //renvoie la direction de la bactérie
+    void setDirection(const Vec2d& direction);
+    //met à jour la direction de la bactérie
+    MutableColor getColor() const;
+    //renvoie la couleur de la bactérie
+    double getAngle() const;
+    //renvoie l'angle de la direction de la bactérie
+    void setAngle(const double angle);
+    //met à jour l'angle de direction de la bactérie
 
 
     //Méthodes:
@@ -58,11 +70,11 @@ public:
 private:
     MutableColor color_;
     Vec2d direction_;
+    double angle_; //indique l'angle de direction (en degré) d'une bactérie
     bool abstinence_;
     Quantity energy_;
     static std::map<std::string, MutableNumber> mutableParameters_;
     sf::Time clock_;
-
 
 
 

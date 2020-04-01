@@ -14,6 +14,7 @@ public:
 
     //getters/setters
     void setQuantity(Quantity newquantity);
+    Quantity getQuantity() const;
 
     //méthodes
     Quantity takeQuantity(const Quantity totake);

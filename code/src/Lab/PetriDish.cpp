@@ -1,6 +1,7 @@
 #include "PetriDish.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <cmath>
 #include "Utility/Vec2d.hpp"
 #include "Utility/Utility.hpp"
 #include "../Application.hpp"
@@ -10,7 +11,8 @@
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
-     temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble())
+     temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble()),
+     exponent_((getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2)
 {}
 
 PetriDish::~PetriDish()
@@ -18,9 +20,14 @@ PetriDish::~PetriDish()
     reset();
 }
 
-double PetriDish::getTemperature()
+double PetriDish::getTemperature() const
 {
     return temperature_;
+}
+
+double PetriDish::getGradientExponent() const
+{
+    return exponent_;
 }
 
 bool PetriDish::addBacterium(Bacterium* bacterium)
@@ -112,6 +119,7 @@ void PetriDish::reset()
     }
     nutriments_.clear();
     resetTemperature();
+    resetGradientExponent();
 }
 
 void PetriDish::increaseTemperature()
@@ -129,9 +137,30 @@ void PetriDish::resetTemperature()
     temperature_ = getAppConfig()["petri dish"]["temperature"]["default"].toDouble();
 }
 
+double PetriDish::getPositionScore(const Vec2d& p) const
+{
+    double score(0);
+    for (auto& nutriment : nutriments_)
+    {
+        score += nutriment->getQuantity() / std::pow((distance(p, nutriment->getPosition())), exponent_);
+    }
+    return score;
+}
 
+void PetriDish::increaseGradientExponent()
+{
+    exponent_ += getAppConfig()["petri dish"]["gradient"]["exponent"]["delta"].toDouble();
+}
 
+void PetriDish::decreaseGradientExponent()
+{
+    exponent_ -= getAppConfig()["petri dish"]["gradient"]["exponent"]["delta"].toDouble();
+}
 
+void PetriDish::resetGradientExponent()
+{
+    exponent_ = (getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2;
+}
 
 
 

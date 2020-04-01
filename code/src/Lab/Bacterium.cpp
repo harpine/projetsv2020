@@ -2,7 +2,10 @@
 #include "../Utility/Utility.hpp"
 #include "../Application.hpp"
 #include "Nutriment.hpp"
+#include <cmath>
+#include "Utility/Vec2d.hpp"
 #include <iostream> //à enlever
+
 
 //Constructeurs:
 Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
@@ -11,14 +14,10 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
     : CircularBody(poscenter, radius),
       color_(color),
       direction_(direction),
+      angle_(direction_.angle()),
       abstinence_(false),
       energy_(energy)
-    //mutableParameters_();
-{
-    //std::map<std::string, MutableNumber> mutableParameters_;
-    //Pour Helena: Constructeur par défaut = vide si on l'appelle pas
-    //dans le constructeur de bactérie
-}
+{}
 
 
 //Getters utilitaires :
@@ -47,9 +46,23 @@ Vec2d Bacterium::getDirection() const
     return direction_;
 }
 
-void Bacterium::setDirection(const Vec2d& speed)
+void Bacterium::setDirection(const Vec2d& direction)
 {
-    direction_ = speed;
+    direction_ = direction;
+}
+
+MutableColor Bacterium::getColor() const
+{
+    return color_;
+}
+
+double Bacterium::getAngle() const
+{
+    return angle_;
+}
+void Bacterium::setAngle(const double angle)
+{
+    angle_ = angle;
 }
 
 
@@ -73,7 +86,12 @@ void Bacterium::update(sf::Time dt)
 {
     clock_ += dt;
     move(dt);
-    if (getAppEnv().doesCollideWithDish(*this))
+    if (getAppEnv().doesCollideWithDish(*this) and
+            (getPosition()-getAppEnv().getCenter()).dot(direction_)/
+            ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) < 1 and
+            (getPosition()-getAppEnv().getCenter()).dot(direction_)/
+            ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) > 0)
+    //pour améliorer les collisions en évitant le problème des bactéries blockées dans la paroi
     {
         direction_ *= -1;
     }

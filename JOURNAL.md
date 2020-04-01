@@ -47,6 +47,14 @@ d'énergie.
 
 Nous gardons la partie 3.4 pour la semaine prochaine. 
 
+[Semaine 4]
+
+Nous avons rencontré un problème concernant les bactéries mobiles : 
+certaines restent figées dans la paroi de la PetriDish. En effet, des 
+imprécisions dans les pas de temps dt impliquent que la bactérie se 
+retrouve constamment en train de changer de direction une fois dans la 
+paroi. Un remaniement des conditions de changement de direction permet 
+de résoudre le problème.
 
 
 

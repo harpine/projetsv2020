@@ -131,7 +131,7 @@
             "sigma" : 0.4
         },
         "tumble" : {
-            "algo" : "best of N",
+            "algo" : "best of 20",
             "better" : {
                 "initial" : 5,
                 "rate" : 0.8,
