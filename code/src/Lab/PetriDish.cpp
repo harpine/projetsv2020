@@ -67,14 +67,14 @@ void PetriDish::update(sf::Time dt)
 {
     for (auto& nutriment : nutriments_)
     {
-        (*nutriment).update(dt);
+        nutriment->update(dt);
+        //std::cerr << nutriments_.size();
         if ((*nutriment).depleted())
         {
-            std::cerr << "mort";
+          //  std::cerr << "mort";
             delete nutriment;
             nutriment = nullptr; 
         }
-
     }
     nutriments_.erase(std::remove(nutriments_.begin(), nutriments_.end(), nullptr), nutriments_.end());
     append(cloned_,bacteria_);

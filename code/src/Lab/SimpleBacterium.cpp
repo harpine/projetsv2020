@@ -55,22 +55,26 @@ Vec2d SimpleBacterium::f(Vec2d position, Vec2d speed) const
     return Vec2d(); //constructeur de Vec2d par défaut renvoie le vecteur nul
 }
 
+Vec2d SimpleBacterium::getSpeedVector() const
+{
+    return getDirection().normalised() * getProperty("speed").get();
+}
+
 void SimpleBacterium::move(sf::Time dt)
 {
     DiffEqResult result(stepDiffEq(getPosition(), getSpeedVector(), dt,
                *this));
     //this est une DiffEqFunction
-    if ((result.position- getPosition()).lengthSquared() > 0.001)
+    consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
+    //distance renvoie length des 2 Vec2d
+    if ((result.position - getPosition()).lengthSquared() > 0.001)
     {
-        this->CircularBody::move(result.position- getPosition());
+        this->CircularBody::move(result.position - getPosition());
         //setPosition(result.position); //plus simple que de passer par la méthode move() de
         //circularbody étant donnée que result contient la
         //position final et non le vecteur de déplacement ??
         //set vitesse??
     }
-
-    consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
-    //distance renvoie length des 2 Vec2d
 
     if(tumbleAttempt(dt))
     {
@@ -80,17 +84,17 @@ void SimpleBacterium::move(sf::Time dt)
 
 bool SimpleBacterium::tumbleAttempt(sf::Time dt)
 {
-    double lambda(0); //attention changer
+    double lambda(0);
     double ancien_score(score_);
     score_ = getAppEnv().getPositionScore(getPosition());
     tumbleClock_ += dt;
     if (score_ >= ancien_score)
     {
-        lambda = 5; //attention changer
+        lambda = getProperty("tumble better").get();
     }
     else
     {
-        lambda = 0.05; //attention changer
+        lambda = getProperty("tumble worse").get();
     }
     probability_ = 1 - exp(-tumbleClock_.asSeconds()/lambda);
     return bernoulli(probability_);
@@ -119,11 +123,6 @@ void SimpleBacterium::tumble()
         setDirection(finalDirection);
     }
     tumbleClock_ = sf::Time::Zero;
-}
-
-Vec2d SimpleBacterium::getSpeedVector() const
-{
-    return getDirection().normalised() * getProperty("speed").get();
 }
 
 void SimpleBacterium::drawOn(sf::RenderTarget& target) const

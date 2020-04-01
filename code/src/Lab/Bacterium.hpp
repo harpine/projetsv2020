@@ -46,7 +46,6 @@ public:
     void setAngle(const double angle);
     //met à jour l'angle de direction de la bactérie
 
-
     //Méthodes:
     virtual void drawOn(sf::RenderTarget& target) const;
     //Permet de représenter graphiquement un bactérie. Méthode virtuelle.

@@ -84,7 +84,8 @@ bool Nutriment::canGrow() const
 
 bool Nutriment::depleted() const
 {
-    return (quantity_ <= 0);
+    return (int(quantity_) <=0); //pour éviter que les nutriments aient tendance à grandir
+    //alors qu'ils devraient disparaître
 }
 
 

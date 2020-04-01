@@ -94,7 +94,6 @@ void Bacterium::setAngle(const double angle)
     angle_ = angle;
 }
 
-
 //Méthodes:
 void Bacterium::drawOn(sf::RenderTarget& target) const
 {
