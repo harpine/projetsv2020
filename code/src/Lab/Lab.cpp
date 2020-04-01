@@ -108,8 +108,3 @@ void Lab::resetGradientExponent()
 {
     petridish_.resetGradientExponent();
 }
-
-
-
-
->>>>>>> 16e72bc1e65a687a680641121ac1426c4a2b79f9

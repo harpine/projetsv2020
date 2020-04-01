@@ -6,6 +6,7 @@
 #include "../Application.hpp"
 #include "Nutriment.hpp"
 #include "Bacterium.hpp"
+#include <cmath>
 #include <iostream> //à enlever
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)

@@ -84,7 +84,7 @@ bool Nutriment::canGrow() const
 
 bool Nutriment::depleted() const
 {
-    return quantity_ <= 0;
+    return (quantity_ <= 0);
 }
 
 

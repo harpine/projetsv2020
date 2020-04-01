@@ -14,7 +14,7 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
      Vec2d::fromRandomAngle(),
      uniform(getConfig()["radius"]["max"].toDouble(),
       getConfig()["radius"]["min"].toDouble()),
-     getConfig()["color"])
+     getConfig()["color"]),
      t_flagelle_(uniform(0.0, PI)),
      probability_()
 {
@@ -52,7 +52,7 @@ j::Value& SimpleBacterium::getBetterConfig() const
 
 Vec2d SimpleBacterium::f(Vec2d position, Vec2d speed) const
 {
-    return Vec2d(); //constructeur par défaut renvoie le vecteur nul
+    return Vec2d(); //constructeur de Vec2d par défaut renvoie le vecteur nul
 }
 
 void SimpleBacterium::move(sf::Time dt)
