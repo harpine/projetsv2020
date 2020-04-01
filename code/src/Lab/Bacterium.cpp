@@ -168,7 +168,5 @@ void Bacterium::mutate()
     {
         pair.second.mutate();
     }
-    std::cerr << color_.rgba_[2].get();
     color_.mutate();
-    std::cerr << color_.rgba_[2].get();
 }
