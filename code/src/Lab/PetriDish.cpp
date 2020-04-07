@@ -68,10 +68,8 @@ void PetriDish::update(sf::Time dt)
     for (auto& nutriment : nutriments_)
     {
         nutriment->update(dt);
-        //std::cerr << nutriments_.size();
         if ((*nutriment).depleted())
         {
-          //  std::cerr << "mort";
             delete nutriment;
             nutriment = nullptr; 
         }
