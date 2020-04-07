@@ -1,8 +1,8 @@
 
 /*
- * prjsv 2020
+ * prjsv 2016
+ * 2013, 2014, 2016
  * Marco Antognini
- * Application for STEP3
  */
 
 #include <Application.hpp>
@@ -134,7 +134,7 @@ Application::Application(int argc, char const** argv)
 //, mJSONRead(mAppDirectory + mCfgFile)
 , mConfig(new Config(mAppDirectory + mCfgFile))
 //, mStats(nullptr)
-//, mCurrentGraphId(-1)
+, mCurrentGraphId(-1)
 , mLab(nullptr)
 , mPaused(false)  
 , mIsResetting(false)
@@ -245,7 +245,6 @@ void Application::run()
                 auto dt = std::min(elapsedTime, maxDt);
                 elapsedTime -= dt;
 				getEnv().update(dt);
-//				getStats().update(dt);
                 onUpdate(dt);
 				--nbCycles;
 
@@ -485,14 +484,13 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
         case sf::Keyboard::C:
 			delete mConfig;
             mConfig = new Config(mAppDirectory + mCfgFile); // reconstruct
-			getEnv().resetTemperature();  //Notre code à nous
-            getEnv().resetGradientExponent(); //Notre code à nous
-            //getEnv().reset();
             break;
 
         // Toggle pause for simulation
         case sf::Keyboard::Space:
             mPaused = !mPaused;
+            getEnv().resetTemperature();  //Notre code à nous
+            getEnv().resetGradientExponent(); //Notre code à nous
             break;
 
         // Reset the simulation
@@ -501,7 +499,6 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 				
 				mIsResetting = true;
 				getEnv().reset();
-//				getStats().reset();
 				onSimulationStart();
 				createViews();
 				mSimulationBackground= mLabBackground;
@@ -535,10 +532,10 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 						mLab->decreaseTemperature();
 						break;
 					case GRADIENT :
-                        mLab->decreaseGradientExponent();
+						mLab->decreaseGradientExponent();
 						break;
 					case STATS:
-//						mStats->previous();
+//						mStats->previous(); 
 						break;
 					default:
 						break;
@@ -550,7 +547,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 						mLab->increaseTemperature();
 						break;
 					case GRADIENT :
-                        mLab->increaseGradientExponent();
+						mLab->increaseGradientExponent();
 						break;
 					case STATS:
 //						mStats->next();
@@ -660,12 +657,8 @@ void Application::render(sf::Drawable const& simulationBackground,
 
 
 	// Render the stats
-	/*
 	mRenderWindow.setView(mStatsView);
 	mRenderWindow.draw(statsBackground);
-	if (isStatsOn)
-		getStats().drawOn(mRenderWindow);
-	*/
 	
     // Finally, publish everything onto the screen
     mRenderWindow.display();
@@ -753,6 +746,7 @@ Config& getShortConfig()
     return getApp().getConfig();
 }
 
+//TODO: to be changed!!
 j::Value& getAppConfig()
 {
     return getShortConfig().getJsonRead();
@@ -797,7 +791,34 @@ void Application::drawTitle(sf::RenderWindow& target
 								 , size_t font_size
 							) 
 {
-	// nothing by default
+	/*
+	std::stringstream tmpStream;
+	auto text = s::CURRENTSUBST + " : ";
+
+	// TODO: add in Utility
+	switch(mLab->getCurrentSubst()){
+		case GLUCOSE:
+			text+= "Glucose";
+			break;
+		case BROMOPYRUVATE:
+			text+= "Bromo";
+			break;
+		case VGEF:
+			text+= "VGEF";
+			break;
+		default:
+			text += "None";
+	}
+	
+	auto legend = sf::Text(text, getAppFont(), font_size);
+	legend.setPosition(xcoord, ycoord);
+#if SFML_VERSION_MAJOR >= 2 && SFML_VERSION_MINOR >= 4
+	legend.setFillColor(color);
+#else
+	legend.setColor(color);
+#endif
+	target.draw(legend);
+	*/
 }
 void Application::drawOneControl(sf::RenderWindow& target
 								 , Control control
@@ -806,7 +827,7 @@ void Application::drawOneControl(sf::RenderWindow& target
 								 , size_t font_size
 								 ) 
 {
-
+	// pourl'affichage de double voir le projet 1718
 	sf::Color color (mCurrentControl == control ? sf::Color::Red : sf::Color::White);
 	std::string text("");
 	switch (control) {
@@ -816,12 +837,10 @@ void Application::drawOneControl(sf::RenderWindow& target
 			break;
 		case GRADIENT :
 			text = "Gradient exponent : ";
-            text += to_nice_string(mLab->getGradientExponent());
+			text += to_nice_string(mLab->getGradientExponent());
 			break;
 		case STATS :
-			text = "Current stat : ";
-			text += "none";
-//			text += (isStatsOn ? mStats->getCurrentTitle() : "none");
+			text = "Current stat : none";
 			break;
 		default:
 			/* nothing to do */
