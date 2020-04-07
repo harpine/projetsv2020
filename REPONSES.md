@@ -315,8 +315,7 @@ f régissant son déplacement ? (indication : utilise t-on la composition
 ou l'héritage ?) 
 
 [Réponse R3.16] Nous nous sommes tournées vers l'héritage (comme les 
-fonctions sont déclarées virtuelles) -> est doté d'un attribut force
-héritage de DiffEqFunction
+fonctions sont déclarées virtuelles) 
 
 [Question Q3.17] Où déclarer et initialiser le temps t ?
 

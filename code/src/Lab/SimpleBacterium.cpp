@@ -5,6 +5,7 @@
 #include <Utility/Vec2d.hpp>
 #include <Utility/Utility.hpp>
 #include <Utility/DiffEqSolver.hpp>
+#include <Utility/MutableNumber.hpp>
 
 
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
@@ -18,7 +19,11 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
      t_flagelle_(uniform(0.0, PI)),
      probability_()
 {
-    addProperty("speed",MutableNumber(getSpeedConfig()["initial"].toDouble(),
+    // à remplacer par fonction positive:
+    //(MutableNumber::positive(getSpeedConfig()["initial"].toDouble(),
+    //getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble())
+
+    addProperty("speed", MutableNumber(getSpeedConfig()["initial"].toDouble(),
             getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), 1));
 
     addProperty("tumble better",MutableNumber(getBetterConfig()["initial"].toDouble(),
