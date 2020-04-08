@@ -37,6 +37,7 @@ public:
     void update();
 
     void drawDebug(sf::RenderTarget& targetWindow);
+    //permet de contrôler l'appartenance à un swarm de plusieurs bactéries visuellement
 
 
 private:

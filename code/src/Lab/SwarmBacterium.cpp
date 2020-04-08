@@ -52,8 +52,9 @@ void SwarmBacterium::drawOn(sf::RenderTarget& target) const
     {
         auto border = buildAnnulus(getPosition(), getRadius() + 20, sf::Color::Red, 3);
         target.draw(border);
+        swarm_->drawDebug(target); //lignes entre bactéries d'un même swarm
     }
-    swarm_->drawDebug(target);
+
 }
 
 void SwarmBacterium::move(sf::Time dt)
