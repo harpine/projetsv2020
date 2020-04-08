@@ -14,6 +14,11 @@ Vec2d Lab::getCenter() const
     return petridish_.getPosition();
 }
 
+Swarm* Lab::getSwarmWithId(std::string id) const // (unsigned id)  ??
+{
+    return petridish_.getSwarmWithId(id);
+}
+
 bool Lab::contains(const CircularBody& circularbody) const
 {
     return petridish_.contains(circularbody);
@@ -59,6 +64,16 @@ void Lab::addBacterium(Bacterium* bacterium)
     petridish_.addBacterium(bacterium);
 }
 
+void Lab::addClone(Bacterium* bacterium)
+{
+    petridish_.addClone(bacterium);
+}
+
+void Lab::addSwarm(Swarm *swarm)
+{
+    petridish_.addSwarm(swarm);
+}
+
 double Lab::getTemperature() const
 {
     return petridish_.getTemperature();
@@ -77,11 +92,6 @@ void Lab::decreaseTemperature()
 void Lab::resetTemperature()
 {
     petridish_.resetTemperature();
-}
-
-void Lab::addClone(Bacterium* bacterium)
-{
-    petridish_.addClone(bacterium);
 }
 
 double Lab::getPositionScore(const Vec2d& p) const

@@ -51,12 +51,23 @@ Nous gardons la partie 3.4 pour la semaine prochaine.
 
 [Semaine 4]
 
+Cette semaine l'objectif était de finir la partie 3. Aline s'est occupée
+du début de la partie 3.4 (déplacement rectiligne uniforme), Helena 
+s'est occupée du flagelle ainsi que du Basculement et gradient et pour 
+finir Aline s'est occupée de la division et de la mutation.
+Par rapport aux retouches finales, nous ne comprenons pas quels
+destructeurs nous devons modifier et/ou ajouter... Nous en discuterons 
+la semaine prochaine avec Sébastien.
+
 Nous avons rencontré un problème concernant les bactéries mobiles : 
 certaines restent figées dans la paroi de la PetriDish. En effet, des 
 imprécisions dans les pas de temps dt impliquent que la bactérie se 
 retrouve constamment en train de changer de direction une fois dans la 
 paroi. Un remaniement des conditions de changement de direction permet 
 de résoudre le problème.
+
+Actuellement nos bactéries simples ont passé tous les tests et elles se
+déplacent vers les nutriments, avec un flagelle, mutent et meurent. 
 
 
 
