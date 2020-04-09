@@ -1,9 +1,9 @@
+# Journal 
+
 ##Groupe 38, Aline Brunner et Helena Binková, coachées par Sébastien 
 Gachoud
 
-# Journal 
-
-[Semaine 1]
+###**Semaine 1**
 
 Nous avons mis en place l'environnement de programmation et avons pris 
 la décision de travailler avec Github (nous travaillons toutes les deux
@@ -14,7 +14,7 @@ Nous avons créé la classe CircularBody qui permet de modéliser un
 cercle, puis répondu aux quatre questions dans le fichier REPONSES. 
 Nous avons passé les tests de la semaine 1 avec succès.
 
-[Semaine 2]
+###**Semaine 2**
 
 Nous avons partagé les tâches de la manière suivante : Helena a créé les 
 classes Lab et PetriDish (2.1), Aline s'est occupée de la classe
@@ -31,7 +31,7 @@ Actuellement, nous avons donc une assiette de pétri dont nous pouvons
 changer la température et dans laquelle nous pouvons faire évoluer des 
 nutriments en fonction de cette température. 
 
-[Semaine 3]
+###**Semaine 3**
 
 Cette semaine, nous nous sommes fixées l'objectif de programmer jusqu'à 
 la partie 3.3. Pour ce faire, Aline a créé les classes 
@@ -49,7 +49,7 @@ d'énergie.
 
 Nous gardons la partie 3.4 pour la semaine prochaine. 
 
-[Semaine 4]
+###**Semaine 4**
 
 Cette semaine l'objectif était de finir la partie 3. Aline s'est occupée
 du début de la partie 3.4 (déplacement rectiligne uniforme), Helena 
@@ -69,7 +69,27 @@ de résoudre le problème.
 Actuellement nos bactéries simples ont passé tous les tests et elles se
 déplacent vers les nutriments, avec un flagelle, mutent et meurent. 
 
+###**Semaine 5**
 
+Cette semaine, nous avons fait la partie 4 du projet. Helena a fait la 
+partie 4.1, Aline la partie 4.2. Nous avons compris l'utilité des 
+destructeurs et avons fait les modifications nécessaires. 
+
+Aline a rencontré un problème qui nous a fait revenir sur l'ajout des 
+bactéries dans PetriDish. En effet, les bactéries non contenues dans
+l'assiette n'étaient en fait jamais détruites. Nous nous en sommes 
+rendues compte grâce à la notion de leader et de swarm.  L'ajout d'une 
+fonctionnalité permettant de tracer une droite entre les bactéries côtes
+à côtes dans le vecteur swarm a permis de détecter cette erreur 
+visuellement. Nous avons décidé de garder cette fonction lorsque le mode
+Debug est enclenché. 
+
+Actuellement, la partie 4 est donc finalisée et tous les tests 
+graphiques se déroulent bien. Nous avons donc des bactéries à tentacule 
+et des bactéries à comportement de groupe. Les bactéries simples 
+marchent toujours.
+
+Jusqu'à présent, toutes les parties semblent fonctionnelles.  
 
 
 

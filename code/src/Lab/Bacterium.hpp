@@ -33,7 +33,7 @@ public:
     //renvoie le "consumption factor"
     Quantity getMealQuantity() const;
     //renvoie le "meal" "max"
-    j::Value& getSpeedConfig() const;
+    virtual j::Value& getSpeedConfig() const;
     //renvoie la vitesse polymorphique pour une bactérie
     Vec2d getDirection() const;
     //renvoie la direction de la bactérie
@@ -73,7 +73,7 @@ public:
     //Décrémente l'energie de la bactérie d'une quantité donnée
     virtual void mutate(); //est-ce vraiment virtuel??
     //Mute la bactérie.
-    virtual Bacterium* copie() const = 0;
+    virtual Bacterium* copie() = 0;
     //permet de copier une bactérie
 
 private:

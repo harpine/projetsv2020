@@ -63,7 +63,7 @@ void TwitchingBacterium::drawOn(sf::RenderTarget& target) const
     target.draw(gripBorder);
 }
 
-Bacterium* TwitchingBacterium::copie() const
+Bacterium* TwitchingBacterium::copie()
 {
     //return new TwitchingBacterium(*this);
     TwitchingBacterium* twitching(new TwitchingBacterium(*this));

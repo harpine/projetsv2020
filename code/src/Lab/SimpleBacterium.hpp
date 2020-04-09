@@ -14,7 +14,6 @@ public:
 
     //getters & setters:
     virtual j::Value& getConfig() const override;
-    j::Value& getSpeedConfig() const;
     j::Value& getWorseConfig() const;
     j::Value& getBetterConfig() const;
     //permet de simplifier l'accès aux configurations
@@ -26,7 +25,7 @@ public:
     //calcul de la force
     virtual void move(sf::Time dt) override;
     //permet à une bactérie de se déplacer
-    virtual Bacterium* copie() const override;
+    virtual Bacterium* copie() override;
     //copie une bactérie
 
     virtual void drawOn(sf::RenderTarget& target) const override;

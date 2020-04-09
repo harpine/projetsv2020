@@ -167,7 +167,7 @@ void SimpleBacterium::updateFlagelle(sf::Time dt)
     //mise à jour de l'angle de rotation
 }
 
-Bacterium* SimpleBacterium::copie() const
+Bacterium* SimpleBacterium::copie()
 {
     return new SimpleBacterium(*this);
 }

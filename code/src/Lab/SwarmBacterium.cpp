@@ -34,7 +34,7 @@ j::Value& SwarmBacterium::getConfig() const
 
 Vec2d SwarmBacterium::getSpeedVector() const
 {
-    return (getDirection().normalised() * getConfig()["speed"]["initial"].toDouble());
+    return (getDirection().normalised() * getSpeedConfig()["initial"].toDouble());
 }
 
 Bacterium* SwarmBacterium::copie()

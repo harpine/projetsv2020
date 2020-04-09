@@ -28,7 +28,7 @@ public:
     //renvoie les paramètres de longueur de la tentacule
 
     //Autres méthodes:
-    virtual Bacterium* copie() const override;
+    virtual Bacterium* copie() override;
     //Renvoie un pointeur sur une TwitchingBacterium qui est une copie de this
     virtual void drawOn(sf::RenderTarget& target) const override;
     //Représentation graphique d'une bactérie à tentacules
