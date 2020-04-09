@@ -2,7 +2,6 @@
 #include "../Application.hpp"
 #include "../Random/Random.hpp"
 #include "../Utility/Utility.hpp"
-#include <iostream> //à enlever
 
 TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
@@ -82,14 +81,11 @@ void TwitchingBacterium::move(sf::Time dt)
     {
         case IDLE :
         {
-            std::cerr << "IDLE";
             mystate_ = WAIT_TO_DEPLOY;
             break;
         }
         case WAIT_TO_DEPLOY :
         {
-        std::cerr << "WAIT";
-
             Vec2d direction(getDirection());
             Vec2d finalDirection(getDirection());
             double score(getAppEnv().getPositionScore(getPosition()));
