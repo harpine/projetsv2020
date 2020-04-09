@@ -3,6 +3,8 @@
 #include "Application.hpp"
 #include "SwarmBacterium.hpp"
 #include "PetriDish.hpp"
+#include <Utility/Utility.hpp> //servent à la fonction DrawDebug
+#include <SFML/Graphics.hpp>
 
 Swarm::Swarm(std::string mId) //(unsigned int mId)
     : mId_(mId), leader_(nullptr) //vector initialisé nul par défaut
@@ -59,25 +61,10 @@ void Swarm::addSwarmBacterium(SwarmBacterium* swarmbacterium)
 void Swarm::removeSwarmBacterium(SwarmBacterium* swarmbacterium)
 {
     swarmbacteria_.erase(std::remove(swarmbacteria_.begin(), swarmbacteria_.end(), swarmbacterium), swarmbacteria_.end());
-    //std::cerr << "enlevee" << swarmbacteria_.size();
 }
 
 void Swarm::update()
 {
-    std::cerr << "vide " << swarmbacteria_.empty() << std::endl;
-//        for (auto& swarmbacterium: swarmbacteria_)
-//        {
-//            std::cerr << "kesake";
-//            if (leader_ == nullptr)
-//            {
-//                leader_ = swarmbacterium;
-//            }
-//            else if (getAppEnv().getPositionScore(swarmbacterium->getPosition()) > getAppEnv().getPositionScore(leader_->getPosition()))
-//            {
-//                leader_ = swarmbacterium;
-//            }
-//        }
-//    }
     SwarmBacterium* best(nullptr);
     double score(0);
     double current(0);
@@ -92,11 +79,7 @@ void Swarm::update()
 
     }
     leader_ = best;
-    //}
 }
-
-#include <Utility/Utility.hpp>
-#include <SFML/Graphics.hpp>
 
 void Swarm::drawDebug(sf::RenderTarget& targetWindow)
 {
@@ -111,10 +94,9 @@ void Swarm::drawDebug(sf::RenderTarget& targetWindow)
     }
     for (size_t i(0); i < swarmbacteria_.size(); ++i)
     {
-        //à enlever:
         if (i>0)
         {
-            auto line = buildLine(swarmbacteria_[i]->getPosition(), swarmbacteria_[i-1]->getPosition(), couleur, 3);
+            auto line = buildLine(swarmbacteria_[i]->getPosition(), swarmbacteria_[i-1]->getPosition(), couleur, 1.5);
             targetWindow.draw(line);
         }
     }

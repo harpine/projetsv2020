@@ -24,7 +24,6 @@ SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
 
 SwarmBacterium::~SwarmBacterium()
 {
-    std::cerr << "j'fais mon job";
     swarm_->removeSwarmBacterium(this);
 }
 
@@ -59,7 +58,6 @@ void SwarmBacterium::drawOn(sf::RenderTarget& target) const
 
 void SwarmBacterium::move(sf::Time dt)
 {
-    Vec2d speed(getSpeedVector());
     DiffEqResult result(stepDiffEq(getPosition(), getSpeedVector(), dt, *this));
     //this est une DiffEqFunction
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
@@ -67,8 +65,7 @@ void SwarmBacterium::move(sf::Time dt)
     if ((result.position - getPosition()).lengthSquared() > 0.001)
     {
         this->CircularBody::move((result.position - getPosition()));
-//        //move est moins intuitif mais meilleur pour la hiérarchie des classes
-//        //set vitesse??
+        //move est moins intuitif mais meilleur pour la hiérarchie des classes
     }
     if (swarm_->isLeader(this))
     {

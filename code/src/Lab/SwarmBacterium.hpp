@@ -24,8 +24,7 @@ public:
     //copie une bactérie
     virtual void move(sf::Time dt) override;
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
-    //virtual void update(sf::Time dt) override;
-    //permet de mettre à jour les données et actions de la bactérie swarm
+
 private:
     Swarm* swarm_;
 };
