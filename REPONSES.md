@@ -1,3 +1,9 @@
+# Nos réponses
+### Aline Brunner et Helena Binková, groupe 38
+
+
+##Partie 1
+
 [Question Q1.1] Comment coder les trois opérateurs précédemment décrits 
 en évitant toute duplication de code dans le fichier CircularBody.cpp ? 
 
@@ -35,6 +41,8 @@ coder vous semble t-il judicieux de déclarer comme const ?
 qui ne modifient pas l'instance traitée (getters, cointains, 
 isColliding, afficher).
 
+
+##Partie 2
 
 [Question Q2.1] Pour pouvoir représenter graphiquement l'assiette de 
 Petri et pour pouvoir permettre d'en délimiter le contour, par exemple
@@ -161,6 +169,9 @@ Pour R & C, nou avons ajouté la méthode resettemperature() dans lab, qui
 fait appelle à resettemperature() de petridish. Nous les avons appelées
 lors de l'appel des fonctions reset() et dans le fichier application 
 lorsque la touche C est appuyée.
+
+
+##Partie 3
 
 [Question Q3.1 ] : les classes fournies dans le répertoire Interface, à 
 savoir Drawable et Updatable, fournissent deux méthodes polymorphiques 
@@ -314,8 +325,12 @@ classe pour doter une bactérie simple d'une méthode qui calcule la force
 f régissant son déplacement ? (indication : utilise t-on la composition 
 ou l'héritage ?) 
 
-[Réponse R3.16] Nous nous sommes tournées vers l'héritage (comme les 
-fonctions sont déclarées virtuelles) 
+[Réponse R3.16] Nous nous sommes tournées vers l'héritage de sorte à 
+pouvoir utiliser les fonction déclarées dans la classe diffEqusolver. De
+plus, les fonctions de cette classe sont déclarées virtuelles, donc nous
+aurons besoin de les redéfinir pour pouvoir les utiliser.
+Pour confirmation, dans la classe DiffEquSolver il nous est indiqué que 
+nous devons hériter de cette classe.
 
 [Question Q3.17] Où déclarer et initialiser le temps t ?
 
@@ -347,7 +362,6 @@ de mutation ?
 [Réponse Q3.21] Dans Bacterium car toutes les bactéries vont muter et 
 les sous classes héritent de bactérie (gérer la couleur dans Bacterium)
 le reste dans SimpleBacterium. (vitesse -> positive mutablenumber)
-[poids->muter lambda]
 
 [Question Q3.22] Dans quelle classe proposez-vous d'ajouter ces 
 méthodes ?
@@ -359,6 +373,8 @@ d'une bactérie ?
 
 [Réponse Q3.23] Dans Bacterium. 
 
+
+##Partie 4
 
 [Question Q4.1] Quel(s) lien(s) d'héritage proposez-vous de mettre en 
 place pour intégrer les TwitchingBacteria à l'architecture existante ?
@@ -396,3 +412,56 @@ votre classe pour retrouver ces valeurs lorsque nécessaires ?
 lors du déploiment du tentacule. Nous devons aussi redéfinir le getter 
 pour l'énergie consommée lors du mouvement.
 
+
+
+[Question Q4.6] : Une assiette de Petri contiendra désormais aussi des 
+Swarm qu'elle doit faire évoluer. Sachant que nous souhaitons disposer 
+d'une fonctionnalité addSwarm ajoutant un Swarm (vide de bactéries) à 
+l'assiette et invocable comme suit:
+
+getEnv().addSwarm(new Swarm(id));//id est l'entier identifiant du groupe
+
+Quelle(s) modification(s) faites-vous et à quelle(s) classe(s) pour 
+intégrer cela ? 
+
+[Réponse Q4.6]
+Nous ajoutons un attribut swarms à l'assiette de pétri et des méthodes
+addSwarm à Petridish et à Lab.
+
+[Question Q4.7] : Une SwarmBacterium doit disposer d'une force régissant
+son déplacement, exactement comme les bactéries simples. Quels liens 
+mettez-vous en place pour modéliser cette force ? 
+
+[Réponse Q4.7] Étant donné que nous avons utilisé le lien d'héritage
+pour Simplebacterium, nous allons utiliser le même lien ici.
+
+[Question Q4.8] Au vu de ce qui précède, quelles méthodes déjà présentes
+dans la hiérarchie de classes des bactéries devrez-vous impérativement 
+redéfinir dans SwarmBacterium ? 
+
+[Réponse Q4.8] getConfig(), move() et copie() (car ces 3 méthodes sont 
+virtuelles pures)
+
+[Question Q4.9] Si vous examinez la méthode onEvent dans l'exemple de 
+programme précédent, vous verrez que le placement d'une SwarmBacterium 
+nécessite de recourir à l'appel getEnv().getSwarmWithId(id);. 
+Que devez-vous ajouter à votre code et où pour mettre en place cette 
+fonctionnalité ? 
+
+[Réponse Q4.9] Il faut ajouter la méthode getSwarmWithId(id) dans Lab et
+dans PetriDish (celle de Lab appelant celle de PetriDish).
+
+[Question Q4.10] Une SwarmBacterium est donc ajoutée à l'assiette comme 
+toutes les autres (elle fait partie de la collection de bactéries de 
+l'assiette). Le destructeur de Swarm doit-il faire quelque chose 
+selon vous ? 
+
+[Réponse Q4.10] Il doit détruire toutes les bactéries appartenant à son
+groupe.
+
+[Question Q4.11] Lorsqu'une SwarmBacterium meurt, elle ne doit plus être
+recensée dans son Swarm. Que devez-vous ajoutez à votre code et où pour 
+que cette contrainte soit respectée ? 
+
+[Réponse Q4.11] on doit enlever la bactérie de son swarm (méthode
+removeSwarmBacterium) lors de la destruction de la SwarmBacterium.

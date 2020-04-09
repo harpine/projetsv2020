@@ -9,6 +9,7 @@
 #include "Utility/Vec2d.hpp"
 #include "../Interface/Drawable.hpp"
 #include "../Interface/Updatable.hpp"
+#include "Swarm.hpp"
 
 class PetriDish : public CircularBody, public Drawable, public Updatable
 {
@@ -25,17 +26,24 @@ public:
     //getters et setters:
     double getTemperature() const;
     double getGradientExponent() const;
+    Swarm* getSwarmWithId(std::string id) const; //(unsigned id) ??
 
     //Surcharges d'operateurs :
     PetriDish& operator=(const PetriDish& p) = delete;
     //Interdiction d'affectation entre assiettes de pétri
 
+    //ajouts:
 
-    //Methodes :
     bool addBacterium(Bacterium* bacterium);
     //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
     bool addNutriment(Nutriment* nutriment);
     //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
+    void addClone(Bacterium* bacterium);
+    //ajoute le clone à l'ensemble des clones de l'assiette
+    void addSwarm (Swarm* swarm);
+    //ajoute un swarm à à l'ensemble des groupes (swarms) de l'assiette
+
+    //Methodes :
     Nutriment* getNutrimentColliding(const CircularBody& body) const;
     //retourne la source de nutriment en collision avec body
     void update(sf::Time dt);
@@ -49,8 +57,6 @@ public:
     //Permet de modifier la température de la boîte de petri
     void resetTemperature();
     //Réinitialise la température à sa valeur par défaut
-    void addClone(Bacterium* bacterium);
-    //ajoute le clone dans l'assiette
 
     double getPositionScore(const Vec2d& p) const;
     //retourne le score associé à une position donnée
@@ -66,6 +72,7 @@ private:
     std::vector<Bacterium*> bacteria_;
     std::vector<Bacterium*> cloned_;
     std::vector<Nutriment*> nutriments_;
+    std::vector<Swarm*> swarms_;
     double temperature_;
     double exponent_;
 

@@ -16,7 +16,7 @@ public:
 
     //Getters:
     Vec2d getCenter() const;
-
+    Swarm* getSwarmWithId(std::string id) const; // (unsigned id) ??
 
     //Méthodes:
     bool contains(const CircularBody& circularbody)  const;
@@ -33,11 +33,17 @@ public:
     void reset();
     //Vide l'assiette de pétri associée à Lab et réinitialise la température
 
+    // ajouts:
     void addNutriment(Nutriment* nutriment);
     // ajoute un nutriment à l'assiette de petri
     void addBacterium(Bacterium* bacterium);
     // ajoute un nutriment à l'assiette de petri
+    void addClone(Bacterium* bacterium);
+    //ajoute un clone à l'assiette de petri
+    void addSwarm(Swarm* swarm);
+    //ajoute un swarm à l'assiette de petri
 
+    //pour la température:
     double getTemperature() const;
     //retourne la température de la boîte de petri
     void increaseTemperature();
@@ -45,9 +51,8 @@ public:
     //Permet de modifier la température de la boîte de petri
     void resetTemperature();
     //Réinitialise la température avec la valeur par défaut
-    void addClone(Bacterium* bacterium);
-    //ajoute un clone au lab
 
+    //pour le score de la position:
     double getPositionScore(const Vec2d& p) const;
     //retourne le score d'une position donnée
     double getGradientExponent() const;

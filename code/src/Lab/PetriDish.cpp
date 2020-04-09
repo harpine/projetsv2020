@@ -7,6 +7,7 @@
 #include "Nutriment.hpp"
 #include "Bacterium.hpp"
 #include <cmath>
+#include "Swarm.hpp"
 #include <iostream> //à enlever
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
@@ -30,6 +31,18 @@ double PetriDish::getGradientExponent() const
     return exponent_;
 }
 
+Swarm* PetriDish::getSwarmWithId(std::string id) const //unsigned int id) const ?
+{
+    for (auto swarm: swarms_)
+    {
+        if (swarm->getId() == id)
+        {
+            return swarm;
+        }
+    }
+    return nullptr;
+}
+
 bool PetriDish::addBacterium(Bacterium* bacterium)
 {
     if (contains(*bacterium))
@@ -37,6 +50,8 @@ bool PetriDish::addBacterium(Bacterium* bacterium)
         bacteria_.push_back(bacterium);
         return true;
     }
+    delete bacterium;   //permet d'éviter d'avoir des bactéries "inertes" qui traînent hors de la boîte de petri
+    bacterium = nullptr; //c'est surtout important pour la gestion des swarms
     return false;
 }
 
@@ -47,7 +62,25 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
         nutriments_.push_back(nutriment);
         return true;
     }
+    delete nutriment;
+    nutriment = nullptr;
     return false;
+}
+
+void PetriDish::addClone(Bacterium* bacterium)
+{
+    if (bacterium != nullptr)
+    {
+        cloned_.push_back(bacterium);
+    }
+}
+
+void PetriDish::addSwarm(Swarm *swarm)
+{
+    if (swarm != nullptr)
+    {
+        swarms_.push_back(swarm);
+    }
 }
 
 Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
@@ -92,7 +125,13 @@ void PetriDish::update(sf::Time dt)
             bacterium = nullptr;
         }
     }
+
     bacteria_.erase(std::remove(bacteria_.begin(), bacteria_.end(), nullptr), bacteria_.end());
+
+    for (auto& swarm: swarms_)
+    {
+        swarm->update();
+    }
 }
 
 void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
@@ -125,8 +164,19 @@ void PetriDish::reset()
         delete nutriment;
     }
     nutriments_.clear();
+
+    for (auto& bacterium : bacteria_)
+    {
+        delete bacterium;
+    }
+    bacteria_.clear();
+
+    swarms_.clear();
+
     resetTemperature();
     resetGradientExponent();
+
+
 }
 
 void PetriDish::increaseTemperature()
@@ -142,14 +192,6 @@ void PetriDish::decreaseTemperature()
 void PetriDish::resetTemperature()
 {
     temperature_ = getAppConfig()["petri dish"]["temperature"]["default"].toDouble();
-}
-
-void PetriDish::addClone(Bacterium* bacterium)
-{
-    if (bacterium != nullptr)
-    {
-        cloned_.push_back(bacterium);
-    }
 }
 
 double PetriDish::getPositionScore(const Vec2d& p) const

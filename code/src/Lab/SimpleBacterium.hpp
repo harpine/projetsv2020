@@ -14,20 +14,19 @@ public:
 
     //getters & setters:
     virtual j::Value& getConfig() const override;
+    j::Value& getSpeedConfig() const;
     j::Value& getWorseConfig() const;
     j::Value& getBetterConfig() const;
     //permet de simplifier l'accès aux configurations
+    Vec2d getSpeedVector() const;
+    //renvoie la vitesse courante (direction * une valeur)
 
     //méthodes:
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
     //calcul de la force
-    Vec2d getSpeedVector() const;
-    //renvoie la vitesse courante (direction * une valeur)
     virtual void move(sf::Time dt) override;
     //permet à une bactérie de se déplacer
-//    virtual Bacterium* clone() const override;
-//    clone une bactérie
-    virtual Bacterium* copie()const override;
+    virtual Bacterium* copie() const override;
     //copie une bactérie
 
     virtual void drawOn(sf::RenderTarget& target) const override;

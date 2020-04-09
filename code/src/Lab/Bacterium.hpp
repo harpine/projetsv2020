@@ -22,6 +22,8 @@ public:
               const MutableColor color);
     Bacterium(const Bacterium& other);
 
+    virtual ~Bacterium() = default;
+
     //Getters utilitaires et setters:
     Quantity getDivisionEnergy() const;
     //renvoie l'energie nécessaire à la division
@@ -69,7 +71,7 @@ public:
     //pour atteindre ses paramètres.
     void consumeEnergy(const Quantity qt);
     //Décrémente l'energie de la bactérie d'une quantité donnée
-    virtual void mutate();
+    virtual void mutate(); //est-ce vraiment virtuel??
     //Mute la bactérie.
     virtual Bacterium* copie() const = 0;
     //permet de copier une bactérie

@@ -127,8 +127,8 @@
         },
         "speed" : {
             "initial" : 30,
-            "rate" : 0.8,
-            "sigma" : 0.4
+            "rate" : 1,
+            "sigma" : 1
         },
         "tumble" : {
             "algo" : "best of 20",
