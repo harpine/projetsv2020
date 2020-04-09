@@ -86,7 +86,6 @@ void TwitchingBacterium::move(sf::Time dt)
         }
         case WAIT_TO_DEPLOY :
         {
-
             Vec2d direction(getDirection());
             Vec2d finalDirection(getDirection());
             double score(getAppEnv().getPositionScore(getPosition()));
