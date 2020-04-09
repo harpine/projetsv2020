@@ -38,10 +38,6 @@ j::Value& SimpleBacterium::getConfig() const
 {
     return getAppConfig()["simple bacterium"];
 }
-j::Value& SimpleBacterium::getSpeedConfig() const
-{
-    return getConfig()["speed"];
-}
 
 j::Value& SimpleBacterium::getWorseConfig() const
 {
@@ -125,7 +121,7 @@ void SimpleBacterium::tumble()
                 finalDirection = direction;
             }
         }
-        setDirection(finalDirection);
+        setDirection(finalDirection.normalised());
     }
     tumbleClock_ = sf::Time::Zero;
 }
@@ -175,7 +171,7 @@ void SimpleBacterium::updateFlagelle(sf::Time dt)
     //mise à jour de l'angle de rotation
 }
 
-Bacterium* SimpleBacterium::copie()
+Bacterium* SimpleBacterium::copie() const
 {
     return new SimpleBacterium(*this);
 }

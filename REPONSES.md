@@ -358,3 +358,41 @@ méthodes ?
 d'une bactérie ?
 
 [Réponse Q3.23] Dans Bacterium. 
+
+
+[Question Q4.1] Quel(s) lien(s) d'héritage proposez-vous de mettre en 
+place pour intégrer les TwitchingBacteria à l'architecture existante ?
+
+[Réponse R4.1] TwitchingBacterium sera une classe héritant de Bacterium
+car elle est aussi une bactérie et a besoin de méthodes préexistantes 
+de Bacterium ainsi que de ses attributs.
+
+[Question Q4.2] En vous inspirant de ce que vous avez fait pour les 
+bactéries simples, et en observant le contenu du fichier de 
+configuration app.json, comment proposez-vous d'accéder aux paramètres 
+caractérisant ce type de bactéries (comme la longueur maximale de son 
+tentacule ou sa vitesse d'extension) ? 
+
+[Réponse R4.2] Pour accéder aux paramètres en général, nous avons déjà 
+une méthode getConfig à redéfinir car elle est virtuelle pure dans la 
+classe Bacterium. De plus, on peut construire certains getters 
+utilitaires pratiques pour accéder aux paramètres caractéristiques.
+
+[Question Q4.3] Quelles méthodes déjà présentes dans la hiérarchie de 
+classes des bactéries devrez-vous impérativement redéfinir dans 
+TwitchingBacterium ?
+
+[Réponse R4.3] Nous devons impérativement redéfinir les méthodes 
+virtuelles pures, c'est-à-dire getConfig, move et copie. 
+
+[Question Q4.4] Les facteurs de déperdition d'énergie permettant le 
+calcul de la perte d'énergie dans chaque cas sont donnés par les valeurs
+associées à ["energy"]["consumption factor"]["move"] et 
+["energy"]["consumption factor"]["tentacle"] dans le fichier de 
+configuration. Quel «getters» proposez-vous d'ajouter/redéfinir à/dans 
+votre classe pour retrouver ces valeurs lorsque nécessaires ? 
+
+[Réponse R4.4] Il faut créer un nouveau getter pour l'énergie consommée
+lors du déploiment du tentacule. Nous devons aussi redéfinir le getter 
+pour l'énergie consommée lors du mouvement.
+

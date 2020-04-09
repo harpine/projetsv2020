@@ -22,10 +22,7 @@ Bacterium::Bacterium(const Bacterium& other)
     :Bacterium(other.energy_ ,other.getPosition(), other.direction_,
                other.getRadius(),other.color_)
 {
-    for (auto pair : other.mutableParameters_)
-    {
-        mutableParameters_ = other.mutableParameters_;
-    }
+    mutableParameters_ = other.mutableParameters_;
 }
 
 //Getters utilitaires :
@@ -47,6 +44,11 @@ Quantity Bacterium::getDisplacementEnergy() const
 Quantity Bacterium::getMealQuantity() const
 {
     return getConfig()["meal"]["max"].toDouble();
+}
+
+j::Value& Bacterium::getSpeedConfig() const
+{
+    return getConfig()["speed"];
 }
 
 Vec2d Bacterium::getDirection() const
