@@ -1,7 +1,7 @@
 #ifndef GRIP_HPP
 #define GRIP_HPP
 
-#include "../Utility/Vec2d.hpp"
+#include <Utility/Vec2d.hpp>
 #include "CircularBody.hpp"
 
 class Grip : public CircularBody

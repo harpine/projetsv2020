@@ -303,19 +303,19 @@ qui doit non seulement faire évoluer les nutriments, mais aussi prendre
 en compte l'évolution des bactéries par l'appel de Bacterium::update sur
 les bactéries de l'assiette.
 
-[Question Q3.15] Que devez-vous modifier et dans quelle classe pour 
+**Question Q3.15** Que devez-vous modifier et dans quelle classe pour 
 faire en sorte que les bactéries et sources de nutriments de votre 
 simulation meurent/disparaissent si leur énergie/quantité devient 
 nulle ? 
 
-[Réponse R3.15] Grâce à la méthode Bacterium::death, on peut identifier 
+*Réponse R3.15* Grâce à la méthode Bacterium::death, on peut identifier 
 les bactéries mortes, dont l'énergie est inférieure ou égale à 0. Dans 
 la classe PetriDish, il faut donc faire disparaître bactéries et 
 nutriments des vectors nutirments_ et bacteria_. La méthode PetriDish::
 update doit donc également comprendre la transformation des nutriments 
 épuisés et des bactéries mortes et nullptr puis les faire disparaître. 
 
-[Question Q3.16] La classe DiffEqFunction (aussi contenue dans le 
+**Question Q3.16** La classe DiffEqFunction (aussi contenue dans le 
 fichier Utility/DiffEqSolver.hpp) permet justement de modéliser une 
 force f à évaluer en fonction d'une position et d'une vitesse. Expliquez
 dans votre fichier REPONSES comment vous proposez d'utiliser cette 
@@ -323,55 +323,67 @@ classe pour doter une bactérie simple d'une méthode qui calcule la force
 f régissant son déplacement ? (indication : utilise t-on la composition 
 ou l'héritage ?) 
 
-[Réponse R3.16] Nous nous sommes tournées vers l'héritage de sorte à 
+*Réponse R3.16* Nous nous sommes tournées vers l'héritage de sorte à 
 pouvoir utiliser les fonction déclarées dans la classe diffEqusolver. De
 plus, les fonctions de cette classe sont déclarées virtuelles, donc nous
 aurons besoin de les redéfinir pour pouvoir les utiliser.
 Pour confirmation, dans la classe DiffEquSolver il nous est indiqué que 
 nous devons hériter de cette classe.
 
-[Question Q3.17] Où déclarer et initialiser le temps t ?
+**Question Q3.17** Où déclarer et initialiser le temps t ?
 
-[Réponse R3.17] attribut de SimpleBacterium?
+*Réponse R3.17* Le temps t peut être déclaré comme attribut de la classe
+TwitchingBacterium et initialisé dans le constructeur à une valeur 
+uniformément distribuée entre 0 et PI.
 
-[Question Q3.18] Comment mémoriser l'angle de direction et à quel 
+**Question Q3.18** Comment mémoriser l'angle de direction et à quel 
 endroit du code l'initialiser et le mettre à jour si l'on considère que
 toutes les bactéries ont une direction et un angle de direction? 
 
-[Réponse R3.18] Attribut dans la classe Bacterium?
+*Réponse R3.18* Pour mémoriser la direction d'une bactérie, nous le 
+déclarons attribut de la super-classe Bacterium. Nous l'initialisons 
+donc dans le constructeur de Bacterium. Nous la mettons à jour dans les 
+sous-classes en fonction du déplacement spécifique au type de bactérie.
+Ainsi cela se fait dans la méthode move grâce à un setter. 
 
-[Question Q3.19] Comment devez-vous modifier PetriDish pour mettre en 
+
+**Question Q3.19** Comment devez-vous modifier PetriDish pour mettre en 
 oeuvre cette fonctionnalité ?
 
-[Réponse Q3.19] Ajouter la méthode getPositionScore(const Vec2d&) ainsi
-que l'attribut exposant (+initialiser à "Gradient exponent") dans 
-Petridish.
+*Réponse R3.19* Il faut ajouter la méthode getPositionScore(const 
+Vec2d&) dans PetriDish qui sera applée dans Lab dans la fonction de même
+nom. Il faut aussi ajouter l'attribut exposant (et l'initialiser à 
+"Gradient exponent") dans Petridish.
 
-[Question Q3.20] Quel(s) attributs suggérez-vous d'ajouter à la 
+**Question Q3.20** Quel(s) attributs suggérez-vous d'ajouter à la 
 représentation des bactéries (simples ou "tout court") pour permettre 
 la mise en oeuvre cet algorithme ? Comment initialiser ces attributs et 
 à quels endroits devez-vous les mettre à jour ? 
 
-[Réponse Q3.20] Un score et un temps.
+*Réponse Q3.20* Pour mettre en oeuvre l'algorithme, on ajoute un 
+attribut score ainsi qu'un attribut servant de compteur contentant le 
+temps écoulé depuis le dernier basculement. Leur initialisation de fait 
+dans le constructeur de SimplBacterium et ils sont mis à jour après 
+chaque déplacement, soit dans la méthode move. 
 
-[Question Q3.21] Dans quelle classe proposez-vous d'ajouter la méthode 
+**Question Q3.21** Dans quelle classe proposez-vous d'ajouter la méthode 
 de mutation ?
 
-[Réponse Q3.21] Dans Bacterium car toutes les bactéries vont muter et 
+*Réponse Q3.21* Dans Bacterium car toutes les bactéries vont muter et 
 les sous classes héritent de bactérie. Si elles n'ont pas de paramètres
 mutables, cette liste sera donc vide et cela ne posera aucun problème
 aux sous classes.
 
-[Question Q3.22] Dans quelle classe proposez-vous d'ajouter ces 
+**Question Q3.22** Dans quelle classe proposez-vous d'ajouter ces 
 méthodes ?
 
-[Réponse Q3.22] Dans la classe Bacterium car les paramètres mutables
+*Réponse Q3.22* Dans la classe Bacterium car les paramètres mutables
 sont un attribut de Bacterium.
 
-[Question Q3.23] Où choisissez-vous de placer la méthode de division 
+**Question Q3.23** Où choisissez-vous de placer la méthode de division 
 d'une bactérie ?
 
-[Réponse Q3.23] La procédure de division étant la même pour toutes les
+*Réponse Q3.23* La procédure de division étant la même pour toutes les
 bactéries, nous avons décider d'avoir une méthode clone dans bacterium,
 qui fait appelle à une méthode virtuelle pure "copie()", qui fonctionne
 de façon polymorphique.
@@ -379,45 +391,53 @@ de façon polymorphique.
 
 ## Partie 4
 
-[Question Q4.1] Quel(s) lien(s) d'héritage proposez-vous de mettre en 
+**Question Q4.1** Quel(s) lien(s) d'héritage proposez-vous de mettre en 
 place pour intégrer les TwitchingBacteria à l'architecture existante ?
 
-[Réponse R4.1] TwitchingBacterium sera une classe héritant de Bacterium
+*Réponse R4.1* TwitchingBacterium sera une classe héritant de Bacterium
 car elle est aussi une bactérie et a besoin de méthodes préexistantes 
 de Bacterium ainsi que de ses attributs.
 
-[Question Q4.2] En vous inspirant de ce que vous avez fait pour les 
+**Question Q4.2** En vous inspirant de ce que vous avez fait pour les 
 bactéries simples, et en observant le contenu du fichier de 
 configuration app.json, comment proposez-vous d'accéder aux paramètres 
 caractérisant ce type de bactéries (comme la longueur maximale de son 
 tentacule ou sa vitesse d'extension) ? 
 
-[Réponse R4.2] Pour accéder aux paramètres en général, nous avons déjà 
+*Réponse R4.2* Pour accéder aux paramètres en général, nous avons déjà 
 une méthode getConfig à redéfinir car elle est virtuelle pure dans la 
 classe Bacterium. De plus, on peut construire certains getters 
 utilitaires pratiques pour accéder aux paramètres caractéristiques.
 
-[Question Q4.3] Quelles méthodes déjà présentes dans la hiérarchie de 
+**Question Q4.3** Quelles méthodes déjà présentes dans la hiérarchie de 
 classes des bactéries devrez-vous impérativement redéfinir dans 
 TwitchingBacterium ?
 
-[Réponse R4.3] Nous devons impérativement redéfinir les méthodes 
+*Réponse R4.3* Nous devons impérativement redéfinir les méthodes 
 virtuelles pures, c'est-à-dire getConfig, move et copie. 
 
-[Question Q4.4] Les facteurs de déperdition d'énergie permettant le 
+**Question Q4.4** Les facteurs de déperdition d'énergie permettant le 
 calcul de la perte d'énergie dans chaque cas sont donnés par les valeurs
 associées à ["energy"]["consumption factor"]["move"] et 
 ["energy"]["consumption factor"]["tentacle"] dans le fichier de 
 configuration. Quel «getters» proposez-vous d'ajouter/redéfinir à/dans 
 votre classe pour retrouver ces valeurs lorsque nécessaires ? 
 
-[Réponse R4.4] Il faut créer un nouveau getter pour l'énergie consommée
+*Réponse R4.4* Il faut créer un nouveau getter pour l'énergie consommée
 lors du déploiment du tentacule. Nous devons aussi redéfinir le getter 
 pour l'énergie consommée lors du mouvement.
 
+**Question Q4.5** Un type énuméré peut être une bonne solution pour 
+répertorier les différents états cités plus haut. Comment proposeriez-
+vous d'en utiliser un pour mettre en oeuvre l'algorithme de mouvement ?
 
+*Réponse R4.5* On peut créer avec enum un nouveau type contenant tous 
+les états que la TwitchignBcterium peut prendre. On ajouterait ensuite
+un nouvel attribut à la classe prenant l'état dans lequel se trouve la 
+bactérie, ce qui permet de lui faire faire des actions en fonction de 
+l'état dans lequel elle se trouve.
 
-[Question Q4.6] : Une assiette de Petri contiendra désormais aussi des 
+**Question Q4.6** Une assiette de Petri contiendra désormais aussi des 
 Swarm qu'elle doit faire évoluer. Sachant que nous souhaitons disposer 
 d'une fonctionnalité addSwarm ajoutant un Swarm (vide de bactéries) à 
 l'assiette et invocable comme suit:
@@ -427,44 +447,44 @@ getEnv().addSwarm(new Swarm(id));//id est l'entier identifiant du groupe
 Quelle(s) modification(s) faites-vous et à quelle(s) classe(s) pour 
 intégrer cela ? 
 
-[Réponse Q4.6] Nous ajoutons un attribut swarms à l'assiette de pétri et
+*Réponse Q4.6* Nous ajoutons un attribut swarms à l'assiette de pétri et
 des méthodes addSwarm à Petridish et à Lab.
 
-[Question Q4.7] : Une SwarmBacterium doit disposer d'une force régissant
+**Question Q4.7** Une SwarmBacterium doit disposer d'une force régissant
 son déplacement, exactement comme les bactéries simples. Quels liens 
 mettez-vous en place pour modéliser cette force ? 
 
-[Réponse Q4.7] Étant donné que nous avons utilisé le lien d'héritage
+*Réponse Q4.7* Étant donné que nous avons utilisé le lien d'héritage
 pour Simplebacterium, nous allons utiliser le même lien ici.
 
-[Question Q4.8] Au vu de ce qui précède, quelles méthodes déjà présentes
+**Question Q4.8** Au vu de ce qui précède, quelles méthodes déjà présentes
 dans la hiérarchie de classes des bactéries devrez-vous impérativement 
 redéfinir dans SwarmBacterium ? 
 
-[Réponse Q4.8] getConfig(), move() et copie() (car ces 3 méthodes sont 
+*Réponse Q4.8* getConfig(), move() et copie() (car ces 3 méthodes sont 
 virtuelles pures)
 
-[Question Q4.9] Si vous examinez la méthode onEvent dans l'exemple de 
+**Question Q4.9** Si vous examinez la méthode onEvent dans l'exemple de 
 programme précédent, vous verrez que le placement d'une SwarmBacterium 
 nécessite de recourir à l'appel getEnv().getSwarmWithId(id);. 
 Que devez-vous ajouter à votre code et où pour mettre en place cette 
 fonctionnalité ? 
 
-[Réponse Q4.9] Il faut ajouter la méthode getSwarmWithId(id) dans Lab et
+*Réponse Q4.9* Il faut ajouter la méthode getSwarmWithId(id) dans Lab et
 dans PetriDish (celle de Lab appelant celle de PetriDish).
 
-[Question Q4.10] Une SwarmBacterium est donc ajoutée à l'assiette comme 
+**Question Q4.10** Une SwarmBacterium est donc ajoutée à l'assiette comme 
 toutes les autres (elle fait partie de la collection de bactéries de 
 l'assiette). Le destructeur de Swarm doit-il faire quelque chose 
 selon vous ? 
 
-[Réponse Q4.10] Il doit détruire toutes les bactéries appartenant à son
+*Réponse Q4.10* Il doit détruire toutes les bactéries appartenant à son
 groupe.
 
-[Question Q4.11] Lorsqu'une SwarmBacterium meurt, elle ne doit plus être
+**Question Q4.11** Lorsqu'une SwarmBacterium meurt, elle ne doit plus être
 recensée dans son Swarm. Que devez-vous ajoutez à votre code et où pour 
 que cette contrainte soit respectée ? 
 
-[Réponse Q4.11] On doit enlever la bactérie de son swarm (méthode
+*Réponse Q4.11* On doit enlever la bactérie de son swarm (méthode
 removeSwarmBacterium) lors de la destruction de la SwarmBacterium (il
 faut donc redéfinir le constructeur de SwarmBaterium).

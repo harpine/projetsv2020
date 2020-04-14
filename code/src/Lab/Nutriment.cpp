@@ -1,6 +1,6 @@
 #include "Nutriment.hpp"
-#include "../Application.hpp"
-#include "../Utility/Utility.hpp"
+#include <Application.hpp>
+#include <Utility/Utility.hpp>
 
 Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
     : CircularBody(poscenter, quantity),

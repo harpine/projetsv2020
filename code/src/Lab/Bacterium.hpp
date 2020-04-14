@@ -70,7 +70,7 @@ public:
     //pour atteindre ses paramètres.
     void consumeEnergy(const Quantity qt);
     //Décrémente l'energie de la bactérie d'une quantité donnée
-    virtual void mutate(); //est-ce vraiment virtuel??
+    void mutate();
     //Mute la bactérie.
     virtual Bacterium* copie() = 0;
     //permet de copier une bactérie

@@ -1,5 +1,6 @@
 #ifndef NUTRIMENTA_HPP
 #define NUTRIMENTA_HPP
+
 #include "Nutriment.hpp"
 
 class NutrimentA : public Nutriment
