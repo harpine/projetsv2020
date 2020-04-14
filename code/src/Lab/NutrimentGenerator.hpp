@@ -8,10 +8,10 @@
 class NutrimentGenerator: public Updatable
 {
 public:
-    //Constructeurs
+    //Constructeur:
     NutrimentGenerator();
 
-    //Méthodes
+    //Autres méthodes:
     virtual void update(sf::Time dt) override;
     //génère des nutriments régulièrement (selon paramètres)
     Nutriment* choose();
@@ -20,6 +20,7 @@ public:
     //réinitialise le temps à "Zero"
 
 private:
+    //Attribut:
     sf::Time compteur_;
 };
 

@@ -6,12 +6,10 @@
 class NutrimentA : public Nutriment
 {
 public:
-    //constructeurs
+    //Constructeur:
     NutrimentA(const Quantity quantity, const Vec2d& poscenter);
 
-    //méthodes
-    //virtual void drawOn(sf::RenderTarget& target) const override;
-    //virtual void update(sf::Time dt) override;
+    //Getter:
     virtual j::Value const& getConfig() const override;
 };
 

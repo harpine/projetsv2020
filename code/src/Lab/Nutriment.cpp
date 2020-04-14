@@ -2,21 +2,21 @@
 #include <Application.hpp>
 #include <Utility/Utility.hpp>
 
+//Constructeur:
 Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
     : CircularBody(poscenter, quantity),
       quantity_(quantity)
 {}
 
-Quantity Nutriment::takeQuantity(const Quantity totake)
+//Getters et setter:
+j::Value const& Nutriment::getConfig() const
 {
-    double taken(quantity_);
-    if (totake <= quantity_)
-    {
-        taken = totake;
-    }
-    quantity_ -= taken;
-    setRadius(quantity_);
-    return taken;
+    return getAppConfig()["nutriments"];
+}
+
+Quantity Nutriment::getQuantity() const
+{
+    return quantity_;
 }
 
 void Nutriment::setQuantity(Quantity newquantity)
@@ -29,17 +29,27 @@ void Nutriment::setQuantity(Quantity newquantity)
     {
         quantity_ = 0;
     }
+
     setRadius(quantity_);
 }
 
-Quantity Nutriment::getQuantity() const
+//Autres méthodes:
+Quantity Nutriment::takeQuantity(const Quantity totake)
 {
-    return quantity_;
+    double taken(quantity_);
+
+    if (totake <= quantity_)
+    {
+        taken = totake;
+    }
+
+    quantity_ -= taken;
+    setRadius(quantity_);
+    return taken;
 }
 
 void Nutriment::drawOn(sf::RenderTarget& target) const
 {
-
     int taille_graphique(6);
     auto const& texture = getAppTexture(getConfig()["texture"].toString());
     auto nutrimentSprite = buildSprite(getPosition(), taille_graphique, texture);
@@ -56,23 +66,25 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
     }
 }
 
-j::Value const& Nutriment::getConfig() const
-{
-    return getAppConfig()["nutriments"];
-}
-
 void Nutriment::update(sf::Time dt)
 {
     if (canGrow()) //fait les tests avant la croissance et non après...
-        //(le nutriment peut grandir un pas de trop) à améliorer?
+                   //(le nutriment peut grandir un pas de trop) à améliorer?
     {
-    double speed(getConfig()["growth"]["speed"].toDouble());
-    auto growth = speed * dt.asSeconds();
-    quantity_ += growth;
-    setRadius(quantity_);
+        double speed(getConfig()["growth"]["speed"].toDouble());
+        auto growth = speed * dt.asSeconds();
+        quantity_ += growth;
+        setRadius(quantity_);
     }
 }
 
+bool Nutriment::depleted() const
+{
+    return (int(quantity_) <=0); // <=pour éviter que les nutriments aient
+    //tendance à grandir alors qu'ils devraient disparaître
+}
+
+//Méthode privée:
 bool Nutriment::canGrow() const
 {
     double temperature(getAppEnv().getTemperature());
@@ -81,13 +93,6 @@ bool Nutriment::canGrow() const
             quantity_ < 2* getConfig()["quantity"]["max"].toDouble() and
             getAppEnv().contains(*this));
 }
-
-bool Nutriment::depleted() const
-{
-    return (int(quantity_) <=0); //pour éviter que les nutriments aient tendance à grandir
-    //alors qu'ils devraient disparaître
-}
-
 
 
 

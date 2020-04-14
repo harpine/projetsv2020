@@ -6,7 +6,8 @@
 #include <Utility/Utility.hpp> //servent à la fonction DrawDebug
 #include <SFML/Graphics.hpp>
 
-Swarm::Swarm(std::string mId) //(unsigned int mId)
+//Constructeur et destructeur:
+Swarm::Swarm(std::string mId)
     : mId_(mId), leader_(nullptr) //vector initialisé nul par défaut
 {}
 
@@ -19,6 +20,8 @@ Swarm::~Swarm()
     }
     swarmbacteria_.clear();
 }
+
+//Getters:
 MutableColor Swarm::getInitialColor() const
 {
     return getConfig()[mId_]["color"];
@@ -29,14 +32,9 @@ j::Value& Swarm::getConfig() const
     return getAppConfig()["swarms"];
 }
 
-std::string Swarm::getId() const //unsigned int?
+std::string Swarm::getId() const
 {
     return mId_;
-}
-
-std::vector <SwarmBacterium*> Swarm::getSwarmBacteria() const
-{
-    return swarmbacteria_;
 }
 
 bool Swarm::isLeader(const SwarmBacterium* swarmbacterium) const
@@ -68,22 +66,24 @@ void Swarm::update()
     SwarmBacterium* best(nullptr);
     double score(0);
     double current(0);
+
     for (auto& swarmbacterium: swarmbacteria_)
     {
         current = getAppEnv().getPositionScore(swarmbacterium->getPosition());
+
         if (current > score)
         {
             score = current;
             best = swarmbacterium;
         }
-
     }
     leader_ = best;
 }
 
-void Swarm::drawDebug(sf::RenderTarget& targetWindow)
+void Swarm::drawDebug(sf::RenderTarget& targetWindow) //ne marche que s'il n'y a pas plus de 2 swarms
 {
     sf::Color couleur;
+
     if (mId_ == "1")
     {
         couleur = sf::Color::Black;
@@ -92,6 +92,7 @@ void Swarm::drawDebug(sf::RenderTarget& targetWindow)
     {
         couleur = sf::Color::Red;
     }
+
     for (size_t i(0); i < swarmbacteria_.size(); ++i)
     {
         if (i>0)

@@ -29,7 +29,7 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble()));
 }
 
-//Getters et setters:
+//Getters:
 j::Value& SimpleBacterium::getConfig() const
 {
     return getAppConfig()["simple bacterium"];

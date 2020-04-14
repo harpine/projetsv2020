@@ -8,6 +8,7 @@
 
 class SimpleBacterium : public Bacterium, public DiffEqFunction
 {
+
 public:
     //Constructeur:
     SimpleBacterium(const Vec2d& poscenter);
