@@ -1,12 +1,11 @@
+#include "../Utility/MutableNumber.hpp"
 #include "SimpleBacterium.hpp"
-#include "../Application.hpp"
-#include "../Random/Random.hpp"
-#include "../Utility/Constants.hpp"
+#include <Application.hpp>
+#include <Random/Random.hpp>
+#include <Utility/Constants.hpp>
 #include <Utility/Vec2d.hpp>
 #include <Utility/Utility.hpp>
 #include <Utility/DiffEqSolver.hpp>
-#include <Utility/MutableNumber.hpp>
-
 
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),

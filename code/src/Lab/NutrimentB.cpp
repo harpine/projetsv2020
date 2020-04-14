@@ -1,5 +1,5 @@
 #include "NutrimentB.hpp"
-#include "../Application.hpp"
+#include <Application.hpp>
 
 NutrimentB::NutrimentB(const Quantity quantity, const Vec2d& poscenter)
     :Nutriment(quantity, poscenter)

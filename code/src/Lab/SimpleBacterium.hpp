@@ -2,7 +2,7 @@
 #define SIMPLEBACTERIUM_HPP
 
 #include "Bacterium.hpp"
-#include "JSON/JSON.hpp"
+#include <JSON/JSON.hpp>
 #include <Utility/DiffEqSolver.hpp>
 #include <SFML/Graphics.hpp>
 

@@ -2,10 +2,10 @@
 #define TWITCHINGBACTERIUM_HPP
 
 #include "Bacterium.hpp"
-#include "../Utility/Types.hpp"
-#include <SFML/Graphics.hpp>
 #include "Grip.hpp"
-#include "../Utility/Vec2d.hpp"
+#include <SFML/Graphics.hpp>
+#include <Utility/Types.hpp>
+#include <Utility/Vec2d.hpp>
 
 enum State {IDLE, WAIT_TO_DEPLOY, DEPLOY, ATTRACT, RETRACT, EAT};
 

@@ -1,15 +1,15 @@
 #ifndef PETRIDISH_HPP
 #define PETRIDISH_HPP
 
-#include <vector>
-#include <SFML/Graphics.hpp>
 #include "CircularBody.hpp"
 #include "Bacterium.hpp"
 #include "Nutriment.hpp"
-#include "Utility/Vec2d.hpp"
-#include "../Interface/Drawable.hpp"
-#include "../Interface/Updatable.hpp"
 #include "Swarm.hpp"
+#include <vector>
+#include <SFML/Graphics.hpp>
+#include <Utility/Vec2d.hpp>
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
 class PetriDish : public CircularBody, public Drawable, public Updatable
 {

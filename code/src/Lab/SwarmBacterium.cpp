@@ -1,12 +1,11 @@
 #include "SwarmBacterium.hpp"
-#include <Application.hpp>
 #include "CircularBody.hpp"
+#include "Swarm.hpp"
+#include <Application.hpp>
 #include <SFML/Graphics.hpp>
 #include <Utility/Utility.hpp>
 #include <Utility/Vec2d.hpp>
 #include <Random/Random.hpp>
-#include "Swarm.hpp"
-#include <iostream> //à enlever
 
 SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),

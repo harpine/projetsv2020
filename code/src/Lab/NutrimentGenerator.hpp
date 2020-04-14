@@ -1,8 +1,9 @@
 #ifndef NUTRIMENTGENERATOR_HPP
 #define NUTRIMENTGENERATOR_HPP
-#include <SFML/Graphics.hpp>
-#include "../Interface/Updatable.hpp"
+
 #include "Nutriment.hpp"
+#include <SFML/Graphics.hpp>
+#include <Interface/Updatable.hpp>
 
 class NutrimentGenerator: public Updatable
 {

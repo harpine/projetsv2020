@@ -1,9 +1,10 @@
 #ifndef SWARMBACTERIUM_HPP
 #define SWARMBACTERIUM_HPP
+
 #include "Bacterium.hpp"
-#include <Utility/DiffEqSolver.hpp>
- #include "Swarm.hpp"
+#include "Swarm.hpp"
 #include <SFML/Graphics.hpp>
+#include <Utility/DiffEqSolver.hpp>
 
 class SwarmBacterium: public Bacterium, public DiffEqFunction
 {

@@ -1,7 +1,7 @@
 #include "TwitchingBacterium.hpp"
-#include "../Application.hpp"
-#include "../Random/Random.hpp"
-#include "../Utility/Utility.hpp"
+#include <Application.hpp>
+#include <Random/Random.hpp>
+#include <Utility/Utility.hpp>
 
 TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),

@@ -1,14 +1,13 @@
 #include "PetriDish.hpp"
-#include <SFML/Graphics.hpp>
-#include <vector>
-#include "Utility/Vec2d.hpp"
-#include "Utility/Utility.hpp"
-#include "../Application.hpp"
 #include "Nutriment.hpp"
 #include "Bacterium.hpp"
-#include <cmath>
 #include "Swarm.hpp"
-#include <iostream> //à enlever
+#include <SFML/Graphics.hpp>
+#include <vector>
+#include <Utility/Vec2d.hpp>
+#include <Utility/Utility.hpp>
+#include <Application.hpp>
+#include <cmath>
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
