@@ -334,27 +334,39 @@ nous devons hériter de cette classe.
 
 [Question Q3.17] Où déclarer et initialiser le temps t ?
 
-[Réponse R3.17] attribut de SimpleBacterium?
+[Réponse R3.17] Le temps t peut être déclaré comme attribut de la classe
+TwitchingBacterium et initialisé dans le constructeur à une valeur 
+uniformément distribuée entre 0 et PI.
 
 [Question Q3.18] Comment mémoriser l'angle de direction et à quel 
 endroit du code l'initialiser et le mettre à jour si l'on considère que
 toutes les bactéries ont une direction et un angle de direction? 
 
-[Réponse R3.18] Attribut dans la classe Bacterium?
+[Réponse R3.18] Pour mémoriser la direction d'une bactérie, nous le 
+déclarons attribut de la super-classe Bacterium. Nous l'initialisons 
+donc dans le constructeur de Bacterium. Nous la mettons à jour dans les 
+sous-classes en fonction du déplacement spécifique au type de bactérie.
+Ainsi cela se fait dans la méthode move grâce à un setter. 
+
 
 [Question Q3.19] Comment devez-vous modifier PetriDish pour mettre en 
 oeuvre cette fonctionnalité ?
 
-[Réponse Q3.19] Ajouter la méthode getPositionScore(const Vec2d&) ainsi
-que l'attribut exposant (+initialiser à "Gradient exponent") dans 
-Petridish.
+[Réponse R3.19] Il faut ajouter la méthode getPositionScore(const 
+Vec2d&) dans PetriDish qui sera applée dans Lab dans la fonction de même
+nom. Il faut aussi ajouter l'attribut exposant (et l'initialiser à 
+"Gradient exponent") dans Petridish.
 
 [Question Q3.20] Quel(s) attributs suggérez-vous d'ajouter à la 
 représentation des bactéries (simples ou "tout court") pour permettre 
 la mise en oeuvre cet algorithme ? Comment initialiser ces attributs et 
 à quels endroits devez-vous les mettre à jour ? 
 
-[Réponse Q3.20] Un score et un temps.
+[Réponse Q3.20] Pour mettre en oeuvre l'algorithme, on ajoute un 
+attribut score ainsi qu'un attribut servant de compteur contentant le 
+temps écoulé depuis le dernier basculement. Leur initialisation de fait 
+dans le constructeur de SimplBacterium et ils sont mis à jour après 
+chaque déplacement, soit dans la méthode move. 
 
 [Question Q3.21] Dans quelle classe proposez-vous d'ajouter la méthode 
 de mutation ?
@@ -412,7 +424,15 @@ votre classe pour retrouver ces valeurs lorsque nécessaires ?
 lors du déploiment du tentacule. Nous devons aussi redéfinir le getter 
 pour l'énergie consommée lors du mouvement.
 
+[Question Q4.5] Un type énuméré peut être une bonne solution pour 
+répertorier les différents états cités plus haut. Comment proposeriez-
+vous d'en utiliser un pour mettre en oeuvre l'algorithme de mouvement ?
 
+[Réponse R4.5] On peut créer avec enum un nouveau type contenant tous 
+les états que la TwitchignBcterium peut prendre. On ajouterait ensuite
+un nouvel attribut à la classe prenant l'état dans lequel se trouve la 
+bactérie, ce qui permet de lui faire faire des actions en fonction de 
+l'état dans lequel elle se trouve.
 
 [Question Q4.6] : Une assiette de Petri contiendra désormais aussi des 
 Swarm qu'elle doit faire évoluer. Sachant que nous souhaitons disposer 

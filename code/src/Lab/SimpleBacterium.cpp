@@ -70,7 +70,6 @@ void SimpleBacterium::move(sf::Time dt)
     {
         this->CircularBody::move((result.position - getPosition()));
         //move est moins intuitif mais meilleur pour la hiérarchie des classes
-        //set vitesse??
     }
 
     if(tumbleAttempt(dt))

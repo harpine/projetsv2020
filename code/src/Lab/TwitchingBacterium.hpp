@@ -7,11 +7,14 @@
 #include "Grip.hpp"
 #include "../Utility/Vec2d.hpp"
 
-enum State {IDLE, WAIT_TO_DEPLOY, DEPLOY, ATTRACT, RETRACT, EAT};
+
 
 class TwitchingBacterium : public Bacterium
 {
 public:
+    //??
+    enum State {IDLE, WAIT_TO_DEPLOY, DEPLOY, ATTRACT, RETRACT, EAT};
+
     //Constructeurs et destructeurs:
     TwitchingBacterium(const Vec2d& poscenter);
 
