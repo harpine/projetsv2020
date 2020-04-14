@@ -1,8 +1,10 @@
 #ifndef MUTABLECOLOR_HPP
 #define MUTABLECOLOR_HPP
+
 #include "MutableNumber.hpp"
 #include <array>
 #include <SFML/Graphics.hpp>
+
 class MutableColor
 {
 public:

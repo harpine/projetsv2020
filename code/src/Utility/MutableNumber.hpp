@@ -1,6 +1,7 @@
 #ifndef MUTABLENUMBER_HPP
 #define MUTABLENUMBER_HPP
-#include "JSON/JSON.hpp"
+
+#include <JSON/JSON.hpp>
 
 class MutableNumber
 {

@@ -1,12 +1,13 @@
 #ifndef LAB_HPP
 #define LAB_HPP
+
 #include "CircularBody.hpp"
 #include "PetriDish.hpp"
-#include <SFML/Graphics.hpp>
 #include "Nutriment.hpp"
-#include "../Interface/Drawable.hpp"
-#include "../Interface/Updatable.hpp"
 #include "NutrimentGenerator.hpp"
+#include <SFML/Graphics.hpp>
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
 class Lab : public Drawable, public Updatable
 {

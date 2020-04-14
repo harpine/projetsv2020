@@ -1,5 +1,6 @@
 #pragma once
-#include "Utility/Vec2d.hpp"
+
+#include <Utility/Vec2d.hpp>
 #include <iostream>
 
 class CircularBody

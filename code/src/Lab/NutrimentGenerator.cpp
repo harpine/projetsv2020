@@ -1,9 +1,9 @@
 #include "NutrimentGenerator.hpp"
-#include "Random/Random.hpp"
-#include <Application.hpp>
 #include "Lab.hpp"
 #include "NutrimentA.hpp"
 #include "NutrimentB.hpp"
+#include <Random/Random.hpp>
+#include <Application.hpp>
 
 NutrimentGenerator::NutrimentGenerator()
     :compteur_(sf::Time::Zero)

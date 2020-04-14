@@ -1,10 +1,11 @@
 #ifndef NUTRIMENT_HPP
 #define NUTRIMENT_HPP
+
 #include "CircularBody.hpp"
-#include "Utility/Types.hpp"
+#include <Utility/Types.hpp>
 #include <SFML/Graphics.hpp>
-#include "../Interface/Drawable.hpp"
-#include "../Interface/Updatable.hpp"
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
 class Nutriment : public CircularBody, public Drawable, public Updatable
 {
