@@ -46,7 +46,7 @@ Swarm* PetriDish::getSwarmWithId(std::string id) const
     return nullptr;
 }
 
-//Ajouts/retranchements:
+//Ajouts:
 bool PetriDish::addBacterium(Bacterium* bacterium)
 {
     if (contains(*bacterium))
@@ -71,14 +71,6 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
     delete nutriment;
     nutriment = nullptr;
     return false;
-}
-
-void PetriDish::addClone(Bacterium* bacterium)
-{
-    if (bacterium != nullptr)
-    {
-        cloned_.push_back(bacterium);
-    }
 }
 
 void PetriDish::addSwarm(Swarm *swarm)
@@ -118,19 +110,21 @@ void PetriDish::update(sf::Time dt)
 
     nutriments_.erase(std::remove(nutriments_.begin(), nutriments_.end(), nullptr), nutriments_.end());
 
-    append(cloned_,bacteria_);
-
-    cloned_.clear();
+    std::vector<Bacterium*> cloned;
 
     for (auto& bacterium : bacteria_)
     {
         bacterium->update(dt);
+        cloned.push_back(bacterium->clone());
         if (bacterium->death())
         {
             delete bacterium;
             bacterium = nullptr;
         }
     }
+
+    append(cloned, bacteria_);
+    cloned.clear();
 
     bacteria_.erase(std::remove(bacteria_.begin(), bacteria_.end(), nullptr), bacteria_.end());
 

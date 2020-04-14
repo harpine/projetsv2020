@@ -11,7 +11,7 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
                      const MutableColor color)
     : CircularBody(poscenter, radius),
       color_(color),
-      direction_(direction),
+      direction_(direction.normalised()),
       angle_(direction_.angle()),
       abstinence_(false),
       energy_(energy)
@@ -24,7 +24,7 @@ Bacterium::Bacterium(const Bacterium& other)
     mutableParameters_ = other.mutableParameters_;
 }
 
-//Getters utilitaires :
+//Getters et setters:
 Quantity Bacterium::getDivisionEnergy() const
 {
     return getConfig()["energy"]["division"].toDouble();
@@ -96,7 +96,17 @@ void Bacterium::setAngle(const double angle)
     angle_ = angle;
 }
 
+double Bacterium::getScore() const
+{
+    return score_;
+}
+
 //Autres méthodes:
+void Bacterium::updateScore()
+{
+    score_ = getAppEnv().getPositionScore(this->getPosition());
+}
+
 void Bacterium::drawOn(sf::RenderTarget& target) const
 {
     auto const circle = buildCircle(getPosition(), getRadius(), color_.get());
@@ -127,7 +137,7 @@ void Bacterium::update(sf::Time dt)
         direction_ *= -1;
     }
     eat();
-    getAppEnv().addClone(clone());
+    updateScore();
 }
 
 void Bacterium::eat()
@@ -172,4 +182,23 @@ void Bacterium::mutate()
         pair.second.mutate();
     }
     color_.mutate();
+}
+
+void Bacterium::bestOfN(int n)
+{
+    Vec2d direction(direction_);
+    Vec2d finalDirection(direction_);
+    double score(score_);
+
+    for (int i(0); i < n ; ++i)
+    {
+        direction = Vec2d::fromRandomAngle().normalised();
+
+        if (getAppEnv().getPositionScore(getPosition()+direction) > score)
+        {
+            score = getAppEnv().getPositionScore(getPosition()+direction);
+            finalDirection = direction;
+        }
+    }
+    direction_ = finalDirection;
 }

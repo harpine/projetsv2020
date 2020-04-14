@@ -25,7 +25,7 @@ public:
 
     virtual ~Bacterium() = default;
 
-    //Getters utilitaires et setters:
+    //Getters et setters:
     Quantity getDivisionEnergy() const;
     //renvoie l'energie nécessaire à la division
     sf::Time getMealDelay() const;
@@ -53,8 +53,12 @@ public:
     virtual j::Value& getConfig() const = 0;
     //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
     //pour atteindre ses paramètres.
+    double getScore() const;
+    //renovie le score de la position de la bactérie
 
     //Autres méthodes:
+    void updateScore();
+    //mets à jour le score à partir de la position de la bactérie
     virtual void drawOn(sf::RenderTarget& target) const;
     //Permet de représenter graphiquement un bactérie. Méthode virtuelle.
     virtual void update(sf::Time dt);
@@ -76,6 +80,9 @@ public:
     //Mute la bactérie.
     virtual Bacterium* copie() = 0;
     //permet de copier une bactérie
+    void bestOfN(int n);
+    //modifie la direction que prend la bactérie en fonction
+    //du score de N possibilités
 
 private:
     MutableColor color_;
@@ -85,6 +92,8 @@ private:
     Quantity energy_;
     std::map<std::string, MutableNumber> mutableParameters_;
     sf::Time clock_;
+    double score_;
+    //représente le gradient lié à la position de la bactérie
 };
 
 #endif // BACTERIUM_HPP

@@ -361,10 +361,11 @@ la mise en oeuvre cet algorithme ? Comment initialiser ces attributs et
 à quels endroits devez-vous les mettre à jour ? 
 
 *Réponse Q3.20* Pour mettre en oeuvre l'algorithme, on ajoute un 
-attribut score ainsi qu'un attribut servant de compteur contentant le 
-temps écoulé depuis le dernier basculement. Leur initialisation de fait 
-dans le constructeur de SimplBacterium et ils sont mis à jour après 
-chaque déplacement, soit dans la méthode move. 
+attribut score à Bacterium ainsi qu'un attribut servant de compteur 
+contentant le temps écoulé depuis le dernier basculement à 
+SimpleBacterium. Leur initialisation se fait dans les constructeurs 
+respectifs et ils sont mis à jour après chaque pas de temps, soit dans 
+la méthode Bacterium::update (appelée aprèsla méthode move).
 
 **Question Q3.21** Dans quelle classe proposez-vous d'ajouter la méthode 
 de mutation ?

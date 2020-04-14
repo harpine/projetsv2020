@@ -57,7 +57,7 @@ void Lab::reset()
     petridish_.reset();
 }
 
-//Ajouts/retranchements:
+//Ajouts:
 void Lab::addNutriment(Nutriment* nutriment)
 {
     petridish_.addNutriment(nutriment);
@@ -66,11 +66,6 @@ void Lab::addNutriment(Nutriment* nutriment)
 void Lab::addBacterium(Bacterium* bacterium)
 {
     petridish_.addBacterium(bacterium);
-}
-
-void Lab::addClone(Bacterium* bacterium)
-{
-    petridish_.addClone(bacterium);
 }
 
 void Lab::addSwarm(Swarm *swarm)

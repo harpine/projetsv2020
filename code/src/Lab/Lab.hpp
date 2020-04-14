@@ -39,8 +39,6 @@ public:
     //ajoute un nutriment à l'assiette de petri
     void addBacterium(Bacterium* bacterium);
     //ajoute un nutriment à l'assiette de petri
-    void addClone(Bacterium* bacterium);
-    //ajoute un clone à l'assiette de petri
     void addSwarm(Swarm* swarm);
     //ajoute un swarm à l'assiette de petri
 

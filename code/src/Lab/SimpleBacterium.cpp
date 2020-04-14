@@ -6,13 +6,14 @@
 #include <Utility/Vec2d.hpp>
 #include <Utility/Utility.hpp>
 #include <Utility/DiffEqSolver.hpp>
+#include <string>
 
 //Constructeur:
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
       getConfig()["energy"]["min"].toDouble()),
      poscenter,
-     Vec2d::fromRandomAngle(),
+     Vec2d::fromRandomAngle().normalised(),
      uniform(getConfig()["radius"]["max"].toDouble(),
       getConfig()["radius"]["min"].toDouble()),
      getConfig()["color"]),
@@ -79,11 +80,11 @@ void SimpleBacterium::move(sf::Time dt)
 bool SimpleBacterium::tumbleAttempt(sf::Time dt)
 {
     double lambda(0);
-    double ancien_score(score_);
-    score_ = getAppEnv().getPositionScore(getPosition());
+    double ancien_score(getScore());
+    updateScore();
     tumbleClock_ += dt;
 
-    if (score_ >= ancien_score)
+    if (getScore() >= ancien_score)
     {
         lambda = getProperty("tumble better").get();
     }
@@ -98,27 +99,14 @@ bool SimpleBacterium::tumbleAttempt(sf::Time dt)
 
 void SimpleBacterium::tumble()
 {
-    if (getConfig()["tumble"]["algo"] == "single random vector")
+    if (getConfig()["tumble"]["algo"].toString() == "single random vector")
     {
         setDirection(Vec2d::fromRandomAngle());
     }
-    else if(getConfig()["tumble"]["algo"] == "best of 20")
+    else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos)
     {
-        Vec2d direction(getDirection());
-        Vec2d finalDirection(getDirection());
-        double score(score_);
-
-        for (int i(0); i <20 ; ++i)
-        {
-            direction = Vec2d::fromRandomAngle();
-
-            if (getAppEnv().getPositionScore(getPosition()+direction) > score)
-            {
-                score = getAppEnv().getPositionScore(getPosition()+direction);
-                finalDirection = direction;
-            }
-        }
-        setDirection(finalDirection.normalised());
+        bestOfN(std::stoi(getConfig()["tumble"]["algo"].toString().substr(8, 2)));
+        //permet de trouver une meilleure position parmis le nombre donné (entre 1 et 99)
     }
     tumbleClock_ = sf::Time::Zero;
 }

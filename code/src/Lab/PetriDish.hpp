@@ -31,13 +31,11 @@ public:
     PetriDish& operator=(const PetriDish& p) = delete;
     //Interdiction d'affectation entre assiettes de pétri
 
-    //Ajouts/retranchements:
+    //Ajouts:
     bool addBacterium(Bacterium* bacterium);
     //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
     bool addNutriment(Nutriment* nutriment);
     //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
-    void addClone(Bacterium* bacterium);
-    //ajoute le clone à l'ensemble des clones de l'assiette
     void addSwarm (Swarm* swarm);
     //ajoute un swarm à à l'ensemble des groupes (swarms) de l'assiette
 
@@ -69,7 +67,6 @@ public:
 
 private:
     std::vector<Bacterium*> bacteria_;
-    std::vector<Bacterium*> cloned_;
     std::vector<Nutriment*> nutriments_;
     std::vector<Swarm*> swarms_;
     double temperature_;

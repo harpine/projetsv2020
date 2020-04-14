@@ -91,6 +91,21 @@ marchent toujours.
 
 Jusqu'à présent, toutes les parties semblent fonctionnelles.  
 
+### **Vacances**
 
+Avant de rendre notre projet, nous avons relu l'intégralité de notre 
+code. Nous avons donc fait plusieurs améliorations. 
 
+- Pour la méthode clone : dans PetriDish, nous avions créé un attribut 
+tableau de clones où l'on rajoutait les clones créés lors d'un update 
+de Bacterium, car nous ne voyions pas d'autre solution. Cependant, d'un 
+point de vue conceptuel, cela n'avait aucun sens. Nous avons donc décidé
+de plutôt créer une variable locale à la fonction PetriDish::update. 
 
+- Nous avons aussi amélioré le basculement des SimpleBacterium et le 
+changement de direction du leader des Swarms. Pour ce faire, nous avons 
+ajouté une fonction bestOfN(int n) dans Bacterium changeant la direction
+de la bactérie en fonction du meilleur score entre n possibilités. Cela 
+permet une meilleure modularisation dans les sous-classe. De plus, dans 
+SimpleBacterium, le nombre de possibilités n s'adapte en fonction du 
+fichier app.json. 
