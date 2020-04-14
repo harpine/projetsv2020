@@ -212,10 +212,10 @@ paramétrisations.
 quelle méthode pour permettre au générateur d'effectivement générer des 
 sources de nutriments dans l'assiette de Petri qui lui est associée ?
 
-**Réponse R3.5** Nous devons modifier la méthode update de lab, en y 
+*Réponse R3.5* Nous devons modifier la méthode update de lab, en y 
 ajoutant un appel à la méthode update de NutrimentGenerator (au début).
 
-*Question Q3.6* Quelles méthodes parmi celles suggérées pour un 
+**Question Q3.6** Quelles méthodes parmi celles suggérées pour un 
 MutableNumber devront procéder au plafonnage de la valeur entre la borne
 inférieure et la borne supérieure ? Comment éviter les duplications de 
 code si ce traitement est amené à se répéter à plusieurs endroits ? 

@@ -68,8 +68,7 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
 
 void Nutriment::update(sf::Time dt)
 {
-    if (canGrow()) //fait les tests avant la croissance et non après...
-                   //(le nutriment peut grandir un pas de trop) à améliorer?
+    if (canGrow())
     {
         double speed(getConfig()["growth"]["speed"].toDouble());
         auto growth = speed * dt.asSeconds();

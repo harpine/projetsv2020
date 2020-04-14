@@ -113,8 +113,8 @@ void PetriDish::update(sf::Time dt)
     {
         clone = nullptr;
     }
-
     cloned_.erase(std::remove(cloned_.begin(), cloned_.end(), nullptr), cloned_.end());
+
     for (auto& bacterium : bacteria_)
     {
         bacterium->update(dt);
@@ -164,12 +164,10 @@ void PetriDish::reset()
     }
     nutriments_.clear();
 
-    for (auto& bacterium : bacteria_)
+    for (auto& swarm: swarm_)
     {
-        delete bacterium;
+        delete swarm;
     }
-    bacteria_.clear();
-
     swarms_.clear();
 
     resetTemperature();
