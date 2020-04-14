@@ -10,11 +10,11 @@ en évitant toute duplication de code dans le fichier CircularBody.cpp ?
 *Réponse R1.1* Pour éviter la duplication, nous avons utilisé les 
 fonctions créées auparavant (isColliding et les deux contains).
 
-[Question Q1.2] Quelle surcharge choisissez-vous pour les opérateurs 
+**Question Q1.2** Quelle surcharge choisissez-vous pour les opérateurs 
 qu'il vous a été demandé de coder (interne ou externe) et comment 
 justifiez-vous ce choix ? 
 
-[Réponse R1.2] Pour l'opérateur =, étant donné qu'il s'agit d'une 
+*Réponse R1.2* Pour l'opérateur =, étant donné qu'il s'agit d'une 
 affectation qui touche donc directement une instance de la classe, 
 nous avons décidé de la mettre à l'intérieur (surcharge interne).
 Pour les autres (> (2 cercles), > (1 point 1 cercle), & (2 cercles),
@@ -22,11 +22,11 @@ comme les deux possibilités étaient envisageables, nous les avons
 sorties de la classe afin d'améliorer l'encapsulation (et de ne pas 
 avoir d'erreur à cause des permissions).
  
-[Question Q1.3] Quels arguments de méthodes, parmi celles qu'il vous a
+**Question Q1.3** Quels arguments de méthodes, parmi celles qu'il vous a
 été demandé de coder ci-dessus, vous semble t-il judicieux de passer par
 référence constante ?
 
-[Réponse R1.3] Nous passons par référence constante tous les arguments 
+*Réponse R1.3* Nous passons par référence constante tous les arguments 
 de méthodes qui ne doivent pas être modifiés et dont la copie est 
 inutile (soit tous les arguments sauf ceux de type ostream que nous 
 avons passé par référence et ceux de type double dont le passage par
@@ -34,42 +34,42 @@ référence constante n'apporte aucun avantage pour la mémoire; nous les
 avons quand même passé en valeur cosntante car ils ne doivent pas être
 modifiés).
 
-[Question Q1.4] Quelles méthodes parmi celles que l'on vous a demandé de
+**Question Q1.4** Quelles méthodes parmi celles que l'on vous a demandé de
 coder vous semble t-il judicieux de déclarer comme const ?
 
-[Réponse R1.4] Nous déclarons comme constantes toutes les méthodes 
+*Réponse R1.4* Nous déclarons comme constantes toutes les méthodes 
 qui ne modifient pas l'instance traitée (getters, cointains, 
 isColliding, afficher).
 
 
 ## Partie 2
 
-[Question Q2.1] Pour pouvoir représenter graphiquement l'assiette de 
+**Question Q2.1** Pour pouvoir représenter graphiquement l'assiette de 
 Petri et pour pouvoir permettre d'en délimiter le contour, par exemple
 pour empêcher les bactéries d'en sortir, nous souhaitons voir l'assiette
 comme étant un corps circulaire (qui aura une position dans 
 l'environnement en deux dimensions servant de support à nos simulations 
 et bien sûr).
 
-[Réponse R2.1] Pour effectuer ceci, Petridish sera une sous-classe de 
+*Réponse R2.1* Pour effectuer ceci, Petridish sera une sous-classe de 
 CircularBody et va donc hériter de ses attributs (poscenter_ et radius)
 ainsi que des méthodes, ce qui permet de la représenter graphiquement 
 comme un cercle, et on peut empêcher les bactéries de sortir.
 
-[Question Q2.2] Quelles méthodes vous semble t-il judicieux de déclarer 
+**Question Q2.2** Quelles méthodes vous semble t-il judicieux de déclarer 
 comme const?
 
-[Réponse R2.2] On déclare comme const les méthodes qui ne modifient pas 
+*Réponse R2.2* On déclare comme const les méthodes qui ne modifient pas 
 l'instance, soit la méthode PetrriDish::drawOn.
 
-[Question Q2.3] On souhaite ne pas permettre la copie d'une PetriDish ni
+**Question Q2.3** On souhaite ne pas permettre la copie d'une PetriDish ni
 l'affectation. Quelle(s) solution(s) proposeriez-vous pour satisfaire 
 cette contrainte?
 
-[Réponse R2.3] Pour ce faire, on delete explicitement le constructeur 
+*Réponse R2.3* Pour ce faire, on delete explicitement le constructeur 
 de copie ainsi que l'opérateur = (entre deux PetriDish).
 
-[Question Q2.4] La question Q2.3 suggère que chaque simulation 
+**Question Q2.4** La question Q2.3 suggère que chaque simulation 
 s'intéressera à une assiette unique disposant de son propre ensemble de 
 bactéries et de nutriments. Il ne fait par ailleurs pas beaucoup de sens
 de faire vivre les bactéries sans les rattacher à une assiette. Une 
@@ -79,39 +79,39 @@ Quelle incidence cela a t-il sur la destruction d'une assiette de Petri?
 La destruction peut-elle se faire en utilisant une méthode existante de 
 la classe PetriDish?
 
-[Réponse R2.4] Le destructeur de la classe PetriDish doit donc 
+*Réponse R2.4* Le destructeur de la classe PetriDish doit donc 
 simultanément éliminer les nutriments et les bactéries créées dans 
 l'assiette. Dans le corps du destructeur, on peut donc utiliser la 
 fonction préexistante reset() qui va delete tous les pointeurs et 
 tranasformer les vecteurs nutriments_ et bacteria_ en vecteurs nuls.
 
-[Question Q2.5] Pour le moment, faire évoluer un Lab c'est simplement 
+**Question Q2.5** Pour le moment, faire évoluer un Lab c'est simplement 
 faire évoluer son assiette de Petri unique et le dessiner c'est aussi 
 dessiner cette assiette de Petri. Comment proposez-vous de coder le 
 corps des méthodes Lab::drawOn et Lab::update ? 
 
-[Réponse R2.5] On code ces deux fonctions par le biais d'un appel des 
+*Réponse R2.5* On code ces deux fonctions par le biais d'un appel des 
 foncitons de même nom de la classe PetriDish (PetriDish::drawOn et 
 PetriDish::update).
 
-[Question Q2.7] Comme quasiment toutes les entités à modéliser, nos 
+**Question Q2.7** Comme quasiment toutes les entités à modéliser, nos 
 sources de nutriments seront aussi des corps circulaires. Comment 
 proposez-vous d'utiliser la classe fournie CircularBody (dans le 
 répertoire Lab) pour modéliser cet aspect ?
 
-[Réponse R2.7] Nutriment va hériter de la classe CircularBody, étant
+*Réponse R2.7* Nutriment va hériter de la classe CircularBody, étant
 donné que Nutriment EST un CircularBody. Pour le niveau d'accès nous 
 avons décidé de mettre en "public" pour que l'extérieur puisse aussi
 percevoir Nutriment comme un CircularBody.
 
-[Question Q2.8] A quoi cela peut-il bien servir d'utiliser le type 
+**Question Q2.8** A quoi cela peut-il bien servir d'utiliser le type 
 Quantity plutôt que tout simplement un double ?
 
-[Réponse R2.8] C'est utile au cas où nous décidons de changer le type 
+*Réponse R2.8* C'est utile au cas où nous décidons de changer le type 
 des quantités sans avoir à modifier tout le code. 
 (remplacer double par int par exemple)
 
-[Question Q2.9] En examinant le code du test fourni pour cette partie 
+**Question Q2.9** En examinant le code du test fourni pour cette partie 
 (src/Tests/GraphicalTests/NutrimentTest.cc) quelle méthode doit-elle 
 être ajoutée à la classe Lab pour permettre l'ajout de nutriments à 
 l'assiette de Petri lorsque l'on appuie sur la touche 'N', une fois la 
@@ -119,35 +119,33 @@ ligne en question décommentée  ? Quelle méthode existante doit être
 modifiée pour permettre le dessin des sources de nutriments nouvellement
 ajoutées? 
 
-[Réponse R2.9] 
-la méthode addNutriment(nutriment*) permettant d'ajouter un nutriment à 
-l'assiette de Petri doit être ajoutée à la classe Lab.
+*Réponse R2.9* La méthode addNutriment(nutriment*) permettant d'ajouter 
+un nutriment à l'assiette de Petri doit être ajoutée à la classe Lab.
 Nous avons modifié la fonction drawOn de petridish, (car la boîte de 
 petri contient les nutriments (en attribut)) en y ajoutant la méthode
 drawOn de Nutriment.
 
-[Question Q2.10] On souhaite que la classe Lab ne donne pas d'accès à sa
+**Question Q2.10** On souhaite que la classe Lab ne donne pas d'accès à sa
 PetriDish via un getter. En utilisant Application::getAppEnv, comment 
 permettre à Nutriment::update de connaître la température de l'assiette
 de Petri ? Répondez à cette question dans le fichier REPONSES et 
 programmez ce qui est nécessaire.
 
-[Réponse R2.10] 
-Nous avons une fonction getter dans la classe Lab qui accède à la 
-température de sa boîte de petri. Grâce à getAppEnv().getTemperature() 
-nous pouvons donc y accéder.
+*Réponse R2.10* Nous avons une fonction getter dans la classe Lab qui 
+accède à la température de sa boîte de petri. Grâce à 
+getAppEnv().getTemperature() nous pouvons donc y accéder.
 
-[Question Q2.11] Quelles méthodes de Lab et de PetriDish faut-il 
+**Question Q2.11** Quelles méthodes de Lab et de PetriDish faut-il 
 modifier et comment pour que la croissance des nutriments deviennent
 visible lors de l'exécution du test graphique ?
 
-[Réponse R2.11] Uniquement la méthode update de nutriment, car celle de
+*Réponse R2.11* Uniquement la méthode update de nutriment, car celle de
 Lab fait appel à la méthode de petridish qui fait appel à celle-ci.
 (on appelle setRadius(quantity_)) pour adapter le rayon à la quantité
 La méthode drawOn met à jour le sprite en fonction du rayon donc il n'y
 a rien à changer. 
 
-[Question Q2.12] Quelles méthodes devez vous ajouter et dans quelles 
+**Question Q2.12** Quelles méthodes devez vous ajouter et dans quelles 
 classes pour que appuyer sur 'PgUp' ou 'PgDn' permette respectivement 
 d'augmenter ou diminuer la température de l'assiette de 
 ["petri dish"]["temperature"]["delta"] (un double) ? 
@@ -158,7 +156,7 @@ qu'elles font) de réinitialiser l'attribut température à la valeur du
 fichier de configuration (["petri dish"]["temperature"]["default"]) 
 tout en évitant toute duplication de code ?
 
-[Réponse R2.11] Dans Application, 'PgUp/Dn' font appel à 
+*Réponse R2.11* Dans Application, 'PgUp/Dn' font appel à 
 mLab->in/decreaseTemperature(), donc il faut ajouter 
 in/decreasTemperature() à la classe Lab, et donc les ajouter dans la
 classe petridish aussi. (celle de Lab fait appel à celle de PetriDish).
@@ -173,73 +171,73 @@ lorsque la touche C est appuyée.
 
 ## Partie 3
 
-[Question Q3.1 ] : les classes fournies dans le répertoire Interface, à 
+**Question Q3.1** : les classes fournies dans le répertoire Interface, à 
 savoir Drawable et Updatable, fournissent deux méthodes polymorphiques 
 drawOn et update. Quelles classes de votre conception actuelle serait-il
 bon de faire hériter de ces sous-classes ? Quel plus cela amène t-il à 
 la conception ? 
 
-[Réponse R3.1] Toutes les classes qui ont besoin d'avoir un affichage 
+*Réponse R3.1* Toutes les classes qui ont besoin d'avoir un affichage 
 graphique et/ou qui évoluent au fil du temps.
 (Lab, Petridish, Nutriment, Bactérie)
 Une meilleure conception de la hiérarchie ainsi que des fonctions des
 classes. De plus, suivant comment on peut généraliser les méthodes et
 avoir un meilleur contrôle sur les instances réellement visées.
 
-[Question Q3.2] : Qu'implique cette contrainte au niveau des définitions
+**Question Q3.2** : Qu'implique cette contrainte au niveau des définitions
 de drawOn et update?
 
-[Réponse R3.2]  Elles doivent être définies comme virtuelles dans la 
+*Réponse R3.2* Elles doivent être définies comme virtuelles dans la 
 classe Nutriment (et donc en "override" dans NutrimentA et NutrimentB).
 
-[Question Q3.3] : Comment doit-être codée la méthode getConfig dans la 
+**Question Q3.3** : Comment doit-être codée la méthode getConfig dans la 
 hiérarchie de classes pour satisfaire cette contrainte ? 
 
-[Réponse R3.3] Elle doit être définie comme virtuelle pure dans 
+*Réponse R3.3* Elle doit être définie comme virtuelle pure dans 
 Nutriment (=0 dans le  prototype), puis redéfinie en override dans les 
 sous classes NutrimentA/B.
 
-[Question Q3.4] : Qu'est-ce qui fait que sans modifier les méthodes 
+**Question Q3.4** : Qu'est-ce qui fait que sans modifier les méthodes 
 drawOn et update dans les sous-classes, l'affichage graphique peut 
 faire usage de textures différentes (les couleurs pour NutrimentA et 
 NutrimentB ne sont pas les mêmes) et la croissance dépend de conditions 
 différentes ? 
 
-[Réponse R3.4] L'affichage graphique peut faire usage de textures 
+*Réponse R3.4* L'affichage graphique peut faire usage de textures 
 différentes sans modifier les méthodes drawOn et update, car c'est la 
 méthode GetConfig() qui leur fournit les valeurs nécessaires à la 
 paramétrisations.
 
-[Question Q3.5] Quelle modification doit être faite dans Lab et dans 
+**Question Q3.5** Quelle modification doit être faite dans Lab et dans 
 quelle méthode pour permettre au générateur d'effectivement générer des 
 sources de nutriments dans l'assiette de Petri qui lui est associée ?
 
-[Réponse R3.5] Nous devons modifier la méthode update de lab, en y 
+**Réponse R3.5** Nous devons modifier la méthode update de lab, en y 
 ajoutant un appel à la méthode update de NutrimentGenerator (au début).
 
-[Question Q3.6] Quelles méthodes parmi celles suggérées pour un 
+*Question Q3.6* Quelles méthodes parmi celles suggérées pour un 
 MutableNumber devront procéder au plafonnage de la valeur entre la borne
 inférieure et la borne supérieure ? Comment éviter les duplications de 
 code si ce traitement est amené à se répéter à plusieurs endroits ? 
 
-[Réponse R3.6] Nous avons créé une fonction "controlvalue" qui renvoie
+*Réponse R3.6* Nous avons créé une fonction "controlvalue" qui renvoie
 la valeur à inscrire (valeur minimum si la valeur donnée est en dessous
 de celle-ci, maximum ci en dessus, et valeur originale si celle-ci est 
 comprise à l'intérieur des bornes. Ceci permet d'éviter les duplicatats.
 Nous avons donc ajouté cette méthode aux méthodes mutate et set() ainsi 
 qu'aux deux constructeurs.
 
-[Question Q3.7] Comment faut-il procéder pour que ces méthodes puissent 
+**Question Q3.7** Comment faut-il procéder pour que ces méthodes puissent 
 être invoquées sans passer par la création d'une instance de 
 MutableNumber ? 
 
-[Réponse R3.7] En déclarant ces méthodes comme static, il n'y aura pas
+*Réponse R3.7* En déclarant ces méthodes comme static, il n'y aura pas
 besoin de créer d'instance pour pouvoir les utiliser.
 
-[Question Q3.8] Au vu de ce qui précède, comment proposez-vous de 
+**Question Q3.8** Au vu de ce qui précède, comment proposez-vous de 
 modéliser la classe Bacterium (héritage, attributs, méthodes , ...) ?
 
-[Réponse R3.8] La classe Bacterium peut être modélisée comme sous-classe
+*Réponse R3.8* La classe Bacterium peut être modélisée comme sous-classe
 de CircularBody, de niveau d'accès publique pour qu'elle soit perçue 
 comme tel à l'extérieur (notamment dans Lab). En plus de ses attributs
 hérités, elle admet les attributs spécifiques de couleur (MutableColor 
@@ -250,19 +248,19 @@ indiquant son état d'abstinence (bool abstinence_), son énergie
 méthodes spécifiques : le constructeur ainsi que drawOn, update, move,
 mutate, clone et death.
 
-[Question Q3.9] Quelles méthodes parmi celles suggérées pour une 
+**Question Q3.9** Quelles méthodes parmi celles suggérées pour une 
 Bacterium devront vraisemblablement être virtuelles/virtuelles pures ? 
 
-[Réponse R3.9] Les méthodes qui vont être redéfinies spécifiquement à 
+*Réponse R3.9* Les méthodes qui vont être redéfinies spécifiquement à 
 chaque bactérie et qui doivent donc être virtuelles sont 
 Bacterium::drawOn ainsi que Bacterium::update. La méthode 
 Bacterium::move doit est quant à elle virtuelle pure car elle ne peut 
 pas être définie de manière générique pour toutes les bactéries. 
 
-[Question Q3.10] La méthode getConfig est-elle virtuelle pure selon 
+**Question Q3.10** La méthode getConfig est-elle virtuelle pure selon 
 vous ?
 
-[Réponse R3.10] La méthode getConfig est virtuelle pure d'après nous 
+*Réponse R3.10* La méthode getConfig est virtuelle pure d'après nous 
 car elle ne peut être définie de manière générique pour toutes les 
 bactéries. En effet, elle doit justement rediriger le choix des 
 paramètres vers ceux spécifiques à un type de bactéries précis. On ne 
@@ -270,37 +268,37 @@ peut donc pas écrire de corps de fonction général. De plus, nous
 souhaitons forcer la redéfinition de cette méthode dans les sous-classes
 ce qui est rendu possible avec une méthode virtuelle pure.
 
-[Question Q3.11] Comment retrouvez-vous la couleur SFML de la bactérie
+**Question Q3.11** Comment retrouvez-vous la couleur SFML de la bactérie
 à partir de son attribut de type MutableColor ? 
 
-[Réponse R3.11] L'attribut color_ de la bactérie est de type 
+*Réponse R3.11* L'attribut color_ de la bactérie est de type 
 MutableColor, classe que nous avons prédéfinie auparavant. Or cette 
 classe est munie d'une méthode get() qui retourne la couleur associée 
 sous un format que SFML reconnait (de type sf::Color). Ainsi, on peut 
 utiliser cette méthode. 
 
-[Question Q3.12] Le fait qu'aucune méthode de déplacement concrète 
+**Question Q3.12** Le fait qu'aucune méthode de déplacement concrète 
 n'existe encore est-elle un frein à l'écriture de la méthode update ?
 
-[Réponse R3.12] La méthode update peut tout de même être écrite car elle
+*Réponse R3.12* La méthode update peut tout de même être écrite car elle
 utilise uniquement ce que fait move, mais n'a pas besoin de comprendre
 comment move foncitonne. En fonction de la sous-classe de bactérie, 
 move sera implémentée différemment la position étant stockée dans les 
 attributs, update peut continuer ses tests sans s'en préoccuper. 
 
-[Question Q3.13] La classe PetriDish ne donne pas d'accès à sa 
+**Question Q3.13** La classe PetriDish ne donne pas d'accès à sa 
 collection de nutriments, comment procéder dans ce cas pour coder 
 Lab::getNutrimentColliding(CircularBody const& body) ? 
 
-[Réponse R3.12] On peut faire appel à une fonction de même nom de 
+*Réponse R3.12* On peut faire appel à une fonction de même nom de 
 la classe PetriDish qui peut alors accéder à l'ensemble des nutrmients
 via son attribut nutriments_.
 
-[Question Q3.14] Quelle méthode de la classe PetriDish doit être 
+**Question Q3.14** Quelle méthode de la classe PetriDish doit être 
 modifiée pour permettre la simulation de l'évolution des bactéries ? 
 Comment doit-elle être modifiée ?  
 
-[Réponse R3.14] La méthode qui doit être modifiée est PetriDish::update 
+*Réponse R3.14* La méthode qui doit être modifiée est PetriDish::update 
 qui doit non seulement faire évoluer les nutriments, mais aussi prendre 
 en compte l'évolution des bactéries par l'appel de Bacterium::update sur
 les bactéries de l'assiette.
