@@ -74,6 +74,7 @@ MutableNumber Bacterium::getProperty(const std::string& key) const
     {
         throw std::out_of_range("ce paramètre mutable n'existe pas");
     }
+
     return pair->second;
 }
 
@@ -96,7 +97,7 @@ void Bacterium::setAngle(const double angle)
     angle_ = angle;
 }
 
-//Méthodes:
+//Autres méthodes:
 void Bacterium::drawOn(sf::RenderTarget& target) const
 {
     auto const circle = buildCircle(getPosition(), getRadius(), color_.get());
@@ -122,6 +123,7 @@ void Bacterium::update(sf::Time dt)
             (getPosition()-getAppEnv().getCenter()).dot(direction_)/
             ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) > 0)
     //pour améliorer les collisions en évitant le problème des bactéries blockées dans la paroi
+    //la bactérie ne change pas de direction si elle est déjà dirigée vers le centre de l'assiette
     {
         direction_ *= -1;
     }
@@ -129,7 +131,7 @@ void Bacterium::update(sf::Time dt)
     getAppEnv().addClone(clone());
 }
 
-void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJOUTE
+void Bacterium::eat()
 {
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
             and !abstinence_
@@ -150,6 +152,7 @@ Bacterium* Bacterium::clone()
         direction_ *= -1;
         return nouvelle;
     }
+
     return nullptr;
 }
 

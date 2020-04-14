@@ -7,6 +7,7 @@
 #include <Utility/Utility.hpp>
 #include <Utility/DiffEqSolver.hpp>
 
+//Constructeur:
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
       getConfig()["energy"]["min"].toDouble()),
@@ -18,8 +19,6 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
      t_flagelle_(uniform(0.0, PI)),
      probability_()
 {
-
-
     addProperty("speed", MutableNumber::positive(getSpeedConfig()["initial"].toDouble(),
                 getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble()));
 
@@ -30,7 +29,7 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble()));
 }
 
-//Getters
+//Getters et setters:
 j::Value& SimpleBacterium::getConfig() const
 {
     return getAppConfig()["simple bacterium"];
@@ -51,8 +50,7 @@ Vec2d SimpleBacterium::getSpeedVector() const
     return getDirection().normalised() * getProperty("speed").get();
 }
 
-//Méthodes:
-
+//Autres méthodes:
 Vec2d SimpleBacterium::f(Vec2d position, Vec2d speed) const
 {
     return Vec2d(); //constructeur de Vec2d par défaut renvoie le vecteur nul
@@ -65,6 +63,7 @@ void SimpleBacterium::move(sf::Time dt)
     //this est une DiffEqFunction
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
     //distance renvoie length des 2 Vec2d
+
     if ((result.position - getPosition()).lengthSquared() > 0.001)
     {
         this->CircularBody::move((result.position - getPosition()));
@@ -83,6 +82,7 @@ bool SimpleBacterium::tumbleAttempt(sf::Time dt)
     double ancien_score(score_);
     score_ = getAppEnv().getPositionScore(getPosition());
     tumbleClock_ += dt;
+
     if (score_ >= ancien_score)
     {
         lambda = getProperty("tumble better").get();
@@ -91,6 +91,7 @@ bool SimpleBacterium::tumbleAttempt(sf::Time dt)
     {
         lambda = getProperty("tumble worse").get();
     }
+
     probability_ = 1 - exp(-tumbleClock_.asSeconds()/lambda);
     return bernoulli(probability_);
 }
@@ -106,9 +107,11 @@ void SimpleBacterium::tumble()
         Vec2d direction(getDirection());
         Vec2d finalDirection(getDirection());
         double score(score_);
-        for (int i(0); i <=20 ; ++i)
+
+        for (int i(0); i <20 ; ++i)
         {
             direction = Vec2d::fromRandomAngle();
+
             if (getAppEnv().getPositionScore(getPosition()+direction) > score)
             {
                 score = getAppEnv().getPositionScore(getPosition()+direction);
@@ -169,4 +172,3 @@ Bacterium* SimpleBacterium::copie()
 {
     return new SimpleBacterium(*this);
 }
-

@@ -3,22 +3,25 @@
 #include <Application.hpp>
 #include <SFML/Graphics.hpp>
 
+//Constructeur:
 Lab::Lab()
     :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2)
     /*Positonne l'assiette de pétri au centre de la fenêtre graphique
     avec un diamètre occupant 95% de la largeur de la fenêtre */
 {}
 
+//Getters:
 Vec2d Lab::getCenter() const
 {
     return petridish_.getPosition();
 }
 
-Swarm* Lab::getSwarmWithId(std::string id) const // (unsigned id)  ??
+Swarm* Lab::getSwarmWithId(std::string id) const
 {
     return petridish_.getSwarmWithId(id);
 }
 
+//Autres méthodes:
 bool Lab::contains(const CircularBody& circularbody) const
 {
     return petridish_.contains(circularbody);
@@ -54,6 +57,7 @@ void Lab::reset()
     petridish_.reset();
 }
 
+//Ajouts/retranchements:
 void Lab::addNutriment(Nutriment* nutriment)
 {
     petridish_.addNutriment(nutriment);
@@ -74,6 +78,7 @@ void Lab::addSwarm(Swarm *swarm)
     petridish_.addSwarm(swarm);
 }
 
+//Pour la température:
 double Lab::getTemperature() const
 {
     return petridish_.getTemperature();
@@ -94,6 +99,7 @@ void Lab::resetTemperature()
     petridish_.resetTemperature();
 }
 
+//Pour le score de la position
 double Lab::getPositionScore(const Vec2d& p) const
 {
     return petridish_.getPositionScore(p);

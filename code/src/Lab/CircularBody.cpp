@@ -1,5 +1,6 @@
 #include "CircularBody.hpp"
 
+//Constructeurs:
 CircularBody::CircularBody(const Vec2d& poscenter, const double radius)
     :poscenter_(poscenter),
      radius_(radius)
@@ -10,6 +11,7 @@ CircularBody::CircularBody(const CircularBody& other)
      radius_(other.radius_)
 {}
 
+//Getters:
 Vec2d CircularBody::getPosition() const
 {
     return poscenter_;
@@ -20,29 +22,8 @@ double CircularBody::getRadius() const
     return radius_;
 }
 
-void CircularBody::setPosition(const Vec2d& poscenter)
-{
-    poscenter_ = poscenter;
-}
-
-void CircularBody::setRadius(const double radius)
-{
-    radius_ = radius;
-}
-
-CircularBody& CircularBody::operator=(const CircularBody& circle)
-{
-    poscenter_ = circle.poscenter_;
-    radius_ = circle.radius_;
-    return *this;
-}
-
-void CircularBody::move(const Vec2d& v)
-{
-    poscenter_ += v;
-}
-
- bool CircularBody::contains(const CircularBody& other) const
+//Autres méthodes:
+bool CircularBody::contains(const CircularBody& other) const
  {
      return (other.radius_ <= radius_ and
              distance(poscenter_, other.poscenter_) <= std::abs(radius_ - other.radius_));
@@ -64,18 +45,43 @@ void CircularBody::afficher(std::ostream& out) const
         << ") radius = " << radius_ << std::endl;
 }
 
+//Surcharge d'opérateurs:
+CircularBody& CircularBody::operator=(const CircularBody& circle)
+{
+    poscenter_ = circle.poscenter_;
+    radius_ = circle.radius_;
+    return *this;
+}
+
+//Setters:
+void CircularBody::setPosition(const Vec2d& poscenter)
+{
+    poscenter_ = poscenter;
+}
+
+void CircularBody::setRadius(const double radius)
+{
+    radius_ = radius;
+}
+
+//Autre méthode:
+void CircularBody::move(const Vec2d& v)
+{
+    poscenter_ += v;
+}
+
 // hors classe
-bool operator>(const CircularBody& c1, const CircularBody& c2) //2 cercles
+bool operator>(const CircularBody& c1, const CircularBody& c2)
 {
     return c1.contains(c2);
 }
 
-bool operator>(const CircularBody& c, const Vec2d& v) //point - cercle
+bool operator>(const CircularBody& c, const Vec2d& v)
 {
     return c.contains(v);
 }
 
-bool operator&(const CircularBody& c1, const CircularBody& c2) // 2 cercles
+bool operator&(const CircularBody& c1, const CircularBody& c2)
 {
     return c1.isColliding(c2);
 }

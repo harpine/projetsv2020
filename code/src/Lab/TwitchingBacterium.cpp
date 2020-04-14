@@ -3,6 +3,7 @@
 #include <Random/Random.hpp>
 #include <Utility/Utility.hpp>
 
+//Constructeur:
 TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
       getConfig()["energy"]["min"].toDouble()),
@@ -47,11 +48,6 @@ j::Value& TwitchingBacterium::getTentacleLength() const
     return getConfig()["tentacle"]["length"];
 }
 
-
-
-
-
-
 //Autres méthodes:
 void TwitchingBacterium::drawOn(sf::RenderTarget& target) const
 {
@@ -64,7 +60,6 @@ void TwitchingBacterium::drawOn(sf::RenderTarget& target) const
 
 Bacterium* TwitchingBacterium::copie()
 {
-    //return new TwitchingBacterium(*this);
     TwitchingBacterium* twitching(new TwitchingBacterium(*this));
     twitching->moveGrip(twitching->getPosition() - grip_.getPosition());
     return twitching;
@@ -89,6 +84,7 @@ void TwitchingBacterium::move(sf::Time dt)
             Vec2d direction(getDirection());
             Vec2d finalDirection(getDirection());
             double score(getAppEnv().getPositionScore(getPosition()));
+
             for (int i(0); i <=20 ; ++i)
             {
                 direction = Vec2d::fromRandomAngle();
@@ -98,6 +94,7 @@ void TwitchingBacterium::move(sf::Time dt)
                     finalDirection = direction;
                 }
             }
+
             setDirection(finalDirection.normalised());
             mystate_ = DEPLOY;
             break;
@@ -130,6 +127,7 @@ void TwitchingBacterium::move(sf::Time dt)
                 consumeEnergy(getDisplacementEnergy() * getProperty("tentacle speed").get() *
                               getConfig()["speed factor"].toDouble() * dt.asSeconds());
             }
+
             if (getAppEnv().getNutrimentColliding(grip_) == nullptr)
             {
                 mystate_ = RETRACT;
@@ -161,26 +159,3 @@ void TwitchingBacterium::move(sf::Time dt)
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

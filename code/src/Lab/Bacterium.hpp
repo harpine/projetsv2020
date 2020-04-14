@@ -48,8 +48,11 @@ public:
     //renvoie l'angle de la direction de la bactérie
     void setAngle(const double angle);
     //met à jour l'angle de direction de la bactérie
+    virtual j::Value& getConfig() const = 0;
+    //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
+    //pour atteindre ses paramètres.
 
-    //Méthodes:
+    //Autres méthodes:
     virtual void drawOn(sf::RenderTarget& target) const;
     //Permet de représenter graphiquement un bactérie. Méthode virtuelle.
     virtual void update(sf::Time dt);
@@ -65,9 +68,6 @@ public:
     bool death() const;
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau
     //d'energie (energy_) est nul ou inférieur à 0.
-    virtual j::Value& getConfig() const = 0;
-    //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
-    //pour atteindre ses paramètres.
     void consumeEnergy(const Quantity qt);
     //Décrémente l'energie de la bactérie d'une quantité donnée
     void mutate();

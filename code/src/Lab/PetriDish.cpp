@@ -9,10 +9,12 @@
 #include <Application.hpp>
 #include <cmath>
 
+//Constructeurs et destructeurs:
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
      temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble()),
-     exponent_((getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2)
+     exponent_((getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble()
+                + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2)
 {}
 
 PetriDish::~PetriDish()
@@ -20,6 +22,7 @@ PetriDish::~PetriDish()
     reset();
 }
 
+//Getters et setters:
 double PetriDish::getTemperature() const
 {
     return temperature_;
@@ -30,7 +33,7 @@ double PetriDish::getGradientExponent() const
     return exponent_;
 }
 
-Swarm* PetriDish::getSwarmWithId(std::string id) const //unsigned int id) const ?
+Swarm* PetriDish::getSwarmWithId(std::string id) const
 {
     for (auto swarm: swarms_)
     {
@@ -39,9 +42,11 @@ Swarm* PetriDish::getSwarmWithId(std::string id) const //unsigned int id) const 
             return swarm;
         }
     }
+
     return nullptr;
 }
 
+//Ajouts/retranchements:
 bool PetriDish::addBacterium(Bacterium* bacterium)
 {
     if (contains(*bacterium))
@@ -49,6 +54,7 @@ bool PetriDish::addBacterium(Bacterium* bacterium)
         bacteria_.push_back(bacterium);
         return true;
     }
+
     delete bacterium;   //permet d'éviter d'avoir des bactéries "inertes" qui traînent hors de la boîte de petri
     bacterium = nullptr; //c'est surtout important pour la gestion des swarms
     return false;
@@ -61,6 +67,7 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
         nutriments_.push_back(nutriment);
         return true;
     }
+
     delete nutriment;
     nutriment = nullptr;
     return false;
@@ -82,6 +89,7 @@ void PetriDish::addSwarm(Swarm *swarm)
     }
 }
 
+//Autres méthodes:
 Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
 {
     for (auto& nutriment : nutriments_)
@@ -91,30 +99,29 @@ Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
             return nutriment;
         }
     }
+
     return nullptr;
 }
-
 
 void PetriDish::update(sf::Time dt)
 {
     for (auto& nutriment : nutriments_)
     {
         nutriment->update(dt);
+
         if ((*nutriment).depleted())
         {
             delete nutriment;
             nutriment = nullptr; 
         }
     }
+
     nutriments_.erase(std::remove(nutriments_.begin(), nutriments_.end(), nullptr), nutriments_.end());
+
     append(cloned_,bacteria_);
 
-    for (auto& clone : cloned_)
-    {
-        clone = nullptr;
-    }
+    cloned_.clear();
 
-    cloned_.erase(std::remove(cloned_.begin(), cloned_.end(), nullptr), cloned_.end());
     for (auto& bacterium : bacteria_)
     {
         bacterium->update(dt);
@@ -137,6 +144,7 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
 {
     auto border = buildAnnulus(getPosition(), getRadius(), sf::Color::Black, 5);
     targetWindow.draw(border);
+
     for (size_t i(0); i< nutriments_.size(); ++i)
     {
         nutriments_[i]->drawOn(targetWindow);
@@ -164,20 +172,17 @@ void PetriDish::reset()
     }
     nutriments_.clear();
 
-    for (auto& bacterium : bacteria_)
+    for (auto& swarm : swarms_)
     {
-        delete bacterium;
+        delete swarm;
     }
-    bacteria_.clear();
-
     swarms_.clear();
 
     resetTemperature();
     resetGradientExponent();
-
-
 }
 
+//Pour la température:
 void PetriDish::increaseTemperature()
 {
     temperature_ += getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
@@ -193,13 +198,16 @@ void PetriDish::resetTemperature()
     temperature_ = getAppConfig()["petri dish"]["temperature"]["default"].toDouble();
 }
 
+//Pour le score d'une position:
 double PetriDish::getPositionScore(const Vec2d& p) const
 {
     double score(0);
+
     for (auto& nutriment : nutriments_)
     {
         score += nutriment->getQuantity() / std::pow((distance(p, nutriment->getPosition())), exponent_);
     }
+
     return score;
 }
 
@@ -217,23 +225,3 @@ void PetriDish::resetGradientExponent()
 {
     exponent_ = (getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -34,7 +34,6 @@ public:
     //permet de mettre à jour les données et actions de la bactérie simple
 
 private:
-
     //Attributs:
     double t_flagelle_;
     //compteur qui fait varier l'amplitude des flagelles en fonction du temps
@@ -51,8 +50,9 @@ private:
     void updateFlagelle(sf::Time dt);
     //mise à jour de la flagelle
     bool tumbleAttempt(sf::Time dt);
+    //retourne le booléen indiquant s'il y a basculement ou non
     void tumble();
+    //fait basculer la bactérie
 };
 
 #endif // SIMPLEBACTERIUM_HPP
-
