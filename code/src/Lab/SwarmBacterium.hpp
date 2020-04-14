@@ -10,7 +10,7 @@ class SwarmBacterium: public Bacterium, public DiffEqFunction
 {
 public:
     //Constructeur et destructeur:
-    SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm); //unsigned int mId); ??
+    SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm);
     virtual ~SwarmBacterium() override;
 
     //Getters:
