@@ -12,7 +12,7 @@ enum State {IDLE, WAIT_TO_DEPLOY, DEPLOY, ATTRACT, RETRACT, EAT};
 class TwitchingBacterium : public Bacterium
 {
 public:
-    //Constructeurs et destructeurs:
+    //Constructeur:
     TwitchingBacterium(const Vec2d& poscenter);
 
     //Getters utilitaires et setters:

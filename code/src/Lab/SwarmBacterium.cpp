@@ -72,21 +72,7 @@ void SwarmBacterium::move(sf::Time dt)
 
     if (swarm_->isLeader(this))
     {
-        Vec2d direction(getDirection());
-        Vec2d finalDirection(getDirection());
-        double score(getAppEnv().getPositionScore(getPosition()));
-
-        for (int i(0); i <=20 ; ++i)
-        {
-            direction = Vec2d::fromRandomAngle();
-
-            if (getAppEnv().getPositionScore(getPosition()+direction) > score)
-            {
-                score = getAppEnv().getPositionScore(getPosition()+direction);
-                finalDirection = direction;
-            }
-        }
-        setDirection(finalDirection);
+        bestOfN(20);
     }
 }
 

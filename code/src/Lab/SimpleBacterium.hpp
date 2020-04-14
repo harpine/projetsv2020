@@ -40,8 +40,6 @@ private:
     //compteur qui fait varier l'amplitude des flagelles en fonction du temps
     double probability_;
     //probabilité de la bactérie à basculer
-    double score_;
-    //représente le gradient lié à la position de la bactérie
     sf::Time tumbleClock_;
     //compteur stockant le temps écoulé depuis le dernier basculement
 
@@ -51,8 +49,9 @@ private:
     void updateFlagelle(sf::Time dt);
     //mise à jour de la flagelle
     bool tumbleAttempt(sf::Time dt);
+    //retourne le booléen indiquant s'il y a basculement ou non
     void tumble();
+    //fait basculer la bactérie
 };
 
 #endif // SIMPLEBACTERIUM_HPP
-

@@ -69,7 +69,7 @@ void Swarm::update()
 
     for (auto& swarmbacterium: swarmbacteria_)
     {
-        current = getAppEnv().getPositionScore(swarmbacterium->getPosition());
+        current = swarmbacterium->getScore();
 
         if (current > score)
         {

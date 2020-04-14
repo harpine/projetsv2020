@@ -11,7 +11,7 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
                      const MutableColor color)
     : CircularBody(poscenter, radius),
       color_(color),
-      direction_(direction),
+      direction_(direction.normalised()),
       angle_(direction_.angle()),
       abstinence_(false),
       energy_(energy)
@@ -24,7 +24,7 @@ Bacterium::Bacterium(const Bacterium& other)
     mutableParameters_ = other.mutableParameters_;
 }
 
-//Getters utilitaires :
+//Getters et setters:
 Quantity Bacterium::getDivisionEnergy() const
 {
     return getConfig()["energy"]["division"].toDouble();
@@ -73,6 +73,7 @@ MutableNumber Bacterium::getProperty(const std::string& key) const
     {
         throw std::out_of_range("ce paramètre mutable n'existe pas");
     }
+
     return pair->second;
 }
 
@@ -95,7 +96,17 @@ void Bacterium::setAngle(const double angle)
     angle_ = angle;
 }
 
-//Méthodes:
+double Bacterium::getScore() const
+{
+    return score_;
+}
+
+//Autres méthodes:
+void Bacterium::updateScore()
+{
+    score_ = getAppEnv().getPositionScore(this->getPosition());
+}
+
 void Bacterium::drawOn(sf::RenderTarget& target) const
 {
     auto const circle = buildCircle(getPosition(), getRadius(), color_.get());
@@ -121,14 +132,15 @@ void Bacterium::update(sf::Time dt)
             (getPosition()-getAppEnv().getCenter()).dot(direction_)/
             ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) > 0)
     //pour améliorer les collisions en évitant le problème des bactéries blockées dans la paroi
+    //la bactérie ne change pas de direction si elle est déjà dirigée vers le centre de l'assiette
     {
         direction_ *= -1;
     }
     eat();
-    getAppEnv().addClone(clone());
+    updateScore();
 }
 
-void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJOUTE
+void Bacterium::eat()
 {
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
             and !abstinence_
@@ -149,6 +161,7 @@ Bacterium* Bacterium::clone()
         direction_ *= -1;
         return nouvelle;
     }
+
     return nullptr;
 }
 
@@ -169,4 +182,23 @@ void Bacterium::mutate()
         pair.second.mutate();
     }
     color_.mutate();
+}
+
+void Bacterium::bestOfN(int n)
+{
+    Vec2d direction(direction_);
+    Vec2d finalDirection(direction_);
+    double score(score_);
+
+    for (int i(0); i < n ; ++i)
+    {
+        direction = Vec2d::fromRandomAngle().normalised();
+
+        if (getAppEnv().getPositionScore(getPosition()+direction) > score)
+        {
+            score = getAppEnv().getPositionScore(getPosition()+direction);
+            finalDirection = direction;
+        }
+    }
+    direction_ = finalDirection;
 }
