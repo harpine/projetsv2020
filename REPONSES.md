@@ -2,12 +2,12 @@
 ### Aline Brunner et Helena Binková, groupe 38
 
 
-##Partie 1
+## Partie 1
 
-[Question Q1.1] Comment coder les trois opérateurs précédemment décrits 
+**Question Q1.1** Comment coder les trois opérateurs précédemment décrits 
 en évitant toute duplication de code dans le fichier CircularBody.cpp ? 
 
-[Réponse R1.1] Pour éviter la duplication, nous avons utilisé les 
+*Réponse R1.1* Pour éviter la duplication, nous avons utilisé les 
 fonctions créées auparavant (isColliding et les deux contains).
 
 [Question Q1.2] Quelle surcharge choisissez-vous pour les opérateurs 
@@ -42,7 +42,7 @@ qui ne modifient pas l'instance traitée (getters, cointains,
 isColliding, afficher).
 
 
-##Partie 2
+## Partie 2
 
 [Question Q2.1] Pour pouvoir représenter graphiquement l'assiette de 
 Petri et pour pouvoir permettre d'en délimiter le contour, par exemple
@@ -52,7 +52,7 @@ l'environnement en deux dimensions servant de support à nos simulations
 et bien sûr).
 
 [Réponse R2.1] Pour effectuer ceci, Petridish sera une sous-classe de 
-CircularBody et va donc hériter de ses attributs (poscenter_ et radius_)
+CircularBody et va donc hériter de ses attributs (poscenter_ et radius)
 ainsi que des méthodes, ce qui permet de la représenter graphiquement 
 comme un cercle, et on peut empêcher les bactéries de sortir.
 
@@ -171,7 +171,7 @@ lors de l'appel des fonctions reset() et dans le fichier application
 lorsque la touche C est appuyée.
 
 
-##Partie 3
+## Partie 3
 
 [Question Q3.1 ] : les classes fournies dans le répertoire Interface, à 
 savoir Drawable et Updatable, fournissent deux méthodes polymorphiques 
@@ -187,10 +187,10 @@ classes. De plus, suivant comment on peut généraliser les méthodes et
 avoir un meilleur contrôle sur les instances réellement visées.
 
 [Question Q3.2] : Qu'implique cette contrainte au niveau des définitions
-de drawOn et update.
+de drawOn et update?
 
 [Réponse R3.2]  Elles doivent être définies comme virtuelles dans la 
-classe Nutriment (et donc en "override" dans NutrimentA et NutrimentB.
+classe Nutriment (et donc en "override" dans NutrimentA et NutrimentB).
 
 [Question Q3.3] : Comment doit-être codée la méthode getConfig dans la 
 hiérarchie de classes pour satisfaire cette contrainte ? 
@@ -205,7 +205,7 @@ faire usage de textures différentes (les couleurs pour NutrimentA et
 NutrimentB ne sont pas les mêmes) et la croissance dépend de conditions 
 différentes ? 
 
-[Réponse R3.4] L'affichafe graphique peut faire usage de textures 
+[Réponse R3.4] L'affichage graphique peut faire usage de textures 
 différentes sans modifier les méthodes drawOn et update, car c'est la 
 méthode GetConfig() qui leur fournit les valeurs nécessaires à la 
 paramétrisations.
@@ -226,8 +226,8 @@ code si ce traitement est amené à se répéter à plusieurs endroits ?
 la valeur à inscrire (valeur minimum si la valeur donnée est en dessous
 de celle-ci, maximum ci en dessus, et valeur originale si celle-ci est 
 comprise à l'intérieur des bornes. Ceci permet d'éviter les duplicatats.
-J'ai donc ajouté cette méthode aux méthodes mutate et set() ainsi qu'aux
-deux constructeurs.
+Nous avons donc ajouté cette méthode aux méthodes mutate et set() ainsi 
+qu'aux deux constructeurs.
 
 [Question Q3.7] Comment faut-il procéder pour que ces méthodes puissent 
 être invoquées sans passer par la création d'une instance de 
@@ -372,21 +372,26 @@ chaque déplacement, soit dans la méthode move.
 de mutation ?
 
 [Réponse Q3.21] Dans Bacterium car toutes les bactéries vont muter et 
-les sous classes héritent de bactérie (gérer la couleur dans Bacterium)
-le reste dans SimpleBacterium. (vitesse -> positive mutablenumber)
+les sous classes héritent de bactérie. Si elles n'ont pas de paramètres
+mutables, cette liste sera donc vide et cela ne posera aucun problème
+aux sous classes.
 
 [Question Q3.22] Dans quelle classe proposez-vous d'ajouter ces 
 méthodes ?
 
-[Réponse Q3.22] Bacterium [ajouter à la map en testant si c pas déjà là]
+[Réponse Q3.22] Dans la classe Bacterium car les paramètres mutables
+sont un attribut de Bacterium.
 
 [Question Q3.23] Où choisissez-vous de placer la méthode de division 
 d'une bactérie ?
 
-[Réponse Q3.23] Dans Bacterium. 
+[Réponse Q3.23] La procédure de division étant la même pour toutes les
+bactéries, nous avons décider d'avoir une méthode clone dans bacterium,
+qui fait appelle à une méthode virtuelle pure "copie()", qui fonctionne
+de façon polymorphique.
 
 
-##Partie 4
+## Partie 4
 
 [Question Q4.1] Quel(s) lien(s) d'héritage proposez-vous de mettre en 
 place pour intégrer les TwitchingBacteria à l'architecture existante ?
@@ -444,9 +449,8 @@ getEnv().addSwarm(new Swarm(id));//id est l'entier identifiant du groupe
 Quelle(s) modification(s) faites-vous et à quelle(s) classe(s) pour 
 intégrer cela ? 
 
-[Réponse Q4.6]
-Nous ajoutons un attribut swarms à l'assiette de pétri et des méthodes
-addSwarm à Petridish et à Lab.
+[Réponse Q4.6] Nous ajoutons un attribut swarms à l'assiette de pétri et
+des méthodes addSwarm à Petridish et à Lab.
 
 [Question Q4.7] : Une SwarmBacterium doit disposer d'une force régissant
 son déplacement, exactement comme les bactéries simples. Quels liens 
@@ -483,5 +487,6 @@ groupe.
 recensée dans son Swarm. Que devez-vous ajoutez à votre code et où pour 
 que cette contrainte soit respectée ? 
 
-[Réponse Q4.11] on doit enlever la bactérie de son swarm (méthode
-removeSwarmBacterium) lors de la destruction de la SwarmBacterium.
+[Réponse Q4.11] On doit enlever la bactérie de son swarm (méthode
+removeSwarmBacterium) lors de la destruction de la SwarmBacterium (il
+faut donc redéfinir le constructeur de SwarmBaterium).

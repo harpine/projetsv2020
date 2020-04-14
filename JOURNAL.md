@@ -1,9 +1,9 @@
 # Journal 
 
-##Groupe 38, Aline Brunner et Helena Binková, coachées par Sébastien 
+## Groupe 38, Aline Brunner et Helena Binková, coachées par Sébastien 
 Gachoud
 
-###**Semaine 1**
+### **Semaine 1**
 
 Nous avons mis en place l'environnement de programmation et avons pris 
 la décision de travailler avec Github (nous travaillons toutes les deux
@@ -14,7 +14,7 @@ Nous avons créé la classe CircularBody qui permet de modéliser un
 cercle, puis répondu aux quatre questions dans le fichier REPONSES. 
 Nous avons passé les tests de la semaine 1 avec succès.
 
-###**Semaine 2**
+### **Semaine 2**
 
 Nous avons partagé les tâches de la manière suivante : Helena a créé les 
 classes Lab et PetriDish (2.1), Aline s'est occupée de la classe
@@ -31,7 +31,7 @@ Actuellement, nous avons donc une assiette de pétri dont nous pouvons
 changer la température et dans laquelle nous pouvons faire évoluer des 
 nutriments en fonction de cette température. 
 
-###**Semaine 3**
+### **Semaine 3**
 
 Cette semaine, nous nous sommes fixées l'objectif de programmer jusqu'à 
 la partie 3.3. Pour ce faire, Aline a créé les classes 
@@ -49,7 +49,7 @@ d'énergie.
 
 Nous gardons la partie 3.4 pour la semaine prochaine. 
 
-###**Semaine 4**
+### **Semaine 4**
 
 Cette semaine l'objectif était de finir la partie 3. Aline s'est occupée
 du début de la partie 3.4 (déplacement rectiligne uniforme), Helena 
@@ -69,7 +69,7 @@ de résoudre le problème.
 Actuellement nos bactéries simples ont passé tous les tests et elles se
 déplacent vers les nutriments, avec un flagelle, mutent et meurent. 
 
-###**Semaine 5**
+### **Semaine 5**
 
 Cette semaine, nous avons fait la partie 4 du projet. Helena a fait la 
 partie 4.1, Aline la partie 4.2. Nous avons compris l'utilité des 
