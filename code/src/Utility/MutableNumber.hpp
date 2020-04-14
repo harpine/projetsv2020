@@ -6,19 +6,24 @@
 class MutableNumber
 {
 public:
-    //constructeurs:
+    //Constructeurs:
     MutableNumber(double value, double probability, double sigma,
                   bool inf = false,double infval = 0,
                   bool sup = false, double supval= 0);
     MutableNumber(j::Value const& config);
     MutableNumber() = default;
-    //getters & setters:
+
+    //Gettter et setter:
     double get() const;
     //renvoie la valeur du nb
     void set(double value);
     //permet d'attribuer une valeur au nombre
+
+    //Autres méthodes:
     void mutate();
     // modifie la valeur du nombre de façon aléatoire
+
+    //Méthodes statiques:
     static MutableNumber probability(double initialValue, double mutationProbability, double sigma);
     //créé un MutableNumber à partir de ces valeurs (Named constructor)
     static MutableNumber probability(j::Value const& config);
@@ -31,6 +36,7 @@ public:
     //fait la même chose que la précédente mais en tirant les autres valeur de Config
 
 private:
+    //Attribut:
     double value_;
     double probability_;
     bool inf_; //indique si le nombre a une valeur inférieure
@@ -39,7 +45,7 @@ private:
     double supval_;
     double sigma_; //écart type (pour la modif. aléatoire)
 
-    //méthodes:
+    //Autre méthode:
     double controlvalue(double value);
     //controle si value est dans les bornes et renvoie la bonne valeur à affecter
     //(value si ok, borne inf si plus petit, borne sup si plus grand)

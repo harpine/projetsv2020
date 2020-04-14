@@ -9,24 +9,28 @@
 class SwarmBacterium: public Bacterium, public DiffEqFunction
 {
 public:
-    //constructeurs/destructeurs:
+    //Constructeur et destructeur:
     SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm); //unsigned int mId); ??
     virtual ~SwarmBacterium() override;
 
-    //getters:
+    //Getters:
     virtual j::Value& getConfig() const override;
     //permet d'accéder aux configurations de Swarmbacterium
     Vec2d getSpeedVector() const;
     //renvoie la vitesse courante (direction * une valeur)
 
-    //autres méthodes:
+    //Autres méthodes:
     virtual void drawOn(sf::RenderTarget& target) const override;
+    //permet de dessiner une bactérie
     virtual Bacterium* copie() override;
     //copie une bactérie
     virtual void move(sf::Time dt) override;
+    //permet à une bactérie de se déplacer
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
+    //modélise la force d'attraction des bactéries
 
 private:
+    //Attributs
     Swarm* swarm_;
 };
 

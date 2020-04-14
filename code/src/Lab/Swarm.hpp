@@ -1,5 +1,6 @@
 #ifndef SWARM_HPP
 #define SWARM_HPP
+
 #include "Bacterium.hpp"
 #include <vector>
 
@@ -8,18 +9,16 @@ class SwarmBacterium;
 class Swarm
 {
 public:
-    //constructeurs:
+    //Constructeur et destructeur:
     Swarm (std::string mId);
-    //Swarm(unsigned int mId); ??
     ~Swarm();
 
-    //getters setters:
+    //Getters:
     MutableColor getInitialColor() const;
     //renvoie la couleur initial du swarm
     j::Value& getConfig() const;
     //renvoie la configuration associée à swarm
-    std::string getId() const;// unsigned int getmId(); ??
-    std::vector <SwarmBacterium*> getSwarmBacteria() const;
+    std::string getId() const;
     //retourne l'id du groupe
     bool isLeader(const SwarmBacterium* swarmbacterium) const;
     //retourner si la bactérie en paramètre est leader ou non
@@ -28,24 +27,24 @@ public:
     Vec2d getPositionLeader() const;
     //retourne la position du leader
 
-    // ajout/rentranchement:
+    //Ajout/rentranchement:
     void addSwarmBacterium(SwarmBacterium* swarmbacterium);
     //ajoute une bactérie au groupe
     void removeSwarmBacterium(SwarmBacterium* swarmbacterium);
     //enlève une bactérie au groupe
-    //autres méthodes:
-    void update();
 
+    //Autres méthodes:
+    void update();
+    //update le leader du groupe
     void drawDebug(sf::RenderTarget& targetWindow);
     //permet de contrôler l'appartenance à un swarm de plusieurs bactéries visuellement
-
+    //nous a servi pour effectuer du debug mais trouvons intéressant de la laisser
 
 private:
-    std::string mId_;//unsigned int mId_; ??
+    //Attributs:
+    std::string mId_;
     std::vector <SwarmBacterium*> swarmbacteria_;
     SwarmBacterium* leader_;
-
-
 };
 
 #endif // SWARM_HPP

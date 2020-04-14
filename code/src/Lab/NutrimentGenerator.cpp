@@ -5,10 +5,12 @@
 #include <Random/Random.hpp>
 #include <Application.hpp>
 
+//Constructeur:
 NutrimentGenerator::NutrimentGenerator()
     :compteur_(sf::Time::Zero)
 {}
 
+//Autres méthodes:
 void NutrimentGenerator::update(sf::Time dt)
 {
     compteur_ += dt;

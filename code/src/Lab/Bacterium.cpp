@@ -1,10 +1,9 @@
+#include "Bacterium.hpp"
+#include "Nutriment.hpp"
 #include <Utility/Utility.hpp>
 #include <Application.hpp>
 #include <cmath>
 #include <Utility/Vec2d.hpp>
-#include "Bacterium.hpp"
-#include "Nutriment.hpp"
-
 
 //Constructeurs:
 Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,

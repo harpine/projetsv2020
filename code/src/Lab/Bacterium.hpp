@@ -1,14 +1,16 @@
 #ifndef BACTERIUM_HPP
 #define BACTERIUM_HPP
+
+#include "CircularBody.hpp"
+#include "../Utility/MutableColor.hpp"
+#include "../Utility/MutableNumber.hpp"
 #include <Interface/Drawable.hpp>
 #include <Interface/Updatable.hpp>
 #include <SFML/Graphics.hpp>
 #include <Utility/Vec2d.hpp>
 #include <Utility/Types.hpp>
 #include <string>
-#include "CircularBody.hpp"
-#include "../Utility/MutableColor.hpp"
-#include "../Utility/MutableNumber.hpp"
+
 
 class Bacterium : public CircularBody, public Drawable, public Updatable
 
@@ -83,9 +85,6 @@ private:
     Quantity energy_;
     std::map<std::string, MutableNumber> mutableParameters_;
     sf::Time clock_;
-
-
-
 };
 
 #endif // BACTERIUM_HPP

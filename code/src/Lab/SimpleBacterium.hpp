@@ -8,6 +8,7 @@
 
 class SimpleBacterium : public Bacterium, public DiffEqFunction
 {
+
 public:
     //Constructeur:
     SimpleBacterium(const Vec2d& poscenter);
@@ -34,7 +35,6 @@ public:
     //permet de mettre à jour les données et actions de la bactérie simple
 
 private:
-
     //Attributs:
     double t_flagelle_;
     //compteur qui fait varier l'amplitude des flagelles en fonction du temps

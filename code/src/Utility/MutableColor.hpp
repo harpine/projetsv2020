@@ -8,18 +8,19 @@
 class MutableColor
 {
 public:
-    //constructeurs:
+    //Constructeur:
     MutableColor(j::Value const& config);
 
-    //getters:
+    //Getter:
     sf::Color get() const;
+    //renvoie la couleur actuelle
 
-    //méthodes:
+    //Autre méthode:
     void mutate();
     //fait muter chaque couleur
-        std::array<MutableNumber, 4> rgba_; //attention remettre dans privé!!!!
+
 private:
-
+    //Attribut:
+    std::array<MutableNumber, 4> rgba_;
 };
-
 #endif // MUTABLECOLOR_HPP
