@@ -8,7 +8,7 @@ Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
       quantity_(quantity)
 {}
 
-//Getters/Setters:
+//Getters et setter:
 j::Value const& Nutriment::getConfig() const
 {
     return getAppConfig()["nutriments"];
@@ -50,7 +50,6 @@ Quantity Nutriment::takeQuantity(const Quantity totake)
 
 void Nutriment::drawOn(sf::RenderTarget& target) const
 {
-
     int taille_graphique(6);
     auto const& texture = getAppTexture(getConfig()["texture"].toString());
     auto nutrimentSprite = buildSprite(getPosition(), taille_graphique, texture);
@@ -70,17 +69,18 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
 void Nutriment::update(sf::Time dt)
 {
     if (canGrow()) //fait les tests avant la croissance et non après...
-    {              //(le nutriment peut grandir un pas de trop) à améliorer?
-    double speed(getConfig()["growth"]["speed"].toDouble());
-    auto growth = speed * dt.asSeconds();
-    quantity_ += growth;
-    setRadius(quantity_);
+                   //(le nutriment peut grandir un pas de trop) à améliorer?
+    {
+        double speed(getConfig()["growth"]["speed"].toDouble());
+        auto growth = speed * dt.asSeconds();
+        quantity_ += growth;
+        setRadius(quantity_);
     }
 }
 
 bool Nutriment::depleted() const
 {
-    return (int(quantity_) <=0); //pour éviter que les nutriments aient
+    return (int(quantity_) <=0); // <=pour éviter que les nutriments aient
     //tendance à grandir alors qu'ils devraient disparaître
 }
 

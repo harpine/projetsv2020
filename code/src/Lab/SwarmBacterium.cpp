@@ -17,7 +17,6 @@ SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
      getConfig()["radius"]["min"].toDouble()),
      swarm->getInitialColor()),
      swarm_(swarm)
-
 {
     swarm_->addSwarmBacterium(this);
 }
@@ -56,7 +55,6 @@ void SwarmBacterium::drawOn(sf::RenderTarget& target) const
         target.draw(border);
         swarm_->drawDebug(target); //lignes entre bactéries d'un même swarm
     }
-
 }
 
 void SwarmBacterium::move(sf::Time dt)
@@ -98,6 +96,7 @@ Vec2d SwarmBacterium::f(Vec2d position, Vec2d speed) const
     {
         return Vec2d();
     }
+
     return (swarm_->getConfig()[swarm_->getId()]["force factor"].toDouble() *
             (swarm_->getPositionLeader() - position));
 }

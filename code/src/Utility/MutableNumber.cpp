@@ -39,7 +39,8 @@ void MutableNumber::mutate()
 }
 
 //Méthodes statiques:
-MutableNumber MutableNumber::probability(double initialValue, double mutationProbability,double sigma)
+MutableNumber MutableNumber::probability(double initialValue,
+                                         double mutationProbability,double sigma)
 {
     MutableNumber mutablenumber(initialValue, mutationProbability,
                                 sigma, true, 0.,true, 1.);
@@ -79,6 +80,7 @@ double MutableNumber::controlvalue(double value)
     {
         value = supval_;
     }
+
     return value;
 }
 

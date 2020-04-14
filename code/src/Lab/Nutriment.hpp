@@ -13,7 +13,7 @@ public:
     //Constructeur:
     Nutriment(const Quantity quantity, const Vec2d& poscenter);
 
-    //Getters/setters:
+    //Getters et setter:
     virtual j::Value const& getConfig() const = 0;
     //permet d'accéder aux configs des nutriments sans
     //devoir écrire ["nutriments"]

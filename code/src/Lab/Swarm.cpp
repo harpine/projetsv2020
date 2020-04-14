@@ -66,15 +66,16 @@ void Swarm::update()
     SwarmBacterium* best(nullptr);
     double score(0);
     double current(0);
+
     for (auto& swarmbacterium: swarmbacteria_)
     {
         current = getAppEnv().getPositionScore(swarmbacterium->getPosition());
+
         if (current > score)
         {
             score = current;
             best = swarmbacterium;
         }
-
     }
     leader_ = best;
 }
@@ -82,6 +83,7 @@ void Swarm::update()
 void Swarm::drawDebug(sf::RenderTarget& targetWindow) //ne marche que s'il n'y a pas plus de 2 swarms
 {
     sf::Color couleur;
+
     if (mId_ == "1")
     {
         couleur = sf::Color::Black;
@@ -90,6 +92,7 @@ void Swarm::drawDebug(sf::RenderTarget& targetWindow) //ne marche que s'il n'y a
     {
         couleur = sf::Color::Red;
     }
+
     for (size_t i(0); i < swarmbacteria_.size(); ++i)
     {
         if (i>0)
