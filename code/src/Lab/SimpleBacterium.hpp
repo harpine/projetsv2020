@@ -9,10 +9,10 @@
 class SimpleBacterium : public Bacterium, public DiffEqFunction
 {
 public:
-    //constructeur:
+    //Constructeur:
     SimpleBacterium(const Vec2d& poscenter);
 
-    //getters & setters:
+    //Getters & setters:
     virtual j::Value& getConfig() const override;
     j::Value& getWorseConfig() const;
     j::Value& getBetterConfig() const;
@@ -20,7 +20,7 @@ public:
     Vec2d getSpeedVector() const;
     //renvoie la vitesse courante (direction * une valeur)
 
-    //méthodes:
+    //Autres méthodes:
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
     //calcul de la force
     virtual void move(sf::Time dt) override;
@@ -35,7 +35,7 @@ public:
 
 private:
 
-    //attributs:
+    //Attributs:
     double t_flagelle_;
     //compteur qui fait varier l'amplitude des flagelles en fonction du temps
     double probability_;
@@ -45,7 +45,7 @@ private:
     sf::Time tumbleClock_;
     //compteur stockant le temps écoulé depuis le dernier basculement
 
-    //méthodes :
+    //Méthodes :
     void drawOnFlagelle(sf::RenderTarget& target) const;
     //représentation dela flagelle
     void updateFlagelle(sf::Time dt);
