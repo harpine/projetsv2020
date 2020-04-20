@@ -34,7 +34,7 @@ public:
     //enlève une bactérie au groupe
 
     //Autres méthodes:
-    void update();
+    void updateLeader();
     //update le leader du groupe
     void drawDebug(sf::RenderTarget& targetWindow);
     //permet de contrôler l'appartenance à un swarm de plusieurs bactéries visuellement

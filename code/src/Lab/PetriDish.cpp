@@ -104,7 +104,7 @@ void PetriDish::update(sf::Time dt)
         if ((*nutriment).depleted())
         {
             delete nutriment;
-            nutriment = nullptr; 
+            nutriment = nullptr;
         }
     }
 
@@ -130,7 +130,7 @@ void PetriDish::update(sf::Time dt)
 
     for (auto& swarm: swarms_)
     {
-        swarm->update();
+        swarm->updateLeader();
     }
 }
 

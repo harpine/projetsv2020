@@ -346,7 +346,6 @@ donc dans le constructeur de Bacterium. Nous la mettons à jour dans les
 sous-classes en fonction du déplacement spécifique au type de bactérie.
 Ainsi cela se fait dans la méthode move grâce à un setter. 
 
-
 **Question Q3.19** Comment devez-vous modifier PetriDish pour mettre en 
 oeuvre cette fonctionnalité ?
 

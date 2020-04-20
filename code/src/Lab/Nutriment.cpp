@@ -38,7 +38,7 @@ Quantity Nutriment::takeQuantity(const Quantity totake)
 {
     double taken(quantity_);
 
-    if (totake <= quantity_)
+    if (totake <= taken)
     {
         taken = totake;
     }
@@ -59,7 +59,7 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
 
     if (isDebugOn()) //mode debug
     {
-        sf::Text const texte = buildText(std::to_string((int)(quantity_)),
+        sf::Text const texte = buildText(std::to_string((double)(quantity_)), //remettre à int ??
                             Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
                                          getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
@@ -79,7 +79,7 @@ void Nutriment::update(sf::Time dt)
 
 bool Nutriment::depleted() const
 {
-    return (int(quantity_) <=0); // <=pour éviter que les nutriments aient
+    return (quantity_ <= 0); // <=pour éviter que les nutriments aient //remettre int(quantity_)??
     //tendance à grandir alors qu'ils devraient disparaître
 }
 

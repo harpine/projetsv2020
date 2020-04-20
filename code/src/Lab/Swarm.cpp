@@ -57,11 +57,15 @@ void Swarm::addSwarmBacterium(SwarmBacterium* swarmbacterium)
 }
 
 void Swarm::removeSwarmBacterium(SwarmBacterium* swarmbacterium)
-{
+{ 
+    if (isLeader(swarmbacterium))
+    {
+        updateLeader();
+    }
     swarmbacteria_.erase(std::remove(swarmbacteria_.begin(), swarmbacteria_.end(), swarmbacterium), swarmbacteria_.end());
 }
 
-void Swarm::update()
+void Swarm::updateLeader()
 {
     SwarmBacterium* best(nullptr);
     double score(0);
