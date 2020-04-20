@@ -94,6 +94,8 @@ corps des méthodes Lab::drawOn et Lab::update ?
 foncitons de même nom de la classe PetriDish (PetriDish::drawOn et 
 PetriDish::update).
 
+*Question 2.6 était introuvalbe*
+
 **Question Q2.7** Comme quasiment toutes les entités à modéliser, nos 
 sources de nutriments seront aussi des corps circulaires. Comment 
 proposez-vous d'utiliser la classe fournie CircularBody (dans le 
@@ -156,7 +158,7 @@ qu'elles font) de réinitialiser l'attribut température à la valeur du
 fichier de configuration (["petri dish"]["temperature"]["default"]) 
 tout en évitant toute duplication de code ?
 
-*Réponse R2.11* Dans Application, 'PgUp/Dn' font appel à 
+*Réponse R2.12* Dans Application, 'PgUp/Dn' font appel à 
 mLab->in/decreaseTemperature(), donc il faut ajouter 
 in/decreasTemperature() à la classe Lab, et donc les ajouter dans la
 classe petridish aussi. (celle de Lab fait appel à celle de PetriDish).
