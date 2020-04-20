@@ -89,7 +89,6 @@ graphiques se déroulent bien. Nous avons donc des bactéries à tentacule
 et des bactéries à comportement de groupe. Les bactéries simples 
 marchent toujours.
 
-Jusqu'à présent, toutes les parties semblent fonctionnelles.  
 
 ### **Vacances**
 
@@ -109,3 +108,5 @@ de la bactérie en fonction du meilleur score entre n possibilités. Cela
 permet une meilleure modularisation dans les sous-classe. De plus, dans 
 SimpleBacterium, le nombre de possibilités n s'adapte en fonction du 
 fichier app.json. 
+
+*Jusqu'à présent, toutes les parties semblent fonctionnelles.*
