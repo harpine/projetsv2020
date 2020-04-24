@@ -361,7 +361,7 @@ représentation des bactéries (simples ou "tout court") pour permettre
 la mise en oeuvre cet algorithme ? Comment initialiser ces attributs et 
 à quels endroits devez-vous les mettre à jour ? 
 
-*Réponse Q3.20* Pour mettre en oeuvre l'algorithme, on ajoute un 
+*Réponse R3.20* Pour mettre en oeuvre l'algorithme, on ajoute un 
 attribut score à Bacterium ainsi qu'un attribut servant de compteur 
 contentant le temps écoulé depuis le dernier basculement à 
 SimpleBacterium. Leur initialisation se fait dans les constructeurs 
@@ -371,7 +371,7 @@ la méthode Bacterium::update (appelée aprèsla méthode move).
 **Question Q3.21** Dans quelle classe proposez-vous d'ajouter la méthode 
 de mutation ?
 
-*Réponse Q3.21* Dans Bacterium car toutes les bactéries vont muter et 
+*Réponse R3.21* Dans Bacterium car toutes les bactéries vont muter et 
 les sous classes héritent de bactérie. Si elles n'ont pas de paramètres
 mutables, cette liste sera donc vide et cela ne posera aucun problème
 aux sous classes.
@@ -379,13 +379,13 @@ aux sous classes.
 **Question Q3.22** Dans quelle classe proposez-vous d'ajouter ces 
 méthodes ?
 
-*Réponse Q3.22* Dans la classe Bacterium car les paramètres mutables
+*Réponse R3.22* Dans la classe Bacterium car les paramètres mutables
 sont un attribut de Bacterium.
 
 **Question Q3.23** Où choisissez-vous de placer la méthode de division 
 d'une bactérie ?
 
-*Réponse Q3.23* La procédure de division étant la même pour toutes les
+*Réponse R3.23* La procédure de division étant la même pour toutes les
 bactéries, nous avons décider d'avoir une méthode clone dans bacterium,
 qui fait appelle à une méthode virtuelle pure "copie()", qui fonctionne
 de façon polymorphique.
@@ -449,21 +449,21 @@ getEnv().addSwarm(new Swarm(id));//id est l'entier identifiant du groupe
 Quelle(s) modification(s) faites-vous et à quelle(s) classe(s) pour 
 intégrer cela ? 
 
-*Réponse Q4.6* Nous ajoutons un attribut swarms à l'assiette de pétri et
+*Réponse R4.6* Nous ajoutons un attribut swarms à l'assiette de pétri et
 des méthodes addSwarm à Petridish et à Lab.
 
 **Question Q4.7** Une SwarmBacterium doit disposer d'une force régissant
 son déplacement, exactement comme les bactéries simples. Quels liens 
 mettez-vous en place pour modéliser cette force ? 
 
-*Réponse Q4.7* Étant donné que nous avons utilisé le lien d'héritage
+*Réponse R4.7* Étant donné que nous avons utilisé le lien d'héritage
 pour Simplebacterium, nous allons utiliser le même lien ici.
 
 **Question Q4.8** Au vu de ce qui précède, quelles méthodes déjà présentes
 dans la hiérarchie de classes des bactéries devrez-vous impérativement 
 redéfinir dans SwarmBacterium ? 
 
-*Réponse Q4.8* getConfig(), move() et copie() (car ces 3 méthodes sont 
+*Réponse R4.8* getConfig(), move() et copie() (car ces 3 méthodes sont 
 virtuelles pures)
 
 **Question Q4.9** Si vous examinez la méthode onEvent dans l'exemple de 
@@ -472,7 +472,7 @@ nécessite de recourir à l'appel getEnv().getSwarmWithId(id);.
 Que devez-vous ajouter à votre code et où pour mettre en place cette 
 fonctionnalité ? 
 
-*Réponse Q4.9* Il faut ajouter la méthode getSwarmWithId(id) dans Lab et
+*Réponse R4.9* Il faut ajouter la méthode getSwarmWithId(id) dans Lab et
 dans PetriDish (celle de Lab appelant celle de PetriDish).
 
 **Question Q4.10** Une SwarmBacterium est donc ajoutée à l'assiette comme 
@@ -480,13 +480,52 @@ toutes les autres (elle fait partie de la collection de bactéries de
 l'assiette). Le destructeur de Swarm doit-il faire quelque chose 
 selon vous ? 
 
-*Réponse Q4.10* Il doit détruire toutes les bactéries appartenant à son
+*Réponse R4.10* Il doit détruire toutes les bactéries appartenant à son
 groupe.
 
 **Question Q4.11** Lorsqu'une SwarmBacterium meurt, elle ne doit plus être
 recensée dans son Swarm. Que devez-vous ajoutez à votre code et où pour 
 que cette contrainte soit respectée ? 
 
-*Réponse Q4.11* On doit enlever la bactérie de son swarm (méthode
+*Réponse R4.11* On doit enlever la bactérie de son swarm (méthode
 removeSwarmBacterium) lors de la destruction de la SwarmBacterium (il
 faut donc redéfinir le constructeur de SwarmBaterium).
+
+##Partie 5
+
+**Question Q5.1** Pourquoi tester le type des objets à l'exécution est-il 
+potentiellement nocif ?
+
+*Réponse R5.1* Les nutriments placés en argument sont reconnus comme
+Nutriment (général) car on se trouve de la classe Bacterium et donc le 
+polymorphisme ne marche uniquement sur les objets bactériens et non
+sur les objets nutritifs.
+
+**Question Q5.2** Pourquoi doit on prévoir une méthode virtual Quantity 
+eatenBy(Bacterium& bact) const = 0; avec comme argument une Bacterium 
+quelconque (alors qu'à priori seule nous intéresse la définition de 
+eatenBy pour des sous-classes de bactéries) ?
+
+*Réponse R5.2* Du point de vue conceptuel, une bactérie doit pouvoir
+manger et il faut donc déclarer cette méthode. De plus, cela permet
+de définir une manière générale de se nourrir pour des bactéries
+qui n'auraient pas de comportement spécifique par rapport aux 
+nutriments. Cette méthode permet tout de même un polymorphisme au
+niveau des bactéries (grâce à Bacterium::eatableQuantity).
+
+**Question Q5.3** Quelle(s) structure(s) de données choisissez-vous pour
+l'ensemble des graphes et l'ensemble des titres de la classe Stats. 
+
+*Réponse R5.3* Une map nous paraît être la meilleure solution afin de
+lier titre et (pointeur) sur graph										//??
+
+**Question Q5.4** quelle méthodes prévoyez-vous d'ajouter/modifier et 
+dans quelles classes pour réaliser les décomptes souhaités et construire
+les ensembles new_data? en d'autres termes, comment pouvez-vous compter 
+le nombre d'instances d'une certaine classe?
+
+*Réponse R5.4* [... à revoir??]
+On crée un compteur en attribut static  et on l'augmente à chaque appel 
+du constructeur (ou constructeur de copie) et on le diminue à chaque 
+appel du destructeur. 
+
