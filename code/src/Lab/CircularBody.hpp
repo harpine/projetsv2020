@@ -7,24 +7,27 @@ class CircularBody
 {
 public:
     //Getters:
-    Vec2d getPosition() const;
+
     //retourne la position du centre du Circularbody
-    double getRadius() const;
+    Vec2d getPosition() const;
     //retourne le rayon
+    double getRadius() const;
 
     //Autres méthodes:
-    bool contains(const CircularBody& other) const;
+
     //retourne true si other est dans le cercle, false autrement
-    bool contains(const Vec2d& v) const;
+    bool contains(const CircularBody& other) const;
     //retourne true si le point v est dans le cercle, false autrement
-    bool isColliding(const CircularBody& other) const;
+    bool contains(const Vec2d& v) const;
     //retourne true si other est en collision avec le cercle
+    bool isColliding(const CircularBody& other) const;
 
     //Surcharge d'opérateurs:
-    CircularBody& operator=(const CircularBody& circle);
-    //dans la classe car il travaille sur l'objet
 
-    void afficher(std::ostream& out) const; //pour simplifier la surcharge <<
+    //dans la classe car il travaille sur l'objet
+    CircularBody& operator=(const CircularBody& circle);
+    //pour simplifier la surcharge <<
+    void afficher(std::ostream& out) const;
 
 protected:
     //Constructeurs:
@@ -36,8 +39,8 @@ protected:
     void setRadius(const double radius);
 
     //Autre méthode:
-    void move(const Vec2d& v);
     //déplace le centre du cercle de la "distance" v
+    void move(const Vec2d& v);
 
 private:
     //Attributs:
@@ -45,6 +48,8 @@ private:
     double radius_;
 
 };
+
+//Surchage d'opérateurs hors classe:
 
 bool operator>(const CircularBody& c1, const CircularBody& c2); // 2 cercles
 bool operator>(const CircularBody& c, const Vec2d& v); //point - cercle

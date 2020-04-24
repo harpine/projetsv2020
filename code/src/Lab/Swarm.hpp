@@ -14,31 +14,34 @@ public:
     ~Swarm();
 
     //Getters:
-    MutableColor getInitialColor() const;
+
     //renvoie la couleur initial du swarm
-    j::Value& getConfig() const;
+    MutableColor getInitialColor() const;
     //renvoie la configuration associée à swarm
-    std::string getId() const;
+    j::Value& getConfig() const;
     //retourne l'id du groupe
-    bool isLeader(const SwarmBacterium* swarmbacterium) const;
+    std::string getId() const;
     //retourner si la bactérie en paramètre est leader ou non
-    bool hasNoLeader();
+    bool isLeader(const SwarmBacterium* swarmbacterium) const;
     //retourne si le swarm a un leader ou non
-    Vec2d getPositionLeader() const;
+    bool hasNoLeader();
     //retourne la position du leader
+    Vec2d getPositionLeader() const;
 
     //Ajout/rentranchement:
-    void addSwarmBacterium(SwarmBacterium* swarmbacterium);
+
     //ajoute une bactérie au groupe
-    void removeSwarmBacterium(SwarmBacterium* swarmbacterium);
+    void addSwarmBacterium(SwarmBacterium* swarmbacterium);
     //enlève une bactérie au groupe
+    void removeSwarmBacterium(SwarmBacterium* swarmbacterium);
 
     //Autres méthodes:
-    void updateLeader();
+
     //update le leader du groupe
-    void drawDebug(sf::RenderTarget& targetWindow);
+    void updateLeader();
     //permet de contrôler l'appartenance à un swarm de plusieurs bactéries visuellement
     //nous a servi pour effectuer du debug mais trouvons intéressant de la laisser
+    void drawDebug(sf::RenderTarget& targetWindow);
 
 private:
     //Attributs:

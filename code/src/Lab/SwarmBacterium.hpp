@@ -14,20 +14,21 @@ public:
     virtual ~SwarmBacterium() override;
 
     //Getters:
-    virtual j::Value& getConfig() const override;
     //permet d'accéder aux configurations de Swarmbacterium
-    Vec2d getSpeedVector() const;
+    virtual j::Value& getConfig() const override;
     //renvoie la vitesse courante (direction * une valeur)
+    Vec2d getSpeedVector() const;
 
     //Autres méthodes:
-    virtual void drawOn(sf::RenderTarget& target) const override;
+
     //permet de dessiner une bactérie
-    virtual Bacterium* copie() override;
+    virtual void drawOn(sf::RenderTarget& target) const override;
     //copie une bactérie
-    virtual void move(sf::Time dt) override;
+    virtual Bacterium* copie() override;
     //permet à une bactérie de se déplacer
-    virtual Vec2d f(Vec2d position, Vec2d speed) const override;
+    virtual void move(sf::Time dt) override;
     //modélise la force d'attraction des bactéries
+    virtual Vec2d f(Vec2d position, Vec2d speed) const override;
 
 private:
     //Attributs
