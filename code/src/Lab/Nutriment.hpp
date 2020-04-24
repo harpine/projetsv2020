@@ -31,7 +31,7 @@ public:
     //mode debug est activé
     virtual void update(sf::Time dt) override;
     //calcul l'évolution du nutriment après écoulement d'un pas de temps dt
-    bool depleted() const;
+    bool isDepleted() const;
     //indique si le nutriment est épuisé
 
 private:

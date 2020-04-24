@@ -11,8 +11,9 @@ public:
     Grip(const Vec2d& poscenter, const double radius);
 
     //Autres méthodes:
-    void move(const Vec2d& v);
+
     //Déplace le grapin d'un vecteur v
+    void move(const Vec2d& v);
 };
 
 #endif // GRIP_HPP

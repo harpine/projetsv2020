@@ -76,86 +76,116 @@ void TwitchingBacterium::move(sf::Time dt)
     {
         case IDLE :
         {
-            mystate_ = WAIT_TO_DEPLOY;
+            idle();
             break;
         }
         case WAIT_TO_DEPLOY :
         {
-            Vec2d direction(getDirection());
-            Vec2d finalDirection(getDirection());
-            double score(getAppEnv().getPositionScore(getPosition()));
-
-            for (int i(0); i <=20 ; ++i)
-            {
-                direction = Vec2d::fromRandomAngle();
-                if (getAppEnv().getPositionScore(getPosition()+direction) > score)
-                {
-                    score = getAppEnv().getPositionScore(getPosition()+direction);
-                    finalDirection = direction;
-                }
-            }
-
-            setDirection(finalDirection.normalised());
-            mystate_ = DEPLOY;
+            waitToDeploy();
             break;
         }
         case DEPLOY :
         {
-            moveGrip(getDirection() * getProperty("tentacle speed").get() * dt.asSeconds());
-            consumeEnergy(getTentacleEnergy() * getProperty("tentacle speed").get() * dt.asSeconds());
-            if (getAppEnv().getNutrimentColliding(grip_) != nullptr)
-            {
-                mystate_ = ATTRACT;
-            }
-            else if((grip_.getPosition() - getPosition()).length() > getProperty("tentacle length").get()
-                    or getAppEnv().doesCollideWithDish(grip_))
-            {
-                mystate_ = RETRACT;
-            }
+            deploy(dt);
             break;
         }
         case ATTRACT :
         {
-            if (getAppEnv().getNutrimentColliding(*this) != nullptr)
-            {
-                mystate_ = EAT;
-            }
-            else
-            {
-                CircularBody::move((grip_.getPosition() - getPosition()).normalised() * getProperty("tentacle speed").get() *
-                                   getConfig()["speed factor"].toDouble() * dt.asSeconds());
-                consumeEnergy(getDisplacementEnergy() * getProperty("tentacle speed").get() *
-                              getConfig()["speed factor"].toDouble() * dt.asSeconds());
-            }
-
-            if (getAppEnv().getNutrimentColliding(grip_) == nullptr)
-            {
-                mystate_ = RETRACT;
-            }
+            attract(dt);
             break;
         }
         case RETRACT :
         {
-            if (distance(grip_.getPosition(), getPosition()) <= getRadius())
-            {
-                mystate_ = IDLE;
-            }
-            else
-            {
-                moveGrip((getPosition() - grip_.getPosition()).normalised() *
-                         getProperty("tentacle speed").get() * dt.asSeconds());
-                consumeEnergy(getTentacleEnergy() * getProperty("tentacle speed").get() * dt.asSeconds());
-            }
+            retract(dt);
             break;
         }
 
         case EAT :
         {
-            if(getAppEnv().getNutrimentColliding(*this) == nullptr)
-            {
-                mystate_ = IDLE;
-            }
+            eatingState();
             break;
         }
+    }
+}
+
+void TwitchingBacterium::idle()
+{
+    mystate_ = WAIT_TO_DEPLOY;
+}
+
+void TwitchingBacterium::waitToDeploy()
+{
+    Vec2d direction(getDirection());
+    Vec2d finalDirection(getDirection());
+    double score(getAppEnv().getPositionScore(getPosition()));
+
+    for (int i(0); i <=20 ; ++i)
+    {
+        direction = Vec2d::fromRandomAngle();
+        if (getAppEnv().getPositionScore(getPosition()+direction) > score)
+        {
+            score = getAppEnv().getPositionScore(getPosition()+direction);
+            finalDirection = direction;
+        }
+    }
+
+    setDirection(finalDirection.normalised());
+    mystate_ = DEPLOY;
+}
+
+void TwitchingBacterium::deploy(sf::Time dt)
+{
+    moveGrip(getDirection() * getProperty("tentacle speed").get() * dt.asSeconds());
+    consumeEnergy(getTentacleEnergy() * getProperty("tentacle speed").get() * dt.asSeconds());
+    if (getAppEnv().getNutrimentColliding(grip_) != nullptr)
+    {
+        mystate_ = ATTRACT;
+    }
+    else if((grip_.getPosition() - getPosition()).length() > getProperty("tentacle length").get()
+            or getAppEnv().doesCollideWithDish(grip_))
+    {
+        mystate_ = RETRACT;
+    }
+}
+
+void TwitchingBacterium::attract(sf::Time dt)
+{
+    if (getAppEnv().getNutrimentColliding(*this) != nullptr)
+    {
+        mystate_ = EAT;
+    }
+    else
+    {
+        CircularBody::move((grip_.getPosition() - getPosition()).normalised() * getProperty("tentacle speed").get() *
+                           getConfig()["speed factor"].toDouble() * dt.asSeconds());
+        consumeEnergy(getDisplacementEnergy() * getProperty("tentacle speed").get() *
+                      getConfig()["speed factor"].toDouble() * dt.asSeconds());
+    }
+
+    if (getAppEnv().getNutrimentColliding(grip_) == nullptr)
+    {
+        mystate_ = RETRACT;
+    }
+}
+
+void TwitchingBacterium::retract(sf::Time dt)
+{
+    if (distance(grip_.getPosition(), getPosition()) <= getRadius())
+    {
+        mystate_ = IDLE;
+    }
+    else
+    {
+        moveGrip((getPosition() - grip_.getPosition()).normalised() *
+                 getProperty("tentacle speed").get() * dt.asSeconds());
+        consumeEnergy(getTentacleEnergy() * getProperty("tentacle speed").get() * dt.asSeconds());
+    }
+}
+
+void TwitchingBacterium::eatingState()
+{
+    if(getAppEnv().getNutrimentColliding(*this) == nullptr)
+    {
+        mystate_ = IDLE;
     }
 }

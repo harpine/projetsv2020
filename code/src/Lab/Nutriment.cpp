@@ -59,7 +59,7 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
 
     if (isDebugOn()) //mode debug
     {
-        sf::Text const texte = buildText(std::to_string((double)(quantity_)), //remettre à int ??
+        sf::Text const texte = buildText(std::to_string((int)(quantity_)),
                             Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
                                          getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
@@ -77,10 +77,9 @@ void Nutriment::update(sf::Time dt)
     }
 }
 
-bool Nutriment::depleted() const
+bool Nutriment::isDepleted() const
 {
-    return (quantity_ <= 0); // <=pour éviter que les nutriments aient //remettre int(quantity_)??
-    //tendance à grandir alors qu'ils devraient disparaître
+    return (quantity_ <= 0);
 }
 
 //Méthode privée:
@@ -90,7 +89,7 @@ bool Nutriment::canGrow() const
     return (temperature >= getConfig()["growth"]["min temperature"].toDouble() and
             temperature < getConfig()["growth"]["max temperature"].toDouble() and
             quantity_ < 2* getConfig()["quantity"]["max"].toDouble() and
-            getAppEnv().contains(*this));
+            getAppEnv().contains(*this) and !isDepleted());
 }
 
 

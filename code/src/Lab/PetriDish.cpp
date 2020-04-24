@@ -49,27 +49,35 @@ Swarm* PetriDish::getSwarmWithId(std::string id) const
 //Ajouts:
 bool PetriDish::addBacterium(Bacterium* bacterium)
 {
-    if (contains(*bacterium))
+    if (bacterium != nullptr)
     {
-        bacteria_.push_back(bacterium);
-        return true;
+        if (contains(*bacterium))
+        {
+            bacteria_.push_back(bacterium);
+            return true;
+        }
+
+        delete bacterium;   //permet d'éviter d'avoir des bactéries "inertes" qui traînent hors de la boîte de petri
+        bacterium = nullptr; //c'est surtout important pour la gestion des swarms
     }
 
-    delete bacterium;   //permet d'éviter d'avoir des bactéries "inertes" qui traînent hors de la boîte de petri
-    bacterium = nullptr; //c'est surtout important pour la gestion des swarms
     return false;
 }
 
 bool PetriDish::addNutriment(Nutriment* nutriment)
 {
-    if (contains(*nutriment))
+    if (nutriment != nullptr)
     {
-        nutriments_.push_back(nutriment);
-        return true;
+        if (contains(*nutriment))
+        {
+            nutriments_.push_back(nutriment);
+            return true;
+        }
+
+        delete nutriment;
+        nutriment = nullptr;
     }
 
-    delete nutriment;
-    nutriment = nullptr;
     return false;
 }
 
@@ -101,7 +109,7 @@ void PetriDish::update(sf::Time dt)
     {
         nutriment->update(dt);
 
-        if ((*nutriment).depleted())
+        if ((*nutriment).isDepleted())
         {
             delete nutriment;
             nutriment = nullptr;
@@ -116,7 +124,7 @@ void PetriDish::update(sf::Time dt)
     {
         bacterium->update(dt);
         cloned.push_back(bacterium->clone());
-        if (bacterium->death())
+        if (bacterium->isDead())
         {
             delete bacterium;
             bacterium = nullptr;

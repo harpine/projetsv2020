@@ -20,46 +20,51 @@ public:
     Swarm* getSwarmWithId(std::string id) const;
 
     //Autres méthodes:
-    bool contains(const CircularBody& circularbody)  const;
-    //renvoie true si circularbody est dans l'assiette de petri du lab
-    bool doesCollideWithDish(const CircularBody& body) const;
-    //renvoie true si body est en collision avec l'assiette de petri du lab
-    Nutriment* getNutrimentColliding(const CircularBody& body) const;
-    //retourne la source de nutriments de l'assiette en collision avec body
 
-    void drawOn(sf::RenderTarget& targetWindow) const;
+    //renvoie true si circularbody est dans l'assiette de petri du lab
+    bool contains(const CircularBody& circularbody)  const;
+    //renvoie true si body est en collision avec l'assiette de petri du lab
+    bool doesCollideWithDish(const CircularBody& body) const;
+    //retourne la source de nutriments de l'assiette en collision avec body
+    Nutriment* getNutrimentColliding(const CircularBody& body) const;
+
     //Dessine Lab
-    void update(sf::Time dt);
+    void drawOn(sf::RenderTarget& targetWindow) const;
     //Fait évoluer Lab
-    void reset();
+    void update(sf::Time dt);
     //Vide l'assiette de pétri associée à Lab et réinitialise la température
+    void reset();
 
     //Ajouts/retranchements:
+
+
+    //ajoute un nutriment à l'assiette de petri
     void addNutriment(Nutriment* nutriment);
     //ajoute un nutriment à l'assiette de petri
     void addBacterium(Bacterium* bacterium);
-    //ajoute un nutriment à l'assiette de petri
-    void addSwarm(Swarm* swarm);
     //ajoute un swarm à l'assiette de petri
+    void addSwarm(Swarm* swarm);
 
     //Pour la température:
-    double getTemperature() const;
+
     //retourne la température de la boîte de petri
+    double getTemperature() const;
+    //Permet de modifier la température de la boîte de petri
     void increaseTemperature();
     void decreaseTemperature();
-    //Permet de modifier la température de la boîte de petri
-    void resetTemperature();
     //Réinitialise la température avec la valeur par défaut
+    void resetTemperature();
 
     //Pour le score de la position:
-    double getPositionScore(const Vec2d& p) const;
+
     //retourne le score d'une position donnée
+    double getPositionScore(const Vec2d& p) const;
     double getGradientExponent() const;
+    //Permet de modifier la température de la boîte de pétri
     void increaseGradientExponent();
     void decreaseGradientExponent();
-    //Permet de modifier la température de la boîte de pétri
-    void resetGradientExponent();
     //Réinitialise la puissance à sa valeur par défaut
+    void resetGradientExponent();
 
 private:
     PetriDish petridish_;

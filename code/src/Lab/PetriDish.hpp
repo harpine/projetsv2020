@@ -15,12 +15,13 @@ class PetriDish : public CircularBody, public Drawable, public Updatable
 {
 public:
     //Constructeurs et destructeurs:
-    PetriDish(const Vec2d& poscenter, const double radius);
+
     //Constructeur
-    PetriDish(const PetriDish& p) = delete;
+    PetriDish(const Vec2d& poscenter, const double radius);
     //Interdiction de copie d'une assiette de pétri
-    ~PetriDish();
+    PetriDish(const PetriDish& p) = delete;
     //Destruction de l'assiette de pétri ainsi que des nutriments et bactéries qui l'habitent
+    ~PetriDish();
 
     //Getters et setters:
     double getTemperature() const;
@@ -28,42 +29,47 @@ public:
     Swarm* getSwarmWithId(std::string id) const;
 
     //Surcharges d'operateurs:
-    PetriDish& operator=(const PetriDish& p) = delete;
+
     //Interdiction d'affectation entre assiettes de pétri
+    PetriDish& operator=(const PetriDish& p) = delete;
 
     //Ajouts:
-    bool addBacterium(Bacterium* bacterium);
+
     //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
-    bool addNutriment(Nutriment* nutriment);
+    bool addBacterium(Bacterium* bacterium);
     //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
-    void addSwarm (Swarm* swarm);
+    bool addNutriment(Nutriment* nutriment);
     //ajoute un swarm à à l'ensemble des groupes (swarms) de l'assiette
+    void addSwarm (Swarm* swarm);
 
     //Autres méthodes :
-    Nutriment* getNutrimentColliding(const CircularBody& body) const;
+
     //retourne la source de nutriment en collision avec body
-    void update(sf::Time dt);
+    Nutriment* getNutrimentColliding(const CircularBody& body) const;
     //Fait évoluer l'assiette de pétri à chaque intervalle de temps
-    void drawOn(sf::RenderTarget& targetWindow) const;
+    void update(sf::Time dt);
     //Représentation graphique de l'assiette de pétri et de ses contenants
-    void reset();
+    void drawOn(sf::RenderTarget& targetWindow) const;
     //Supprime nutriments et bactéries de l'assiette, réinitialise la température
+    void reset();
 
     //Pour la température:
+
+    //Permet de modifier la température de la boîte de petri
     void increaseTemperature();
     void decreaseTemperature();
-    //Permet de modifier la température de la boîte de petri
-    void resetTemperature();
     //Réinitialise la température à sa valeur par défaut
+    void resetTemperature();
 
     //Pour le score d'une position:
-    double getPositionScore(const Vec2d& p) const;
+
     //retourne le score associé à une position donnée
+    double getPositionScore(const Vec2d& p) const;
+    //Permet de modifier la température de la boîte de pétri
     void increaseGradientExponent();
     void decreaseGradientExponent();
-    //Permet de modifier la température de la boîte de pétri
-    void resetGradientExponent();
     //Réinitialise la puissance à sa valeur par défaut
+    void resetGradientExponent();
 
 private:
     std::vector<Bacterium*> bacteria_;

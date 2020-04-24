@@ -26,63 +26,65 @@ public:
     virtual ~Bacterium() = default;
 
     //Getters et setters:
-    Quantity getDivisionEnergy() const;
+
     //renvoie l'energie nécessaire à la division
-    sf::Time getMealDelay() const;
+    Quantity getDivisionEnergy() const;
     //renvoie le "meal" "delay"
-    Quantity getDisplacementEnergy() const;
+    sf::Time getMealDelay() const;
     //renvoie le "consumption factor"
-    Quantity getMealQuantity() const;
+    Quantity getDisplacementEnergy() const;
     //renvoie le "meal" "max"
-    virtual j::Value& getSpeedConfig() const;
+    Quantity getMealQuantity() const;
     //renvoie la vitesse polymorphique pour une bactérie
-    Vec2d getDirection() const;
+    virtual j::Value& getSpeedConfig() const;
     //renvoie la direction de la bactérie
-    virtual void addProperty(const std::string& key, MutableNumber mutablenumber);
+    Vec2d getDirection() const;
     //ajouter un paramètre mutable
-    virtual MutableNumber getProperty(const std::string& key) const;
+    virtual void addProperty(const std::string& key, MutableNumber mutablenumber);
     //Permet de retrouver une valeur mutable associée à une clé donnée
-    void setDirection(const Vec2d& direction);
+    virtual MutableNumber getProperty(const std::string& key) const;
     //met à jour la direction de la bactérie
-    MutableColor getColor() const;
+    void setDirection(const Vec2d& direction);
     //renvoie la couleur de la bactérie
-    double getAngle() const;
+    MutableColor getColor() const;
     //renvoie l'angle de la direction de la bactérie
-    void setAngle(const double angle);
+    double getAngle() const;
     //met à jour l'angle de direction de la bactérie
-    virtual j::Value& getConfig() const = 0;
+    void setAngle(const double angle);
     //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
     //pour atteindre ses paramètres.
-    double getScore() const;
+    virtual j::Value& getConfig() const = 0;
     //renovie le score de la position de la bactérie
+    double getScore() const;
 
     //Autres méthodes:
-    void updateScore();
+
     //mets à jour le score à partir de la position de la bactérie
-    virtual void drawOn(sf::RenderTarget& target) const;
+    void updateScore();
     //Permet de représenter graphiquement un bactérie. Méthode virtuelle.
-    virtual void update(sf::Time dt);
+    virtual void drawOn(sf::RenderTarget& target) const;
     //Calcule l'évolution d'une bactérie après un pas de temps.
     //Méthode virtuelle.
-    virtual void move(sf::Time dt) = 0;
+    virtual void update(sf::Time dt);
     //Calcule le dépplacement d'une bactérie après un pas de temps.
     //Méthode virtuelle pure.
-    void eat();
+    virtual void move(sf::Time dt) = 0;
     //Permet à la bactérie de se nourrir si possible dans l'assiette
-    virtual Bacterium* clone();
+    void eat();
     //Division de la bactérie en deux bactéries identiques.
-    bool death() const;
+    virtual Bacterium* clone();
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau
     //d'energie (energy_) est nul ou inférieur à 0.
-    void consumeEnergy(const Quantity qt);
+    bool isDead() const;
     //Décrémente l'energie de la bactérie d'une quantité donnée
-    void mutate();
+    void consumeEnergy(const Quantity qt);
     //Mute la bactérie.
-    virtual Bacterium* copie() = 0;
+    void mutate();
     //permet de copier une bactérie
-    void bestOfN(int n);
+    virtual Bacterium* copie() = 0;
     //modifie la direction que prend la bactérie en fonction
     //du score de N possibilités
+    void bestOfN(int n);
 
 private:
     MutableColor color_;
@@ -92,8 +94,7 @@ private:
     Quantity energy_;
     std::map<std::string, MutableNumber> mutableParameters_;
     sf::Time clock_;
-    double score_;
-    //représente le gradient lié à la position de la bactérie
+    double score_; //représente le gradient lié à la position de la bactérie
 };
 
 #endif // BACTERIUM_HPP

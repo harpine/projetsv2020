@@ -165,7 +165,7 @@ Bacterium* Bacterium::clone()
     return nullptr;
 }
 
-bool Bacterium::death() const
+bool Bacterium::isDead() const
 {
    return (energy_ <= 0) ;
 }
