@@ -12,12 +12,14 @@ public:
     MutableColor(j::Value const& config);
 
     //Getter:
-    sf::Color get() const;
+
     //renvoie la couleur actuelle
+    sf::Color get() const; 
 
     //Autre méthode:
-    void mutate();
+
     //fait muter chaque couleur
+    void mutate();
 
 private:
     //Attribut:

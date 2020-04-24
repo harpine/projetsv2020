@@ -53,7 +53,10 @@ Vec2d Swarm::getPositionLeader() const
 
 void Swarm::addSwarmBacterium(SwarmBacterium* swarmbacterium)
 {
-    swarmbacteria_.push_back(swarmbacterium);
+    if (swarmbacterium != nullptr)
+    {
+        swarmbacteria_.push_back(swarmbacterium);
+    }
 }
 
 void Swarm::removeSwarmBacterium(SwarmBacterium* swarmbacterium)

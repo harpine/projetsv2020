@@ -14,33 +14,37 @@ public:
     Nutriment(const Quantity quantity, const Vec2d& poscenter);
 
     //Getters et setter:
-    virtual j::Value const& getConfig() const = 0;
+
     //permet d'accéder aux configs des nutriments sans
     //devoir écrire ["nutriments"]
-    void setQuantity(Quantity newquantity);
+    virtual j::Value const& getConfig() const = 0;
     //permet de fixer la quantité du nutriment
-    Quantity getQuantity() const;
+    void setQuantity(Quantity newquantity);
     //Retourne la quantité du nutriment
+    Quantity getQuantity() const;
 
     //Autres méthodes:
-    Quantity takeQuantity(const Quantity totake);
+
     //permet d'enlever la quantité donnée en paramètre au nutriment
-    virtual void drawOn(sf::RenderTarget& target) const override;
+    Quantity takeQuantity(const Quantity totake);
     //dessine les nutriments dans la boîte de petri
     //et affiche la quantité de nutriment à côté de ceux-ci si le
     //mode debug est activé
-    virtual void update(sf::Time dt) override;
+    virtual void drawOn(sf::RenderTarget& target) const override;
     //calcul l'évolution du nutriment après écoulement d'un pas de temps dt
-    bool isDepleted() const;
+    virtual void update(sf::Time dt) override;
     //indique si le nutriment est épuisé
+    bool isDepleted() const;
 
 private:
     //Attribut:
     Quantity quantity_;
 
     //Méthode:
-    bool canGrow() const;
+
     //indique si la croissance est possible
+    bool canGrow() const;
+
 };
 
 #endif // NUTRIMENT_HPP

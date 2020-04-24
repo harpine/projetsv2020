@@ -12,12 +12,13 @@ public:
     NutrimentGenerator();
 
     //Autres méthodes:
-    virtual void update(sf::Time dt) override;
+
     //génère des nutriments régulièrement (selon paramètres)
-    Nutriment* choose();
+    virtual void update(sf::Time dt) override;
     //renvoie le nutriment à ajouter dans update (A ou B)
-    void reset();
+    Nutriment* choose();
     //réinitialise le temps à "Zero"
+    void reset();
 
 private:
     //Attribut:
