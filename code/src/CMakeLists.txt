@@ -77,8 +77,8 @@ find_package(SFML 2.5 QUIET COMPONENTS graphics window system)
       message(STATUS "Found SFML ${SFML_VERSION_MAJOR}.${SFML_VERSION_MINOR}.${SFML_VERSION_PATCH}")
       
       #main application:
-      #add_executable (application  ${TEST_DIR}/GraphicalTests/FinalApplication.cpp ${SOURCES_GFX})
-      #target_link_libraries(application sfml-graphics sfml-window sfml-system)
+      add_executable (application  ${TEST_DIR}/GraphicalTests/FinalApplication.cpp ${SOURCES_GFX})
+      target_link_libraries(application sfml-graphics sfml-window sfml-system)
 	
       #Units tests:
       add_executable (mutableTest  ${TEST_DIR}/UnitTests/MutablePropertyTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
@@ -86,7 +86,7 @@ find_package(SFML 2.5 QUIET COMPONENTS graphics window system)
       add_executable (circularBodyTest  ${TEST_DIR}/UnitTests/CircularBodyTest.cpp ${CB_SOURCES} ${CACHE_SOURCES})
       target_link_libraries(circularBodyTest sfml-graphics sfml-window sfml-system)
       add_executable (vec2dTest  ${TEST_DIR}/UnitTests/Vec2dTest.cpp ${CACHE_SOURCES})
-      target_link_litttbraries(vec2dTest sfml-graphics sfml-window sfml-system)
+      target_link_libraries(vec2dTest sfml-graphics sfml-window sfml-system)
 
       #Graphical tests:
       add_executable (simpleBactTest  ${TEST_DIR}/GraphicalTests/SimpleBacteriaTest.cpp ${SOURCES_GFX})
