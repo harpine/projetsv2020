@@ -484,13 +484,13 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
         case sf::Keyboard::C:
 			delete mConfig;
             mConfig = new Config(mAppDirectory + mCfgFile); // reconstruct
+            getEnv().resetTemperature();  //Notre code à nous
+            getEnv().resetGradientExponent(); //Notre code à nous
             break;
 
         // Toggle pause for simulation
         case sf::Keyboard::Space:
             mPaused = !mPaused;
-            getEnv().resetTemperature();  //Notre code à nous
-            getEnv().resetGradientExponent(); //Notre code à nous
             break;
 
         // Reset the simulation

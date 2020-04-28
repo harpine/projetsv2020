@@ -33,6 +33,9 @@ public:
     virtual void drawOn(sf::RenderTarget& target) const override;
     //permet de mettre à jour les données et actions de la bactérie simple
     virtual void update(sf::Time dt) override;
+    //renvoie la quantité de nutriment consommée en fonction du nutriment
+    virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
+    virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
 
 private:
     //Attributs:

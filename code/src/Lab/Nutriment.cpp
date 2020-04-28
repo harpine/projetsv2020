@@ -1,4 +1,8 @@
 #include "Nutriment.hpp"
+#include "Bacterium.hpp"
+#include "SimpleBacterium.hpp"
+#include "TwitchingBacterium.hpp"
+#include "SwarmBacterium.hpp"
 #include <Application.hpp>
 #include <Utility/Utility.hpp>
 

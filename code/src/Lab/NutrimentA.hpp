@@ -11,6 +11,16 @@ public:
 
     //Getter:
     virtual j::Value const& getConfig() const override;
+
+    //Autres méthodes :
+
+    //Redéfinition des méthodes virtuelles permettant de calculer
+    //la quantité cédée par le nutriment
+    virtual Quantity eatenBy(Bacterium& bact) override;
+    virtual Quantity eatenBy(SimpleBacterium& bact) override;
+    virtual Quantity eatenBy(TwitchingBacterium& bact) override;
+    virtual Quantity eatenBy(SwarmBacterium& bact) override;
+
 };
 
 #endif // NUTRIMENTA_HPP
