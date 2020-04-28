@@ -5,7 +5,7 @@ void Stats::setactive(const int newId)
     currentId_ = newId;
 }
 
-std::string Stats::getCurrentTitle()
+std::string Stats::getCurrentTitle() const
 {
     return labels_.find(currentId_)->second;
 }

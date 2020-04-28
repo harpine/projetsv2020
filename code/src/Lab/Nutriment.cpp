@@ -10,8 +10,14 @@
 Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
     : CircularBody(poscenter, quantity),
       quantity_(quantity)
-{}
+{
+    compteur_+= 1;
+}
 
+Nutriment::~Nutriment()
+{
+    compteur_-=1;
+}
 //Getters et setter:
 j::Value const& Nutriment::getConfig() const
 {

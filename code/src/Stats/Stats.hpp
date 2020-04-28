@@ -14,7 +14,7 @@ public:
 
     //autres méthodes:
     //Retourne le titre du graph courant
-    std::string getCurrentTitle();
+    std::string getCurrentTitle() const;
     //Permet de passer au graph suivant
     void next();
     //Permet de passer au graph précédent
