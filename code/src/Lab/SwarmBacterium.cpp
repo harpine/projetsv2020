@@ -40,6 +40,11 @@ Vec2d SwarmBacterium::getSpeedVector() const
     return (getDirection().normalised() * getSpeedConfig()["initial"].toDouble());
 }
 
+int SwarmBacterium::getCompteur() const
+{
+    return compteur_;
+}
+
 //Autres méthodes:
 Bacterium* SwarmBacterium::copie()
 {

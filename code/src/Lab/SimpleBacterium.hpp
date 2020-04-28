@@ -20,6 +20,8 @@ public:
     j::Value& getBetterConfig() const;
     //renvoie la vitesse courante (direction * une valeur)
     Vec2d getSpeedVector() const;
+    //renvoie le nombre d'instances existantes
+    virtual int getCompteur() const override;
 
     //Autres méthodes:
 
@@ -46,6 +48,7 @@ private:
     double probability_;
     //compteur stockant le temps écoulé depuis le dernier basculement
     sf::Time tumbleClock_;
+    static int compteur_;
 
     //Méthodes :
 

@@ -54,6 +54,11 @@ Vec2d SimpleBacterium::getSpeedVector() const
     return getDirection().normalised() * getProperty("speed").get();
 }
 
+int SimpleBacterium::getCompteur() const
+{
+    return compteur_;
+}
+
 //Autres méthodes:
 Vec2d SimpleBacterium::f(Vec2d position, Vec2d speed) const
 {

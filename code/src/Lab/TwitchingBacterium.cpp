@@ -23,6 +23,12 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
 
     addProperty("tentacle length",MutableNumber::positive(getTentacleLength()["initial"].toDouble(),
                 getTentacleLength()["rate"].toDouble(), getTentacleLength()["sigma"].toDouble() ));
+    compteur_ += 1;
+}
+
+TwitchingBacterium::~TwitchingBacterium()
+{
+    compteur_ -= 1;
 }
 
 //Getters utilitaires et setters :
@@ -49,6 +55,11 @@ j::Value& TwitchingBacterium::getTentacleSpeed() const
 j::Value& TwitchingBacterium::getTentacleLength() const
 {
     return getConfig()["tentacle"]["length"];
+}
+
+int TwitchingBacterium::getCompteur() const
+{
+    return compteur_;
 }
 
 //Autres méthodes:

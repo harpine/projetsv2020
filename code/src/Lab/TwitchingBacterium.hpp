@@ -12,8 +12,9 @@ enum State {IDLE, WAIT_TO_DEPLOY, DEPLOY, ATTRACT, RETRACT, EAT};
 class TwitchingBacterium : public Bacterium
 {
 public:
-    //Constructeur:
+    //Constructeur et destructeur:
     TwitchingBacterium(const Vec2d& poscenter);
+    ~TwitchingBacterium() override;
 
     //Getters utilitaires et setters:
 
@@ -27,6 +28,8 @@ public:
     j::Value& getTentacleSpeed() const;
     //renvoie les paramètres de longueur de la tentacule
     j::Value& getTentacleLength() const;
+    //renvoie le nombre d'instances existantes
+    virtual int getCompteur() const override;
 
     //Autres méthodes:
 
@@ -48,6 +51,7 @@ private:
     //Attributs:
     Grip grip_;
     State mystate_;
+    static int compteur_;
 
     //Méthodes privées:
 

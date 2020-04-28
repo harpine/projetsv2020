@@ -138,6 +138,6 @@ std::unordered_map<std::string, double> Lab::fetchData(const std::string & title
     }
     else if(title == s::NUTRIMENT_QUANTITY)
     {
-        return std::unordered_map<std::string, double>({"nutriment"});
+        return std::unordered_map<std::string, double>({"nutrimentquantity", p5});
     }
 }

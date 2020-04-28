@@ -31,7 +31,7 @@ public:
 
 private:
     std::map<int, std::string> labels_;
-    std::map<std::string, std::unique_ptr<Graph>> graphs_; //int
+    std::map<int, std::unique_ptr<Graph>> graphs_;
     int currentId_;
     sf::Time compteur_;
 };
