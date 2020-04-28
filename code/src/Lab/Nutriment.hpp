@@ -7,6 +7,11 @@
 #include <Interface/Drawable.hpp>
 #include <Interface/Updatable.hpp>
 
+class Bacterium;
+class SimpleBacterium;
+class TwitchingBacterium;
+class SwarmBacterium;
+
 class Nutriment : public CircularBody, public Drawable, public Updatable
 {
 public:
@@ -36,6 +41,13 @@ public:
     virtual void update(sf::Time dt) override;
     //indique si le nutriment est épuisé
     bool isDepleted() const;
+
+    //Méthodes pour de nourrir:
+    //Calculent pour chaque type de bactérie la quantité cédée par le nutriment
+    virtual Quantity eatenBy(Bacterium& bact) = 0;
+    virtual Quantity eatenBy(SimpleBacterium& bact) = 0;
+    virtual Quantity eatenBy(TwitchingBacterium& bact) = 0;
+    virtual Quantity eatenBy(SwarmBacterium& bact) = 0;
 
 private:
     //Attribut:

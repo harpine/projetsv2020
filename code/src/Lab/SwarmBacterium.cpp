@@ -1,6 +1,9 @@
 #include "SwarmBacterium.hpp"
 #include "CircularBody.hpp"
 #include "Swarm.hpp"
+#include "Nutriment.hpp"
+#include "NutrimentA.hpp"
+#include "NutrimentB.hpp"
 #include <Application.hpp>
 #include <SFML/Graphics.hpp>
 #include <Utility/Utility.hpp>
@@ -85,4 +88,14 @@ Vec2d SwarmBacterium::f(Vec2d position, Vec2d speed) const
 
     return (swarm_->getConfig()[swarm_->getId()]["force factor"].toDouble() *
             (swarm_->getPositionLeader() - position));
+}
+
+Quantity SwarmBacterium::eatableQuantity(NutrimentA& nutriment)
+{
+    return nutriment.eatenBy(*this);
+}
+
+Quantity SwarmBacterium::eatableQuantity(NutrimentB& nutriment)
+{
+    return nutriment.eatenBy(*this);
 }

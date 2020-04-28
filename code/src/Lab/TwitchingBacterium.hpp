@@ -40,6 +40,10 @@ public:
     //Permet de déplacer la bactérie d'un pas de temps dt
     virtual void move(sf::Time dt) override;
 
+    //renvoie la quantité de nutriment consommée en fonction du nutriment
+    virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
+    virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
+
 private:
     //Attributs:
     Grip grip_;

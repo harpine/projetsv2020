@@ -11,6 +11,9 @@
 #include <Utility/Types.hpp>
 #include <string>
 
+class Nutriment;
+class NutrimentA;
+class NutrimentB;
 
 class Bacterium : public CircularBody, public Drawable, public Updatable
 
@@ -39,27 +42,27 @@ public:
     virtual j::Value& getSpeedConfig() const;
     //renvoie la direction de la bactérie
     Vec2d getDirection() const;
-    //ajouter un paramètre mutable
+    //Ajouter un paramètre mutable
     virtual void addProperty(const std::string& key, MutableNumber mutablenumber);
     //Permet de retrouver une valeur mutable associée à une clé donnée
     virtual MutableNumber getProperty(const std::string& key) const;
-    //met à jour la direction de la bactérie
+    //Met à jour la direction de la bactérie
     void setDirection(const Vec2d& direction);
-    //renvoie la couleur de la bactérie
+    //Renvoie la couleur de la bactérie
     MutableColor getColor() const;
-    //renvoie l'angle de la direction de la bactérie
+    //Renvoie l'angle de la direction de la bactérie
     double getAngle() const;
-    //met à jour l'angle de direction de la bactérie
+    //Met à jour l'angle de direction de la bactérie
     void setAngle(const double angle);
     //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
     //pour atteindre ses paramètres.
     virtual j::Value& getConfig() const = 0;
-    //renovie le score de la position de la bactérie
+    //Renvoie le score de la position de la bactérie
     double getScore() const;
 
     //Autres méthodes:
 
-    //mets à jour le score à partir de la position de la bactérie
+    //Met à jour le score à partir de la position de la bactérie
     void updateScore();
     //Permet de représenter graphiquement un bactérie. Méthode virtuelle.
     virtual void drawOn(sf::RenderTarget& target) const;
@@ -80,11 +83,16 @@ public:
     void consumeEnergy(const Quantity qt);
     //Mute la bactérie.
     void mutate();
-    //permet de copier une bactérie
+    //Permet de copier une bactérie
     virtual Bacterium* copie() = 0;
-    //modifie la direction que prend la bactérie en fonction
+    //Modifie la direction que prend la bactérie en fonction
     //du score de N possibilités
     void bestOfN(int n);
+    //Permet de mimer un polymorphisme sur les bacteries dans les Nutriment.
+    //Renvoie la quantité prélevée au nutriment selon le type de bactérie.
+    //Méthode vitruelle pure.
+    virtual Quantity eatableQuantity(NutrimentA& nutriment) = 0;
+    virtual Quantity eatableQuantity(NutrimentB& nutriment) = 0;
 
 private:
     MutableColor color_;

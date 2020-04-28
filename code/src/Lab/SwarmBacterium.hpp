@@ -29,6 +29,9 @@ public:
     virtual void move(sf::Time dt) override;
     //modélise la force d'attraction des bactéries
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
+    //renvoie la quantité de nutriment consommée en fonction du nutriment
+    virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
+    virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
 
 private:
     //Attributs

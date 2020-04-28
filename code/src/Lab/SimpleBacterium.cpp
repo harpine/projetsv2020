@@ -1,5 +1,8 @@
 #include "../Utility/MutableNumber.hpp"
 #include "SimpleBacterium.hpp"
+#include "Nutriment.hpp"
+#include "NutrimentA.hpp"
+#include "NutrimentB.hpp"
 #include <Application.hpp>
 #include <Random/Random.hpp>
 #include <Utility/Constants.hpp>
@@ -159,4 +162,14 @@ void SimpleBacterium::updateFlagelle(sf::Time dt)
 Bacterium* SimpleBacterium::copie()
 {
     return new SimpleBacterium(*this);
+}
+
+Quantity SimpleBacterium::eatableQuantity(NutrimentA& nutriment)
+{
+    return nutriment.eatenBy(*this);
+}
+
+Quantity SimpleBacterium::eatableQuantity(NutrimentB& nutriment)
+{
+    return nutriment.eatenBy(*this);
 }

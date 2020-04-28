@@ -1,4 +1,7 @@
 #include "TwitchingBacterium.hpp"
+#include "Nutriment.hpp"
+#include "NutrimentA.hpp"
+#include "NutrimentB.hpp"
 #include <Application.hpp>
 #include <Random/Random.hpp>
 #include <Utility/Utility.hpp>
@@ -188,4 +191,14 @@ void TwitchingBacterium::eatingState()
     {
         mystate_ = IDLE;
     }
+}
+
+Quantity TwitchingBacterium::eatableQuantity(NutrimentA& nutriment)
+{
+    return nutriment.eatenBy(*this);
+}
+
+Quantity TwitchingBacterium::eatableQuantity(NutrimentB& nutriment)
+{
+    return nutriment.eatenBy(*this);
 }

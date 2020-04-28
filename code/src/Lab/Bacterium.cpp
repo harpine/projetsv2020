@@ -1,5 +1,7 @@
 #include "Bacterium.hpp"
 #include "Nutriment.hpp"
+#include "NutrimentA.hpp"
+#include "NutrimentB.hpp"
 #include <Utility/Utility.hpp>
 #include <Application.hpp>
 #include <cmath>
@@ -146,7 +148,8 @@ void Bacterium::eat()
             and !abstinence_
             and clock_ >= getMealDelay())
     {
-        energy_ += getAppEnv().getNutrimentColliding(*this)->takeQuantity(getMealQuantity());
+        Quantity eaten(getAppEnv().getNutrimentColliding(*this)->eatenBy(*this));
+        energy_ += eaten;
         clock_ = sf::Time::Zero ;
     }
 }
