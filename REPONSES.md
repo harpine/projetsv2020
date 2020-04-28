@@ -506,12 +506,15 @@ eatenBy(Bacterium& bact) const = 0; avec comme argument une Bacterium
 quelconque (alors qu'à priori seule nous intéresse la définition de 
 eatenBy pour des sous-classes de bactéries) ?
 
-*Réponse R5.2* Du point de vue conceptuel, une bactérie doit pouvoir
-manger et il faut donc déclarer cette méthode. De plus, cela permet
-de définir une manière générale de se nourrir pour des bactéries
-qui n'auraient pas de comportement spécifique par rapport aux 
-nutriments. Cette méthode permet tout de même un polymorphisme au
-niveau des bactéries (grâce à Bacterium::eatableQuantity).
+*Réponse R5.2* Cette méthode doit être prévue car c'est elle qui sera 
+appelée dans eat de Bacterium. Les autres méthodes surchargées sont en 
+fait là pour garantir un "polymorphisme" que l'on essaie de mimer. Dans 
+Bacterium, eatenBy sera tout d'abord appelé sur les nutriments où cette 
+méthode est virtuelle pour s'adapter au type de nutriment. Dedans, on 
+fait appel à eatableQuantity sur la bactérie en question qui s'adapte à 
+la bactérie et appelle eatenBy en fonction du type de la bactérie. Donc 
+eatenBy(Bacterium&) est un point de départ qui permet une utilisation 
+générale.
 
 **Question Q5.3** Quelle(s) structure(s) de données choisissez-vous pour
 l'ensemble des graphes et l'ensemble des titres de la classe Stats. 

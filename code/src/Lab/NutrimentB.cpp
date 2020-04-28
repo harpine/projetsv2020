@@ -1,4 +1,8 @@
 #include "NutrimentB.hpp"
+#include "Bacterium.hpp"
+#include "SimpleBacterium.hpp"
+#include "TwitchingBacterium.hpp"
+#include "SwarmBacterium.hpp"
 #include <Application.hpp>
 
 //Constructeur:
@@ -20,16 +24,18 @@ Quantity NutrimentB::eatenBy(Bacterium& bact)
 
 Quantity NutrimentB::eatenBy(SimpleBacterium& bact)
 {
-    double factor(getConfig().["resistance factor"].toDouble())
-    return takeQuantity(bact.getMealQuantity());
+    double factor(getConfig()["resistance factor"].toDouble());
+    return takeQuantity(bact.getMealQuantity() / factor);
 }
 
 Quantity NutrimentB::eatenBy(TwitchingBacterium& bact)
 {
-    return takeQuantity(bact.getMealQuantity());
+    double factor(getConfig()["nutritive factor"].toDouble());
+    return (takeQuantity(bact.getMealQuantity()) * factor);
 }
 
 Quantity NutrimentB::eatenBy(SwarmBacterium& bact)
 {
-    return takeQuantity(bact.getMealQuantity());
+    double factor(getConfig()["poison factor"].toDouble());
+    return (-takeQuantity(bact.getMealQuantity()) * factor);
 }

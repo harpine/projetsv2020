@@ -150,7 +150,6 @@ void Bacterium::eat()
     {
         Quantity eaten(getAppEnv().getNutrimentColliding(*this)->eatenBy(*this));
         energy_ += eaten;
-        //energy_ += getAppEnv().getNutrimentColliding(*this)->takeQuantity(getMealQuantity());
         clock_ = sf::Time::Zero ;
     }
 }
