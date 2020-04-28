@@ -10,7 +10,7 @@
 //Constructeurs:
 Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
                      const Vec2d& direction, const double radius,
-                     const MutableColor color)
+                     const MutableColor& color)
     : CircularBody(poscenter, radius),
       color_(color),
       direction_(direction.normalised()),

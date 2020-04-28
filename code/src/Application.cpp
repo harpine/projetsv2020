@@ -1,8 +1,7 @@
 
 /*
- * prjsv 2016
- * 2013, 2014, 2016
- * Marco Antognini
+ * prjsv 2014-20
+ * Marco Antognini & Jamila Sam
  */
 
 #include <Application.hpp>
@@ -15,7 +14,7 @@
 #include <fstream>
 #include <algorithm>
 #include <cassert>
-//#include <Stats/Stats.hpp>
+#include <Stats/Stats.hpp>
 namespace // anonymous
 {
 /* objects defined in anonymous namespaces cannot be used
@@ -71,16 +70,18 @@ Vec2d getSimulationPosition()
     return { 0, 0 };
 }
 
-Vec2d getStatsSize()
-{
-	auto width = getShortConfig().window_simulation_width + getShortConfig().window_stats_width;
-	auto height = getShortConfig().window_simulation_height/2;
-    return { width, height };
-}
+
 Vec2d getControlSize()
 {
-	auto width = getShortConfig().window_simulation_width;
+	auto width = getShortConfig().window_simulation_width/2;
 	auto height = getShortConfig().window_simulation_height/3;
+    return { width, height };
+}
+
+Vec2d getStatsSize()
+{
+	auto width = getShortConfig().window_simulation_width + getControlSize().x;
+	auto height = getShortConfig().window_stats_width;
     return { width, height };
 }
 Vec2d getStatsPosition()
@@ -133,14 +134,14 @@ Application::Application(int argc, char const** argv)
 , mCfgFile(configFileRelativePath(argc, argv))
 //, mJSONRead(mAppDirectory + mCfgFile)
 , mConfig(new Config(mAppDirectory + mCfgFile))
-//, mStats(nullptr)
+, mStats(nullptr)
 , mCurrentGraphId(-1)
 , mLab(nullptr)
 , mPaused(false)  
 , mIsResetting(false)
 , mIsDragging(false)
   // TODO: make it more general
-,mCurrentControl(TEMPERATURE)
+,mCurrentControl(STATS)
 ,isStatsOn(false)
 {
     // Set global singleton
@@ -169,7 +170,7 @@ Application::~Application()
     // Destroy lab and stats, in reverse order
     delete mLab;
 	delete mConfig;
-//	delete mStats;
+	delete mStats;
 
     // Release textures
     for (auto& kv : mTextures) {
@@ -186,7 +187,7 @@ void Application::run()
 {
     // Load lab and stats
     mLab   = new Lab;
-//	mStats = new Stats;
+	mStats = new Stats;
     // Set up subclasses
     onRun();
     onSimulationStart();
@@ -245,6 +246,8 @@ void Application::run()
                 auto dt = std::min(elapsedTime, maxDt);
                 elapsedTime -= dt;
 				getEnv().update(dt);
+				// A DECOMMENTER
+//				getStats().update(dt);
                 onUpdate(dt);
 				--nbCycles;
 
@@ -484,6 +487,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
         case sf::Keyboard::C:
 			delete mConfig;
             mConfig = new Config(mAppDirectory + mCfgFile); // reconstruct
+            getEnv().resetControls();
             getEnv().resetTemperature();  //Notre code à nous
             getEnv().resetGradientExponent(); //Notre code à nous
             break;
@@ -499,6 +503,8 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 				
 				mIsResetting = true;
 				getEnv().reset();
+// A DECOMMENTER:
+//				getStats().reset();
 				onSimulationStart();
 				createViews();
 				mSimulationBackground= mLabBackground;
@@ -535,6 +541,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 						mLab->decreaseGradientExponent();
 						break;
 					case STATS:
+						// A DECOMMENTER
 //						mStats->previous(); 
 						break;
 					default:
@@ -550,6 +557,7 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 						mLab->increaseGradientExponent();
 						break;
 					case STATS:
+// A DECOMMENTER
 //						mStats->next();
 						break;
 					default:
@@ -659,6 +667,12 @@ void Application::render(sf::Drawable const& simulationBackground,
 	// Render the stats
 	mRenderWindow.setView(mStatsView);
 	mRenderWindow.draw(statsBackground);
+	if (isStatsOn)
+	{
+// A DECOMENTER
+		//getStats().drawOn(mRenderWindow);
+	}
+	
 	
     // Finally, publish everything onto the screen
     mRenderWindow.display();
@@ -775,10 +789,10 @@ bool isDebugOn()
 void Application::drawControls(sf::RenderWindow& target) {
 	auto const LEGEND_MARGIN(10);
 	auto lastLegendY(LEGEND_MARGIN);
-	auto const FONT_SIZE = 15;
+	auto const FONT_SIZE = 12;
 	//drawTitle(target, sf::Color::Red, LEGEND_MARGIN, lastLegendY, FONT_SIZE);
 	lastLegendY += FONT_SIZE + 4;
-	for (size_t ctrl(TEMPERATURE); ctrl <NB_CONTROLS; ++ctrl){
+	for (size_t ctrl(STATS); ctrl <NB_CONTROLS; ++ctrl){
 		drawOneControl(target, static_cast<Control>(ctrl), LEGEND_MARGIN, lastLegendY, FONT_SIZE);
 		lastLegendY += FONT_SIZE + 4;
 	}
@@ -791,35 +805,9 @@ void Application::drawTitle(sf::RenderWindow& target
 								 , size_t font_size
 							) 
 {
-	/*
-	std::stringstream tmpStream;
-	auto text = s::CURRENTSUBST + " : ";
-
-	// TODO: add in Utility
-	switch(mLab->getCurrentSubst()){
-		case GLUCOSE:
-			text+= "Glucose";
-			break;
-		case BROMOPYRUVATE:
-			text+= "Bromo";
-			break;
-		case VGEF:
-			text+= "VGEF";
-			break;
-		default:
-			text += "None";
-	}
-	
-	auto legend = sf::Text(text, getAppFont(), font_size);
-	legend.setPosition(xcoord, ycoord);
-#if SFML_VERSION_MAJOR >= 2 && SFML_VERSION_MINOR >= 4
-	legend.setFillColor(color);
-#else
-	legend.setColor(color);
-#endif
-	target.draw(legend);
-	*/
+	/*nothing by default*/
 }
+	
 void Application::drawOneControl(sf::RenderWindow& target
 								 , Control control
 								 , size_t xcoord
@@ -827,7 +815,6 @@ void Application::drawOneControl(sf::RenderWindow& target
 								 , size_t font_size
 								 ) 
 {
-	// pourl'affichage de double voir le projet 1718
 	sf::Color color (mCurrentControl == control ? sf::Color::Red : sf::Color::White);
 	std::string text("");
 	switch (control) {
@@ -840,7 +827,9 @@ void Application::drawOneControl(sf::RenderWindow& target
 			text += to_nice_string(mLab->getGradientExponent());
 			break;
 		case STATS :
-			text = "Current stat : none";
+			text = "Current stat : ";
+			// A DECOMMENTER
+			//text += (isStatsOn ? mStats->getCurrentTitle() : "disabled");
 			break;
 		default:
 			/* nothing to do */
@@ -858,3 +847,23 @@ void Application::drawOneControl(sf::RenderWindow& target
 	target.draw(legend);
 }
 
+void Application::addGraph(std::string const& title, std::vector<std::string> const& series, double min, double max)
+{
+    if (series.size() > 0){
+		++mCurrentGraphId;
+		// A DECOMMENTER
+//    getStats().addGraph(mCurrentGraphId, title, series, min, max, getStatsSize() );
+	}
+}
+
+
+Stats& Application::getStats()
+{
+    return *mStats;
+}
+
+void Application::setActiveGraph(int id)
+{
+	// A DECOMMENTER
+	//getStats().setActive(id);
+}

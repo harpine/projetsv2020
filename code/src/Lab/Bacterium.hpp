@@ -23,7 +23,7 @@ public:
     //Construcuteurs:
     Bacterium(const Quantity energy, const Vec2d& poscenter,
               const Vec2d& direction, const double radius,
-              const MutableColor color);
+              const MutableColor& color);
     Bacterium(const Bacterium& other);
 
     virtual ~Bacterium() = default;

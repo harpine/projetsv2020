@@ -34,6 +34,8 @@ public:
     void update(sf::Time dt);
     //Vide l'assiette de pétri associée à Lab et réinitialise la température
     void reset();
+    //Réinitialise la température et la puissance du gradient
+    void resetControls();
 
     //Ajouts/retranchements:
 
