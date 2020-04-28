@@ -2,8 +2,10 @@
 
 #include <vector>
 #include <Stats/Graph.hpp>
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
-class Stats 
+class Stats : public Drawable //, public Updatable
 {
 public:
     //setter:
@@ -27,7 +29,7 @@ public:
 
 private:
     std::map<int, std::string> labels_;
-    std::map<std::string, std::unique_ptr<Graph>> graphs_; //int
+    std::map<int, std::unique_ptr<Graph>> graphs_;
     int currentId_;
 };
 
