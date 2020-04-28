@@ -17,7 +17,7 @@ class Nutriment : public CircularBody, public Drawable, public Updatable
 public:
     //Constructeur et Destructeur:
     Nutriment(const Quantity quantity, const Vec2d& poscenter);
-    ~ Nutriment() = default;
+    ~ Nutriment();
 
     //Getters et setter:
 
@@ -52,6 +52,7 @@ public:
 private:
     //Attribut:
     Quantity quantity_;
+    static int compteur_;
 
     //Méthode:
 
