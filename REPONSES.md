@@ -517,7 +517,8 @@ niveau des bactéries (grâce à Bacterium::eatableQuantity).
 l'ensemble des graphes et l'ensemble des titres de la classe Stats. 
 
 *Réponse R5.3* Une map nous paraît être la meilleure solution afin de
-lier titre et (pointeur) sur graph										//??
+lier titre et (pointeur) sur graph. Il nous faut une deuxième map afin
+de lier identifiant et titre.									
 
 **Question Q5.4** quelle méthodes prévoyez-vous d'ajouter/modifier et 
 dans quelles classes pour réaliser les décomptes souhaités et construire
