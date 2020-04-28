@@ -488,8 +488,6 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 			delete mConfig;
             mConfig = new Config(mAppDirectory + mCfgFile); // reconstruct
             getEnv().resetControls();
-            getEnv().resetTemperature();  //Notre code à nous
-            getEnv().resetGradientExponent(); //Notre code à nous
             break;
 
         // Toggle pause for simulation
