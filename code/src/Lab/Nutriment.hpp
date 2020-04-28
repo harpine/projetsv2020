@@ -10,8 +10,9 @@
 class Nutriment : public CircularBody, public Drawable, public Updatable
 {
 public:
-    //Constructeur:
+    //Constructeur et Destructeur:
     Nutriment(const Quantity quantity, const Vec2d& poscenter);
+    ~ Nutriment() = default;
 
     //Getters et setter:
 

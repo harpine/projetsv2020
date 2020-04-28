@@ -57,6 +57,12 @@ void Lab::reset()
     petridish_.reset();
 }
 
+void Lab::resetControls()
+{
+    resetTemperature();
+    resetGradientExponent();
+}
+
 //Ajouts:
 void Lab::addNutriment(Nutriment* nutriment)
 {
