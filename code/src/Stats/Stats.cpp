@@ -1,11 +1,12 @@
 #include <Stats/Stats.hpp>
+#include <Application.hpp>
 
 void Stats::setactive(const int newId)
 {
     currentId_ = newId;
 }
 
-std::string Stats::getCurrentTitle()
+std::string Stats::getCurrentTitle() const
 {
     auto pair = labels_.find(currentId_);
     return pair->second;
@@ -31,12 +32,12 @@ void Stats::previous()
 
 void Stats::drawOn(sf::RenderTarget& target) const
 {
-    graphs_.find(labels_.find(currentId_)->second)->second->drawOn(target);
+    graphs_.find(getCurrentTitle())->second->drawOn(target);
 }
 
 void Stats::reset()
 {
-    for (auto& pair: graphs_)
+    for (auto& pair : graphs_)
     {
         pair.second.reset();
     }
@@ -58,4 +59,27 @@ void Stats::addGraph(int graphId, std::string const& title, std::vector<std::str
         labels_.find(graphId)->second = title;
     }
     currentId_ = graphId;
+}
+
+void Stats::update(sf::Time dt)
+{
+    compteur_ += dt;
+
+    if (compteur_ > sf::seconds(getAppConfig()["stats"]["refresh rate"].toDouble()))
+    {
+        compteur_ = sf::Time::Zero;
+        for (auto& pair : graphs_)
+        {
+            getAppEnv().fetchData(getCurrentTitle());
+            std::unordered_map<std::string, double> new_data = {{"simple bacteria", p1j+1},
+                                                                {"twitching bacteria", p2j+1},
+                                                                {"swarm bacteria", p3j+1},
+                                                                {"nutriment sources", p4j+1}};
+            pair->second.update(deltaT, new_data);
+
+
+        }
+
+
+    }
 }

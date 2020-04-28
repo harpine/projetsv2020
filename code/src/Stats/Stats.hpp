@@ -2,8 +2,10 @@
 
 #include <vector>
 #include <Stats/Graph.hpp>
+#include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
-class Stats 
+class Stats : public Drawable, public Updatable
 {
 public:
     //setter:
@@ -12,7 +14,7 @@ public:
 
     //autres méthodes:
     //Retourne le titre du graph courant
-    std::string getCurrentTitle();
+    std::string getCurrentTitle() const;
     //Permet de passer au graph suivant
     void next();
     //Permet de passer au graph précédent
@@ -24,10 +26,13 @@ public:
     //ajoute un graph
     void addGraph(int graphId, std::string const& title, std::vector<std::string> const& series,
                   double min, double max, Vec2d size);
+    //permet de mettre à jour les données à une certaine fréquence
+    virtual void update(sf::Time dt) override;
 
 private:
     std::map<int, std::string> labels_;
     std::map<std::string, std::unique_ptr<Graph>> graphs_; //int
     int currentId_;
+    sf::Time compteur_;
 };
 

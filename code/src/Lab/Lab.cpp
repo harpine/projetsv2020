@@ -125,3 +125,19 @@ void Lab::resetGradientExponent()
 {
     petridish_.resetGradientExponent();
 }
+
+//Pour les statistiques:
+std::unordered_map<std::string, double> Lab::fetchData(const std::string & title) const
+{
+    if (title == s::GENERAL)
+    {
+        return std::unordered_map<std::string, double>({{"simple bacteria", p1},
+                                                        {"twitching bacteria", p2},
+                                                        {"swarm bacteria", p3},
+                                                        {"nutriment sources", p4}})
+    }
+    else if(title == s::NUTRIMENT_QUANTITY)
+    {
+        return std::unordered_map<std::string, double>({"nutriment"});
+    }
+}

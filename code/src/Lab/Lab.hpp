@@ -68,6 +68,11 @@ public:
     //Réinitialise la puissance à sa valeur par défaut
     void resetGradientExponent();
 
+    //Pour les statistiques:
+
+    //Renvoie les nouvelles données pour un graphe donné
+    std::unordered_map<std::string, double> fetchData(const std::string & title) const;
+
 private:
     PetriDish petridish_;
     NutrimentGenerator nutrimentGenerator_;
