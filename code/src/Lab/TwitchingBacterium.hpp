@@ -31,6 +31,10 @@ public:
     j::Value& getTentacleLength() const;
     //renvoie le nombre d'instances existantes
     static int getCompteur();
+    //renvoie la moyenne des longueurs de tentacules de toutes les instances
+    static double getAverageTentacleLength();
+    //renvoie la moyenne des vitesses de tentacules
+    static double getAverageTentacleSpeed();
 
     //Autres méthodes:
 
@@ -53,6 +57,8 @@ private:
     Grip grip_;
     State mystate_;
     static int compteur_;
+    static double totalTentacleLength_;
+    static double totalTentacleSpeed_;
 
     //Méthodes privées:
 

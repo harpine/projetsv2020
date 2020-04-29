@@ -258,5 +258,17 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
         new_data = {{"nutriment quantity", totalQuantity}};
         return new_data;
     }
+
+
+    else if (title == s::TWITCHING_BACTERIA)
+    {
+        double tentacleLength(TwitchingBacterium::getAverageTentacleLength());
+        double tentacleSpeed(TwitchingBacterium::getAverageTentacleSpeed());
+//        std::unordered_map<std::string, double> new_data;
+//        new_data = {{"tentacle length", tentacleLength},
+//                    {"tentacle speed", tentacleSpeed}};
+//        return new_data;
+        return std::unordered_map<std::string, double> ({{"tentacle length", tentacleLength}, {"tentacle speed", tentacleSpeed}});
+    }
 }
 
