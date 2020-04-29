@@ -10,6 +10,8 @@
 #include <Utility/Vec2d.hpp>
 #include <Random/Random.hpp>
 
+int SwarmBacterium::compteur_ = 0;
+
 //Constructeur et destructeur:
 SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
@@ -22,11 +24,20 @@ SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
      swarm_(swarm)
 {
     swarm_->addSwarmBacterium(this);
+    compteur_ += 1;
 }
 
 SwarmBacterium::~SwarmBacterium()
 {
     swarm_->removeSwarmBacterium(this);
+    compteur_ -= 1;
+}
+
+SwarmBacterium::SwarmBacterium(const SwarmBacterium& other)
+    :Bacterium(other),
+      swarm_(other.swarm_)
+{
+    compteur_ += 1;
 }
 
 //Getters:
@@ -38,6 +49,11 @@ j::Value& SwarmBacterium::getConfig() const
 Vec2d SwarmBacterium::getSpeedVector() const
 {
     return (getDirection().normalised() * getSpeedConfig()["initial"].toDouble());
+}
+
+int SwarmBacterium::getCompteur()
+{
+    return compteur_;
 }
 
 //Autres méthodes:

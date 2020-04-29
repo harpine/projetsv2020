@@ -13,7 +13,7 @@
     "generator" : {
         "nutriment" : {
             "delay" : 0.5,
-            "prob" : 0.5
+            "prob" : 0.8
         }
     },
     "map" : "map.json",
@@ -52,7 +52,7 @@
                 "max" : 50,
                 "min" : 40
             },
-            "resistance factor" : 100,
+            "resistance factor" : 10,
             "texture" : "foodB.png"
         }
     },

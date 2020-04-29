@@ -1,5 +1,6 @@
 #include <Stats/Stats.hpp>
-#include <iostream>
+#include <Application.hpp>
+
 
 void Stats::setactive(const int newId)
 {
@@ -31,13 +32,12 @@ void Stats::previous()
 
 void Stats::drawOn(sf::RenderTarget& target) const
 {
-
     graphs_.find(currentId_)->second->drawOn(target);
 }
 
 void Stats::reset()
 {
-    for (auto& pair: graphs_)
+    for (auto& pair : graphs_)
     {
         pair.second->reset();
     }
@@ -58,4 +58,21 @@ void Stats::addGraph(int graphId, std::string const& title, std::vector<std::str
         labels_.find(graphId)->second = title;
     }
     currentId_ = graphId;
+}
+
+void Stats::update(sf::Time dt)
+{
+    compteur_ += dt;
+
+    if (compteur_ > sf::seconds(getAppConfig()["stats"]["refresh rate"].toDouble()))
+    {
+        for (auto& pair : graphs_)
+        {
+            std::cerr << "rentre update";
+            std::unordered_map<std::string, double> new_data(getAppEnv().fetchData(labels_.find(pair.first)->second));
+            pair.second->updateData(compteur_, new_data);
+            std::cerr << pair.first;
+        }
+        compteur_ = sf::Time::Zero;
+    }
 }

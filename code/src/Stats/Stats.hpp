@@ -5,7 +5,7 @@
 #include <Interface/Drawable.hpp>
 #include <Interface/Updatable.hpp>
 
-class Stats : public Drawable //, public Updatable
+class Stats : public Drawable, public Updatable
 {
 public:
     //setter:
@@ -26,10 +26,13 @@ public:
     //ajoute un graph
     void addGraph(int graphId, std::string const& title, std::vector<std::string> const& series,
                   double min, double max, Vec2d size);
+    //permet de mettre à jour les données à une certaine fréquence
+    virtual void update(sf::Time dt) override;
 
 private:
     std::map<int, std::string> labels_;
     std::map<int, std::unique_ptr<Graph>> graphs_;
     int currentId_;
+    sf::Time compteur_;
 };
 

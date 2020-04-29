@@ -12,12 +12,15 @@ public:
     //Constructeur et destructeur:
     SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm);
     virtual ~SwarmBacterium() override;
+    SwarmBacterium(const SwarmBacterium& other);
 
     //Getters:
     //permet d'accéder aux configurations de Swarmbacterium
     virtual j::Value& getConfig() const override;
     //renvoie la vitesse courante (direction * une valeur)
     Vec2d getSpeedVector() const;
+    //renvoie le nombre d'instances existantes
+    static int getCompteur();
 
     //Autres méthodes:
 
@@ -36,6 +39,7 @@ public:
 private:
     //Attributs
     Swarm* swarm_;
+    static int compteur_;
 };
 
 #endif // SWARMBACTERIUM_HPP

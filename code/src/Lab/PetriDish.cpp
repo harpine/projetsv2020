@@ -2,12 +2,16 @@
 #include "Nutriment.hpp"
 #include "Bacterium.hpp"
 #include "Swarm.hpp"
+#include "SimpleBacterium.hpp"
+#include "TwitchingBacterium.hpp"
+#include "SwarmBacterium.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <Utility/Vec2d.hpp>
 #include <Utility/Utility.hpp>
 #include <Application.hpp>
 #include <cmath>
+#include <string>
 
 //Constructeur et destructeur:
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
@@ -227,3 +231,38 @@ void PetriDish::resetGradientExponent()
 {
     exponent_ = (getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2;
 }
+
+//Pour les statistiques:
+std::unordered_map<std::string, double> PetriDish::fetchData(const std::string & title) const
+{
+    if (title == s::GENERAL)
+    {
+        int simple(SimpleBacterium::getCompteur());
+        int twitching(TwitchingBacterium::getCompteur());
+        int swarmbact(SwarmBacterium::getCompteur());
+        int nutriment(Nutriment::getCompteur());
+        std::unordered_map<std::string, double> new_data;
+        new_data = {{"simple bacteria", simple}, {"twitching bacteria", twitching},
+                    {"swarm bacteria", swarmbact},{"nutriment sources", nutriment},
+                    {"temperature", temperature_}};
+        return new_data;
+    }
+    else if (title == s::NUTRIMENT_QUANTITY)
+    {
+        Quantity totalQuantity(0);
+        for (auto& nutriment : nutriments_)
+        {
+            totalQuantity += nutriment->getQuantity();
+        }
+        std::unordered_map<std::string, double> new_data;
+        new_data = {{"nutriment quantity", totalQuantity}};
+        return new_data;
+    }
+    else if (title == s::SIMPLE_BACTERIA)
+    {
+        double averagebetter(SimpleBacterium::getAverageBetter());
+        double averageworse(SimpleBacterium::getAverageWorse());
+        return std::unordered_map<std::string, double>({{"tumble better prob", averagebetter},{"tumble worse prob", averageworse}});
+    }
+}
+

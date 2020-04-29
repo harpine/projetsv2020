@@ -10,8 +10,10 @@ class SimpleBacterium : public Bacterium, public DiffEqFunction
 {
 
 public:
-    //Constructeur:
+    //Constructeur et destructeur:
     SimpleBacterium(const Vec2d& poscenter);
+    ~SimpleBacterium() override;
+    SimpleBacterium(const SimpleBacterium& other);
 
     //Getters & setters:
     //permet de simplifier l'accès aux configurations
@@ -20,6 +22,12 @@ public:
     j::Value& getBetterConfig() const;
     //renvoie la vitesse courante (direction * une valeur)
     Vec2d getSpeedVector() const;
+    //renvoie le nombre d'instances existantes
+    static int getCompteur();
+    //renvoie la moyenne des tumbles better des bactéries existantes
+    static double getAverageBetter();
+    //renvoie la moyenne des tumbles better des bactéries existantes
+    static double getAverageWorse();
 
     //Autres méthodes:
 
@@ -46,6 +54,12 @@ private:
     double probability_;
     //compteur stockant le temps écoulé depuis le dernier basculement
     sf::Time tumbleClock_;
+    //compteur du nombre d'instances existantes
+    static int compteur_;
+    //somme des tumbles better des bactéries existantes
+    static double totalBetter_;
+    //somme des tumbles worse des bactéries existantes
+    static double totalWorse_;
 
     //Méthodes :
 

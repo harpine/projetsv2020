@@ -19,6 +19,7 @@ public:
     Nutriment(const Quantity quantity, const Vec2d& poscenter);
 
     ~ Nutriment();
+    Nutriment(const Nutriment& other);
 
     //Getters et setter:
 
@@ -29,6 +30,8 @@ public:
     void setQuantity(Quantity newquantity);
     //Retourne la quantité du nutriment
     Quantity getQuantity() const;
+    //Renvoie le nombre d'instances
+    static int getCompteur();
 
     //Autres méthodes:
 

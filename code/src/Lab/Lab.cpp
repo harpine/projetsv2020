@@ -49,6 +49,7 @@ void Lab::update(sf::Time dt)
 {
     nutrimentGenerator_.update(dt);
     petridish_.update(dt);
+
 }
 
 void Lab::reset()
@@ -124,4 +125,10 @@ void Lab::decreaseGradientExponent()
 void Lab::resetGradientExponent()
 {
     petridish_.resetGradientExponent();
+}
+
+//Pour les statistiques:
+std::unordered_map<std::string, double> Lab::fetchData(const std::string & title) const
+{
+    return petridish_.fetchData(title);
 }

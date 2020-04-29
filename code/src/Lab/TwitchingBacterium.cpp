@@ -6,6 +6,8 @@
 #include <Random/Random.hpp>
 #include <Utility/Utility.hpp>
 
+int TwitchingBacterium::compteur_ = 0;
+
 //Constructeur:
 TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
@@ -23,6 +25,20 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
 
     addProperty("tentacle length",MutableNumber::positive(getTentacleLength()["initial"].toDouble(),
                 getTentacleLength()["rate"].toDouble(), getTentacleLength()["sigma"].toDouble() ));
+    compteur_ += 1;
+}
+
+TwitchingBacterium::~TwitchingBacterium()
+{
+    compteur_ -= 1;
+}
+
+TwitchingBacterium::TwitchingBacterium(const TwitchingBacterium& other)
+    :Bacterium(other),
+      grip_(other.grip_),
+      mystate_(other.mystate_)
+{
+    compteur_ += 1;
 }
 
 //Getters utilitaires et setters :
@@ -49,6 +65,11 @@ j::Value& TwitchingBacterium::getTentacleSpeed() const
 j::Value& TwitchingBacterium::getTentacleLength() const
 {
     return getConfig()["tentacle"]["length"];
+}
+
+int TwitchingBacterium::getCompteur()
+{
+    return compteur_;
 }
 
 //Autres méthodes:

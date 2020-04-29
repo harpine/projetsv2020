@@ -11,7 +11,13 @@
 #include <Utility/DiffEqSolver.hpp>
 #include <string>
 
-//Constructeur:
+//static members' initialization:
+int SimpleBacterium::compteur_ = 0;
+double SimpleBacterium::totalBetter_ =0;
+double SimpleBacterium::totalWorse_ =0;
+
+
+//Constructeur et destructeur:
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
       getConfig()["energy"]["min"].toDouble()),
@@ -31,6 +37,27 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
 
     addProperty("tumble worse",MutableNumber::positive(getWorseConfig()["initial"].toDouble(),
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble()));
+    totalBetter_ += getProperty("tumble better").get();
+    totalWorse_ += getProperty("tumble worse").get();
+    compteur_ += 1;
+}
+
+SimpleBacterium::~SimpleBacterium()
+{
+    totalBetter_ -= getProperty("tumble better").get();
+    totalWorse_ -= getProperty("tumble worse").get();
+    compteur_ -= 1;
+}
+
+SimpleBacterium::SimpleBacterium(const SimpleBacterium& other)
+    :Bacterium(other),
+      t_flagelle_(other.t_flagelle_),
+      probability_(other.probability_),
+      tumbleClock_(other.tumbleClock_)
+{
+    totalBetter_ += getProperty("tumble better").get();
+    totalWorse_ += getProperty("tumble worse").get();
+    compteur_ += 1;
 }
 
 //Getters:
@@ -52,6 +79,28 @@ j::Value& SimpleBacterium::getBetterConfig() const
 Vec2d SimpleBacterium::getSpeedVector() const
 {
     return getDirection().normalised() * getProperty("speed").get();
+}
+
+int SimpleBacterium::getCompteur()
+{
+    return compteur_;
+}
+
+double SimpleBacterium::getAverageBetter()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return totalBetter_/compteur_;
+}
+double SimpleBacterium::getAverageWorse()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return totalWorse_/compteur_;
 }
 
 //Autres méthodes:
