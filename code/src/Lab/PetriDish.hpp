@@ -71,6 +71,9 @@ public:
     //Réinitialise la puissance à sa valeur par défaut
     void resetGradientExponent();
 
+    //Pour les statistiques:
+    std::unordered_map<std::string, double> fetchData(const std::string & title) const;
+
 private:
     std::vector<Bacterium*> bacteria_;
     std::vector<Nutriment*> nutriments_;

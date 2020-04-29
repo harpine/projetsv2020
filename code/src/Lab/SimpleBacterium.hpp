@@ -10,8 +10,10 @@ class SimpleBacterium : public Bacterium, public DiffEqFunction
 {
 
 public:
-    //Constructeur:
+    //Constructeur et destructeur:
     SimpleBacterium(const Vec2d& poscenter);
+    ~SimpleBacterium() override;
+    SimpleBacterium(const SimpleBacterium& other);
 
     //Getters & setters:
     //permet de simplifier l'accès aux configurations
@@ -21,7 +23,7 @@ public:
     //renvoie la vitesse courante (direction * une valeur)
     Vec2d getSpeedVector() const;
     //renvoie le nombre d'instances existantes
-    virtual int getCompteur() const override;
+    static int getCompteur();
 
     //Autres méthodes:
 

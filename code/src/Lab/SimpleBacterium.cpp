@@ -11,7 +11,9 @@
 #include <Utility/DiffEqSolver.hpp>
 #include <string>
 
-//Constructeur:
+int SimpleBacterium::compteur_ = 0;
+
+//Constructeur: et destructeur:
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
       getConfig()["energy"]["min"].toDouble()),
@@ -31,6 +33,21 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
 
     addProperty("tumble worse",MutableNumber::positive(getWorseConfig()["initial"].toDouble(),
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble()));
+    compteur_ += 1;
+}
+
+SimpleBacterium::~SimpleBacterium()
+{
+    compteur_ -= 1;
+}
+
+SimpleBacterium::SimpleBacterium(const SimpleBacterium& other)
+    :Bacterium(other),
+      t_flagelle_(other.t_flagelle_),
+      probability_(other.probability_),
+      tumbleClock_(other.tumbleClock_)
+{
+    compteur_ += 1;
 }
 
 //Getters:
@@ -54,7 +71,7 @@ Vec2d SimpleBacterium::getSpeedVector() const
     return getDirection().normalised() * getProperty("speed").get();
 }
 
-int SimpleBacterium::getCompteur() const
+int SimpleBacterium::getCompteur()
 {
     return compteur_;
 }

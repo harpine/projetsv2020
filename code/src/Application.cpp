@@ -245,9 +245,8 @@ void Application::run()
             while (elapsedTime > sf::Time::Zero) {
                 auto dt = std::min(elapsedTime, maxDt);
                 elapsedTime -= dt;
-				getEnv().update(dt);
-                //a decommenter
-//                getStats().update(dt);
+                getEnv().update(dt);
+                getStats().update(dt);
                 onUpdate(dt);
 				--nbCycles;
 

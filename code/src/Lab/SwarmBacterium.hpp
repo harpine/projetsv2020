@@ -12,6 +12,7 @@ public:
     //Constructeur et destructeur:
     SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm);
     virtual ~SwarmBacterium() override;
+    SwarmBacterium(const SwarmBacterium& other);
 
     //Getters:
     //permet d'accéder aux configurations de Swarmbacterium
@@ -19,7 +20,7 @@ public:
     //renvoie la vitesse courante (direction * une valeur)
     Vec2d getSpeedVector() const;
     //renvoie le nombre d'instances existantes
-    virtual int getCompteur() const override;
+    static int getCompteur();
 
     //Autres méthodes:
 

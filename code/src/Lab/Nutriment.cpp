@@ -6,6 +6,8 @@
 #include <Application.hpp>
 #include <Utility/Utility.hpp>
 
+int Nutriment::compteur_ = 0;
+
 //Constructeur:
 Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
     : CircularBody(poscenter, quantity),
@@ -18,6 +20,14 @@ Nutriment::~Nutriment()
 {
     compteur_-=1;
 }
+
+Nutriment::Nutriment(const Nutriment& other)
+    :CircularBody (other.getPosition(), other.getRadius()),
+      quantity_(other.quantity_)
+{
+    compteur_ += 1;
+}
+
 //Getters et setter:
 j::Value const& Nutriment::getConfig() const
 {
@@ -41,6 +51,11 @@ void Nutriment::setQuantity(Quantity newquantity)
     }
 
     setRadius(quantity_);
+}
+
+int Nutriment::getCompteur()
+{
+    return compteur_;
 }
 
 //Autres méthodes:

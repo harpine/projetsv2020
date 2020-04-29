@@ -1,6 +1,8 @@
 #include <Stats/Stats.hpp>
 #include <Application.hpp>
 
+#include <iostream> //??
+
 void Stats::setactive(const int newId)
 {
     currentId_ = newId;
@@ -38,7 +40,7 @@ void Stats::reset()
 {
     for (auto& pair : graphs_)
     {
-        pair.second.reset();
+        pair.second->reset();
     }
 }
 
@@ -61,23 +63,17 @@ void Stats::addGraph(int graphId, std::string const& title, std::vector<std::str
 
 void Stats::update(sf::Time dt)
 {
-//    compteur_ += dt;
+    compteur_ += dt;
 
-//    if (compteur_ > sf::seconds(getAppConfig()["stats"]["refresh rate"].toDouble()))
-//    {
-//        compteur_ = sf::Time::Zero;
-//        for (auto& pair : graphs_)
-//        {
-//            getAppEnv().fetchData(getCurrentTitle());
-//            std::unordered_map<std::string, double> new_data = {{"simple bacteria", p1j+1},
-//                                                                {"twitching bacteria", p2j+1},
-//                                                                {"swarm bacteria", p3j+1},
-//                                                                {"nutriment sources", p4j+1}};
-//            pair->second.update(deltaT, new_data);
-
-
-//        }
-
-
-//    }
+    if (compteur_ > sf::seconds(getAppConfig()["stats"]["refresh rate"].toDouble()))
+    {
+        for (auto& pair : graphs_)
+        {
+            std::cerr << "rentre update";
+            std::unordered_map<std::string, double> new_data(getAppEnv().fetchData(labels_.find(pair.first)->second));
+            pair.second->updateData(compteur_, new_data);
+            std::cerr << pair.first;
+        }
+        compteur_ = sf::Time::Zero;
+    }
 }

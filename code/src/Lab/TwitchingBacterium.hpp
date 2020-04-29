@@ -14,7 +14,8 @@ class TwitchingBacterium : public Bacterium
 public:
     //Constructeur et destructeur:
     TwitchingBacterium(const Vec2d& poscenter);
-    ~TwitchingBacterium() override;
+    virtual ~TwitchingBacterium() override;
+    TwitchingBacterium(const TwitchingBacterium& other);
 
     //Getters utilitaires et setters:
 
@@ -29,7 +30,7 @@ public:
     //renvoie les paramètres de longueur de la tentacule
     j::Value& getTentacleLength() const;
     //renvoie le nombre d'instances existantes
-    virtual int getCompteur() const override;
+    static int getCompteur();
 
     //Autres méthodes:
 
