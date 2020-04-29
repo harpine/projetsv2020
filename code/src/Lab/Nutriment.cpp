@@ -6,6 +6,7 @@
 #include <Application.hpp>
 #include <Utility/Utility.hpp>
 
+int Nutriment::compteur_ = 0;
 //Constructeur:
 Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
     : CircularBody(poscenter, quantity),

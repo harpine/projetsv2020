@@ -1,4 +1,5 @@
 #include <Stats/Stats.hpp>
+#include <iostream>
 
 void Stats::setactive(const int newId)
 {
@@ -38,7 +39,7 @@ void Stats::reset()
 {
     for (auto& pair: graphs_)
     {
-        pair.second.reset();
+        pair.second->reset();
     }
 }
 

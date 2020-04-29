@@ -60,7 +60,7 @@ public:
     //Renvoie le score de la position de la bactérie
     double getScore() const;
     //renvoie le nombre d'instances existantes
-    virtual int getCompteur() const =0;
+    //virtual int getCompteur() const =0;
 
 
     //Autres méthodes:
