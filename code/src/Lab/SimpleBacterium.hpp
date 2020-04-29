@@ -28,6 +28,8 @@ public:
     static double getAverageBetter();
     //renvoie la moyenne des tumbles better des bactéries existantes
     static double getAverageWorse();
+    //renvoie la somme des vitesses des bactéries existantes
+    static double getTotalSpeed();
 
     //Autres méthodes:
 
@@ -60,6 +62,8 @@ private:
     static double totalBetter_;
     //somme des tumbles worse des bactéries existantes
     static double totalWorse_;
+    //sommes des vitesses
+    static double totalSpeed_;
 
     //Méthodes :
 

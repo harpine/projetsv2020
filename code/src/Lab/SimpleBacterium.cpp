@@ -15,7 +15,7 @@
 int SimpleBacterium::compteur_ = 0;
 double SimpleBacterium::totalBetter_ =0;
 double SimpleBacterium::totalWorse_ =0;
-
+double SimpleBacterium::totalSpeed_ =0;
 
 //Constructeur et destructeur:
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
@@ -39,6 +39,7 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble()));
     totalBetter_ += getProperty("tumble better").get();
     totalWorse_ += getProperty("tumble worse").get();
+    totalSpeed_ += getProperty("speed").get();
     compteur_ += 1;
 }
 
@@ -46,6 +47,7 @@ SimpleBacterium::~SimpleBacterium()
 {
     totalBetter_ -= getProperty("tumble better").get();
     totalWorse_ -= getProperty("tumble worse").get();
+    totalSpeed_ -= getProperty("speed").get();
     compteur_ -= 1;
 }
 
@@ -57,6 +59,7 @@ SimpleBacterium::SimpleBacterium(const SimpleBacterium& other)
 {
     totalBetter_ += getProperty("tumble better").get();
     totalWorse_ += getProperty("tumble worse").get();
+    totalSpeed_ += getProperty("speed").get();
     compteur_ += 1;
 }
 
@@ -101,6 +104,11 @@ double SimpleBacterium::getAverageWorse()
         return 0;
     }
     return totalWorse_/compteur_;
+}
+
+double SimpleBacterium::getTotalSpeed()
+{
+    return totalSpeed_;
 }
 
 //Autres méthodes:

@@ -264,5 +264,16 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
         double averageworse(SimpleBacterium::getAverageWorse());
         return std::unordered_map<std::string, double>({{"tumble better prob", averagebetter},{"tumble worse prob", averageworse}});
     }
+    else if (title == s::BACTERIA)
+    {
+        double speed(0);
+        if (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur() != 0)
+        {
+            speed = (SimpleBacterium::getTotalSpeed() + SwarmBacterium::getTotalSpeed() + TwitchingBacterium::getTotalSpeed()) /
+                         (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur());
+        }
+
+        return std::unordered_map<std::string, double>({{"speed", speed}});
+    }
 }
 

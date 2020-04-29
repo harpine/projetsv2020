@@ -21,6 +21,8 @@ public:
     Vec2d getSpeedVector() const;
     //renvoie le nombre d'instances existantes
     static int getCompteur();
+    //renvoie la somme des vitesses des swarmbacteriums existantes
+    static double getTotalSpeed();
 
     //Autres méthodes:
 
@@ -40,6 +42,7 @@ private:
     //Attributs
     Swarm* swarm_;
     static int compteur_;
+    static double totalspeed_;
 };
 
 #endif // SWARMBACTERIUM_HPP

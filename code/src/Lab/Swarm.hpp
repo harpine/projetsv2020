@@ -48,6 +48,7 @@ private:
     std::string mId_;
     std::vector <SwarmBacterium*> swarmbacteria_;
     SwarmBacterium* leader_;
+
 };
 
 #endif // SWARM_HPP

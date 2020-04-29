@@ -7,6 +7,7 @@
 #include <Utility/Utility.hpp>
 
 int TwitchingBacterium::compteur_ = 0;
+double TwitchingBacterium::totalSpeed_ = 0;
 
 //Constructeur:
 TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
@@ -25,11 +26,15 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
 
     addProperty("tentacle length",MutableNumber::positive(getTentacleLength()["initial"].toDouble(),
                 getTentacleLength()["rate"].toDouble(), getTentacleLength()["sigma"].toDouble() ));
+    totalSpeed_ += getProperty("tentacle speed").get() *
+            getConfig()["speed factor"].toDouble();
     compteur_ += 1;
 }
 
 TwitchingBacterium::~TwitchingBacterium()
 {
+    totalSpeed_ -= getProperty("tentacle speed").get() *
+            getConfig()["speed factor"].toDouble();
     compteur_ -= 1;
 }
 
@@ -38,6 +43,8 @@ TwitchingBacterium::TwitchingBacterium(const TwitchingBacterium& other)
       grip_(other.grip_),
       mystate_(other.mystate_)
 {
+    totalSpeed_ += getProperty("tentacle speed").get() *
+            getConfig()["speed factor"].toDouble();
     compteur_ += 1;
 }
 
@@ -70,6 +77,11 @@ j::Value& TwitchingBacterium::getTentacleLength() const
 int TwitchingBacterium::getCompteur()
 {
     return compteur_;
+}
+
+double TwitchingBacterium::getTotalSpeed()
+{
+    return totalSpeed_;
 }
 
 //Autres méthodes:

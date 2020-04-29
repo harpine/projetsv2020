@@ -31,6 +31,8 @@ public:
     j::Value& getTentacleLength() const;
     //renvoie le nombre d'instances existantes
     static int getCompteur();
+    //renvoie la somme des vitesses de twitchingbactéries
+    static double getTotalSpeed();
 
     //Autres méthodes:
 
@@ -53,6 +55,7 @@ private:
     Grip grip_;
     State mystate_;
     static int compteur_;
+    static double totalSpeed_;
 
     //Méthodes privées:
 
