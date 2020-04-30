@@ -68,10 +68,8 @@ void Stats::update(sf::Time dt)
     {
         for (auto& pair : graphs_)
         {
-            std::cerr << "rentre update";
             std::unordered_map<std::string, double> new_data(getAppEnv().fetchData(labels_.find(pair.first)->second));
             pair.second->updateData(compteur_, new_data);
-            std::cerr << pair.first;
         }
         compteur_ = sf::Time::Zero;
     }

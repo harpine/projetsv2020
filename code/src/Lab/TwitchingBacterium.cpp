@@ -6,7 +6,10 @@
 #include <Random/Random.hpp>
 #include <Utility/Utility.hpp>
 
+//Static members' initialization:
 int TwitchingBacterium::compteur_ = 0;
+double TwitchingBacterium::totalTentacleLength_ = 0;
+double TwitchingBacterium::totalTentacleSpeed_ = 0;
 double TwitchingBacterium::totalSpeed_ = 0;
 
 //Constructeur:
@@ -26,6 +29,8 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
 
     addProperty("tentacle length",MutableNumber::positive(getTentacleLength()["initial"].toDouble(),
                 getTentacleLength()["rate"].toDouble(), getTentacleLength()["sigma"].toDouble() ));
+    totalTentacleLength_ += getProperty("tentacle length").get();
+    totalTentacleSpeed_ += getProperty("tentacle speed").get();
     totalSpeed_ += getProperty("tentacle speed").get() *
             getConfig()["speed factor"].toDouble();
     compteur_ += 1;
@@ -33,6 +38,8 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
 
 TwitchingBacterium::~TwitchingBacterium()
 {
+    totalTentacleLength_ -= getProperty("tentacle length").get();
+    totalTentacleSpeed_ -= getProperty("tentacle speed").get();
     totalSpeed_ -= getProperty("tentacle speed").get() *
             getConfig()["speed factor"].toDouble();
     compteur_ -= 1;
@@ -43,6 +50,8 @@ TwitchingBacterium::TwitchingBacterium(const TwitchingBacterium& other)
       grip_(other.grip_),
       mystate_(other.mystate_)
 {
+    totalTentacleLength_ += getProperty("tentacle length").get();
+    totalTentacleSpeed_ += getProperty("tentacle speed").get();
     totalSpeed_ += getProperty("tentacle speed").get() *
             getConfig()["speed factor"].toDouble();
     compteur_ += 1;
@@ -77,6 +86,24 @@ j::Value& TwitchingBacterium::getTentacleLength() const
 int TwitchingBacterium::getCompteur()
 {
     return compteur_;
+}
+
+double TwitchingBacterium::getAverageTentacleLength()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return (totalTentacleLength_ / compteur_);
+}
+
+double TwitchingBacterium::getAverageTentacleSpeed()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return (totalTentacleSpeed_ / compteur_);
 }
 
 double TwitchingBacterium::getTotalSpeed()

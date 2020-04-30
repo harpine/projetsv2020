@@ -520,17 +520,16 @@ générale.
 l'ensemble des graphes et l'ensemble des titres de la classe Stats. 
 
 *Réponse R5.3* Une map nous paraît être la meilleure solution afin de
-lier titre et (pointeur) sur graph. Il nous faut une deuxième map afin
-de lier identifiant et titre.									
+lier identifiant et (pointeur sur) graph. Il nous faut une deuxième map 
+afin de lier identifiant et titre.
 
-**Question Q5.4** quelle méthodes prévoyez-vous d'ajouter/modifier et 
+**Question Q5.4** Quelles méthodes prévoyez-vous d'ajouter/modifier et 
 dans quelles classes pour réaliser les décomptes souhaités et construire
-les ensembles new_data? en d'autres termes, comment pouvez-vous compter 
+les ensembles new_data? En d'autres termes, comment pouvez-vous compter 
 le nombre d'instances d'une certaine classe?
 
-*Réponse R5.4*
-Nous créeons un compteur en attribut static pour chaque type de bactérie
-ainsi qu'à la classe nutriment, et on l'augmente à chaque 
-appel du constructeur (et constructeur de copie) et on le diminue à 
-chaque appel du destructeur. 
-
+*Réponse R5.4* Nous créons un compteur en attribut static pour chaque 
+type de bactérie ainsi qu'à la classe nutriment, et on l'augmente à 
+chaque appel du constructeur (et constructeur de copie) et on le diminue
+à chaque appel du destructeur. Nous avons créé des getters static en 
+conséquence. 
