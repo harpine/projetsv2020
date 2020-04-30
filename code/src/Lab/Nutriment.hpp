@@ -15,8 +15,9 @@ class SwarmBacterium;
 class Nutriment : public CircularBody, public Drawable, public Updatable
 {
 public:
-    //Constructeur et Destructeur:
+    //Constructeurs et Destructeur:
     Nutriment(const Quantity quantity, const Vec2d& poscenter);
+
     ~ Nutriment();
     Nutriment(const Nutriment& other);
 

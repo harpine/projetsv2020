@@ -35,6 +35,8 @@ public:
     static double getAverageTentacleLength();
     //renvoie la moyenne des vitesses de tentacules
     static double getAverageTentacleSpeed();
+    //renvoie la somme des vitesses de twitchingbactéries
+    static double getTotalSpeed();
 
     //Autres méthodes:
 
@@ -59,6 +61,7 @@ private:
     static int compteur_;
     static double totalTentacleLength_;
     static double totalTentacleSpeed_;
+    static double totalSpeed_;
 
     //Méthodes privées:
 

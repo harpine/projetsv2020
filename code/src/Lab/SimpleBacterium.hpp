@@ -24,6 +24,12 @@ public:
     Vec2d getSpeedVector() const;
     //renvoie le nombre d'instances existantes
     static int getCompteur();
+    //renvoie la moyenne des tumbles better des bactéries existantes
+    static double getAverageBetter();
+    //renvoie la moyenne des tumbles better des bactéries existantes
+    static double getAverageWorse();
+    //renvoie la somme des vitesses des bactéries existantes
+    static double getTotalSpeed();
 
     //Autres méthodes:
 
@@ -50,7 +56,14 @@ private:
     double probability_;
     //compteur stockant le temps écoulé depuis le dernier basculement
     sf::Time tumbleClock_;
+    //compteur du nombre d'instances existantes
     static int compteur_;
+    //somme des tumbles better des bactéries existantes
+    static double totalBetter_;
+    //somme des tumbles worse des bactéries existantes
+    static double totalWorse_;
+    //sommes des vitesses
+    static double totalSpeed_;
 
     //Méthodes :
 

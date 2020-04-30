@@ -1,7 +1,6 @@
 #include <Stats/Stats.hpp>
 #include <Application.hpp>
 
-#include <iostream> //??
 
 void Stats::setactive(const int newId)
 {

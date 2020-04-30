@@ -10,6 +10,7 @@
 int TwitchingBacterium::compteur_ = 0;
 double TwitchingBacterium::totalTentacleLength_ = 0;
 double TwitchingBacterium::totalTentacleSpeed_ = 0;
+double TwitchingBacterium::totalSpeed_ = 0;
 
 //Constructeur:
 TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
@@ -30,6 +31,8 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
                 getTentacleLength()["rate"].toDouble(), getTentacleLength()["sigma"].toDouble() ));
     totalTentacleLength_ += getProperty("tentacle length").get();
     totalTentacleSpeed_ += getProperty("tentacle speed").get();
+    totalSpeed_ += getProperty("tentacle speed").get() *
+            getConfig()["speed factor"].toDouble();
     compteur_ += 1;
 }
 
@@ -37,6 +40,8 @@ TwitchingBacterium::~TwitchingBacterium()
 {
     totalTentacleLength_ -= getProperty("tentacle length").get();
     totalTentacleSpeed_ -= getProperty("tentacle speed").get();
+    totalSpeed_ -= getProperty("tentacle speed").get() *
+            getConfig()["speed factor"].toDouble();
     compteur_ -= 1;
 }
 
@@ -47,6 +52,8 @@ TwitchingBacterium::TwitchingBacterium(const TwitchingBacterium& other)
 {
     totalTentacleLength_ += getProperty("tentacle length").get();
     totalTentacleSpeed_ += getProperty("tentacle speed").get();
+    totalSpeed_ += getProperty("tentacle speed").get() *
+            getConfig()["speed factor"].toDouble();
     compteur_ += 1;
 }
 
@@ -97,6 +104,11 @@ double TwitchingBacterium::getAverageTentacleSpeed()
         return 0;
     }
     return (totalTentacleSpeed_ / compteur_);
+}
+
+double TwitchingBacterium::getTotalSpeed()
+{
+    return totalSpeed_;
 }
 
 //Autres méthodes:

@@ -11,9 +11,13 @@
 #include <Utility/DiffEqSolver.hpp>
 #include <string>
 
+//static members' initialization:
 int SimpleBacterium::compteur_ = 0;
+double SimpleBacterium::totalBetter_ =0;
+double SimpleBacterium::totalWorse_ =0;
+double SimpleBacterium::totalSpeed_ =0;
 
-//Constructeur: et destructeur:
+//Constructeur et destructeur:
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
       getConfig()["energy"]["min"].toDouble()),
@@ -33,11 +37,17 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
 
     addProperty("tumble worse",MutableNumber::positive(getWorseConfig()["initial"].toDouble(),
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble()));
+    totalBetter_ += getProperty("tumble better").get();
+    totalWorse_ += getProperty("tumble worse").get();
+    totalSpeed_ += getProperty("speed").get();
     compteur_ += 1;
 }
 
 SimpleBacterium::~SimpleBacterium()
 {
+    totalBetter_ -= getProperty("tumble better").get();
+    totalWorse_ -= getProperty("tumble worse").get();
+    totalSpeed_ -= getProperty("speed").get();
     compteur_ -= 1;
 }
 
@@ -47,6 +57,9 @@ SimpleBacterium::SimpleBacterium(const SimpleBacterium& other)
       probability_(other.probability_),
       tumbleClock_(other.tumbleClock_)
 {
+    totalBetter_ += getProperty("tumble better").get();
+    totalWorse_ += getProperty("tumble worse").get();
+    totalSpeed_ += getProperty("speed").get();
     compteur_ += 1;
 }
 
@@ -74,6 +87,28 @@ Vec2d SimpleBacterium::getSpeedVector() const
 int SimpleBacterium::getCompteur()
 {
     return compteur_;
+}
+
+double SimpleBacterium::getAverageBetter()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return totalBetter_/compteur_;
+}
+double SimpleBacterium::getAverageWorse()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return totalWorse_/compteur_;
+}
+
+double SimpleBacterium::getTotalSpeed()
+{
+    return totalSpeed_;
 }
 
 //Autres méthodes:
