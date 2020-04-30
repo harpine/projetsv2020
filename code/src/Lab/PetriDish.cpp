@@ -281,5 +281,6 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
 
         return std::unordered_map<std::string, double>({{"speed", speed}});
     }
+    return std::unordered_map<std::string,double>();
 }
 

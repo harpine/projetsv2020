@@ -528,8 +528,9 @@ dans quelles classes pour réaliser les décomptes souhaités et construire
 les ensembles new_data? en d'autres termes, comment pouvez-vous compter 
 le nombre d'instances d'une certaine classe?
 
-*Réponse R5.4* [... à revoir??]
-On crée un compteur en attribut static  et on l'augmente à chaque appel 
-du constructeur (ou constructeur de copie) et on le diminue à chaque 
-appel du destructeur. 
+*Réponse R5.4*
+Nous créeons un compteur en attribut static pour chaque type de bactérie
+ainsi qu'à la classe nutriment, et on l'augmente à chaque 
+appel du constructeur (et constructeur de copie) et on le diminue à 
+chaque appel du destructeur. 
 
