@@ -89,7 +89,6 @@ graphiques se déroulent bien. Nous avons donc des bactéries à tentacule
 et des bactéries à comportement de groupe. Les bactéries simples 
 marchent toujours.
 
-
 ### **Vacances**
 
 Avant de rendre notre projet, nous avons relu l'intégralité de notre 
@@ -110,3 +109,28 @@ SimpleBacterium, le nombre de possibilités n s'adapte en fonction du
 fichier app.json. 
 
 *Jusqu'à présent, toutes les parties semblent fonctionnelles.*
+
+### **Semaine 6**
+
+Nous avions fini la partie 4 avant les vacances et la partie 5 n'est pas
+encore sortie, donc nous faisons une petite pause de programmation
+cette semaine. :)
+
+### **Semaine 7**
+
+Helena s'est occupée de la partie 5.1 et Aline a fait le début de la
+partie 5.2 (test 18). Helena a commencé la suite et nous nous sommes
+rejoint pour finaliser les statistiques.
+Une fois les tests 17 à 19 passés, et donc la partie obligatoire 
+terminée, nous nous sommes attaqués à la partie bonus, où nous avons 
+fait des statistiques sur la vitesse des bactéries, les probabilités 
+de basculement (tumble) des simple bacterium et la vitesse et longueur
+des tentacules des twitching bacterium.
+
+Le test 20 est passé avec succès, ce qui fait que nous avons terminé la 
+partie de programmation de l'étape 5! Nous allons faire quelques essais
+de simulation la semaine prochaine.
+
+Actuellement, nous avons donc une boîte de Petri capable d'accueillir
+3 sortes de bactérie et 2 sortes de nutriment. Les statistiques sont
+tracées dans la fenêtre de simulation sous forme de graph.
