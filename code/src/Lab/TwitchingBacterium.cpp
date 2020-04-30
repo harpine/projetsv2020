@@ -24,9 +24,11 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
       grip_(poscenter, getRadius()/4),
       mystate_(IDLE)
 {
-    addProperty("tentacle speed", MutableNumber::positive(getTentacleSpeed()["initial"].toDouble(),
-            getTentacleSpeed()["rate"].toDouble(), getTentacleSpeed()["sigma"].toDouble() ));
-
+    addProperty("tentacle speed", MutableNumber(getTentacleSpeed()["initial"].toDouble(),
+            getTentacleSpeed()["rate"].toDouble(), getTentacleSpeed()["sigma"].toDouble(), true, 3));
+    //nous avons utilisé un MutableNumber général, afin que la vitesse ne puisse pas
+    //descendre à 0 (et donc la bactérie être immortelle en voyant sa tentacule ne plus bouger:
+    //développement observé car cela lui est favorable) nous avons pris 3 afin d'en avoir le retour visuel
     addProperty("tentacle length",MutableNumber::positive(getTentacleLength()["initial"].toDouble(),
                 getTentacleLength()["rate"].toDouble(), getTentacleLength()["sigma"].toDouble() ));
     totalTentacleLength_ += getProperty("tentacle length").get();
@@ -50,11 +52,15 @@ TwitchingBacterium::TwitchingBacterium(const TwitchingBacterium& other)
       grip_(other.grip_),
       mystate_(other.mystate_)
 {
+    compteur_ += 1;
+}
+
+void TwitchingBacterium::updateStats()
+{
     totalTentacleLength_ += getProperty("tentacle length").get();
     totalTentacleSpeed_ += getProperty("tentacle speed").get();
     totalSpeed_ += getProperty("tentacle speed").get() *
             getConfig()["speed factor"].toDouble();
-    compteur_ += 1;
 }
 
 //Getters utilitaires et setters :

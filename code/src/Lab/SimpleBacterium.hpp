@@ -14,6 +14,9 @@ public:
     SimpleBacterium(const Vec2d& poscenter);
     ~SimpleBacterium() override;
     SimpleBacterium(const SimpleBacterium& other);
+    //fonction à polymorphisme induit permettant de mettre les statistiques
+    //à jour après que la mutation soit effectuée
+    void updateStats() override;
 
     //Getters & setters:
     //permet de simplifier l'accès aux configurations

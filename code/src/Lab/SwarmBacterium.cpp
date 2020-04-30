@@ -44,6 +44,11 @@ SwarmBacterium::SwarmBacterium(const SwarmBacterium& other)
     compteur_ += 1;
 }
 
+void SwarmBacterium::updateStats()
+{
+    //vide car pas de paramètre mutable à mettre à jour
+}
+
 //Getters:
 j::Value& SwarmBacterium::getConfig() const
 {

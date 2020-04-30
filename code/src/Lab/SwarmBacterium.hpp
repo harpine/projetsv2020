@@ -13,6 +13,9 @@ public:
     SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm);
     virtual ~SwarmBacterium() override;
     SwarmBacterium(const SwarmBacterium& other);
+    //fonction à polymorphisme induit permettant de mettre les statistiques
+    //à jour après que la mutation soit effectuée
+    void updateStats() override;
 
     //Getters:
     //permet d'accéder aux configurations de Swarmbacterium

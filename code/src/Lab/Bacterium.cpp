@@ -162,6 +162,7 @@ Bacterium* Bacterium::clone()
         Bacterium* nouvelle(copie());
         nouvelle->mutate();
         direction_ *= -1;
+        nouvelle->updateStats();
         return nouvelle;
     }
 

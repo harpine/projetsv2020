@@ -28,6 +28,10 @@ public:
 
     virtual ~Bacterium() = default;
 
+    //fonction à polymorphisme induit permettant de mettre les statistiques
+    //à jour après que la mutation soit effectuée
+    virtual void updateStats() = 0;
+
     //Getters et setters:
 
     //renvoie l'energie nécessaire à la division

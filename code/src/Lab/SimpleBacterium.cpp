@@ -29,8 +29,11 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
      t_flagelle_(uniform(0.0, PI)),
      probability_()
 {
-    addProperty("speed", MutableNumber::positive(getSpeedConfig()["initial"].toDouble(),
-                getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble()));
+    addProperty("speed", MutableNumber(getSpeedConfig()["initial"].toDouble(),
+                getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), true, 5));
+    //nous avons utilisé un MutableNumber général, afin que la vitesse ne puisse pas
+    //descendre à 0 (et donc la bactérie être immortelle en ne bougeant plus: développement
+    //observé car cela lui est favorable) nous avons pris 5 afin d'en avoir le retour visuel.
 
     addProperty("tumble better",MutableNumber::positive(getBetterConfig()["initial"].toDouble(),
                 getBetterConfig()["rate"].toDouble(), getBetterConfig()["sigma"].toDouble()));
@@ -57,10 +60,14 @@ SimpleBacterium::SimpleBacterium(const SimpleBacterium& other)
       probability_(other.probability_),
       tumbleClock_(other.tumbleClock_)
 {
+    compteur_ += 1;
+}
+
+void SimpleBacterium::updateStats()
+{
     totalBetter_ += getProperty("tumble better").get();
     totalWorse_ += getProperty("tumble worse").get();
     totalSpeed_ += getProperty("speed").get();
-    compteur_ += 1;
 }
 
 //Getters:

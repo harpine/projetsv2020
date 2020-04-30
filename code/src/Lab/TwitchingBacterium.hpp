@@ -16,6 +16,9 @@ public:
     TwitchingBacterium(const Vec2d& poscenter);
     virtual ~TwitchingBacterium() override;
     TwitchingBacterium(const TwitchingBacterium& other);
+    //fonction à polymorphisme induit permettant de mettre les statistiques
+    //à jour après que la mutation soit effectuée
+    void updateStats() override;
 
     //Getters utilitaires et setters:
 
