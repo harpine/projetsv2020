@@ -12,6 +12,7 @@
 #include <Application.hpp>
 #include <cmath>
 #include <string>
+#include <iostream>
 
 //Constructeur et destructeur:
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
@@ -269,6 +270,9 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
         double speed(0);
         if (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur() != 0)
         {
+            std::cerr << "simple " << SimpleBacterium::getTotalSpeed() << std::endl;
+            std::cerr << "swarm " << SwarmBacterium::getTotalSpeed() << std::endl;
+            std::cerr << "twitching " << TwitchingBacterium::getTotalSpeed() << std::endl;
             speed = (SimpleBacterium::getTotalSpeed() + SwarmBacterium::getTotalSpeed() + TwitchingBacterium::getTotalSpeed()) /
                          (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur());
         }
