@@ -5,7 +5,6 @@
 #include <Utility/Utility.hpp>
 #include <Application.hpp>
 #include <cmath>
-#include <Utility/Vec2d.hpp>
 
 //Constructeurs:
 Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
@@ -101,6 +100,21 @@ void Bacterium::setAngle(const double angle)
 double Bacterium::getScore() const
 {
     return score_;
+}
+
+Quantity Bacterium::getEnergy() const
+{
+    return energy_;
+}
+
+sf::Time Bacterium::getMealClock() const
+{
+    return clock_;
+}
+
+void Bacterium::setMealClock(sf::Time newTime)
+{
+    clock_ = newTime;
 }
 
 //Autres méthodes:

@@ -63,6 +63,12 @@ public:
     virtual j::Value& getConfig() const = 0;
     //Renvoie le score de la position de la bactérie
     double getScore() const;
+    //Renvoie l'énergie d'une bactérie
+    Quantity getEnergy() const;
+    //Renvoie le temps écoulé depuis le dernier repas
+    sf::Time getMealClock() const;
+    //Met à jour le temps écoulé depuis le dernier repas
+    void setMealClock(sf::Time newTime);
 
 
     //Autres méthodes:
@@ -78,7 +84,7 @@ public:
     //Méthode virtuelle pure.
     virtual void move(sf::Time dt) = 0;
     //Permet à la bactérie de se nourrir si possible dans l'assiette
-    void eat();
+    virtual void eat();
     //Division de la bactérie en deux bactéries identiques.
     virtual Bacterium* clone();
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau
