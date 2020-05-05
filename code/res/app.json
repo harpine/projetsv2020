@@ -18,7 +18,7 @@
     },
     "map" : "map.json",
     "nutriments" : {
-	"growth" : {
+        "growth" : {
             "speed" : 5,
             "max temperature" : 60,
             "min temperature" : 30
@@ -358,6 +358,78 @@
                 "sigma" : 10
             }
         }
+    },
+    "mad bacterium" : {
+        "color" : {
+            "a" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 1,
+                "max" : 1,
+                "min" : 0.5,
+                "rate" : 0.6,
+                "sigma" : 0.05
+            },
+            "b" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 1,
+                "max" : 1,
+                "min" : 0,
+                "rate" : 0.95,
+                "sigma" : 0.15
+            },
+            "g" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 1,
+                "min" : 0,
+                "rate" : 0.8,
+                "sigma" : 0.05
+            },
+            "r" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 1,
+                "min" : 0,
+                "rate" : 0.8,
+                "sigma" : 0.1
+            }
+        },
+        "texture" : "madBacterium.png",
+        "energy" : {
+            "consumption factor" : 0.2,
+            "division" : 120,
+            "max" : 100,
+            "min" : 50
+        },
+        "meal" : {
+            "delay" : 0.5,
+            "max" : 10
+        },
+        "radius" : {
+            "max" : 25,
+            "min" : 10
+        },
+        "speed" : {
+            "initial" : 30,
+            "rate" : 1,
+            "sigma" : 10
+        },
+        "tumble" : {
+            "algo" : "best of 20",
+            "better" : {
+                "initial" : 5,
+                "rate" : 0.8,
+                "sigma" : 1
+            },
+            "worse" : {
+                "initial" : 0.5,
+                "rate" : 0.8,
+                "sigma" : 0.1
+            }
     },
     "window" : {
         "antialiasing level" : 4,
