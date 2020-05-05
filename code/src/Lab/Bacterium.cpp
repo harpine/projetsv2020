@@ -20,11 +20,14 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
 {}
 
 Bacterium::Bacterium(const Bacterium& other)
-    :Bacterium(other.energy_ ,other.getPosition(), other.direction_,
-               other.getRadius(),other.color_)
-{
-    mutableParameters_ = other.mutableParameters_;
-}
+    :CircularBody(other),
+     color_(other.color_),
+     direction_(other.direction_),
+     angle_(other.angle_),
+     abstinence_(other.abstinence_),
+     energy_(other.energy_),
+     mutableParameters_(other.mutableParameters_)
+{}
 
 //Getters et setters:
 Quantity Bacterium::getDivisionEnergy() const
