@@ -14,6 +14,7 @@
 class Nutriment;
 class NutrimentA;
 class NutrimentB;
+class Poison;
 
 class Bacterium : public CircularBody, public Drawable, public Updatable
 
@@ -42,6 +43,8 @@ public:
     Quantity getDisplacementEnergy() const;
     //renvoie le "meal" "max"
     Quantity getMealQuantity() const;
+    //renvoie le "poison effects" (qui est un facteur)
+    double getPoisoneffects() const;
     //renvoie la vitesse polymorphique pour une bactérie
     virtual j::Value& getSpeedConfig() const;
     //renvoie la direction de la bactérie
@@ -69,6 +72,8 @@ public:
     sf::Time getMealClock() const;
     //Met à jour le temps écoulé depuis le dernier repas
     void setMealClock(sf::Time newTime);
+    //Permet de fixer l'énergie
+    void setEnergy(Quantity energy); //?? tu l'as pas édjà faite ??
 
 
     //Autres méthodes:
@@ -104,6 +109,8 @@ public:
     //Méthode vitruelle pure.
     virtual Quantity eatableQuantity(NutrimentA& nutriment) = 0;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) = 0;
+    //Renvoie les effets du poison sur les bactéries selon leur type
+    virtual Quantity eatablePoison(Poison& poison) = 0;
 
 private:
     MutableColor color_;

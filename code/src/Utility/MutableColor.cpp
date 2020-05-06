@@ -1,7 +1,12 @@
 #include "MutableColor.hpp"
 #include "MutableNumber.hpp"
 
-//Constructeur:
+//Constructeurs:
+
+MutableColor::MutableColor()
+    :rgba_({MutableNumber(), MutableNumber(), MutableNumber(), MutableNumber()})
+{}
+
 MutableColor::MutableColor(j::Value const& config)
     :rgba_{MutableNumber(config["r"]), MutableNumber(config["g"]),
       MutableNumber(config["b"]), MutableNumber(config["a"])}

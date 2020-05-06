@@ -40,6 +40,10 @@ Nutriment* Lab::getNutrimentColliding(const CircularBody& body) const
     return petridish_.getNutrimentColliding(body);
 }
 
+Poison* Lab::getPoisonColliding(const CircularBody &body) const
+{
+    return petridish_.getPoisonColliding(body);
+}
 void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
     petridish_.drawOn(targetWindow);
@@ -78,6 +82,11 @@ void Lab::addBacterium(Bacterium* bacterium)
 void Lab::addSwarm(Swarm *swarm)
 {
     petridish_.addSwarm(swarm);
+}
+
+void Lab::addPoison(Poison *poison)
+{
+    petridish_.addPoison(poison);
 }
 
 //Pour la température:

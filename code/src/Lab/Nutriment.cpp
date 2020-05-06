@@ -3,6 +3,7 @@
 #include "SimpleBacterium.hpp"
 #include "TwitchingBacterium.hpp"
 #include "SwarmBacterium.hpp"
+#include "PoisonousBacterium.hpp"
 #include <Application.hpp>
 #include <Utility/Utility.hpp>
 
@@ -95,7 +96,7 @@ void Nutriment::update(sf::Time dt)
 {
     if (canGrow())
     {
-        double speed(getConfig()["growth"]["speed"].toDouble());
+        double speed(getConfig()["growth"][s::SPEED].toDouble());
         auto growth = speed * dt.asSeconds();
         quantity_ += growth;
         setRadius(quantity_);

@@ -26,6 +26,8 @@ public:
     static int getCompteur();
     //renvoie la somme des vitesses des swarmbacteriums existantes
     static double getTotalSpeed();
+    //Renvoie les effets du poison sur les bactéries selon leur type
+    virtual Quantity eatablePoison(Poison& poison);
 
     //Autres méthodes:
 

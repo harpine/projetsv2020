@@ -11,6 +11,7 @@ class Bacterium;
 class SimpleBacterium;
 class TwitchingBacterium;
 class SwarmBacterium;
+class PoisonousBacterium;
 
 class Nutriment : public CircularBody, public Drawable, public Updatable
 {
@@ -46,12 +47,13 @@ public:
     //indique si le nutriment est épuisé
     bool isDepleted() const;
 
-    //Méthodes pour de nourrir:
+    //Méthodes pour de nourrir:  //??????
     //Calculent pour chaque type de bactérie la quantité cédée par le nutriment
     virtual Quantity eatenBy(Bacterium& bact) = 0;
     virtual Quantity eatenBy(SimpleBacterium& bact) = 0;
     virtual Quantity eatenBy(TwitchingBacterium& bact) = 0;
     virtual Quantity eatenBy(SwarmBacterium& bact) = 0;
+    virtual Quantity eatenBy(PoisonousBacterium& bact) = 0;
 
 private:
     //Attribut:

@@ -1,4 +1,4 @@
-#include "Bacterium.hpp"
+﻿#include "Bacterium.hpp"
 #include "Nutriment.hpp"
 #include "NutrimentA.hpp"
 #include "NutrimentB.hpp"
@@ -49,9 +49,14 @@ Quantity Bacterium::getMealQuantity() const
     return getConfig()["meal"]["max"].toDouble();
 }
 
+Quantity Bacterium::getPoisoneffects() const
+{
+    return getConfig()["poison effects"].toDouble();
+}
+
 j::Value& Bacterium::getSpeedConfig() const
 {
-    return getConfig()["speed"];
+    return getConfig()[s::SPEED];
 }
 
 Vec2d Bacterium::getDirection() const
@@ -120,6 +125,11 @@ void Bacterium::setMealClock(sf::Time newTime)
     clock_ = newTime;
 }
 
+void Bacterium::setEnergy(Quantity energy)
+{
+    energy_ = energy;
+}
+
 //Autres méthodes:
 void Bacterium::updateScore()
 {
@@ -161,13 +171,28 @@ void Bacterium::update(sf::Time dt)
 
 void Bacterium::eat()
 {
+    bool isEating(false);
+
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
-            and !abstinence_
+            and !abstinence_    //?? c'est quoi l'abstinence en fait? ca apparait quand ??
             and clock_ >= getMealDelay())
     {
         Quantity eaten(getAppEnv().getNutrimentColliding(*this)->eatenBy(*this));
         energy_ += eaten;
-        clock_ = sf::Time::Zero ;
+        isEating = true;
+    }
+    if (getAppEnv().getPoisonColliding(*this) != nullptr and clock_ >= getMealDelay())
+    {
+        Quantity eaten(getAppEnv().getPoisonColliding(*this)->eatenBy(*this));
+        if (eaten> 0)
+        {
+            energy_ -= (eaten);
+            isEating = true;
+        }
+    }
+    if (isEating)
+    {
+        clock_ = sf::Time::Zero ; // est-ce que c'est ok d'utiliser la mealclock pour le poison ??
     }
 }
 

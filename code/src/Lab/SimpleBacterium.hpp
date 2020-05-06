@@ -49,6 +49,8 @@ public:
     //renvoie la quantité de nutriment consommée en fonction du nutriment
     virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
+    //Renvoie les effets du poison sur les bactéries selon leur type
+    virtual Quantity eatablePoison(Poison& poison);
 
 private:
     //Attributs:

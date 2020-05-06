@@ -22,7 +22,13 @@ namespace s
 std::string const GENERAL = "general";
 std::string const SIMPLE_BACTERIA = "simple bacteria";
 std::string const TWITCHING_BACTERIA = "twitching bacteria";
+std::string const TWITCHING_BACTERIUM = "twitching bacterium";
 std::string const SWARM_BACTERIA = "swarm bacteria";
+std::string const SWARM_BACTERIUM = "swarm bacterium"; //ajouté par nous
+std::string const POISONOUS_BACTERIUM = "poisonous bacterium";
+std::string const POISONOUS_BACTERIA = "poisonous bacteria";
+std::string const MAD_BACTERIA = "mad bacteria";
+std::string const MAD_BACTERIUM = "mad bacterium";
 std::string const BACTERIA = "bacteria";
 std::string const SPEED = "speed";
 std::string const BETTER = "tumble better prob";
@@ -32,6 +38,7 @@ std::string const NUTRIMENT_SOURCES = "nutriment sources";
 std::string const TENTACLE_LENGTH = "tentacle length";
 std::string const TENTACLE_SPEED = "tentacle speed";
 std::string const DISH_TEMPERATURE = "temperature";
+std::string const PETRI_DISH = "petri dish"; //ajouté par nous
 
 } // s
 

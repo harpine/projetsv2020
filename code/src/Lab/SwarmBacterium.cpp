@@ -52,7 +52,7 @@ void SwarmBacterium::updateStats()
 //Getters:
 j::Value& SwarmBacterium::getConfig() const
 {
-    return getAppConfig()["swarm bacterium"];
+    return getAppConfig()[s::SWARM_BACTERIUM];
 }
 
 Vec2d SwarmBacterium::getSpeedVector() const
@@ -128,4 +128,9 @@ Quantity SwarmBacterium::eatableQuantity(NutrimentA& nutriment)
 Quantity SwarmBacterium::eatableQuantity(NutrimentB& nutriment)
 {
     return nutriment.eatenBy(*this);
+}
+
+Quantity SwarmBacterium::eatablePoison(Poison& poison)
+{
+    return poison.eatenBy(*this);
 }

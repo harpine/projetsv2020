@@ -1,8 +1,10 @@
+/*
 #include "MadBacterium.hpp"
 #include <Application.hpp>
 #include <SFML/Graphics.hpp>
 #include <Utility/Utility.hpp>
 #include <Random/Random.hpp>
+
 
 MadBacterium::MadBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
@@ -92,12 +94,15 @@ void MadBacterium::eat()
         clock_ = sf::Time::Zero ;
     }
 }
+*/
+/*
 
 
-
-
-
-
+//?? à contrôler
+Quantity PoisonousBacterium::eatablePoison(Poison& poison)
+{
+    return poison.eatenBy(*this);
+}*/
 
 
 

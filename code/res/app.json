@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":5,
+         "factor":1,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
@@ -13,7 +13,7 @@
     "generator" : {
         "nutriment" : {
             "delay" : 0.5,
-            "prob" : 1
+            "prob" : 0.8
         }
     },
     "map" : "map.json",
@@ -56,6 +56,48 @@
             "texture" : "foodB.png"
         }
     },
+    "poison" : {
+        "color" : {
+                "a" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 1,
+                    "max" : 1,
+                    "min" : 0.5,
+                    "rate" : 0.6,
+                    "sigma" : 0.05
+                },
+                "b" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 0.18,
+                    "max" : 1,
+                    "min" : 0,
+                    "rate" : 0.95,
+                    "sigma" : 0.15
+                },
+                "g" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 0.29,
+                    "max" : 1,
+                    "min" : 0,
+                    "rate" : 0.8,
+                    "sigma" : 0.05
+                },
+                "r" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 0.45,
+                    "max" : 1,
+                    "min" : 0,
+                    "rate" : 0.8,
+                    "sigma" : 0.1
+                }
+        },
+        "quantity" : 20
+    },
+
     "petri dish" : {
         "gradient" : {
             "exponent" : {
@@ -121,6 +163,8 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 1,
+
         "radius" : {
             "max" : 20,
             "min" : 5
@@ -197,6 +241,8 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 1,
+
         "radius" : {
             "max" : 20,
             "min" : 5
@@ -341,6 +387,7 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 1,
         "radius" : {
             "max" : 30,
             "min" : 10
@@ -359,22 +406,23 @@
             }
         }
     },
-    "mad bacterium" : {
+    "poisonous bacterium": {
+        "texture" : "poisonousBacterium.png",
         "color" : {
             "a" : {
                 "clamp max" : true,
                 "clamp min" : true,
-                "initial" : 1,
-                "max" : 1,
-                "min" : 0.5,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
                 "rate" : 0.6,
                 "sigma" : 0.05
             },
             "b" : {
                 "clamp max" : true,
                 "clamp min" : true,
-                "initial" : 1,
-                "max" : 1,
+                "initial" : 0,
+                "max" : 0,
                 "min" : 0,
                 "rate" : 0.95,
                 "sigma" : 0.15
@@ -383,7 +431,7 @@
                 "clamp max" : true,
                 "clamp min" : true,
                 "initial" : 0,
-                "max" : 1,
+                "max" : 0,
                 "min" : 0,
                 "rate" : 0.8,
                 "sigma" : 0.05
@@ -392,13 +440,12 @@
                 "clamp max" : true,
                 "clamp min" : true,
                 "initial" : 0,
-                "max" : 1,
+                "max" : 0,
                 "min" : 0,
                 "rate" : 0.8,
                 "sigma" : 0.1
             }
         },
-        "texture" : "madBacterium.png",
         "energy" : {
             "consumption factor" : 0.2,
             "division" : 120,
@@ -409,9 +456,10 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 0,
         "radius" : {
-            "max" : 25,
-            "min" : 10
+            "max" : 30,
+            "min" : 15
         },
         "speed" : {
             "initial" : 30,
@@ -430,7 +478,9 @@
                 "rate" : 0.8,
                 "sigma" : 0.1
             }
+        }
     },
+
     "window" : {
         "antialiasing level" : 4,
         "title" : "INFOSV Simulation",

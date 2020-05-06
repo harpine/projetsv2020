@@ -1,5 +1,7 @@
+/*
 #ifndef MADBACTERIUM_HPP
 #define MADBACTERIUM_HPP
+
 
 #include "Bacterium.hpp"
 
@@ -36,4 +38,7 @@ private:
     static double totalSpeed_;
 };
 
-#endif // MADBACTERIUM_HPP
+#endif // MADBACTERIUM_HPP */
+
+//Renvoie les effets du poison sur les bactéries selon leur type
+//virtual Quantity eatablePoison(Poison& poison);

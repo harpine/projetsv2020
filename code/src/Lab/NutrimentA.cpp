@@ -3,6 +3,7 @@
 #include "SimpleBacterium.hpp"
 #include "TwitchingBacterium.hpp"
 #include "SwarmBacterium.hpp"
+#include "PoisonousBacterium.hpp"
 #include <Application.hpp>
 
 //Constructeur:
@@ -33,6 +34,11 @@ Quantity NutrimentA::eatenBy(TwitchingBacterium& bact)
 }
 
 Quantity NutrimentA::eatenBy(SwarmBacterium& bact)
+{
+    return takeQuantity(bact.getMealQuantity());
+}
+
+Quantity NutrimentA::eatenBy(PoisonousBacterium& bact)
 {
     return takeQuantity(bact.getMealQuantity());
 }

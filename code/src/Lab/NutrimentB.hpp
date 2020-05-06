@@ -19,7 +19,8 @@ public:
     virtual Quantity eatenBy(Bacterium& bact) override;
     virtual Quantity eatenBy(SimpleBacterium& bact) override;
     virtual Quantity eatenBy(TwitchingBacterium& bact) override;
-    virtual Quantity eatenBy(SwarmBacterium& bact) override;
+    virtual Quantity eatenBy(SwarmBacterium &bact) override;
+    virtual Quantity eatenBy(PoisonousBacterium& bact) override;
 };
 
 #endif // NUTRIMENTB_HPP

@@ -27,9 +27,9 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
       getConfig()["radius"]["min"].toDouble()),
      getConfig()["color"]),
      t_flagelle_(uniform(0.0, PI)),
-     probability_()
+     probability_(), tumbleClock_(sf::Time::Zero)
 {
-    addProperty("speed", MutableNumber(getSpeedConfig()["initial"].toDouble(),
+    addProperty(s::SPEED, MutableNumber(getSpeedConfig()["initial"].toDouble(),
                 getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), true, 5));
     //nous avons utilisé un MutableNumber général, afin que la vitesse ne puisse pas
     //descendre à 0 (et donc la bactérie être immortelle en ne bougeant plus: développement
@@ -42,7 +42,7 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
                 getWorseConfig()["rate"].toDouble(), getWorseConfig()["sigma"].toDouble()));
     totalBetter_ += getProperty("tumble better").get();
     totalWorse_ += getProperty("tumble worse").get();
-    totalSpeed_ += getProperty("speed").get();
+    totalSpeed_ += getProperty(s::SPEED).get();
     compteur_ += 1;
 }
 
@@ -50,7 +50,7 @@ SimpleBacterium::~SimpleBacterium()
 {
     totalBetter_ -= getProperty("tumble better").get();
     totalWorse_ -= getProperty("tumble worse").get();
-    totalSpeed_ -= getProperty("speed").get();
+    totalSpeed_ -= getProperty(s::SPEED).get();
     compteur_ -= 1;
 }
 
@@ -67,7 +67,7 @@ void SimpleBacterium::updateStats()
 {
     totalBetter_ += getProperty("tumble better").get();
     totalWorse_ += getProperty("tumble worse").get();
-    totalSpeed_ += getProperty("speed").get();
+    totalSpeed_ += getProperty(s::SPEED).get();
 }
 
 //Getters:
@@ -88,7 +88,7 @@ j::Value& SimpleBacterium::getBetterConfig() const
 
 Vec2d SimpleBacterium::getSpeedVector() const
 {
-    return getDirection().normalised() * getProperty("speed").get();
+    return getDirection().normalised() * getProperty(s::SPEED).get();
 }
 
 int SimpleBacterium::getCompteur()
@@ -236,4 +236,9 @@ Quantity SimpleBacterium::eatableQuantity(NutrimentA& nutriment)
 Quantity SimpleBacterium::eatableQuantity(NutrimentB& nutriment)
 {
     return nutriment.eatenBy(*this);
+}
+
+Quantity SimpleBacterium::eatablePoison(Poison& poison)
+{
+    return poison.eatenBy(*this);
 }
