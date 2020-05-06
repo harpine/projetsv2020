@@ -6,6 +6,7 @@
 #include "TwitchingBacterium.hpp"
 #include "SwarmBacterium.hpp"
 #include "PoisonousBacterium.hpp"
+#include "MadBacterium.hpp"
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <Utility/Vec2d.hpp>
@@ -335,10 +336,11 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
         int swarmbact(SwarmBacterium::getCompteur());
         int nutriment(Nutriment::getCompteur());
         int poisonous(PoisonousBacterium::getCompteur());
+        int mad(MadBacterium::getCompteur());
         std::unordered_map<std::string, double> new_data;
         new_data = {{s::SIMPLE_BACTERIA, simple}, {s::TWITCHING_BACTERIA, twitching},
-                    {s::SWARM_BACTERIA, swarmbact},{s::NUTRIMENT_SOURCES, nutriment},
-                    {s::POISONOUS_BACTERIA, poisonous},
+                    {s::SWARM_BACTERIA, swarmbact}, {s::NUTRIMENT_SOURCES, nutriment},
+                    {s::POISONOUS_BACTERIA, poisonous}, {s::MAD_BACTERIA, mad},
                     {s::DISH_TEMPERATURE, temperature_}};
         return new_data;
     }
@@ -365,6 +367,12 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
         double averageworse(PoisonousBacterium::getAverageWorse());
         return std::unordered_map<std::string, double>({{s::BETTER, averagebetter},{s::WORSE, averageworse}});
     }
+    else if (title == s::MAD_BACTERIA)
+    {
+        double averagebetter(MadBacterium::getAverageBetter());
+        double averageworse(MadBacterium::getAverageWorse());
+        return std::unordered_map<std::string, double>({{s::BETTER, averagebetter}, {s::WORSE, averageworse}});
+    }
     else if (title == s::TWITCHING_BACTERIA)
     {
         double tentacleLength(TwitchingBacterium::getAverageTentacleLength());
@@ -375,12 +383,12 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
     {
         double speed(0);
         if (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur()
-                + PoisonousBacterium::getCompteur()!= 0)
+                + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur() != 0)
         {
             speed = (SimpleBacterium::getTotalSpeed() + SwarmBacterium::getTotalSpeed() + TwitchingBacterium::getTotalSpeed()
-                     + PoisonousBacterium::getTotalSpeed()) /
+                     + PoisonousBacterium::getTotalSpeed()) + MadBacterium::getTotalSpeed() /
                          (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur()
-                          + PoisonousBacterium::getCompteur());
+                          + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur());
         }
 
         return std::unordered_map<std::string, double>({{s::SPEED, speed}});

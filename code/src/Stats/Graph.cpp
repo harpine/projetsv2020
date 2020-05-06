@@ -14,7 +14,7 @@ namespace
 {
 
 std::vector<sf::Color> const& COLORS = { sf::Color::Red, sf::Color::Green, sf::Color::Yellow, sf::Color::Cyan,
-                                         sf::Color::Magenta ,sf::Color::White, sf::Color::Blue};
+                                         sf::Color::Magenta, sf::Color::White, sf::Color::Blue};
 
 } // anonymous
 

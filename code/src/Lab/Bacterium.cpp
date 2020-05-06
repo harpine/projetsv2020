@@ -189,6 +189,7 @@ void Bacterium::eat()
         energy_ += eaten;
         isEating = true;
     }
+
     if (getAppEnv().getPoisonColliding(*this) != nullptr and clock_ >= getMealDelay())
     {
         Quantity eaten(getAppEnv().getPoisonColliding(*this)->eatenBy(*this));
@@ -198,6 +199,7 @@ void Bacterium::eat()
             isEating = true;
         }
     }
+
     if (isEating)
     {
         clock_ = sf::Time::Zero ; // est-ce que c'est ok d'utiliser la mealclock pour le poison ??
