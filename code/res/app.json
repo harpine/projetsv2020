@@ -159,6 +159,7 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 1,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
