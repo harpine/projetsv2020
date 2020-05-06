@@ -1,5 +1,7 @@
+/*
 #ifndef MADBACTERIUM_HPP
 #define MADBACTERIUM_HPP
+
 
 #include "Bacterium.hpp"
 #include <Utility/DiffEqSolver.hpp>
@@ -76,4 +78,7 @@ private:
     void tumble();
 };
 
-#endif // MADBACTERIUM_HPP
+#endif // MADBACTERIUM_HPP */
+
+//Renvoie les effets du poison sur les bactéries selon leur type
+//virtual Quantity eatablePoison(Poison& poison);

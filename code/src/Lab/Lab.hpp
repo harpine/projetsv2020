@@ -29,7 +29,7 @@ public:
     Nutriment* getNutrimentColliding(const CircularBody& body) const;
     //retourne la bacterie de l'assiette en collision avec body
     Bacterium* getBacteriumColliding(const CircularBody& body) const;
-    //retourne le poison de l'assiette en collision avec le body 
+    //retourne le poison de l'assiette en collision avec le body
     Poison* getPoisonColliding(const CircularBody& body) const;
 
     //Dessine Lab
