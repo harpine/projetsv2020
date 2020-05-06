@@ -15,6 +15,7 @@ class Nutriment;
 class NutrimentA;
 class NutrimentB;
 class Poison;
+class MadBacterium;
 
 class Bacterium : public CircularBody, public Drawable, public Updatable
 
@@ -68,13 +69,15 @@ public:
     double getScore() const;
     //Renvoie l'énergie d'une bactérie
     Quantity getEnergy() const;
+    //Renvoie l'énergie d'une bactérie selon son influence sur le gradient de bactérie.
+    //Méthode qui s'adapte à la bactérie en question en fonction de app.json
+    Quantity getEnergyForScore() const;
+    //Met à jour l'énergie
+    void setEnergy(Quantity energy);
     //Renvoie le temps écoulé depuis le dernier repas
     sf::Time getMealClock() const;
     //Met à jour le temps écoulé depuis le dernier repas
     void setMealClock(sf::Time newTime);
-    //Permet de fixer l'énergie
-    void setEnergy(Quantity energy); //?? tu l'as pas édjà faite ??
-
 
     //Autres méthodes:
 
@@ -103,12 +106,18 @@ public:
     virtual Bacterium* copie() = 0;
     //Modifie la direction que prend la bactérie en fonction
     //du score de N possibilités
-    void bestOfN(int n);
+    virtual void bestOfN(int n);
     //Permet de mimer un polymorphisme sur les bacteries dans les Nutriment.
     //Renvoie la quantité prélevée au nutriment selon le type de bactérie.
     //Méthode vitruelle pure.
     virtual Quantity eatableQuantity(NutrimentA& nutriment) = 0;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) = 0;
+    //Permet de diminuer l'énergie de la bactérie et renvoie la quantité
+    //effectivement disponible
+    Quantity takeEnergy(const Quantity totake);
+    //Permet un comportement différencié d'attaque des MadBActerium vis-à-vis
+    //du type de bactérie attaqué
+    virtual Quantity attackedBy(MadBacterium& madbact);
     //Renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison) = 0;
 
@@ -120,7 +129,7 @@ private:
     Quantity energy_;
     std::map<std::string, MutableNumber> mutableParameters_;
     sf::Time clock_;
-    double score_; //représente le gradient lié à la position de la bactérie
+    double score_; //représente le gradient de nutriments lié à la position de la bactérie
 };
 
 #endif // BACTERIUM_HPP

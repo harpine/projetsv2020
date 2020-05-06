@@ -101,10 +101,11 @@
     "petri dish" : {
         "gradient" : {
             "exponent" : {
-		"min" : 0,
-		"max" : 1.5,
-		"delta" : 0.1
-	    }
+                "min" : 0,
+                "max" : 1.5,
+                "delta" : 0.1
+            },
+            "bacteria exponent" : 0.8
         },
 	
         "temperature" : {
@@ -165,7 +166,6 @@
             "max" : 10
         },
         "poison effects" : 1,
-
         "radius" : {
             "max" : 20,
             "min" : 5
@@ -238,12 +238,12 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 0.5,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
         },
         "poison effects" : 1,
-
         "radius" : {
             "max" : 20,
             "min" : 5
@@ -384,6 +384,7 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 1,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
@@ -453,6 +454,7 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 1,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
@@ -481,7 +483,81 @@
             }
         }
     },
-
+    "mad bacterium" : {
+        "color" : {
+            "a" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.6,
+                "sigma" : 0.05
+            },
+            "b" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.95,
+                "sigma" : 0.15
+            },
+            "g" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.8,
+                "sigma" : 0.05
+            },
+            "r" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.8,
+                "sigma" : 0.1
+            }
+        },
+        "texture" : "madBacterium.png",
+        "energy" : {
+            "consumption factor" : 0.2,
+            "division" : 120,
+            "max" : 100,
+            "min" : 50
+        },
+        "bacteria gradient influence factor" : 0,
+        "meal" : {
+            "delay" : 0.5,
+            "max" : 10
+        },
+        "poison effects" : 1,
+        "radius" : {
+            "max" : 40,
+            "min" : 25
+        },
+        "speed" : {
+            "initial" : 50,
+            "rate" : 1,
+            "sigma" : 10
+        },
+        "tumble" : {
+            "algo" : "best of 20",
+            "better" : {
+                "initial" : 5,
+                "rate" : 0.8,
+                "sigma" : 1
+            },
+            "worse" : {
+                "initial" : 0.5,
+                "rate" : 0.8,
+                "sigma" : 0.1
+            }
+        }
+    },
     "window" : {
         "antialiasing level" : 4,
         "title" : "INFOSV Simulation",

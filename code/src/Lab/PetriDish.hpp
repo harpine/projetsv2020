@@ -49,6 +49,8 @@ public:
 
     //retourne la source de nutriment en collision avec body
     Nutriment* getNutrimentColliding(const CircularBody& body) const;
+    //retourne la bactérie en collision avec body
+    Bacterium* getBacteriumColliding(const CircularBody& body) const;
     //retourne la source de poison en collision avec body
     Poison* getPoisonColliding(const CircularBody& body) const;
     //Fait évoluer l'assiette de pétri à chaque intervalle de temps
@@ -70,6 +72,9 @@ public:
 
     //retourne le score associé à une position donnée
     double getPositionScore(const Vec2d& p) const;
+    //retourne le score pour le gradient de bactérie. La sensibilité du score à une
+    //bactérie peut varier polymorphiquement
+    double getPositionBacteriaScore(const Vec2d& p) const;
     //Permet de modifier la température de la boîte de pétri
     void increaseGradientExponent();
     void decreaseGradientExponent();
@@ -86,6 +91,7 @@ private:
     std::vector<Poison*> poisons_;
     double temperature_;
     double exponent_;
+    double bacteriaExponent_;
 
 };
 

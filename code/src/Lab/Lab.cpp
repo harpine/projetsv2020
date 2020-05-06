@@ -40,10 +40,16 @@ Nutriment* Lab::getNutrimentColliding(const CircularBody& body) const
     return petridish_.getNutrimentColliding(body);
 }
 
+Bacterium* Lab::getBacteriumColliding(const CircularBody& body) const
+{
+    return petridish_.getBacteriumColliding(body);
+}
+
 Poison* Lab::getPoisonColliding(const CircularBody &body) const
 {
     return petridish_.getPoisonColliding(body);
 }
+
 void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
     petridish_.drawOn(targetWindow);
@@ -114,6 +120,11 @@ void Lab::resetTemperature()
 double Lab::getPositionScore(const Vec2d& p) const
 {
     return petridish_.getPositionScore(p);
+}
+
+double Lab::getPositionBacteriaScore(const Vec2d& p) const
+{
+    return petridish_.getPositionBacteriaScore(p);
 }
 
 double Lab::getGradientExponent() const

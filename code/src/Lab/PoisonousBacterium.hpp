@@ -47,7 +47,7 @@ public:
     virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
     //Renvoie les effets du poison sur les bactéries selon leur type
-    virtual Quantity eatablePoison(Poison& poison);
+    virtual Quantity eatablePoison(Poison& poison) override;
     //Renvoie true si la bactérie peut poser du poison
     bool canPoison(sf::Time dt);
     //Pose un poison

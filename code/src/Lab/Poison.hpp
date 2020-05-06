@@ -43,7 +43,7 @@ public:
     virtual Quantity eatenBy(TwitchingBacterium& bact);
     virtual Quantity eatenBy(SwarmBacterium& bact);
     virtual Quantity eatenBy(PoisonousBacterium& bact);
-    //virtual Quantity eatenBy(MadBacterium& bact); //?? à décommenter
+    virtual Quantity eatenBy(MadBacterium& bact);
 
 private:
     MutableColor color_;

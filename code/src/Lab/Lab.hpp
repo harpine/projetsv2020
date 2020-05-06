@@ -27,6 +27,9 @@ public:
     bool doesCollideWithDish(const CircularBody& body) const;
     //retourne la source de nutriments de l'assiette en collision avec body
     Nutriment* getNutrimentColliding(const CircularBody& body) const;
+    //retourne la bacterie de l'assiette en collision avec body
+    Bacterium* getBacteriumColliding(const CircularBody& body) const;
+    //retourne le poison de l'assiette en collision avec le body
     Poison* getPoisonColliding(const CircularBody& body) const;
 
     //Dessine Lab
@@ -49,6 +52,7 @@ public:
     void addSwarm(Swarm* swarm);
     //ajoute un poison à l'assiette de petri
     void addPoison(Poison* poison);
+
     //Pour la température:
 
     //retourne la température de la boîte de petri
@@ -63,6 +67,8 @@ public:
 
     //retourne le score d'une position donnée
     double getPositionScore(const Vec2d& p) const;
+    //retourne le score de bactéries d'une position donnée
+    double getPositionBacteriaScore(const Vec2d& p) const;
     double getGradientExponent() const;
     //Permet de modifier la température de la boîte de pétri
     void increaseGradientExponent();
