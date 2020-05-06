@@ -3,7 +3,7 @@
 
 #include "CircularBody.hpp"
 #include "PetriDish.hpp"
-#include "Nutriment.hpp"
+#include "Nutriment.hpp" //?? à enlever
 #include "NutrimentGenerator.hpp"
 #include <SFML/Graphics.hpp>
 #include <Interface/Drawable.hpp>
@@ -29,7 +29,8 @@ public:
     Nutriment* getNutrimentColliding(const CircularBody& body) const;
     //retourne la bacterie de l'assiette en collision avec body
     Bacterium* getBacteriumColliding(const CircularBody& body) const;
-
+    //retourne le poison de l'assiette en collision avec le body 
+    Poison* getPoisonColliding(const CircularBody& body) const;
 
     //Dessine Lab
     void drawOn(sf::RenderTarget& targetWindow) const;
@@ -49,6 +50,8 @@ public:
     void addBacterium(Bacterium* bacterium);
     //ajoute un swarm à l'assiette de petri
     void addSwarm(Swarm* swarm);
+    //ajoute un poison à l'assiette de petri
+    void addPoison(Poison* poison);
 
     //Pour la température:
 

@@ -9,6 +9,7 @@
 #include <Lab/SwarmBacterium.hpp>
 #include <Lab/TwitchingBacterium.hpp>
 #include <Lab/MadBacterium.hpp>
+#include <Lab/PoisonousBacterium.hpp>
 #include "FinalApplication.hpp"
 
 #include <cassert>
@@ -21,11 +22,12 @@ void FinalApplication::onRun()
     Application::onRun();
 	// add graphs for statistics
 	setStats(true);
-    addGraph(s::GENERAL, { s::SIMPLE_BACTERIA, s::TWITCHING_BACTERIA, s::SWARM_BACTERIA, s::NUTRIMENT_SOURCES,s::DISH_TEMPERATURE}, 0, 150);
+    addGraph(s::GENERAL, { s::SIMPLE_BACTERIA, s::TWITCHING_BACTERIA, s::SWARM_BACTERIA, s::POISONOUS_BACTERIA, s::NUTRIMENT_SOURCES, s::DISH_TEMPERATURE}, 0, 150);
     addGraph(s::NUTRIMENT_QUANTITY, {s::NUTRIMENT_QUANTITY}, 0, 2000);
     addGraph(s::SIMPLE_BACTERIA, { s::BETTER, s::WORSE}, 0, 10);
     addGraph(s::TWITCHING_BACTERIA, { s::TENTACLE_LENGTH, s::TENTACLE_SPEED}, 0, 150);
     addGraph(s::BACTERIA, { s::SPEED}, 0, 50);
+    addGraph(s::POISONOUS_BACTERIA, { s::BETTER, s::WORSE}, 0, 10);
 	setActiveGraph(0);
 }
 
@@ -55,6 +57,10 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
             getEnv().addBacterium(new MadBacterium(getCursorPositionInView()));
             break;
 
+        case sf::Keyboard::P:
+            getEnv().addBacterium(new PoisonousBacterium(getCursorPositionInView()));
+            break;
+
         case sf::Keyboard::Num1: {
             auto swarm = getEnv().getSwarmWithId("1");
             assert(swarm != nullptr);
@@ -66,7 +72,12 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
             assert(swarm != nullptr);
             getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
         } break;
-        }
+        case sf::Keyboard::Num3: {
+            auto swarm = getEnv().getSwarmWithId("3");
+            assert(swarm != nullptr);
+            getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+        } break;
+    }
     }
 }
 

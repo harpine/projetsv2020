@@ -25,18 +25,22 @@ Config::Config(std::string path) : mConfig(j::readFromFile(path))
 , generator_nutriment_prob(mConfig["generator"]["nutriment"]["prob"].toDouble())
 
 // nutriments
-,nutrimentA_growth_speed(mConfig["nutriments"]["A"]["growth"]["speed"].toInt()),nutrimentA_min_temperature(mConfig["nutriments"]["A"]["growth"]["min temperature"].toInt())
+,nutrimentA_growth_speed(mConfig["nutriments"]["A"]["growth"]["speed"].toInt())
+,nutrimentA_min_temperature(mConfig["nutriments"]["A"]["growth"]["min temperature"].toInt())
 ,nutrimentA_max_temperature(mConfig["nutriments"]["A"]["growth"]["max temperature"].toInt())
 ,nutrimentA_min_qty(mConfig["nutriments"]["A"]["quantity"]["min"].toInt())
 ,nutrimentA_max_qty(mConfig["nutriments"]["A"]["quantity"]["max"].toInt())
 								   
-,nutrimentB_growth_speed(mConfig["nutriments"]["B"]["growth"]["speed"].toInt()),nutrimentB_min_temperature(mConfig["nutriments"]["B"]["growth"]["min temperature"].toInt())
+,nutrimentB_growth_speed(mConfig["nutriments"]["B"]["growth"]["speed"].toInt())
+,nutrimentB_min_temperature(mConfig["nutriments"]["B"]["growth"]["min temperature"].toInt())
 ,nutrimentB_max_temperature(mConfig["nutriments"]["B"]["growth"]["max temperature"].toInt())
 ,nutrimentB_min_qty(mConfig["nutriments"]["B"]["quantity"]["min"].toInt())
 ,nutrimentB_max_qty(mConfig["nutriments"]["B"]["quantity"]["max"].toInt())
 ,nutrimentB_resistance_factor(mConfig["nutriments"]["B"]["resistance factor"].toDouble())
 ,nutrimentB_poison_factor(mConfig["nutriments"]["B"]["poison factor"].toDouble())
-,nutrimentB_nutritive_factor(mConfig["nutriments"]["B"]["nutritive factor"].toDouble())								   
+,nutrimentB_nutritive_factor(mConfig["nutriments"]["B"]["nutritive factor"].toDouble())
+
+//,nutrimentB_poison_factor_poisonous_bacterium(mConfig["nutriments"]["B"]["poisonous factor poisonous bacterium"].toDouble())
 {}
 
 // TODO : getter for debug

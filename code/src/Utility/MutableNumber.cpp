@@ -2,6 +2,7 @@
 #include <Random/Random.hpp>
 
 //Constructeurs:
+
 MutableNumber::MutableNumber(double value, double probability, double sigma,
                                  bool inf, double infval, bool sup, double supval)
     :probability_(probability), inf_(inf), sup_(sup),

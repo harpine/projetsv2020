@@ -8,7 +8,8 @@
 class MutableColor
 {
 public:
-    //Constructeur:
+    //Constructeurs:
+    MutableColor(); //initialise tous les paramètres à 0
     MutableColor(j::Value const& config);
 
     //Getter:

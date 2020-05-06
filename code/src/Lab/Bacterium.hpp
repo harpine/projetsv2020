@@ -14,7 +14,7 @@
 class Nutriment;
 class NutrimentA;
 class NutrimentB;
-
+class Poison;
 class MadBacterium;
 
 class Bacterium : public CircularBody, public Drawable, public Updatable
@@ -44,6 +44,8 @@ public:
     Quantity getDisplacementEnergy() const;
     //renvoie le "meal" "max"
     Quantity getMealQuantity() const;
+    //renvoie le "poison effects" (qui est un facteur)
+    double getPoisoneffects() const;
     //renvoie la vitesse polymorphique pour une bactérie
     virtual j::Value& getSpeedConfig() const;
     //renvoie la direction de la bactérie
@@ -76,7 +78,6 @@ public:
     sf::Time getMealClock() const;
     //Met à jour le temps écoulé depuis le dernier repas
     void setMealClock(sf::Time newTime);
-
 
     //Autres méthodes:
 
@@ -117,6 +118,8 @@ public:
     //Permet un comportement différencié d'attaque des MadBActerium vis-à-vis
     //du type de bactérie attaqué
     virtual Quantity attackedBy(MadBacterium& madbact);
+    //Renvoie les effets du poison sur les bactéries selon leur type
+    virtual Quantity eatablePoison(Poison& poison) = 0;
 
 private:
     MutableColor color_;

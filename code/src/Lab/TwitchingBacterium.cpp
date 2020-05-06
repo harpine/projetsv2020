@@ -5,6 +5,7 @@
 #include <Application.hpp>
 #include <Random/Random.hpp>
 #include <Utility/Utility.hpp>
+#include <Utility/Constants.hpp>
 
 //Static members' initialization:
 int TwitchingBacterium::compteur_ = 0;
@@ -24,25 +25,25 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
       grip_(poscenter, getRadius()/4),
       mystate_(IDLE)
 {
-    addProperty("tentacle speed", MutableNumber(getTentacleSpeed()["initial"].toDouble(),
+    addProperty(s::TENTACLE_SPEED, MutableNumber(getTentacleSpeed()["initial"].toDouble(),
             getTentacleSpeed()["rate"].toDouble(), getTentacleSpeed()["sigma"].toDouble(), true, 3));
     //nous avons utilisé un MutableNumber général, afin que la vitesse ne puisse pas
     //descendre à 0 (et donc la bactérie être immortelle en voyant sa tentacule ne plus bouger:
     //développement observé car cela lui est favorable) nous avons pris 3 afin d'en avoir le retour visuel
-    addProperty("tentacle length",MutableNumber::positive(getTentacleLength()["initial"].toDouble(),
+    addProperty(s::TENTACLE_LENGTH,MutableNumber::positive(getTentacleLength()["initial"].toDouble(),
                 getTentacleLength()["rate"].toDouble(), getTentacleLength()["sigma"].toDouble() ));
-    totalTentacleLength_ += getProperty("tentacle length").get();
-    totalTentacleSpeed_ += getProperty("tentacle speed").get();
-    totalSpeed_ += getProperty("tentacle speed").get() *
+    totalTentacleLength_ += getProperty(s::TENTACLE_LENGTH).get();
+    totalTentacleSpeed_ += getProperty(s::TENTACLE_SPEED).get();
+    totalSpeed_ += getProperty(s::TENTACLE_SPEED).get() *
             getConfig()["speed factor"].toDouble();
     compteur_ += 1;
 }
 
 TwitchingBacterium::~TwitchingBacterium()
 {
-    totalTentacleLength_ -= getProperty("tentacle length").get();
-    totalTentacleSpeed_ -= getProperty("tentacle speed").get();
-    totalSpeed_ -= getProperty("tentacle speed").get() *
+    totalTentacleLength_ -= getProperty(s::TENTACLE_LENGTH).get();
+    totalTentacleSpeed_ -= getProperty(s::TENTACLE_SPEED).get();
+    totalSpeed_ -= getProperty(s::TENTACLE_SPEED).get() *
             getConfig()["speed factor"].toDouble();
     compteur_ -= 1;
 }
@@ -57,16 +58,16 @@ TwitchingBacterium::TwitchingBacterium(const TwitchingBacterium& other)
 
 void TwitchingBacterium::updateStats()
 {
-    totalTentacleLength_ += getProperty("tentacle length").get();
-    totalTentacleSpeed_ += getProperty("tentacle speed").get();
-    totalSpeed_ += getProperty("tentacle speed").get() *
+    totalTentacleLength_ += getProperty(s::TENTACLE_LENGTH).get();
+    totalTentacleSpeed_ += getProperty(s::TENTACLE_SPEED).get();
+    totalSpeed_ += getProperty(s::TENTACLE_SPEED).get() *
             getConfig()["speed factor"].toDouble();
 }
 
 //Getters utilitaires et setters :
 j::Value& TwitchingBacterium::getConfig() const
 {
-    return getAppConfig()["twitching bacterium"];
+    return getAppConfig()[s::TWITCHING_BACTERIUM];
 }
 
 Quantity TwitchingBacterium::getTentacleEnergy() const
@@ -204,13 +205,13 @@ void TwitchingBacterium::waitToDeploy()
 
 void TwitchingBacterium::deploy(sf::Time dt)
 {
-    moveGrip(getDirection() * getProperty("tentacle speed").get() * dt.asSeconds());
-    consumeEnergy(getTentacleEnergy() * getProperty("tentacle speed").get() * dt.asSeconds());
+    moveGrip(getDirection() * getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
+    consumeEnergy(getTentacleEnergy() * getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
     if (getAppEnv().getNutrimentColliding(grip_) != nullptr)
     {
         mystate_ = ATTRACT;
     }
-    else if((grip_.getPosition() - getPosition()).length() > getProperty("tentacle length").get()
+    else if((grip_.getPosition() - getPosition()).length() > getProperty(s::TENTACLE_LENGTH).get()
             or getAppEnv().doesCollideWithDish(grip_))
     {
         mystate_ = RETRACT;
@@ -225,9 +226,9 @@ void TwitchingBacterium::attract(sf::Time dt)
     }
     else
     {
-        CircularBody::move((grip_.getPosition() - getPosition()).normalised() * getProperty("tentacle speed").get() *
+        CircularBody::move((grip_.getPosition() - getPosition()).normalised() * getProperty(s::TENTACLE_SPEED).get() *
                            getConfig()["speed factor"].toDouble() * dt.asSeconds());
-        consumeEnergy(getDisplacementEnergy() * getProperty("tentacle speed").get() *
+        consumeEnergy(getDisplacementEnergy() * getProperty(s::TENTACLE_SPEED).get() *
                       getConfig()["speed factor"].toDouble() * dt.asSeconds());
     }
 
@@ -246,8 +247,8 @@ void TwitchingBacterium::retract(sf::Time dt)
     else
     {
         moveGrip((getPosition() - grip_.getPosition()).normalised() *
-                 getProperty("tentacle speed").get() * dt.asSeconds());
-        consumeEnergy(getTentacleEnergy() * getProperty("tentacle speed").get() * dt.asSeconds());
+                 getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
+        consumeEnergy(getTentacleEnergy() * getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
     }
 }
 
@@ -267,4 +268,9 @@ Quantity TwitchingBacterium::eatableQuantity(NutrimentA& nutriment)
 Quantity TwitchingBacterium::eatableQuantity(NutrimentB& nutriment)
 {
     return nutriment.eatenBy(*this);
+}
+
+Quantity TwitchingBacterium::eatablePoison(Poison& poison)
+{
+    return poison.eatenBy(*this);
 }

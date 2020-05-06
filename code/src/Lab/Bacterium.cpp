@@ -1,4 +1,4 @@
-#include "Bacterium.hpp"
+﻿#include "Bacterium.hpp"
 #include "Nutriment.hpp"
 #include "NutrimentA.hpp"
 #include "NutrimentB.hpp"
@@ -21,11 +21,14 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
 {}
 
 Bacterium::Bacterium(const Bacterium& other)
-    :Bacterium(other.energy_ ,other.getPosition(), other.direction_,
-               other.getRadius(),other.color_)
-{
-    mutableParameters_ = other.mutableParameters_;
-}
+    :CircularBody(other),
+     color_(other.color_),
+     direction_(other.direction_),
+     angle_(other.angle_),
+     abstinence_(other.abstinence_),
+     energy_(other.energy_),
+     mutableParameters_(other.mutableParameters_)
+{}
 
 //Getters et setters:
 Quantity Bacterium::getDivisionEnergy() const
@@ -48,9 +51,14 @@ Quantity Bacterium::getMealQuantity() const
     return getConfig()["meal"]["max"].toDouble();
 }
 
+Quantity Bacterium::getPoisoneffects() const
+{
+    return getConfig()["poison effects"].toDouble();
+}
+
 j::Value& Bacterium::getSpeedConfig() const
 {
-    return getConfig()["speed"];
+    return getConfig()[s::SPEED];
 }
 
 Vec2d Bacterium::getDirection() const
@@ -171,13 +179,28 @@ void Bacterium::update(sf::Time dt)
 
 void Bacterium::eat()
 {
+    bool isEating(false);
+
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
-            and !abstinence_
+            and !abstinence_    //?? c'est quoi l'abstinence en fait? ca apparait quand ??
             and clock_ >= getMealDelay())
     {
         Quantity eaten(getAppEnv().getNutrimentColliding(*this)->eatenBy(*this));
         energy_ += eaten;
-        clock_ = sf::Time::Zero ;
+        isEating = true;
+    }
+    if (getAppEnv().getPoisonColliding(*this) != nullptr and clock_ >= getMealDelay())
+    {
+        Quantity eaten(getAppEnv().getPoisonColliding(*this)->eatenBy(*this));
+        if (eaten> 0)
+        {
+            energy_ -= (eaten);
+            isEating = true;
+        }
+    }
+    if (isEating)
+    {
+        clock_ = sf::Time::Zero ; // est-ce que c'est ok d'utiliser la mealclock pour le poison ??
     }
 }
 

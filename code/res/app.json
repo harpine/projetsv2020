@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":3,
+         "factor":1,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
@@ -56,6 +56,48 @@
             "texture" : "foodB.png"
         }
     },
+    "poison" : {
+        "color" : {
+                "a" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 1,
+                    "max" : 1,
+                    "min" : 0.5,
+                    "rate" : 0.6,
+                    "sigma" : 0.05
+                },
+                "b" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 0.18,
+                    "max" : 1,
+                    "min" : 0,
+                    "rate" : 0.95,
+                    "sigma" : 0.15
+                },
+                "g" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 0.29,
+                    "max" : 1,
+                    "min" : 0,
+                    "rate" : 0.8,
+                    "sigma" : 0.05
+                },
+                "r" : {
+                    "clamp max" : true,
+                    "clamp min" : true,
+                    "initial" : 0.45,
+                    "max" : 1,
+                    "min" : 0,
+                    "rate" : 0.8,
+                    "sigma" : 0.1
+                }
+        },
+        "quantity" : 20
+    },
+
     "petri dish" : {
         "gradient" : {
             "exponent" : {
@@ -123,6 +165,7 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 1,
         "radius" : {
             "max" : 20,
             "min" : 5
@@ -200,6 +243,7 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 1,
         "radius" : {
             "max" : 20,
             "min" : 5
@@ -345,6 +389,7 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 1,
         "radius" : {
             "max" : 30,
             "min" : 10
@@ -363,22 +408,23 @@
             }
         }
     },
-    "mad bacterium" : {
+    "poisonous bacterium": {
+        "texture" : "poisonousBacterium.png",
         "color" : {
             "a" : {
                 "clamp max" : true,
                 "clamp min" : true,
-                "initial" : 1,
-                "max" : 1,
-                "min" : 0.5,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
                 "rate" : 0.6,
                 "sigma" : 0.05
             },
             "b" : {
                 "clamp max" : true,
                 "clamp min" : true,
-                "initial" : 1,
-                "max" : 1,
+                "initial" : 0,
+                "max" : 0,
                 "min" : 0,
                 "rate" : 0.95,
                 "sigma" : 0.15
@@ -387,7 +433,7 @@
                 "clamp max" : true,
                 "clamp min" : true,
                 "initial" : 0,
-                "max" : 1,
+                "max" : 0,
                 "min" : 0,
                 "rate" : 0.8,
                 "sigma" : 0.05
@@ -396,7 +442,81 @@
                 "clamp max" : true,
                 "clamp min" : true,
                 "initial" : 0,
-                "max" : 1,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.8,
+                "sigma" : 0.1
+            }
+        },
+        "energy" : {
+            "consumption factor" : 0.2,
+            "division" : 120,
+            "max" : 100,
+            "min" : 50
+        },
+        "bacteria gradient influence factor" : 1,
+        "meal" : {
+            "delay" : 0.5,
+            "max" : 10
+        },
+        "poison effects" : 0,
+        "radius" : {
+            "max" : 30,
+            "min" : 15
+        },
+        "speed" : {
+            "initial" : 30,
+            "rate" : 1,
+            "sigma" : 10
+        },
+        "tumble" : {
+            "algo" : "best of 20",
+            "better" : {
+                "initial" : 5,
+                "rate" : 0.8,
+                "sigma" : 1
+            },
+            "worse" : {
+                "initial" : 0.5,
+                "rate" : 0.8,
+                "sigma" : 0.1
+            }
+        }
+    },
+    "mad bacterium" : {
+        "color" : {
+            "a" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.6,
+                "sigma" : 0.05
+            },
+            "b" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.95,
+                "sigma" : 0.15
+            },
+            "g" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
+                "min" : 0,
+                "rate" : 0.8,
+                "sigma" : 0.05
+            },
+            "r" : {
+                "clamp max" : true,
+                "clamp min" : true,
+                "initial" : 0,
+                "max" : 0,
                 "min" : 0,
                 "rate" : 0.8,
                 "sigma" : 0.1
@@ -414,6 +534,7 @@
             "delay" : 0.5,
             "max" : 10
         },
+        "poison effects" : 1,
         "radius" : {
             "max" : 40,
             "min" : 25

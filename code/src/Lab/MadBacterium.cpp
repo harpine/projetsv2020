@@ -7,7 +7,6 @@
 #include <Utility/Utility.hpp>
 #include <Random/Random.hpp>
 
-
 //static members' initialization:
 int MadBacterium::compteur_ = 0;
 double MadBacterium::totalBetter_ =0;

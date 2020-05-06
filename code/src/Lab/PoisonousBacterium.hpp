@@ -1,19 +1,16 @@
-#ifndef SIMPLEBACTERIUM_HPP
-#define SIMPLEBACTERIUM_HPP
-
+#ifndef POISONOUSBACTERIUM_HPP
+#define POISONOUSBACTERIUM_HPP
 #include "Bacterium.hpp"
-#include <JSON/JSON.hpp>
-#include <Utility/DiffEqSolver.hpp>
+#include "Utility/DiffEqSolver.hpp"
 #include <SFML/Graphics.hpp>
 
-class SimpleBacterium : public Bacterium, public DiffEqFunction
+class PoisonousBacterium: public Bacterium, public DiffEqFunction
 {
-
 public:
-    //Constructeur et destructeur:
-    SimpleBacterium(const Vec2d& poscenter);
-    ~SimpleBacterium() override;
-    SimpleBacterium(const SimpleBacterium& other);
+    //Constructeurs et destructeurs:
+    PoisonousBacterium(const Vec2d& poscenter);
+    ~PoisonousBacterium() override;
+    PoisonousBacterium(const PoisonousBacterium& other);
     //fonction à polymorphisme induit permettant de mettre les statistiques
     //à jour après que la mutation soit effectuée
     void updateStats() override;
@@ -21,19 +18,18 @@ public:
     //Getters & setters:
     //permet de simplifier l'accès aux configurations
     virtual j::Value& getConfig() const override;
-    //Facilite l'accès aux configuration better et worse pour le basculement
     j::Value& getWorseConfig() const;
     j::Value& getBetterConfig() const;
     //renvoie la vitesse courante (direction * une valeur)
     Vec2d getSpeedVector() const;
-    //renvoie le nombre d'instances existantes
-    static int getCompteur();
     //renvoie la moyenne des tumbles better des bactéries existantes
     static double getAverageBetter();
     //renvoie la moyenne des tumbles better des bactéries existantes
     static double getAverageWorse();
     //renvoie la somme des vitesses des bactéries existantes
     static double getTotalSpeed();
+    //renvoie le nombre d'instances existantes
+    static int getCompteur();
 
     //Autres méthodes:
 
@@ -52,16 +48,18 @@ public:
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
     //Renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison);
+    //Renvoie true si la bactérie peut poser du poison
+    bool canPoison(sf::Time dt);
+    //Pose un poison
+    void putPoison();
 
 private:
-    //Attributs:
-
-    //compteur qui fait varier l'amplitude des flagelles en fonction du temps
-    double t_flagelle_;
     //probabilité de la bactérie à basculer
     double probability_;
     //compteur stockant le temps écoulé depuis le dernier basculement
     sf::Time tumbleClock_;
+    //compteur stocka
+    sf::Time poisonClock_;
     //compteur du nombre d'instances existantes
     static int compteur_;
     //somme des tumbles better des bactéries existantes
@@ -71,16 +69,10 @@ private:
     //sommes des vitesses
     static double totalSpeed_;
 
-    //Méthodes :
-
-    //représentation dela flagelle
-    void drawOnFlagelle(sf::RenderTarget& target) const;
-    //mise à jour de la flagelle
-    void updateFlagelle(sf::Time dt);
     //retourne le booléen indiquant s'il y a basculement ou non
     bool tumbleAttempt(sf::Time dt);
     //fait basculer la bactérie
     void tumble();
 };
 
-#endif // SIMPLEBACTERIUM_HPP
+#endif // POISONOUSBACTERIUM_HPP

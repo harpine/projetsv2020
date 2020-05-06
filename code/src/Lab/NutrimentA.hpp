@@ -20,6 +20,7 @@ public:
     virtual Quantity eatenBy(SimpleBacterium& bact) override;
     virtual Quantity eatenBy(TwitchingBacterium& bact) override;
     virtual Quantity eatenBy(SwarmBacterium& bact) override;
+    virtual Quantity eatenBy(PoisonousBacterium& bact) override;
 
 };
 
