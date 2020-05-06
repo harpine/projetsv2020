@@ -8,6 +8,7 @@
 #include <Lab/Swarm.hpp>
 #include <Lab/SwarmBacterium.hpp>
 #include <Lab/TwitchingBacterium.hpp>
+#include <Lab/MadBacterium.hpp>
 #include "FinalApplication.hpp"
 
 #include <cassert>
@@ -48,6 +49,10 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
 
         case sf::Keyboard::T:
             getEnv().addBacterium(new TwitchingBacterium(getCursorPositionInView()));
+            break;
+
+        case sf::Keyboard::M:
+            getEnv().addBacterium(new MadBacterium(getCursorPositionInView()));
             break;
 
         case sf::Keyboard::Num1: {

@@ -18,7 +18,8 @@ PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
      temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble()),
      exponent_((getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble()
-                + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2)
+                + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2),
+     bacteriaExponent_(getAppConfig()["petri dish"]["gradient"]["bacteria exponent"].toDouble())
 {}
 
 PetriDish::~PetriDish()
@@ -98,9 +99,37 @@ Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
 {
     for (auto& nutriment : nutriments_)
     {
-        if (nutriment->isColliding(body))
+        if (nutriment != nullptr)
         {
-            return nutriment;
+            if (nutriment->isColliding(body))
+            {
+                return nutriment;
+            }
+
+        }
+    }
+
+    return nullptr;
+}
+
+Bacterium* PetriDish::getBacteriumColliding(const CircularBody& body) const
+{
+    for (auto& bacterium : bacteria_)
+    {
+        if (bacterium != nullptr)
+        {
+            if (bacterium->isColliding(body))
+            {
+                if (bacterium->getEnergyForScore() != 0)
+                //Permet d'éviter de sélectionner une madbactérie (dont getEnergyScore vaut 0)
+                //car cela stoppe l'itération et la madbacterium est incapable de manger une bactérie
+                //sous-jacente si elle est en meme temps en contact avec une autre madbacterium.
+                //Si une autre bactérie a une énergie de 0, elle sera éliminé de toute manière donc
+                //ça ne pose pas de problème
+                {
+                    return bacterium;
+                }
+            }
         }
     }
 
@@ -212,6 +241,26 @@ double PetriDish::getPositionScore(const Vec2d& p) const
     for (auto& nutriment : nutriments_)
     {
         score += nutriment->getQuantity() / std::pow((distance(p, nutriment->getPosition())), exponent_);
+    }
+
+    return score;
+}
+
+double PetriDish::getPositionBacteriaScore(const Vec2d& p) const
+{
+    double score(0);
+
+    for (auto& bacterium : bacteria_)
+    {
+        if (bacterium != nullptr)
+        {
+            if (distance (p, bacterium->getPosition()) > 0)
+            {
+                score += bacterium->getEnergyForScore() / std::pow((distance(p, bacterium->getPosition())), bacteriaExponent_);
+                //getEnergyForScore() est polymorphique et permet d'adapter la sensibilité du score au type de bactérie concerné.
+                //Une MadBacterium ne sera donc pas sensible à d'autres MadBacterium, peu sensible aux SwarmBacterium...
+            }
+        }
     }
 
     return score;

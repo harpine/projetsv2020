@@ -2,6 +2,7 @@
 #include "Nutriment.hpp"
 #include "NutrimentA.hpp"
 #include "NutrimentB.hpp"
+#include "MadBacterium.hpp"
 #include <Utility/Utility.hpp>
 #include <Application.hpp>
 #include <cmath>
@@ -15,7 +16,8 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
       direction_(direction.normalised()),
       angle_(direction_.angle()),
       abstinence_(false),
-      energy_(energy)
+      energy_(energy),
+      score_(0)
 {}
 
 Bacterium::Bacterium(const Bacterium& other)
@@ -107,6 +109,17 @@ Quantity Bacterium::getEnergy() const
     return energy_;
 }
 
+Quantity Bacterium::getEnergyForScore() const
+{
+    double factor(getConfig()["bacteria gradient influence factor"].toDouble());
+    return factor * getEnergy();
+}
+
+void Bacterium::setEnergy(Quantity energy)
+{
+    energy_ = energy;
+}
+
 sf::Time Bacterium::getMealClock() const
 {
     return clock_;
@@ -120,7 +133,7 @@ void Bacterium::setMealClock(sf::Time newTime)
 //Autres méthodes:
 void Bacterium::updateScore()
 {
-    score_ = getAppEnv().getPositionScore(this->getPosition());
+    score_ = getAppEnv().getPositionScore(this->getPosition()); //   this ??
 }
 
 void Bacterium::drawOn(sf::RenderTarget& target) const
@@ -219,4 +232,22 @@ void Bacterium::bestOfN(int n)
         }
     }
     direction_ = finalDirection;
+}
+
+Quantity Bacterium::takeEnergy(const Quantity totake)
+{
+    double taken(energy_);
+
+    if (totake <= taken)
+    {
+        taken = totake;
+    }
+
+    energy_ -= taken;
+    return taken;
+}
+
+Quantity Bacterium::attackedBy(MadBacterium& madbact)
+{
+    return takeEnergy(madbact.getMealQuantity());
 }

@@ -1,8 +1,18 @@
 #include "MadBacterium.hpp"
+#include "Nutriment.hpp"
+#include "NutrimentA.hpp"
+#include "NutrimentB.hpp"
 #include <Application.hpp>
 #include <SFML/Graphics.hpp>
 #include <Utility/Utility.hpp>
 #include <Random/Random.hpp>
+
+
+//static members' initialization:
+int MadBacterium::compteur_ = 0;
+double MadBacterium::totalBetter_ =0;
+double MadBacterium::totalWorse_ =0;
+double MadBacterium::totalSpeed_ =0;
 
 MadBacterium::MadBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
@@ -12,7 +22,9 @@ MadBacterium::MadBacterium(const Vec2d& poscenter)
      uniform(getConfig()["radius"]["max"].toDouble(),
      getConfig()["radius"]["min"].toDouble()),
      getConfig()["color"]),
-     probability_()
+     probability_(0),
+     tumbleClock_(sf::Time::Zero),
+     bacteriaScore_(0)
 {
     addProperty("speed", MutableNumber(getSpeedConfig()["initial"].toDouble(),
                 getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), true, 5));
@@ -60,8 +72,47 @@ j::Value& MadBacterium::getConfig() const
     return getAppConfig()["mad bacterium"];
 }
 
+Vec2d MadBacterium::getSpeedVector() const
+{
+    return getDirection().normalised() * getProperty("speed").get();
+}
 
+j::Value& MadBacterium::getWorseConfig() const
+{
+    return getConfig()["tumble"]["worse"];
+}
 
+j::Value& MadBacterium::getBetterConfig() const
+{
+    return getConfig()["tumble"]["better"];
+}
+
+int MadBacterium::getCompteur()
+{
+    return compteur_;
+}
+
+double MadBacterium::getAverageBetter()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return totalBetter_/compteur_;
+}
+double MadBacterium::getAverageWorse()
+{
+    if (compteur_ == 0)
+    {
+        return 0;
+    }
+    return totalWorse_/compteur_;
+}
+
+double MadBacterium::getTotalSpeed()
+{
+    return totalSpeed_;
+}
 
 //Autres méthodes:
 void MadBacterium::drawOn(sf::RenderTarget& target) const
@@ -84,22 +135,123 @@ void MadBacterium::drawOn(sf::RenderTarget& target) const
 
 void MadBacterium::eat()
 {
-    if (getAppEnv().getNutrimentColliding(*this) != nullptr
-            and clock_ >= getMealDelay())
+    if (getAppEnv().getBacteriumColliding(*this) != nullptr
+            and getMealClock() >= getMealDelay())
     {
-        Quantity eaten(getAppEnv().getNutrimentColliding(*this)->eatenBy(*this));
-        energy_ += eaten;
-        clock_ = sf::Time::Zero ;
+        Quantity eaten(getAppEnv().getBacteriumColliding(*this)->attackedBy(*this));
+        setEnergy(getEnergy() + eaten);
+        setMealClock(sf::Time::Zero);
     }
 }
 
+void MadBacterium::move(sf::Time dt)
+{
+    DiffEqResult result(stepDiffEq(getPosition(), getSpeedVector(), dt, *this));
+    //this est une DiffEqFunction
+    consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
+    //distance renvoie length des 2 Vec2d
 
+    if ((result.position - getPosition()).lengthSquared() > 0.001)
+    {
+        this->CircularBody::move((result.position - getPosition()));   //this ??
+        //move est moins intuitif mais meilleur pour la hiérarchie des classes
+    }
 
+    if(tumbleAttempt(dt))
+    {
+        tumble();
+    }
+}
 
+bool MadBacterium::tumbleAttempt(sf::Time dt)
+{
+    double lambda(0);
+    double ancien_score(bacteriaScore_);
+    updateBacteriaScore();
+    tumbleClock_ += dt;
 
+    if (bacteriaScore_ >= ancien_score)
+    {
+        lambda = getProperty("tumble better").get();
+    }
+    else
+    {
+        lambda = getProperty("tumble worse").get();
+    }
 
+    probability_ = 1 - exp(-tumbleClock_.asSeconds()/lambda);
+    return bernoulli(probability_);
+}
 
+void MadBacterium::tumble()
+{
+    if (getConfig()["tumble"]["algo"].toString() == "single random vector")
+    {
+        setDirection(Vec2d::fromRandomAngle());
+    }
+    else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos)
+    {
+        bestOfN(std::stoi(getConfig()["tumble"]["algo"].toString().substr(8, 2)));
+        //permet de trouver une meilleure position parmis le nombre donné (entre 1 et 99)
+    }
+    tumbleClock_ = sf::Time::Zero;
+}
 
+void MadBacterium::updateBacteriaScore()
+{
+    bacteriaScore_ = getAppEnv().getPositionBacteriaScore(this->getPosition());
+}
 
+Bacterium* MadBacterium::copie()
+{
+    return new MadBacterium(*this);
+}
 
+Quantity MadBacterium::eatableQuantity(NutrimentA& nutriment)
+{
+    return 0;
+}
 
+Quantity MadBacterium::eatableQuantity(NutrimentB& nutriment)
+{
+    return 0;
+}
+
+Vec2d MadBacterium::f(Vec2d position, Vec2d speed) const
+{
+    return Vec2d(); //constructeur de Vec2d par défaut renvoie le vecteur nul
+}
+
+void MadBacterium::update(sf::Time dt)
+{
+   Bacterium::update(dt);
+   updateBacteriaScore();
+}
+
+void MadBacterium::bestOfN(int n)
+{
+    Vec2d direction(getDirection());
+    Vec2d finalDirection(getDirection());
+    double bacteriaScore(bacteriaScore_);
+
+    for (int i(0); i < n ; ++i)
+    {
+        direction = Vec2d::fromRandomAngle().normalised();
+        if (getAppEnv().getPositionBacteriaScore(getPosition()+direction) > bacteriaScore)
+        {
+            bacteriaScore = getAppEnv().getPositionBacteriaScore(getPosition()+direction);
+            finalDirection = direction;
+        }
+    }
+    setDirection(finalDirection);
+}
+
+Quantity MadBacterium::attackedBy(MadBacterium& madbact)
+{
+    return 0;
+}
+
+Quantity MadBacterium::eatablePoison(Poison& poison)
+{
+    return poison.eatenBy(*this);
+}

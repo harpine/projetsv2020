@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":1,
+         "factor":3,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
@@ -59,10 +59,11 @@
     "petri dish" : {
         "gradient" : {
             "exponent" : {
-		"min" : 0,
-		"max" : 1.5,
-		"delta" : 0.1
-	    }
+                "min" : 0,
+                "max" : 1.5,
+                "delta" : 0.1
+            },
+            "bacteria exponent" : 0.8
         },
 	
         "temperature" : {
@@ -117,6 +118,7 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 1,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
@@ -193,6 +195,7 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 0.5,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
@@ -337,6 +340,7 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 1,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
@@ -405,16 +409,17 @@
             "max" : 100,
             "min" : 50
         },
+        "bacteria gradient influence factor" : 0,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
         },
         "radius" : {
-            "max" : 25,
-            "min" : 10
+            "max" : 40,
+            "min" : 25
         },
         "speed" : {
-            "initial" : 30,
+            "initial" : 50,
             "rate" : 1,
             "sigma" : 10
         },
@@ -430,6 +435,7 @@
                 "rate" : 0.8,
                 "sigma" : 0.1
             }
+        }
     },
     "window" : {
         "antialiasing level" : 4,

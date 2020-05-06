@@ -21,6 +21,7 @@ public:
     //Getters & setters:
     //permet de simplifier l'accès aux configurations
     virtual j::Value& getConfig() const override;
+    //Facilite l'accès aux configuration better et worse pour le basculement
     j::Value& getWorseConfig() const;
     j::Value& getBetterConfig() const;
     //renvoie la vitesse courante (direction * une valeur)

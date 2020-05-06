@@ -27,7 +27,7 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
       getConfig()["radius"]["min"].toDouble()),
      getConfig()["color"]),
      t_flagelle_(uniform(0.0, PI)),
-     probability_()
+     probability_(0)
 {
     addProperty("speed", MutableNumber(getSpeedConfig()["initial"].toDouble(),
                 getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), true, 5));
