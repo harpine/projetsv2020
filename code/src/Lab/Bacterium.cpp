@@ -138,11 +138,6 @@ void Bacterium::setMealClock(sf::Time newTime)
     clock_ = newTime;
 }
 
-void Bacterium::setEnergy(Quantity energy)
-{
-    energy_ = energy;
-}
-
 //Autres méthodes:
 void Bacterium::updateScore()
 {
