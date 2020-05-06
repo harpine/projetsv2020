@@ -104,5 +104,5 @@ Quantity Poison::eatenBy(PoisonousBacterium& bact)
 
 Quantity Poison::eatenBy(MadBacterium& bact)
 {
-    return bact.getPoisoneffects(); //à compléter dans le app.json ?? à décommenter ici
+    return bact.getPoisoneffects();
 }
