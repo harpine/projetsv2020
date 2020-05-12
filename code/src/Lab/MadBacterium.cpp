@@ -132,10 +132,10 @@ void MadBacterium::drawOn(sf::RenderTarget& target) const
     }
 }
 
-void MadBacterium::eat()
+void MadBacterium::eat(bool isEating)
 {
     if (getAppEnv().getBacteriumColliding(*this) != nullptr
-            and getMealClock() >= getMealDelay())
+            and getMealClock() >= getMealDelay() and !isEating)
     {
         Quantity eaten(getAppEnv().getBacteriumColliding(*this)->attackedBy(*this));
         setEnergy(getEnergy() + eaten);

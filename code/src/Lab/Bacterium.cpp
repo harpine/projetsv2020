@@ -173,23 +173,32 @@ void Bacterium::update(sf::Time dt)
     {
         direction_ *= -1;
     }
-    eat();
+    bool isEating(eatPoison());
+    eat(isEating); //si la bactérie rencontre un poison et un nutriment,
+                      //le poison a priorité
     updateScore();
 }
 
-void Bacterium::eat()
+void Bacterium::eat(bool isEating)
 {
-    bool isEating(false);
-
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
-            and !abstinence_    //?? c'est quoi l'abstinence en fait? ca apparait quand ??
-            and clock_ >= getMealDelay())
+            and !abstinence_
+            and clock_ >= getMealDelay() and !isEating)
     {
         Quantity eaten(getAppEnv().getNutrimentColliding(*this)->eatenBy(*this));
         energy_ += eaten;
         isEating = true;
     }
 
+    if (isEating)
+    {
+        clock_ = sf::Time::Zero ;
+    }
+}
+
+bool Bacterium::eatPoison()
+{
+    bool isEating(false);
     if (getAppEnv().getPoisonColliding(*this) != nullptr and clock_ >= getMealDelay())
     {
         Quantity eaten(getAppEnv().getPoisonColliding(*this)->eatenBy(*this));
@@ -199,11 +208,7 @@ void Bacterium::eat()
             isEating = true;
         }
     }
-
-    if (isEating)
-    {
-        clock_ = sf::Time::Zero ; // est-ce que c'est ok d'utiliser la mealclock pour le poison ??
-    }
+    return isEating;
 }
 
 Bacterium* Bacterium::clone()

@@ -92,7 +92,10 @@ public:
     //Méthode virtuelle pure.
     virtual void move(sf::Time dt) = 0;
     //Permet à la bactérie de se nourrir si possible dans l'assiette
-    virtual void eat();
+    virtual void eat(bool isEating); //le bool permet de gérer l'horloge hors de la fonction
+                        //en tenant compte du poison
+    //Permet à la bactérie de manger du poison
+    bool eatPoison();
     //Division de la bactérie en deux bactéries identiques.
     virtual Bacterium* clone();
     //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau

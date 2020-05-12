@@ -326,7 +326,6 @@ void PetriDish::resetGradientExponent()
 }
 
 //Pour les statistiques:
-//?? à modulariser et mettre les string en S::...
 std::unordered_map<std::string, double> PetriDish::fetchData(const std::string & title) const
 {
     if (title == s::GENERAL)
@@ -386,7 +385,7 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
                 + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur() != 0)
         {
             speed = (SimpleBacterium::getTotalSpeed() + SwarmBacterium::getTotalSpeed() + TwitchingBacterium::getTotalSpeed()
-                     + PoisonousBacterium::getTotalSpeed()) + MadBacterium::getTotalSpeed() /
+                     + PoisonousBacterium::getTotalSpeed() + MadBacterium::getTotalSpeed()) /
                          (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur()
                           + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur());
         }

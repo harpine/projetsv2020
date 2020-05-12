@@ -36,7 +36,7 @@ public:
     //dessine les bactéries dans la boîte de petri
     virtual void drawOn(sf::RenderTarget& target) const override;
     //Permet à la bactérie de se nourrir d'autres bactéries si possible
-    virtual void eat() override;
+    virtual void eat(bool isEating) override;
     //Permet de faire déplacer la bactérie en fonction du gradient de bactéries
     virtual void move(sf::Time dt) override;
     //Met à jour le score de bactéries
