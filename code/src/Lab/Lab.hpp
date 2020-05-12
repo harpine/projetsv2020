@@ -55,7 +55,7 @@ public:
 
     //Pour la température:
 
-    //retourne la température de la boîte de petri
+    //Retourne la température de la boîte de petri
     double getTemperature() const;
     //Permet de modifier la température de la boîte de petri
     void increaseTemperature();
@@ -82,8 +82,14 @@ public:
     std::unordered_map<std::string, double> fetchData(const std::string & title) const;
 
 private:
+    //Attributs:
     PetriDish petridish_;
     NutrimentGenerator nutrimentGenerator_;
+    sf::Clock clock_; //temps écoulé depuis le début de la simulation
+
+    //Méthodes:
+    //Inscrit le temps écoulé depuis le début de la simulation
+    void drawOnTime(sf::RenderTarget& targetWindow) const;
 
 };
 

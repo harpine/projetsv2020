@@ -5,7 +5,8 @@
 
 //Constructeur:
 Lab::Lab()
-    :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2)
+    :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2),
+      clock_()
     /*Positonne l'assiette de pétri au centre de la fenêtre graphique
     avec un diamètre occupant 95% de la largeur de la fenêtre */
 {}
@@ -66,6 +67,7 @@ void Lab::reset()
 {
     nutrimentGenerator_.reset();
     petridish_.reset();
+    clock_.restart();
 }
 
 void Lab::resetControls()
@@ -151,4 +153,10 @@ void Lab::resetGradientExponent()
 std::unordered_map<std::string, double> Lab::fetchData(const std::string & title) const
 {
     return petridish_.fetchData(title);
+}
+
+//Private:
+void Lab::drawOnTime(sf::RenderTarget& targetWindow) const
+{
+
 }
