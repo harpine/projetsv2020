@@ -19,3 +19,5 @@ T	: add TwitchingMotility
 	bacterium at MP
 1-2	: add swarm bacterium
 	  of type 1-2 at MP
+P	: add PoisonousBacterium
+M	: add Madbacterium

@@ -326,7 +326,6 @@ void PetriDish::resetGradientExponent()
 }
 
 //Pour les statistiques:
-//?? à modulariser et mettre les string en S::...
 std::unordered_map<std::string, double> PetriDish::fetchData(const std::string & title) const
 {
     if (title == s::GENERAL)

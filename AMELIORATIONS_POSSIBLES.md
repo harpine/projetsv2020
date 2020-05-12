@@ -32,7 +32,7 @@ poison
 poisonousBacterium
 --> hérite de bacterium
 --> se nourrit avec des nutriments
---> lorsqu'elle est à 100, elle lâche du poison (ne perd pas d'énergie
+-->toutes les 10 secondes, elle lâche du poison (ne perd pas d'énergie)
 --> getpoisoncolliding dans petridish cd(nutrimentcolliding)
 !=nullptr delete ptr mange 20
 

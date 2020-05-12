@@ -27,7 +27,7 @@ public:
     //renvoie la somme des vitesses des swarmbacteriums existantes
     static double getTotalSpeed();
     //Renvoie les effets du poison sur les bactéries selon leur type
-    virtual Quantity eatablePoison(Poison& poison);
+    virtual Quantity eatablePoison(Poison& poison) override;
 
     //Autres méthodes:
 
