@@ -2,6 +2,7 @@
 #include "PetriDish.hpp"
 #include <Application.hpp>
 #include <SFML/Graphics.hpp>
+#include <Utility/Utility.hpp>
 
 //Constructeur:
 Lab::Lab()
@@ -54,13 +55,13 @@ Poison* Lab::getPoisonColliding(const CircularBody &body) const
 void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
     petridish_.drawOn(targetWindow);
+    drawOnTime(targetWindow);
 }
 
 void Lab::update(sf::Time dt)
 {
     nutrimentGenerator_.update(dt);
     petridish_.update(dt);
-
 }
 
 void Lab::reset()
@@ -158,5 +159,10 @@ std::unordered_map<std::string, double> Lab::fetchData(const std::string & title
 //Private:
 void Lab::drawOnTime(sf::RenderTarget& targetWindow) const
 {
-
+    int time(clock_.getElapsedTime().asSeconds());
+    int minutes(time/60);
+    int seconds(time%60);
+    sf::Text const texte = buildText("Time : " + std::to_string(minutes) + ":" + std::to_string(seconds),
+                        Vec2d(10,10), getAppFont(), 30, sf::Color::Red);
+    targetWindow.draw(texte);
 }
