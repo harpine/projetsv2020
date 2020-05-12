@@ -37,6 +37,8 @@ void FinalApplication::onSimulationStart()
 	Application::onSimulationStart();
     getEnv().addSwarm(new Swarm("1"));
     getEnv().addSwarm(new Swarm("2"));
+    getEnv().addSwarm(new Swarm("3"));
+    getEnv().addSwarm(new Swarm("4"));
 }
 
 void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
@@ -75,6 +77,11 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
         } break;
         case sf::Keyboard::Num3: {
             auto swarm = getEnv().getSwarmWithId("3");
+            assert(swarm != nullptr);
+            getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+        } break;
+        case sf::Keyboard::Num4: {
+            auto swarm = getEnv().getSwarmWithId("4");
             assert(swarm != nullptr);
             getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
         } break;

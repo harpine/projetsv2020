@@ -138,6 +138,11 @@ void Bacterium::setMealClock(sf::Time newTime)
     clock_ = newTime;
 }
 
+bool Bacterium::getAbstinence() const
+{
+    return abstinence_;
+}
+
 //Autres méthodes:
 void Bacterium::updateScore()
 {

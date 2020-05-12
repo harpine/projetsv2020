@@ -855,6 +855,5 @@ Stats& Application::getStats()
 
 void Application::setActiveGraph(int id)
 {
-    //a decommenter
-//    getStats().setActive(id);
+    getStats().setActive(id);
 }

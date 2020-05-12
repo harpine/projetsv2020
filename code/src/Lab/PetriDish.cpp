@@ -331,68 +331,103 @@ std::unordered_map<std::string, double> PetriDish::fetchData(const std::string &
 {
     if (title == s::GENERAL)
     {
-        int simple(SimpleBacterium::getCompteur());
-        int twitching(TwitchingBacterium::getCompteur());
-        int swarmbact(SwarmBacterium::getCompteur());
-        int nutriment(Nutriment::getCompteur());
-        int poisonous(PoisonousBacterium::getCompteur());
-        int mad(MadBacterium::getCompteur());
-        std::unordered_map<std::string, double> new_data;
-        new_data = {{s::SIMPLE_BACTERIA, simple}, {s::TWITCHING_BACTERIA, twitching},
-                    {s::SWARM_BACTERIA, swarmbact}, {s::NUTRIMENT_SOURCES, nutriment},
-                    {s::POISONOUS_BACTERIA, poisonous}, {s::MAD_BACTERIA, mad},
-                    {s::DISH_TEMPERATURE, temperature_}};
-        return new_data;
+        return fetchGeneralData();
     }
     else if (title == s::NUTRIMENT_QUANTITY)
     {
-        Quantity totalQuantity(0);
-        for (auto& nutriment : nutriments_)
-        {
-            totalQuantity += nutriment->getQuantity();
-        }
-        std::unordered_map<std::string, double> new_data;
-        new_data = {{s::NUTRIMENT_QUANTITY, totalQuantity}};
-        return new_data;
+        return fetchNutrimentQuantityData();
     }
     else if (title == s::SIMPLE_BACTERIA)
     {
-        double averagebetter(SimpleBacterium::getAverageBetter());
-        double averageworse(SimpleBacterium::getAverageWorse());
-        return std::unordered_map<std::string, double>({{s::BETTER, averagebetter},{s::WORSE, averageworse}});
+        return fetchSimpleBacteriaData();
     }
     else if (title == s::POISONOUS_BACTERIA)
     {
-        double averagebetter(PoisonousBacterium::getAverageBetter());
-        double averageworse(PoisonousBacterium::getAverageWorse());
-        return std::unordered_map<std::string, double>({{s::BETTER, averagebetter},{s::WORSE, averageworse}});
+        return fetchPoisonousBacteriaData();
     }
     else if (title == s::MAD_BACTERIA)
     {
-        double averagebetter(MadBacterium::getAverageBetter());
-        double averageworse(MadBacterium::getAverageWorse());
-        return std::unordered_map<std::string, double>({{s::BETTER, averagebetter}, {s::WORSE, averageworse}});
+        return fetchMadBacteriaData();
     }
     else if (title == s::TWITCHING_BACTERIA)
     {
-        double tentacleLength(TwitchingBacterium::getAverageTentacleLength());
-        double tentacleSpeed(TwitchingBacterium::getAverageTentacleSpeed());
-        return std::unordered_map<std::string, double> ({{s::TENTACLE_LENGTH, tentacleLength}, {s::TENTACLE_SPEED, tentacleSpeed}});
+        return fetchTwitchingBacteriaData();
     }
     else if (title == s::BACTERIA)
     {
-        double speed(0);
-        if (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur()
-                + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur() != 0)
-        {
-            speed = (SimpleBacterium::getTotalSpeed() + SwarmBacterium::getTotalSpeed() + TwitchingBacterium::getTotalSpeed()
-                     + PoisonousBacterium::getTotalSpeed()) + MadBacterium::getTotalSpeed() /
-                         (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur()
-                          + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur());
-        }
-
-        return std::unordered_map<std::string, double>({{s::SPEED, speed}});
+        return fetchBacteriaData();
     }
     return std::unordered_map<std::string,double>();
+}
+
+std::unordered_map<std::string, double> PetriDish::fetchGeneralData() const
+{
+    int simple(SimpleBacterium::getCompteur());
+    int twitching(TwitchingBacterium::getCompteur());
+    int swarmbact(SwarmBacterium::getCompteur());
+    int nutriment(Nutriment::getCompteur());
+    int poisonous(PoisonousBacterium::getCompteur());
+    int mad(MadBacterium::getCompteur());
+    std::unordered_map<std::string, double> new_data;
+    new_data = {{s::SIMPLE_BACTERIA, simple}, {s::TWITCHING_BACTERIA, twitching},
+                {s::SWARM_BACTERIA, swarmbact}, {s::NUTRIMENT_SOURCES, nutriment},
+                {s::POISONOUS_BACTERIA, poisonous}, {s::MAD_BACTERIA, mad},
+                {s::DISH_TEMPERATURE, temperature_}};
+    return new_data;
+}
+
+std::unordered_map<std::string, double> PetriDish::fetchNutrimentQuantityData() const
+{
+    Quantity totalQuantity(0);
+    for (auto& nutriment : nutriments_)
+    {
+        totalQuantity += nutriment->getQuantity();
+    }
+    std::unordered_map<std::string, double> new_data;
+    new_data = {{s::NUTRIMENT_QUANTITY, totalQuantity}};
+    return new_data;
+}
+
+std::unordered_map<std::string, double> PetriDish::fetchSimpleBacteriaData() const
+{
+    double averagebetter(SimpleBacterium::getAverageBetter());
+    double averageworse(SimpleBacterium::getAverageWorse());
+    return std::unordered_map<std::string, double>({{s::BETTER, averagebetter},{s::WORSE, averageworse}});
+}
+
+std::unordered_map<std::string, double> PetriDish::fetchPoisonousBacteriaData() const
+{
+    double averagebetter(PoisonousBacterium::getAverageBetter());
+    double averageworse(PoisonousBacterium::getAverageWorse());
+    return std::unordered_map<std::string, double>({{s::BETTER, averagebetter},{s::WORSE, averageworse}});
+}
+
+std::unordered_map<std::string, double> PetriDish::fetchMadBacteriaData() const
+{
+    double averagebetter(MadBacterium::getAverageBetter());
+    double averageworse(MadBacterium::getAverageWorse());
+    return std::unordered_map<std::string, double>({{s::BETTER, averagebetter}, {s::WORSE, averageworse}});
+}
+
+std::unordered_map<std::string, double> PetriDish::fetchTwitchingBacteriaData() const
+{
+    double tentacleLength(TwitchingBacterium::getAverageTentacleLength());
+    double tentacleSpeed(TwitchingBacterium::getAverageTentacleSpeed());
+    return std::unordered_map<std::string, double> ({{s::TENTACLE_LENGTH, tentacleLength}, {s::TENTACLE_SPEED, tentacleSpeed}});
+}
+
+std::unordered_map<std::string, double> PetriDish::fetchBacteriaData() const
+{
+    double speed(0);
+    if (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur()
+            + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur() != 0)
+    {
+        speed = (SimpleBacterium::getTotalSpeed() + SwarmBacterium::getTotalSpeed() + TwitchingBacterium::getTotalSpeed()
+                 + PoisonousBacterium::getTotalSpeed() + MadBacterium::getTotalSpeed()) /
+                     (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur()
+                      + PoisonousBacterium::getCompteur() + MadBacterium::getCompteur());
+    }
+
+    return std::unordered_map<std::string, double>({{s::SPEED, speed}});
 }
 

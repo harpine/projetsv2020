@@ -78,6 +78,8 @@ public:
     sf::Time getMealClock() const;
     //Met à jour le temps écoulé depuis le dernier repas
     void setMealClock(sf::Time newTime);
+    //Renvoie l'état d'abstinence
+    bool getAbstinence() const;
 
     //Autres méthodes:
 

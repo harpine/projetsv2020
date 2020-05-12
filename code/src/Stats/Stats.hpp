@@ -10,7 +10,7 @@ class Stats : public Drawable, public Updatable
 public:
     //setter:
     //met le currentID_ à jour
-    void setactive(const int newId);
+    void setActive(const int newId);
 
     //autres méthodes:
     //Retourne le titre du graph courant

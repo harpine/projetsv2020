@@ -2,7 +2,7 @@
 #include <Application.hpp>
 
 
-void Stats::setactive(const int newId)
+void Stats::setActive(const int newId)
 {
     currentId_ = newId;
 }
@@ -14,7 +14,7 @@ std::string Stats::getCurrentTitle() const
 
 void Stats::next()
 {
-    currentId_ = ((currentId_+1)%graphs_.size());
+    setActive((currentId_+1)%graphs_.size());
 }
 
 void Stats::previous()
@@ -22,11 +22,11 @@ void Stats::previous()
     int newId(currentId_ -1);
     if (newId < 0)
     {
-        currentId_ = graphs_.size() -1;
+        setActive(graphs_.size() - 1);
     }
     else
     {
-        currentId_ = newId;
+        setActive(newId);
     }
 }
 
@@ -57,7 +57,7 @@ void Stats::addGraph(int graphId, std::string const& title, std::vector<std::str
         graphs_.find(graphId)->second.reset(new Graph(series, size, min, max));
         labels_.find(graphId)->second = title;
     }
-    currentId_ = graphId;
+    setActive(graphId);
 }
 
 void Stats::update(sf::Time dt)

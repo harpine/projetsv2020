@@ -85,6 +85,7 @@ public:
     std::unordered_map<std::string, double> fetchData(const std::string & title) const;
 
 private:
+    //Attributs:
     std::vector<Bacterium*> bacteria_;
     std::vector<Nutriment*> nutriments_;
     std::vector<Swarm*> swarms_;
@@ -93,6 +94,14 @@ private:
     double exponent_;
     double bacteriaExponent_;
 
+    //Méthodes privées:
+    std::unordered_map<std::string, double> fetchGeneralData() const;
+    std::unordered_map<std::string, double> fetchNutrimentQuantityData() const;
+    std::unordered_map<std::string, double> fetchSimpleBacteriaData() const;
+    std::unordered_map<std::string, double> fetchPoisonousBacteriaData() const;
+    std::unordered_map<std::string, double> fetchMadBacteriaData() const;
+    std::unordered_map<std::string, double> fetchTwitchingBacteriaData() const;
+    std::unordered_map<std::string, double> fetchBacteriaData() const;
 };
 
 #endif // PETRIDISH_HPP
