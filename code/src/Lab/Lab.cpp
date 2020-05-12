@@ -2,6 +2,7 @@
 #include "PetriDish.hpp"
 #include <Application.hpp>
 #include <SFML/Graphics.hpp>
+#include <Utility/Utility.hpp>
 
 //Constructeur:
 Lab::Lab()
@@ -54,6 +55,7 @@ Poison* Lab::getPoisonColliding(const CircularBody &body) const
 void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
     petridish_.drawOn(targetWindow);
+    drawOnTime(targetWindow);
 }
 
 void Lab::update(sf::Time dt)
