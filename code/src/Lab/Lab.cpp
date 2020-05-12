@@ -6,8 +6,7 @@
 
 //Constructeur:
 Lab::Lab()
-    :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2),
-      clock_()
+    :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2)
     /*Positonne l'assiette de pétri au centre de la fenêtre graphique
     avec un diamètre occupant 95% de la largeur de la fenêtre */
 {}
@@ -52,6 +51,11 @@ Poison* Lab::getPoisonColliding(const CircularBody &body) const
     return petridish_.getPoisonColliding(body);
 }
 
+void Lab::setTime(const sf::Time toAdd)
+{
+    time_ += toAdd;
+}
+
 void Lab::drawOn(sf::RenderTarget& targetWindow) const
 {
     petridish_.drawOn(targetWindow);
@@ -68,7 +72,7 @@ void Lab::reset()
 {
     nutrimentGenerator_.reset();
     petridish_.reset();
-    clock_.restart();
+    time_ = sf::Time::Zero;
 }
 
 void Lab::resetControls()
@@ -159,9 +163,8 @@ std::unordered_map<std::string, double> Lab::fetchData(const std::string & title
 //Private:
 void Lab::drawOnTime(sf::RenderTarget& targetWindow) const
 {
-    int time(clock_.getElapsedTime().asSeconds());
-    int minutes(time/60);
-    int seconds(time%60);
+    int minutes(time_.asSeconds()/60);
+    int seconds(int(time_.asSeconds())%60);
     sf::Text const texte = buildText("Time : " + std::to_string(minutes) + ":" + std::to_string(seconds),
                         Vec2d(10,10), getAppFont(), 30, sf::Color::Red);
     targetWindow.draw(texte);
