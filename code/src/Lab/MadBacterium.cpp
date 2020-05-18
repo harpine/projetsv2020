@@ -20,7 +20,7 @@ MadBacterium::MadBacterium(const Vec2d& poscenter)
      Vec2d::fromRandomAngle().normalised(),
      uniform(getConfig()["radius"]["max"].toDouble(),
      getConfig()["radius"]["min"].toDouble()),
-     getConfig()["color"]),
+     MutableColor()),
      probability_(0),
      tumbleClock_(sf::Time::Zero),
      bacteriaScore_(0)
@@ -45,7 +45,8 @@ MadBacterium::MadBacterium(const Vec2d& poscenter)
 MadBacterium::~MadBacterium()
 {
     totalBetter_ -= getProperty("tumble better").get();
-    totalWorse_ -= getProperty("tumble worse").get();
+    totalWorse_ -= getProperty("tumble w"
+                               "orse").get();
     totalSpeed_ -= getProperty("speed").get();
     compteur_ -= 1;
 }

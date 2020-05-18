@@ -43,17 +43,7 @@ double PetriDish::getGradientExponent() const
 Swarm* PetriDish::getSwarmWithId(const std::string& id) const
 {
     return *(std::find_if(swarms_.begin(), swarms_.end(), [id](Swarm* swarm){return swarm->getId() == id;}));
- }
-//    for (auto swarm: swarms_)
-//    {
-//        if (swarm->getId() == id)
-//        {
-//            return swarm;
-//        }
-//    }
-
-//    return nullptr;
-//}
+}
 
 //Ajouts:
 bool PetriDish::addBacterium(Bacterium* bacterium)

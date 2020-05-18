@@ -13,7 +13,7 @@ int Poison::compteur_ = 0;
 
 //Constructeurs et destructeur:
 Poison::Poison(const Vec2d& poscenter)
-    :CircularBody(poscenter, getConfig()["quantity"].toDouble()/3),
+    :CircularBody(poscenter, getConfig()["quantity"].toDouble()/getConfig()["factor size division"].toDouble()),
       color_(getConfig()["color"]), quantity_(getConfig()["quantity"].toDouble())
 {
     compteur_+= 1;

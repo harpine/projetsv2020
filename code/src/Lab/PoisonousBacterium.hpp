@@ -30,6 +30,9 @@ public:
     static double getTotalSpeed();
     //renvoie le nombre d'instances existantes
     static int getCompteur();
+    //Renvoie la quantité d'énergie perdue en déposant du poison
+    //(quantity de poison à déposer * facteur)
+    double getEnergylosedByPoison() const;
 
     //Autres méthodes:
 

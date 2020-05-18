@@ -241,6 +241,7 @@ void Application::run()
             //
             // An alternative implementation could be based on fixed
             // timesteps.
+
             sf::Time maxDt = getShortConfig().simulation_time_max_dt;
             while (elapsedTime > sf::Time::Zero) {
                 auto dt = std::min(elapsedTime, maxDt);
@@ -249,6 +250,7 @@ void Application::run()
                 getStats().update(dt);
                 onUpdate(dt);
 				--nbCycles;
+                mLab->setTime(dt);
 
             }
         }
@@ -496,16 +498,16 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 
         // Reset the simulation
         case sf::Keyboard::R:
-		
-				
-				mIsResetting = true;
-				getEnv().reset();
-                getStats().reset();
-				onSimulationStart();
-				createViews();
-				mSimulationBackground= mLabBackground;
-				mSimulationView = mLabView;
-				chooseBackground();
+            delete mConfig;
+            mConfig = new Config(mAppDirectory + mCfgFile);
+            mIsResetting = true;
+            getEnv().reset();
+            getStats().reset();
+            onSimulationStart();
+            createViews();
+            mSimulationBackground= mLabBackground;
+            mSimulationView = mLabView;
+            chooseBackground();
             break;
 
         // Reset the simulation

@@ -31,6 +31,8 @@ public:
     Bacterium* getBacteriumColliding(const CircularBody& body) const;
     //retourne le poison de l'assiette en collision avec le body
     Poison* getPoisonColliding(const CircularBody& body) const;
+    //met à jour le temps;
+    void setTime(const sf::Time toAdd);
 
     //Dessine Lab
     void drawOn(sf::RenderTarget& targetWindow) const;
@@ -85,7 +87,7 @@ private:
     //Attributs:
     PetriDish petridish_;
     NutrimentGenerator nutrimentGenerator_;
-    sf::Clock clock_; //temps écoulé depuis le début de la simulation
+    sf::Time time_; //temps écoulé dans la simulation
 
     //Méthodes:
     //Inscrit le temps écoulé depuis le début de la simulation

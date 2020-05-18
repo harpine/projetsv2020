@@ -43,6 +43,6 @@ Quantity NutrimentB::eatenBy(SwarmBacterium& bact)
 
 Quantity NutrimentB::eatenBy(PoisonousBacterium& bact)
 {
-    double factor(2.0);//(getConfig()["poison factor"].toDouble());
-    return (-takeQuantity(bact.getMealQuantity() * factor));
+    double factor(getConfig()["other resistance factor"].toDouble());
+    return (takeQuantity(bact.getMealQuantity() / factor));
 }
