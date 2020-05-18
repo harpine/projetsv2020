@@ -19,8 +19,7 @@ les madbacterium, car celles si sont d'abord affectées par le poison
 avant de pouvoir manger la bactérie. Elles prennent ensuite le dessus 
 car toutes les autres bactéries sont affectées par ce poison et elles
 le sont pas. Elles ne perdent que très peu d'énergie en déposant ce 
-poison. (Si on met le "factor loss poison" à 1 cet effet est aussi
-observable mais cela prend plus de temps.)
+poison.
 
  - avec le fichier de configuration "poisonousapp.json" nous pouvons
  voir que tous les types de bactéries cohabitent harmonieusement 

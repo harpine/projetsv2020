@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":8,
+         "factor":1,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
@@ -12,7 +12,7 @@
     },
     "generator" : {
         "nutriment" : {
-            "delay" : 0.05,
+            "delay" : 0.5,
             "prob" : 0.9
         }
     },
