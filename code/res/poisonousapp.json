@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":3,
+         "factor":5,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
@@ -12,8 +12,8 @@
     },
     "generator" : {
         "nutriment" : {
-            "delay" : 0.25,
-            "prob" : 0.9
+            "delay" : 0.5,
+            "prob" : 0.8
         }
     },
     "map" : "map.json",
@@ -47,9 +47,9 @@
                 "min temperature" : 50
             },
             "nutritive factor" : 2,
-            "poison factor" : 1,
+            "poison factor" : 3,
             "resistance factor" : 5,
-            "other resistance factor" : 9,
+            "other resistance factor" : 0.5,
             "quantity" : {
                 "max" : 50,
                 "min" : 40
@@ -96,8 +96,8 @@
                     "sigma" : 0.1
                 }
         },
-        "quantity" : 20,
-        "factor size division" : 4
+        "quantity" : 3,
+        "factor size division" : 0.5
     },
 
     "petri dish" : {
@@ -157,12 +157,12 @@
             }
         },
         "energy" : {
-            "consumption factor" : 0.205,
+            "consumption factor" : 0.2,
             "division" : 120,
             "max" : 100,
             "min" : 50
         },
-        "bacteria gradient influence factor" : 0.8,
+        "bacteria gradient influence factor" : 1,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
@@ -245,7 +245,7 @@
             "delay" : 0.5,
             "max" : 10
         },
-        "poison effects" : 0.5,
+        "poison effects" : 1,
         "radius" : {
             "max" : 20,
             "min" : 5
@@ -462,18 +462,18 @@
         "energy" : {
             "consumption factor" : {
                 "move" : 0.4,
-                "tentacle" : 0.11
+                "tentacle" : 0.1
             },
             "division" : 120,
             "max" : 100,
             "min" : 50
         },
-        "bacteria gradient influence factor" : 1.2,
+        "bacteria gradient influence factor" : 1,
         "meal" : {
             "delay" : 0.5,
             "max" : 10
         },
-        "poison effects" : 1.5,
+        "poison effects" : 1,
         "radius" : {
             "max" : 30,
             "min" : 10
@@ -500,13 +500,13 @@
             "max" : 100,
             "min" : 50
         },
-        "bacteria gradient influence factor" : 1.3,
+        "bacteria gradient influence factor" : 1,
         "meal" : {
-            "delay" : 0.8,
+            "delay" : 0.5,
             "max" : 15
         },
-        "poison delay" : 20,
-        "factor loss poison" : 3,
+        "poison delay" : 2,
+        "factor loss poison" : 0.5,
         "poison effects" : 0,
         "radius" : {
             "max" : 30,
@@ -534,17 +534,17 @@
     "mad bacterium" : {
         "texture" : "madBacterium.png",
         "energy" : {
-            "consumption factor" : 0.18,
+            "consumption factor" : 0.2,
             "division" : 120,
             "max" : 100,
             "min" : 50
         },
         "bacteria gradient influence factor" : 0,
         "meal" : {
-            "delay" : 0.9,
+            "delay" : 1.3,
             "max" : 10
         },
-        "poison effects" : 1,
+        "poison effects" : 2,
         "radius" : {
             "max" : 40,
             "min" : 25

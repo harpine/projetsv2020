@@ -3,6 +3,7 @@
 #include <Application.hpp>
 #include <SFML/Graphics.hpp>
 #include <Utility/Utility.hpp>
+#include <sstream>
 
 //Constructeur:
 Lab::Lab()
@@ -165,7 +166,9 @@ void Lab::drawOnTime(sf::RenderTarget& targetWindow) const
 {
     int minutes(time_.asSeconds()/60);
     int seconds(int(time_.asSeconds())%60);
-    sf::Text const texte = buildText("Time : " + std::to_string(minutes) + ":" + std::to_string(seconds),
+    std::stringstream timeprinted;
+    timeprinted << std::setw(2) << std::setfill('0') << minutes << " : " << std::setw(2) << std::setfill('0') << seconds;
+    sf::Text const texte = buildText("Time :  " + timeprinted.str(),
                         Vec2d(10,10), getAppFont(), 30, sf::Color::Red);
     targetWindow.draw(texte);
 }

@@ -498,16 +498,16 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 
         // Reset the simulation
         case sf::Keyboard::R:
-		
-				
-				mIsResetting = true;
-				getEnv().reset();
-                getStats().reset();
-				onSimulationStart();
-				createViews();
-				mSimulationBackground= mLabBackground;
-				mSimulationView = mLabView;
-				chooseBackground();
+            delete mConfig;
+            mConfig = new Config(mAppDirectory + mCfgFile);
+            mIsResetting = true;
+            getEnv().reset();
+            getStats().reset();
+            onSimulationStart();
+            createViews();
+            mSimulationBackground= mLabBackground;
+            mSimulationView = mLabView;
+            chooseBackground();
             break;
 
         // Reset the simulation

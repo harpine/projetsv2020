@@ -134,3 +134,42 @@ de simulation la semaine prochaine.
 Actuellement, nous avons donc une boîte de Petri capable d'accueillir
 3 sortes de bactérie et 2 sortes de nutriment. Les statistiques sont
 tracées dans la fenêtre de simulation sous forme de graph.
+
+### **Semaine 8**
+
+Cette semaine nous avons codé 2 nouvelles classes de bactérie: 
+PoisonousBacterium et MadBacterium. Aline s'est occupée de la classe
+PoisonousBacterium (et de Poison qui l'accompagne) et Helena a codé
+MadBacterium. 
+Nos MadBacterium sont caractérisées comme suit:
+Elles se nourrissent de bactéries et non de nutriments, se déplacent 
+donc selon le gradient de bactéries.
+Chaque type de bactérie donne une quantité différente d'énergie à la 
+MadBacterium (paramétrisable dans le fichier app.json)
+Cette classe hérite de Bacterium et possède la vitesse comme paramètres
+mutables, ainsi que tumble worse et tumble better. (tous ajoutés aux 
+statistiques)
+
+Nos PoisonousBacterium sont caractérisées comme suit:
+Elles se nourrissent de nutriment (de la même manière que les 
+SimpleBacterium) et déposent du poison sur l'assiette de Petri toutes 
+les x secondes (configurable sous "poison delay"). La quantité du poison 
+est configurable sous "poison" "quantity" dans le app.json, et sa taille
+en tant que facteur de la quantité "factor size division".
+La bactérie perd l'énergie lorsqu'elle dépose du poison (elle perd la
+quantité déposée, mais n'est pa suicidaire -> il faut qu'elle ait au
+minimum l'énergie correspondant à la quantité de poison qu'elle va
+déposer (+10)). Cette quantité perdue est paramétrable en tant que 
+facteur sous "factor loss poison" dans le app.json.
+La classe poison hérite de circularbody. Les pointeurs sur ses instances
+sont stockées dans un vecteur, attribut de petridish.
+La classe poisonousBacterium hérite de bacterium et possède comme 
+paramètres mutables la vitesse, ainsi que tumble worse et better, 
+ajoutés auxstatistiques.
+
+### **Semaine 9**
+
+Nous avons ajouté l'affichage du temps en format mm:ss sur la simulation
+et avons ajouté 2 autres types de swarm. Nous avons réglé quelques 
+problèmes mineurs et amélioré la modularisation de notre code.
+Nous allons nous attaquer au fichier README tout prochainement.

@@ -89,17 +89,24 @@ void Swarm::updateLeader()
 
 void Swarm::drawDebug(sf::RenderTarget& targetWindow) //ne marche que s'il n'y a pas plus de 2 swarms
 {
-    sf::Color couleur;
+    sf::Color couleur(sf::Color::Black); //noir par défaut
 
     if (mId_ == "1")
     {
-        couleur = sf::Color::Black;
+        couleur = sf::Color::Green;
     }
     else if (mId_ == "2")
     {
+        couleur = sf::Color::Blue;
+    }
+    else if (mId_ == "3")
+    {
+        couleur = sf::Color::Yellow;
+    }
+    else if (mId_ == "4")
+    {
         couleur = sf::Color::Red;
     }
-
     for (size_t i(0); i < swarmbacteria_.size(); ++i)
     {
         if (i>0)

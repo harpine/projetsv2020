@@ -21,7 +21,7 @@ PoisonousBacterium::PoisonousBacterium(const Vec2d& poscenter)
      Vec2d::fromRandomAngle().normalised(),
      uniform(getConfig()["radius"]["max"].toDouble(),
       getConfig()["radius"]["min"].toDouble()),
-     MutableColor()), //?? à enlever dans app.json??
+     MutableColor()),
      probability_(), tumbleClock_(sf::Time::Zero), poisonClock_(sf::Time::Zero)
 {
     addProperty(s::SPEED, MutableNumber(getSpeedConfig()["initial"].toDouble(),
@@ -111,6 +111,12 @@ int PoisonousBacterium::getCompteur()
 {
     return compteur_;
 }
+
+double PoisonousBacterium::getEnergylosedByPoison() const
+{
+    return getAppConfig()["poison"]["quantity"].toDouble()*getConfig()["factor loss poison"].toDouble();
+}
+
 //Autres méthodes:
 Vec2d PoisonousBacterium::f(Vec2d position, Vec2d speed) const
 {
@@ -187,7 +193,8 @@ Quantity PoisonousBacterium::eatablePoison(Poison& poison)
 bool PoisonousBacterium::canPoison(sf::Time dt)
 {
     poisonClock_ += dt;
-    if (poisonClock_.asSeconds() >= 10 and getEnergy() >= 20)
+    if (poisonClock_.asSeconds() >= getConfig()["poison delay"].toDouble()
+            and getEnergy() >= (getEnergylosedByPoison() + 10))
         //les bactéries n'ont pas l'énergie de déposer du poison
         //si leur énergie est inférieure à 20
     {
@@ -200,7 +207,7 @@ bool PoisonousBacterium::canPoison(sf::Time dt)
 void PoisonousBacterium::putPoison()
 {
     getAppEnv().addPoison(new Poison(getPosition()));
-    setEnergy(getEnergy() - 20);
+    setEnergy(getEnergy() - getEnergylosedByPoison());
 }
 
 bool PoisonousBacterium::tumbleAttempt(sf::Time dt)

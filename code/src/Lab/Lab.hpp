@@ -89,7 +89,6 @@ private:
     NutrimentGenerator nutrimentGenerator_;
     sf::Time time_; //temps écoulé dans la simulation
 
-
     //Méthodes:
     //Inscrit le temps écoulé depuis le début de la simulation
     void drawOnTime(sf::RenderTarget& targetWindow) const;
