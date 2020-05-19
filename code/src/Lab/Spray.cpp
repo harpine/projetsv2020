@@ -16,8 +16,13 @@ Spray::Spray(const Vec2d& poscenter)
     {
         std::cerr << "test";
         sf::Sound spray;
+        spray.setVolume(100);
         spray.setBuffer(*sprayAudio);
-        spray.play();
+        if (spray.getStatus() == sf::Sound::Playing)
+        {
+            std::cerr << "pray";
+            spray.play();
+        }
     }
 }
 
