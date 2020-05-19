@@ -16,7 +16,12 @@ public:
     //devoir écrire ["spray"]
     j::Value& getConfig() const;
 
+    //Autres méthodes:
+    void drawOn(sf::RenderTarget& target) const override;
+    bool hasFaded() const;
 
+private :
+    sf::Clock clock_;
 };
 
 #endif // SPRAY_HPP

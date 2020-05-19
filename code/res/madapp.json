@@ -534,7 +534,7 @@
     "mad bacterium" : {
         "texture" : "madBacterium.png",
         "energy" : {
-            "consumption factor" : 0.17,
+            "consumption factor" : 0.14,
             "division" : 120,
             "max" : 100,
             "min" : 50
