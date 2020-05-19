@@ -225,6 +225,16 @@ void PetriDish::update(sf::Time dt)
         }
     }
     poisons_.erase(std::remove(poisons_.begin(), poisons_.end(), nullptr), poisons_.end());
+
+    for (auto& spray: sprays_)
+    {
+        if(spray->hasFaded())
+        {
+            delete spray;
+            spray = nullptr;
+        }
+    }
+    sprays_.erase(std::remove(sprays_.begin(), sprays_.end(), nullptr), sprays_.end());
 }
 
 void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
@@ -236,13 +246,17 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
     {
         nutriments_[i]->drawOn(targetWindow);
     }
+    for (size_t i(0); i< poisons_.size(); ++i)
+    {
+        poisons_[i]->drawOn(targetWindow);
+    }
     for (size_t i(0); i< bacteria_.size(); ++i)
     {
         bacteria_[i]->drawOn(targetWindow);
     }
-    for (size_t i(0); i< poisons_.size(); ++i)
+    for (size_t i(0); i< sprays_.size(); ++i)
     {
-        poisons_[i]->drawOn(targetWindow);
+        sprays_[i]->drawOn(targetWindow);
     }
 }
 

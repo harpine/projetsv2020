@@ -17,8 +17,13 @@ public:
     j::Value& getConfig() const;
 
     //Autres méthodes:
+    //permet de dessiner le spray
     void drawOn(sf::RenderTarget& target) const override;
+    //renvoie si le spray dépasse son temps d'action
     bool hasFaded() const;
+    //permet de sprayer l'assiette
+    void spray() const;
+
 
 private :
     sf::Clock clock_;

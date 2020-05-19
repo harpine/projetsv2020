@@ -22,3 +22,4 @@ T	: add TwitchingMotility
 P	: add PoisonousBacterium
 M	: add Madbacterium
 H	: add Random Bacterium
+K	: add Spray

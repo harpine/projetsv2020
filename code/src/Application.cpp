@@ -331,7 +331,7 @@ void Application::initHelpBox() {
     ss << ifs.rdbuf();
 
 	helpText = buildText(ss.str(),
-						 Vec2d(20,20),
+                         Vec2d(20,0),
 						 getAppFont(),
 						 12,
 						 sf::Color::Black);

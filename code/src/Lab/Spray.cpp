@@ -26,3 +26,7 @@ bool Spray::hasFaded() const
     return clock_.getElapsedTime().asSeconds() > getConfig()["fading time"].toDouble();
 }
 
+void Spray::spray() const
+{
+
+}

@@ -52,6 +52,10 @@ Poison* Lab::getPoisonColliding(const CircularBody &body) const
     return petridish_.getPoisonColliding(body);
 }
 
+Spray* Lab::getSprayColliding(const CircularBody& body) const
+{
+    return petridish_.getSprayColliding(body);
+}
 void Lab::setTime(const sf::Time toAdd)
 {
     time_ += toAdd;
@@ -101,6 +105,11 @@ void Lab::addSwarm(Swarm *swarm)
 void Lab::addPoison(Poison *poison)
 {
     petridish_.addPoison(poison);
+}
+
+void Lab::addSpray(Spray *spray)
+{
+    petridish_.addSpray(spray);
 }
 
 //Pour la température:
