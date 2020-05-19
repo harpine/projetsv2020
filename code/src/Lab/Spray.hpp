@@ -4,6 +4,7 @@
 #include <Utility/Vec2d.hpp>
 #include <Interface/Drawable.hpp>
 #include <Interface/Updatable.hpp>
+#include <SFML/Audio.hpp>
 
 class Spray : public CircularBody, public Drawable, public Updatable
 {
@@ -29,6 +30,8 @@ public:
 private :
     sf::Clock clock_;
     int transparency_;
+    sf::SoundBuffer sprayAudio_;
+    sf::Sound spray_;
 };
 
 #endif // SPRAY_HPP

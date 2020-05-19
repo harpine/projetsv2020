@@ -42,3 +42,9 @@ pour
 et perd 20 d'énergie 
 
 afficher le temps qqe part
+
+- flash UV qui fait muter toutes les batéries de l'assiette. touche F
+
+Keyboard event F appelle getAppEnv.flash (appel petridish.flash qui 
+fait muter toutes les bactéries).
+
