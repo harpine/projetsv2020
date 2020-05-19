@@ -11,6 +11,7 @@
 #include <Lab/MadBacterium.hpp>
 #include <Lab/PoisonousBacterium.hpp>
 #include "FinalApplication.hpp"
+#include <Random/Random.hpp>
 
 #include <cassert>
 
@@ -85,6 +86,47 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
             assert(swarm != nullptr);
             getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
         } break;
+        case sf::Keyboard::H: {
+        //nous avons 8 types de bactéries au total
+            int randomNumber(uniform(0,7));
+            switch (randomNumber)    {
+            default:
+                break;
+             case(0):
+                getEnv().addBacterium(new SimpleBacterium(getCursorPositionInView()));
+                break;
+            case(1):
+               getEnv().addBacterium(new TwitchingBacterium(getCursorPositionInView()));
+               break;
+            case(2):
+               getEnv().addBacterium(new MadBacterium(getCursorPositionInView()));
+               break;
+            case(3):
+               getEnv().addBacterium(new PoisonousBacterium(getCursorPositionInView()));
+               break;
+            case(4):{
+                auto swarm = getEnv().getSwarmWithId("1");
+                assert(swarm != nullptr);
+                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+               } break;
+            case(5): {
+                auto swarm = getEnv().getSwarmWithId("2");
+                assert(swarm != nullptr);
+                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+            } break;
+            case (6): {
+                auto swarm = getEnv().getSwarmWithId("3");
+                assert(swarm != nullptr);
+                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+            } break;
+            case (7): {
+                auto swarm = getEnv().getSwarmWithId("4");
+                assert(swarm != nullptr);
+                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+                break;
+            } break;
+            }
+        }
     }
     }
 }

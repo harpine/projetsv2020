@@ -21,3 +21,4 @@ T	: add TwitchingMotility
 	  of type 1-2 at MP
 P	: add PoisonousBacterium
 M	: add Madbacterium
+H	: add Random Bacterium
