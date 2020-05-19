@@ -32,7 +32,7 @@ Poison::Poison(const Poison& other)
 }
 
 //Getters et setter:
-j::Value const& Poison::getConfig() const
+j::Value& Poison::getConfig() const
 {
     return getAppConfig()["poison"];
 }

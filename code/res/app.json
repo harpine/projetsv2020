@@ -99,7 +99,12 @@
         "quantity" : 20,
         "factor size division" : 4
     },
-
+    "spray" : {
+        "texture" : "spray.png",
+        "sound buffer" : "spray.wav",
+        "size" : 10,
+        "fading time" : 3
+        },
     "petri dish" : {
         "gradient" : {
             "exponent" : {
