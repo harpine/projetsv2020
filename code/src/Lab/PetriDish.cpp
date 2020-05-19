@@ -228,6 +228,12 @@ void PetriDish::update(sf::Time dt)
 
     for (auto& spray: sprays_)
     {
+        Nutriment* nutrimentPtr(getNutrimentColliding(*this));
+        if (nutrimentPtr != nullptr)
+        {
+            delete nutrimentPtr;
+            nutrimentPtr = nullptr;
+        }
         if(spray->hasFaded())
         {
             delete spray;
