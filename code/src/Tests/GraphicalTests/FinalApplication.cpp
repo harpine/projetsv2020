@@ -65,6 +65,10 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
             getEnv().addBacterium(new PoisonousBacterium(getCursorPositionInView()));
             break;
 
+        case sf::Keyboard::K:
+            getEnv().addSpray(new Spray(getCursorPositionInView()));
+            break;
+
         case sf::Keyboard::Num1: {
             auto swarm = getEnv().getSwarmWithId("1");
             assert(swarm != nullptr);
