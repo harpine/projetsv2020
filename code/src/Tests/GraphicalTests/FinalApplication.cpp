@@ -126,7 +126,7 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
                 break;
             }
             }
-        }break;
+        } break;
     }
     }
 }
