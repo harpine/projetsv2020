@@ -59,8 +59,8 @@ On remarque cependant que les madbacterium meurent après que toutes les
 bactéries des alentours sont consommées. Toute la culture de l'assiette 
 de pétri périt.
 
- - avec le fichier de configuration "together_extended.json" nous pouvons
- voir que tous les types de bactéries cohabitent harmonieusement 
+ - avec le fichier de configuration "together_extended.json" nous 
+pouvons voir que tous les types de bactéries cohabitent harmonieusement 
 (jusqu'à 2 voire 5 minutes de simulation). Nous pouvons observer que les
 swarmbacterium 4 sont celles qui tiennent le plus longtemps. En effet,
 c'est le groupe qui a le facteur d'attirance le plus petit, et donc les

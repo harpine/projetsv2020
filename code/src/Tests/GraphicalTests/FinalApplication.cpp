@@ -92,7 +92,7 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
             switch (randomNumber)    {
             default:
                 break;
-             case(0):
+            case(0):
                 getEnv().addBacterium(new SimpleBacterium(getCursorPositionInView()));
                 break;
             case(1):
@@ -124,9 +124,9 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
                 assert(swarm != nullptr);
                 getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
                 break;
-            } break;
             }
-        }
+            }
+        }break;
     }
     }
 }
