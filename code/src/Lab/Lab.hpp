@@ -31,8 +31,6 @@ public:
     Bacterium* getBacteriumColliding(const CircularBody& body) const;
     //retourne le poison de l'assiette en collision avec le body
     Poison* getPoisonColliding(const CircularBody& body) const;
-    //retourne le spray de l'assiette en collision avec le body
-    Spray* getSprayColliding(const CircularBody& body) const;
     //met à jour le temps;
     void setTime(const sf::Time toAdd);
 

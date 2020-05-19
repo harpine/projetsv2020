@@ -52,10 +52,6 @@ Poison* Lab::getPoisonColliding(const CircularBody &body) const
     return petridish_.getPoisonColliding(body);
 }
 
-Spray* Lab::getSprayColliding(const CircularBody& body) const
-{
-    return petridish_.getSprayColliding(body);
-}
 void Lab::setTime(const sf::Time toAdd)
 {
     time_ += toAdd;

@@ -12,7 +12,7 @@
     },
     "generator" : {
         "nutriment" : {
-            "delay" : 0.5,
+            "delay" : 1,
             "prob" : 0.9
         }
     },
@@ -102,7 +102,7 @@
     "spray" : {
         "texture" : "spray.png",
         "sound buffer" : "spray.wav",
-        "size" : 10,
+        "size" : 100,
         "fading time" : 3
         },
     "petri dish" : {

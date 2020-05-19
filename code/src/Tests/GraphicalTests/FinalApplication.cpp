@@ -117,22 +117,6 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
                 assert(swarm != nullptr);
                 getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
                } break;
-//            case 5: {
-//                auto swarm = getEnv().getSwarmWithId("2");
-//                assert(swarm != nullptr);
-//                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
-//            } break;
-//            case 6: {
-//                auto swarm = getEnv().getSwarmWithId("3");
-//                assert(swarm != nullptr);
-//                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
-//            } break;
-//            case 7: {
-//                auto swarm = getEnv().getSwarmWithId("4");
-//                assert(swarm != nullptr);
-//                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
-//                break;
-//            }
             }
         } break;
     }
