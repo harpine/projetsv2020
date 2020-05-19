@@ -505,8 +505,8 @@
             "delay" : 0.8,
             "max" : 15
         },
-        "poison delay" : 20,
-        "factor loss poison" : 3,
+        "poison delay" : 2,
+        "factor loss poison" : 0.5,
         "poison effects" : 0,
         "radius" : {
             "max" : 30,

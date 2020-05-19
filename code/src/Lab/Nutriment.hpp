@@ -47,7 +47,7 @@ public:
     //indique si le nutriment est épuisé
     bool isDepleted() const;
 
-    //Méthodes pour de nourrir:  //??????
+    //Méthodes pour se nourrir:
     //Calculent pour chaque type de bactérie la quantité cédée par le nutriment
     virtual Quantity eatenBy(Bacterium& bact) = 0;
     virtual Quantity eatenBy(SimpleBacterium& bact) = 0;

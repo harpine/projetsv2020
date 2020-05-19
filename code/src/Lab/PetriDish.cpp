@@ -354,14 +354,15 @@ std::unordered_map<std::string, double> PetriDish::fetchGeneralData() const
     int simple(SimpleBacterium::getCompteur());
     int twitching(TwitchingBacterium::getCompteur());
     int swarmbact(SwarmBacterium::getCompteur());
-    int nutriment(Nutriment::getCompteur());
+    int nutriment(Nutriment::getCompteur()); //on aurait aussi pu utiliser le vecteur attribut de PetriDish, mais cela pourrait créer des imprécisions à échelle dt
     int poisonous(PoisonousBacterium::getCompteur());
     int mad(MadBacterium::getCompteur());
+    int poison(Poison::getCompteur());
     std::unordered_map<std::string, double> new_data;
     new_data = {{s::SIMPLE_BACTERIA, simple}, {s::TWITCHING_BACTERIA, twitching},
                 {s::SWARM_BACTERIA, swarmbact}, {s::NUTRIMENT_SOURCES, nutriment},
                 {s::POISONOUS_BACTERIA, poisonous}, {s::MAD_BACTERIA, mad},
-                {s::DISH_TEMPERATURE, temperature_}};
+                {s::DISH_TEMPERATURE, temperature_}, {s::POISON, poison}};
     return new_data;
 }
 

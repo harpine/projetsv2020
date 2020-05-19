@@ -155,7 +155,7 @@ void MadBacterium::move(sf::Time dt)
 
     if ((result.position - getPosition()).lengthSquared() > 0.001)
     {
-        this->CircularBody::move((result.position - getPosition()));   //this ??
+        CircularBody::move((result.position - getPosition()));
         //move est moins intuitif mais meilleur pour la hiérarchie des classes
     }
 

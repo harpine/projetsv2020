@@ -39,6 +39,7 @@ std::string const TENTACLE_LENGTH = "tentacle length";
 std::string const TENTACLE_SPEED = "tentacle speed";
 std::string const DISH_TEMPERATURE = "temperature";
 std::string const PETRI_DISH = "petri dish"; //ajouté par nous
+std::string const POISON = "poison"; //ajouté par nous
 
 } // s
 

@@ -23,7 +23,7 @@ Quantity NutrimentB::eatenBy(Bacterium& bact)
     return bact.eatableQuantity(*this);
 }
 
-Quantity NutrimentB::eatenBy(SimpleBacterium& bact)           //?? pk créer une variable factor?? faire une modularisation -> manger avec params *bacterium et factor
+Quantity NutrimentB::eatenBy(SimpleBacterium& bact)
 {
     double factor(getConfig()["resistance factor"].toDouble());
     return takeQuantity(bact.getMealQuantity() / factor);

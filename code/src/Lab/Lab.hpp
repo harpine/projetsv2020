@@ -3,7 +3,7 @@
 
 #include "CircularBody.hpp"
 #include "PetriDish.hpp"
-#include "Nutriment.hpp" //?? à enlever
+#include "Nutriment.hpp"
 #include "NutrimentGenerator.hpp"
 #include <SFML/Graphics.hpp>
 #include <Interface/Drawable.hpp>

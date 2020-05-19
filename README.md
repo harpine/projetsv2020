@@ -13,17 +13,17 @@ beaucoup, de sorte à leur permettre de proliférer.
 
  - avec le fichier de configuration "twitchingapp.json" nous pouvons 
 voir que les twitchingbacterium prennent le dessus rapidement. En effet,
-les deux types de nutriments sont présent à fréquence élevée leur 
+les deux types de nutriments sont présents à fréquence élevée leur 
 permettant de proliférer au détriment des autres bactéries. Celles-ci 
-sont affectée par la présence des nutriments B tandis que les 
+sont affectées par la présence des nutriments B tandis que les 
 twitchingbacterium les perçoivent comme très nutritifs.
 
  - avec le fichier de configuration "swarmapp.json" nous pouvons voir que 
 les swarmbacterium prennent le dessus rapidement. En effet, il n'y a 
 plus de nutriment nocif pour elle, et comme les nutriments apparaissent
-lentement, les swarm sont plus aisés de se déplacer rapidement vers les
-nouvelles sources (en particulier si le groupe possède de nombreuses
-bactéries).
+lentement, les swarmbacteria sont plus aisées de se déplacer rapidement 
+vers les nouvelles sources (en particulier si le groupe possède de 
+nombreuses bactéries).
 
  - avec le fichier de configuration "together.json", nous pouvons 
 observer une coexistance des bactéries. La quantité de nutriment bleus

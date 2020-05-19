@@ -27,7 +27,8 @@ Bacterium::Bacterium(const Bacterium& other)
      angle_(other.angle_),
      abstinence_(other.abstinence_),
      energy_(other.energy_),
-     mutableParameters_(other.mutableParameters_)
+     mutableParameters_(other.mutableParameters_),
+     score_(other.score_)
 {}
 
 //Getters et setters:
@@ -146,7 +147,7 @@ bool Bacterium::getAbstinence() const
 //Autres méthodes:
 void Bacterium::updateScore()
 {
-    score_ = getAppEnv().getPositionScore(this->getPosition()); //   this ??
+    score_ = getAppEnv().getPositionScore(getPosition());
 }
 
 void Bacterium::drawOn(sf::RenderTarget& target) const
