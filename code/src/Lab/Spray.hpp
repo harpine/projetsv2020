@@ -3,8 +3,9 @@
 #include "CircularBody.hpp"
 #include <Utility/Vec2d.hpp>
 #include <Interface/Drawable.hpp>
+#include <Interface/Updatable.hpp>
 
-class Spray : public CircularBody, public Drawable
+class Spray : public CircularBody, public Drawable, public Updatable
 {
 public:
     //Constructeur
@@ -19,12 +20,15 @@ public:
     //Autres méthodes:
     //permet de dessiner le spray
     void drawOn(sf::RenderTarget& target) const override;
+    //met à jour la transparence du spray
+    void update(sf::Time dt) override;
     //renvoie si le spray dépasse son temps d'action
     bool hasFaded() const;
 
 
 private :
     sf::Clock clock_;
+    int transparency_;
 };
 
 #endif // SPRAY_HPP

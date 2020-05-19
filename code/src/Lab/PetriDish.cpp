@@ -227,6 +227,7 @@ void PetriDish::update(sf::Time dt)
 
     for (auto& spray: sprays_)
     {
+        spray->update(dt);
         if(spray->hasFaded())
         {
             delete spray;

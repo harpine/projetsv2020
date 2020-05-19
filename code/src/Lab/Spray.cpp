@@ -1,10 +1,14 @@
 #include "Spray.hpp"
 #include <Application.hpp>
 #include <Utility/Utility.hpp>
+#include <SFML/Audio.hpp>
 
 Spray::Spray(const Vec2d& poscenter)
-    :CircularBody(poscenter, getConfig()["size"].toDouble())
-{}
+    :CircularBody(poscenter, getConfig()["size"].toDouble()),
+      transparency_(255)
+{
+    sf::Sprite sprite;
+}
 
 j::Value& Spray::getConfig() const
 {
@@ -18,7 +22,21 @@ void Spray::drawOn(sf::RenderTarget& target) const
     auto spraySprite = buildSprite(getPosition(), taille_graphique, texture);
     // adapte la taille du Sprite au rayon du spray:
     spraySprite.setScale(2 * getRadius() / texture.getSize().x, 2 * getRadius() / texture.getSize().y);
+    spraySprite.setColor(sf::Color(255, 255, 255, transparency_));
     target.draw(spraySprite);
+}
+
+void Spray::update(sf::Time dt)
+{
+    if (dt != sf::Time::Zero)
+    {
+        double toSubtract(255/(getConfig()["fading time"].toDouble()/dt.asSeconds()));
+
+        if (dt != sf::Time::Zero and transparency_ > toSubtract)
+        {
+            transparency_ -= toSubtract;
+        }
+    }
 }
 
 bool Spray::hasFaded() const
