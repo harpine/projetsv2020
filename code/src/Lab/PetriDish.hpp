@@ -6,6 +6,7 @@
 #include "Nutriment.hpp"
 #include "Swarm.hpp"
 #include "Poison.hpp"
+#include "Spray.hpp"
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <Utility/Vec2d.hpp>
@@ -37,13 +38,15 @@ public:
     //Ajouts:
 
     //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
-    bool addBacterium(Bacterium *bacterium);
+    bool addBacterium(Bacterium* bacterium);
     //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
     bool addNutriment(Nutriment* nutriment);
     //ajoute un swarm à à l'ensemble des groupes (swarms) de l'assiette
     void addSwarm (Swarm* swarm);
     //ajoute un poison à l'ensemble de poisons de l'assiette
     void addPoison(Poison* poison);
+    //ajoute un spray à l'ensemble de sprays de l'assiette
+    void addSpray(Spray* spray);
 
     //Autres méthodes :
 
@@ -53,6 +56,8 @@ public:
     Bacterium* getBacteriumColliding(const CircularBody& body) const;
     //retourne la source de poison en collision avec body
     Poison* getPoisonColliding(const CircularBody& body) const;
+    //retourne le spray en collision avec body
+    Spray* getSprayColliding(const CircularBody& body) const;
     //Fait évoluer l'assiette de pétri à chaque intervalle de temps
     void update(sf::Time dt);
     //Représentation graphique de l'assiette de pétri et de ses contenants
@@ -90,6 +95,7 @@ private:
     std::vector<Nutriment*> nutriments_;
     std::vector<Swarm*> swarms_;
     std::vector<Poison*> poisons_;
+    std::vector<Spray*> sprays_;
     double temperature_;
     double exponent_;
     double bacteriaExponent_;

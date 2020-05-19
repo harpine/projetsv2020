@@ -79,7 +79,7 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
     return false;
 }
 
-void PetriDish::addSwarm(Swarm *swarm)
+void PetriDish::addSwarm(Swarm* swarm)
 {
     if (swarm != nullptr)
     {
@@ -87,11 +87,19 @@ void PetriDish::addSwarm(Swarm *swarm)
     }
 }
 
-void PetriDish::addPoison(Poison *poison)
+void PetriDish::addPoison(Poison* poison)
 {
     if (poison!= nullptr)
     {
         poisons_.push_back(poison);
+    }
+}
+
+void PetriDish::addSpray(Spray* spray)
+{
+    if (spray!= nullptr)
+    {
+        sprays_.push_back(spray);
     }
 }
 
@@ -141,9 +149,28 @@ Poison* PetriDish::getPoisonColliding(const CircularBody& body) const
 {
     for (auto& poison : poisons_)
     {
-        if (poison->isColliding(body))
+        if (poison != nullptr)
         {
-            return poison;
+            if (poison->isColliding(body))
+            {
+                return poison;
+            }
+        }
+    }
+
+    return nullptr;
+}
+
+Spray* PetriDish::getSprayColliding(const CircularBody& body) const
+{
+    for (auto& spray : sprays_)
+    {
+        if (spray != nullptr)
+        {
+            if (spray->isColliding(body))
+            {
+                return spray;
+            }
         }
     }
 

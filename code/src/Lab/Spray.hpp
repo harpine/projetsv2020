@@ -1,19 +1,19 @@
 #ifndef SPRAY_HPP
 #define SPRAY_HPP
 #include "CircularBody.hpp"
-#include "Interface/Drawable.hpp"
 #include <Utility/Vec2d.hpp>
-
+#include <Interface/Drawable.hpp>
 
 class Spray : public CircularBody, public Drawable
 {
 public:
-    //Constructeurs et destructeurs:
+    //Constructeur
     Spray(const Vec2d& poscenter);
-    ~Spray();
-    Spray(const Spray& other);
 
-    //Getters et setters:
+
+    //Getters
+    //permet d'accéder aux configs des sprays sans
+    //devoir écrire ["spray"]
     j::Value& getConfig() const;
 
     //Autres méthodes:

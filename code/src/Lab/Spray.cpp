@@ -2,18 +2,13 @@
 #include <Application.hpp>
 #include <Utility/Utility.hpp>
 
-Spray::Spray()
-{
-
-}
-
-
-
-
+Spray::Spray(const Vec2d& poscenter)
+    :CircularBody(poscenter, getConfig()["size"].toDouble())
+{}
 
 j::Value& Spray::getConfig() const
 {
-    return getAppConfig()["Spray"];
+    return getAppConfig()["spray"];
 }
 
 void Spray::drawOn(sf::RenderTarget& target) const

@@ -23,9 +23,9 @@ public:
     Poison(const Poison& other);
 
     //Getters/Setters
-    //permet d'accéder aux configs des nutriments sans
+    //permet d'accéder aux configs des poisons sans
     //devoir écrire ["poison"]
-    j::Value const& getConfig() const;
+    j::Value& getConfig() const;
     //Retourne la quantité du nutriment
     Quantity getQuantity() const;
     //permet de manger le poison
