@@ -160,66 +160,32 @@ Poison* PetriDish::getPoisonColliding(const CircularBody& body) const
     return nullptr;
 }
 
-void PetriDish::update(sf::Time dt)
+bool PetriDish::doesCollideWithSpray(const CircularBody& body) const
 {
-    for (auto& spray: sprays_)
+    for (auto& spray : sprays_)
     {
         if (spray != nullptr)
         {
-            for (auto& nutriment: nutriments_)
+            if (spray->isColliding(body))
             {
-                if (nutriment != nullptr and spray->isColliding(*nutriment))
-                {
-                    delete nutriment;
-                    nutriment = nullptr;
-                }
-            }
-            for (auto& bacterium: bacteria_)
-            {
-                 if (bacterium != nullptr and spray->isColliding(*bacterium))
-                 {
-                     delete bacterium;
-                     bacterium = nullptr;
-                 }
-            }
-            for (auto& poison: poisons_)
-            {
-                 if (poison != nullptr and spray->isColliding(*poison))
-                 {
-                     delete poison;
-                     poison = nullptr;
-                 }
-            }
-
-            if(spray->hasFaded())
-            {
-                delete spray;
-                spray = nullptr;
+                return true;
             }
         }
     }
-    sprays_.erase(std::remove(sprays_.begin(), sprays_.end(), nullptr), sprays_.end());
 
+    return false;
+}
+
+void PetriDish::update(sf::Time dt)
+{
     for (auto& nutriment : nutriments_)
     {
-        if (nutriment != nullptr)
+        nutriment->update(dt);
+
+        if ((*nutriment).isDepleted() or doesCollideWithSpray(*nutriment))
         {
-            nutriment->update(dt);
-
-            if ((*nutriment).isDepleted()) // or *std::find_if(sprays_.begin(), sprays_.end(), [&nutriment](Spray* spray){return spray->isColliding(*nutriment);}) != nullptr)
-            {
-                delete nutriment;
-                nutriment = nullptr;
-            }
-//            ;
-//            for (auto spray: sprays_)
-//            {
-//                if (spray->isColliding(*nutriment))
-//                {
-//                    delete nutriment;
-
-//                }
-//            }
+            delete nutriment;
+            nutriment = nullptr;
         }
     }
 
@@ -229,16 +195,13 @@ void PetriDish::update(sf::Time dt)
 
     for (auto& bacterium : bacteria_)
     {
-        if (bacterium != nullptr)
-        {
-            bacterium->update(dt);
-            cloned.push_back(bacterium->clone());
+        bacterium->update(dt);
+        cloned.push_back(bacterium->clone());
 
-            if (bacterium->isDead())
-            {
-                delete bacterium;
-                bacterium = nullptr;
-            }
+        if (bacterium->isDead() or doesCollideWithSpray(*bacterium))
+        {
+            delete bacterium;
+            bacterium = nullptr;
         }
     }
 
@@ -249,21 +212,28 @@ void PetriDish::update(sf::Time dt)
 
     for (auto& swarm: swarms_)
     {
-        if (swarm != nullptr)
-        {
-            swarm->updateLeader();
-        }
+        swarm->updateLeader();
     }
 
     for (auto& poison: poisons_)
     {
-        if (poison != nullptr and poison->iseaten())
+        if (poison->iseaten() or doesCollideWithSpray(*poison))
         {
             delete poison;
             poison = nullptr;
         }
     }
     poisons_.erase(std::remove(poisons_.begin(), poisons_.end(), nullptr), poisons_.end());
+
+    for (auto& spray: sprays_)
+    {
+        if(spray->hasFaded())
+        {
+            delete spray;
+            spray = nullptr;
+        }
+    }
+    sprays_.erase(std::remove(sprays_.begin(), sprays_.end(), nullptr), sprays_.end());
 }
 
 void PetriDish::drawOn(sf::RenderTarget& targetWindow) const

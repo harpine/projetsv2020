@@ -56,6 +56,8 @@ public:
     Bacterium* getBacteriumColliding(const CircularBody& body) const;
     //retourne la source de poison en collision avec body
     Poison* getPoisonColliding(const CircularBody& body) const;
+    //retourne si un spray est en collision avec body
+    bool doesCollideWithSpray(const CircularBody& body) const;
     //Fait évoluer l'assiette de pétri à chaque intervalle de temps
     void update(sf::Time dt);
     //Représentation graphique de l'assiette de pétri et de ses contenants
