@@ -3,6 +3,7 @@
 #include "CircularBody.hpp"
 #include <Utility/Vec2d.hpp>
 #include <Interface/Drawable.hpp>
+#include <SFML/Audio.hpp>
 
 class Spray : public CircularBody, public Drawable
 {
@@ -25,6 +26,8 @@ public:
 
 private :
     sf::Clock clock_;
+    sf::SoundBuffer sprayAudio_;
+    sf::Sound spray_;
 };
 
 #endif // SPRAY_HPP

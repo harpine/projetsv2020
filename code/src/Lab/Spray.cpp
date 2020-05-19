@@ -7,24 +7,18 @@
 Spray::Spray(const Vec2d& poscenter)
     :CircularBody(poscenter, getConfig()["size"].toDouble())
 {
+
+    sprayAudio_.loadFromFile(getApp().getResPath() + getConfig()["audio"].toString());
+    spray_.setBuffer(sprayAudio_);
+    spray_.play();
+}
+
+
 //    sf::Music music;
 //    music.openFromFile(getApp().getResPath() + getConfig()["audio"].toString());
 //    music.setVolume(100);
 //    music.play();
-    sf::SoundBuffer* sprayAudio = new sf::SoundBuffer();
-    if (sprayAudio->loadFromFile(getApp().getResPath() + getConfig()["audio"].toString())) //évite de faire crasher le programme s'il y a un problème avec le fichier audio
-    {
-        std::cerr << "test";
-        sf::Sound spray;
-        spray.setVolume(100);
-        spray.setBuffer(*sprayAudio);
-        if (spray.getStatus() == sf::Sound::Playing)
-        {
-            std::cerr << "pray";
-            spray.play();
-        }
-    }
-}
+//    sf::SoundBuffer* sprayAudio = new sf::SoundBuffer();
 
 j::Value& Spray::getConfig() const
 {

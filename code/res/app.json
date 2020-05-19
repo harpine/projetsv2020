@@ -101,7 +101,7 @@
     },
     "spray" : {
         "texture" : "spray.png",
-        "audio" : "1879.wav",
+        "audio" : "spray.wav",
         "size" : 100,
         "fading time" : 3
         },
