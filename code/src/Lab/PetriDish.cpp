@@ -395,7 +395,14 @@ std::unordered_map<std::string, double> PetriDish::fetchMadBacteriaData() const
 {
     double averagebetter(MadBacterium::getAverageBetter());
     double averageworse(MadBacterium::getAverageWorse());
-    return std::unordered_map<std::string, double>({{s::BETTER, averagebetter}, {s::WORSE, averageworse}});
+    double speed(0);
+
+    if (MadBacterium::getCompteur() != 0)
+    {
+        speed = MadBacterium::getTotalSpeed() / MadBacterium::getCompteur();
+    }
+
+    return std::unordered_map<std::string, double>({{s::BETTER, averagebetter}, {s::WORSE, averageworse}, {s::SPEED, speed}});
 }
 
 std::unordered_map<std::string, double> PetriDish::fetchTwitchingBacteriaData() const

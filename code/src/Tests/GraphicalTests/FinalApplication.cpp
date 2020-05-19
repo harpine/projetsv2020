@@ -28,7 +28,7 @@ void FinalApplication::onRun()
     addGraph(s::TWITCHING_BACTERIA, { s::TENTACLE_LENGTH, s::TENTACLE_SPEED}, 0, 150);
     addGraph(s::BACTERIA, { s::SPEED}, 0, 50);
     addGraph(s::POISONOUS_BACTERIA, { s::BETTER, s::WORSE}, 0, 10);
-    addGraph(s::MAD_BACTERIA, {s::BETTER, s::WORSE}, 0, 10);
+    addGraph(s::MAD_BACTERIA, {s::BETTER, s::WORSE, s::SPEED}, 0, 60);
 	setActiveGraph(0);
 }
 
