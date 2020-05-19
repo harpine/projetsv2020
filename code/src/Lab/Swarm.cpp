@@ -97,7 +97,7 @@ void Swarm::drawDebug(sf::RenderTarget& targetWindow) //ne marche que s'il n'y a
     }
     else if (mId_ == "2")
     {
-        couleur = sf::Color::Blue;
+        couleur = sf::Color::Cyan;
     }
     else if (mId_ == "3")
     {
@@ -105,7 +105,7 @@ void Swarm::drawDebug(sf::RenderTarget& targetWindow) //ne marche que s'il n'y a
     }
     else if (mId_ == "4")
     {
-        couleur = sf::Color::Red;
+        couleur = sf::Color(127, 0, 64);
     }
     for (size_t i(0); i < swarmbacteria_.size(); ++i)
     {
