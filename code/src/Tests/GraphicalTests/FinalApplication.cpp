@@ -101,30 +101,34 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
             case(2):
                getEnv().addBacterium(new MadBacterium(getCursorPositionInView()));
                break;
-            case(3):
+            case 3:
                getEnv().addBacterium(new PoisonousBacterium(getCursorPositionInView()));
                break;
-            case(4):{
-                auto swarm = getEnv().getSwarmWithId("1");
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            {
+                auto swarm = getEnv().getSwarmWithId(std::to_string(randomNumber - 3));
                 assert(swarm != nullptr);
                 getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
                } break;
-            case(5): {
-                auto swarm = getEnv().getSwarmWithId("2");
-                assert(swarm != nullptr);
-                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
-            } break;
-            case (6): {
-                auto swarm = getEnv().getSwarmWithId("3");
-                assert(swarm != nullptr);
-                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
-            } break;
-            case (7): {
-                auto swarm = getEnv().getSwarmWithId("4");
-                assert(swarm != nullptr);
-                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
-                break;
-            }
+//            case 5: {
+//                auto swarm = getEnv().getSwarmWithId("2");
+//                assert(swarm != nullptr);
+//                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+//            } break;
+//            case 6: {
+//                auto swarm = getEnv().getSwarmWithId("3");
+//                assert(swarm != nullptr);
+//                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+//            } break;
+//            case 7: {
+//                auto swarm = getEnv().getSwarmWithId("4");
+//                assert(swarm != nullptr);
+//                getEnv().addBacterium(new SwarmBacterium(getCursorPositionInView(), swarm));
+//                break;
+//            }
             }
         }break;
     }

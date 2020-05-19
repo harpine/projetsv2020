@@ -31,6 +31,8 @@ public:
     Bacterium* getBacteriumColliding(const CircularBody& body) const;
     //retourne le poison de l'assiette en collision avec le body
     Poison* getPoisonColliding(const CircularBody& body) const;
+    //retourne le spray de l'assiette en collision avec le body
+    Spray* getSprayColliding(const CircularBody& body) const;
     //met à jour le temps;
     void setTime(const sf::Time toAdd);
 
@@ -54,6 +56,8 @@ public:
     void addSwarm(Swarm* swarm);
     //ajoute un poison à l'assiette de petri
     void addPoison(Poison* poison);
+    //ajoute un spray à l'assiette de petri
+    void addSpray(Spray* spray);
 
     //Pour la température:
 
