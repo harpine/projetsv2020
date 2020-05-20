@@ -292,6 +292,17 @@ void PetriDish::reset()
     resetGradientExponent();
 }
 
+void PetriDish::flash()
+{
+    for(auto& bacterium : bacteria_)
+    {
+        if (bacterium != nullptr)
+        {
+            bacterium->mutate();
+        }
+    }
+}
+
 //Pour la température:
 void PetriDish::increaseTemperature()
 {

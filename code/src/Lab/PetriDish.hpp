@@ -64,6 +64,8 @@ public:
     void drawOn(sf::RenderTarget& targetWindow) const;
     //Supprime nutriments et bactéries de l'assiette, réinitialise la température
     void reset();
+    //Fonction qui irradie les bactéries et les fait muter par un flash UV
+    void flash();
 
     //Pour la température:
 

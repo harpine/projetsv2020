@@ -82,6 +82,11 @@ void Lab::resetControls()
     resetGradientExponent();
 }
 
+void Lab::flash()
+{
+    petridish_.flash();
+}
+
 //Ajouts:
 void Lab::addNutriment(Nutriment* nutriment)
 {

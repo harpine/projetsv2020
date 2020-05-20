@@ -42,6 +42,8 @@ public:
     void reset();
     //Réinitialise la température et la puissance du gradient
     void resetControls();
+    //Irradie les bactérie de l'assiette et les fait muter
+    void flash();
 
     //Ajouts/retranchements:
 

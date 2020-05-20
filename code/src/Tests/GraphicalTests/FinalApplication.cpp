@@ -119,6 +119,9 @@ void FinalApplication::onEvent(sf::Event event, sf::RenderWindow&)
                } break;
             }
         } break;
+        case sf::Keyboard::F:
+            getEnv().flash();
+            break;
     }
     }
 }
