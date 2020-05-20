@@ -8,6 +8,7 @@
 #include "PoisonousBacterium.hpp"
 #include "MadBacterium.hpp"
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <vector>
 #include <Utility/Vec2d.hpp>
 #include <Utility/Utility.hpp>
@@ -278,11 +279,20 @@ void PetriDish::flash()
         }
     }
     isflashed_ = true;
+    //A tester ??
+//    sf::SoundBuffer flashAudio;
+//    if(flashAudio.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
+//    {
+//        sf::Sound flash;
+//        flash.setBuffer(flashAudio);
+//        flash.setVolume(100);
+//        flash.play();
+//    }
 }
 
 void PetriDish::unflash(sf::Time dt)
 {
-    if (flashClock_.getElapsedTime() > 3*dt)
+    if (flashClock_.getElapsedTime().asSeconds() > 5*dt.asSeconds())
     {
         isflashed_ = false;
     }

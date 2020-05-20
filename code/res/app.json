@@ -105,7 +105,10 @@
         "audio" : "spray.wav",
         "size" : 100,
         "fading time" : 3
-        },
+    },
+    "flash" : {
+        "audio" : "flash.wav"
+    },
     "petri dish" : {
         "gradient" : {
             "exponent" : {
