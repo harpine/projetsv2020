@@ -15,7 +15,7 @@ public:
     //Getter:
 
     //renvoie la couleur actuelle
-    sf::Color get() const; 
+    sf::Color get() const;
 
     //Autre méthode:
 

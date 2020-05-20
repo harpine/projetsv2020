@@ -8,8 +8,8 @@
 //Constructeur:
 Lab::Lab()
     :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2)
-    /*Positonne l'assiette de pétri au centre de la fenêtre graphique
-    avec un diamètre occupant 95% de la largeur de la fenêtre */
+     /*Positonne l'assiette de pétri au centre de la fenêtre graphique
+     avec un diamètre occupant 95% de la largeur de la fenêtre */
 {}
 
 //Getters:
@@ -119,7 +119,7 @@ double Lab::getTemperature() const
     return petridish_.getTemperature();
 }
 
- void Lab::increaseTemperature()
+void Lab::increaseTemperature()
 {
     petridish_.increaseTemperature();
 }
@@ -179,6 +179,6 @@ void Lab::drawOnTime(sf::RenderTarget& targetWindow) const
     std::stringstream timeprinted;
     timeprinted << std::setw(2) << std::setfill('0') << minutes << " : " << std::setw(2) << std::setfill('0') << seconds;
     sf::Text const texte = buildText("Time :  " + timeprinted.str(),
-                        Vec2d(10,10), getAppFont(), 30, sf::Color::Red);
+                                     Vec2d(10,10), getAppFont(), 30, sf::Color::Red);
     targetWindow.draw(texte);
 }

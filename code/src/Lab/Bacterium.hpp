@@ -95,7 +95,7 @@ public:
     virtual void move(sf::Time dt) = 0;
     //Permet à la bactérie de se nourrir si possible dans l'assiette
     virtual void eat(bool isEating); //le bool permet de gérer l'horloge hors de la fonction
-                        //en tenant compte du poison
+    //en tenant compte du poison
     //Permet à la bactérie de manger du poison
     bool eatPoison();
     //Division de la bactérie en deux bactéries identiques.

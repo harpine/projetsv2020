@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":1,
+         "factor":5,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
@@ -12,7 +12,7 @@
     },
     "generator" : {
         "nutriment" : {
-            "delay" : 1,
+            "delay" : 0.5,
             "prob" : 0.9
         }
     },
@@ -162,7 +162,7 @@
             }
         },
         "energy" : {
-            "consumption factor" : 0.2,
+            "consumption factor" : 0.1,
             "division" : 120,
             "max" : 100,
             "min" : 50
@@ -546,7 +546,7 @@
         },
         "bacteria gradient influence factor" : 0,
         "meal" : {
-            "delay" : 0.9,
+            "delay" : 0.5,
             "max" : 10
         },
         "poison effects" : 1.3,

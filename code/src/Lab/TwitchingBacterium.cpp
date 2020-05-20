@@ -16,17 +16,17 @@ double TwitchingBacterium::totalSpeed_ = 0;
 //Constructeur:
 TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
-      getConfig()["energy"]["min"].toDouble()),
-      poscenter,
-      Vec2d::fromRandomAngle(),
-      uniform(getConfig()["radius"]["max"].toDouble(),
-      getConfig()["radius"]["min"].toDouble()),
-      getConfig()["color"]),
-      grip_(poscenter, getRadius()/4),
-      mystate_(IDLE)
+                       getConfig()["energy"]["min"].toDouble()),
+               poscenter,
+               Vec2d::fromRandomAngle(),
+               uniform(getConfig()["radius"]["max"].toDouble(),
+                       getConfig()["radius"]["min"].toDouble()),
+               getConfig()["color"]),
+     grip_(poscenter, getRadius()/4),
+     mystate_(IDLE)
 {
     addProperty(s::TENTACLE_SPEED, MutableNumber(getTentacleSpeed()["initial"].toDouble(),
-            getTentacleSpeed()["rate"].toDouble(), getTentacleSpeed()["sigma"].toDouble(), true, 3));
+                getTentacleSpeed()["rate"].toDouble(), getTentacleSpeed()["sigma"].toDouble(), true, 3));
     //nous avons utilisé un MutableNumber général, afin que la vitesse ne puisse pas
     //descendre à 0 (et donc la bactérie être immortelle en voyant sa tentacule ne plus bouger:
     //développement observé car cela lui est favorable) nous avons pris 3 afin d'en avoir le retour visuel
@@ -35,7 +35,7 @@ TwitchingBacterium::TwitchingBacterium(const Vec2d& poscenter)
     totalTentacleLength_ += getProperty(s::TENTACLE_LENGTH).get();
     totalTentacleSpeed_ += getProperty(s::TENTACLE_SPEED).get();
     totalSpeed_ += getProperty(s::TENTACLE_SPEED).get() *
-            getConfig()["speed factor"].toDouble();
+                   getConfig()["speed factor"].toDouble();
     compteur_ += 1;
 }
 
@@ -44,14 +44,14 @@ TwitchingBacterium::~TwitchingBacterium()
     totalTentacleLength_ -= getProperty(s::TENTACLE_LENGTH).get();
     totalTentacleSpeed_ -= getProperty(s::TENTACLE_SPEED).get();
     totalSpeed_ -= getProperty(s::TENTACLE_SPEED).get() *
-            getConfig()["speed factor"].toDouble();
+                   getConfig()["speed factor"].toDouble();
     compteur_ -= 1;
 }
 
 TwitchingBacterium::TwitchingBacterium(const TwitchingBacterium& other)
     :Bacterium(other),
-      grip_(other.grip_),
-      mystate_(other.mystate_)
+     grip_(other.grip_),
+     mystate_(other.mystate_)
 {
     compteur_ += 1;
 }
@@ -61,7 +61,7 @@ void TwitchingBacterium::updateStats()
     totalTentacleLength_ += getProperty(s::TENTACLE_LENGTH).get();
     totalTentacleSpeed_ += getProperty(s::TENTACLE_SPEED).get();
     totalSpeed_ += getProperty(s::TENTACLE_SPEED).get() *
-            getConfig()["speed factor"].toDouble();
+                   getConfig()["speed factor"].toDouble();
 }
 
 //Getters utilitaires et setters :
@@ -97,8 +97,7 @@ int TwitchingBacterium::getCompteur()
 
 double TwitchingBacterium::getAverageTentacleLength()
 {
-    if (compteur_ == 0)
-    {
+    if (compteur_ == 0) {
         return 0;
     }
     return (totalTentacleLength_ / compteur_);
@@ -106,8 +105,7 @@ double TwitchingBacterium::getAverageTentacleLength()
 
 double TwitchingBacterium::getAverageTentacleSpeed()
 {
-    if (compteur_ == 0)
-    {
+    if (compteur_ == 0) {
         return 0;
     }
     return (totalTentacleSpeed_ / compteur_);
@@ -142,39 +140,32 @@ void TwitchingBacterium::moveGrip(const Vec2d& v)
 
 void TwitchingBacterium::move(sf::Time dt)
 {
-    switch (mystate_)
-    {
-        case IDLE :
-        {
-            idle();
-            break;
-        }
-        case WAIT_TO_DEPLOY :
-        {
-            waitToDeploy();
-            break;
-        }
-        case DEPLOY :
-        {
-            deploy(dt);
-            break;
-        }
-        case ATTRACT :
-        {
-            attract(dt);
-            break;
-        }
-        case RETRACT :
-        {
-            retract(dt);
-            break;
-        }
+    switch (mystate_) {
+    case IDLE : {
+        idle();
+        break;
+    }
+    case WAIT_TO_DEPLOY : {
+        waitToDeploy();
+        break;
+    }
+    case DEPLOY : {
+        deploy(dt);
+        break;
+    }
+    case ATTRACT : {
+        attract(dt);
+        break;
+    }
+    case RETRACT : {
+        retract(dt);
+        break;
+    }
 
-        case EAT :
-        {
-            eatingState();
-            break;
-        }
+    case EAT : {
+        eatingState();
+        break;
+    }
     }
 }
 
@@ -189,11 +180,9 @@ void TwitchingBacterium::waitToDeploy()
     Vec2d finalDirection(getDirection());
     double score(getAppEnv().getPositionScore(getPosition()));
 
-    for (int i(0); i <=20 ; ++i)
-    {
+    for (int i(0); i <=20 ; ++i) {
         direction = Vec2d::fromRandomAngle();
-        if (getAppEnv().getPositionScore(getPosition()+direction) > score)
-        {
+        if (getAppEnv().getPositionScore(getPosition()+direction) > score) {
             score = getAppEnv().getPositionScore(getPosition()+direction);
             finalDirection = direction;
         }
@@ -207,45 +196,35 @@ void TwitchingBacterium::deploy(sf::Time dt)
 {
     moveGrip(getDirection() * getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
     consumeEnergy(getTentacleEnergy() * getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
-    if (getAppEnv().getNutrimentColliding(grip_) != nullptr)
-    {
+    if (getAppEnv().getNutrimentColliding(grip_) != nullptr) {
         mystate_ = ATTRACT;
-    }
-    else if((grip_.getPosition() - getPosition()).length() > getProperty(s::TENTACLE_LENGTH).get()
-            or getAppEnv().doesCollideWithDish(grip_))
-    {
+    } else if((grip_.getPosition() - getPosition()).length() > getProperty(s::TENTACLE_LENGTH).get()
+              or getAppEnv().doesCollideWithDish(grip_)) {
         mystate_ = RETRACT;
     }
 }
 
 void TwitchingBacterium::attract(sf::Time dt)
 {
-    if (getAppEnv().getNutrimentColliding(*this) != nullptr)
-    {
+    if (getAppEnv().getNutrimentColliding(*this) != nullptr) {
         mystate_ = EAT;
-    }
-    else
-    {
+    } else {
         CircularBody::move((grip_.getPosition() - getPosition()).normalised() * getProperty(s::TENTACLE_SPEED).get() *
                            getConfig()["speed factor"].toDouble() * dt.asSeconds());
         consumeEnergy(getDisplacementEnergy() * getProperty(s::TENTACLE_SPEED).get() *
                       getConfig()["speed factor"].toDouble() * dt.asSeconds());
     }
 
-    if (getAppEnv().getNutrimentColliding(grip_) == nullptr)
-    {
+    if (getAppEnv().getNutrimentColliding(grip_) == nullptr) {
         mystate_ = RETRACT;
     }
 }
 
 void TwitchingBacterium::retract(sf::Time dt)
 {
-    if (distance(grip_.getPosition(), getPosition()) <= getRadius())
-    {
+    if (distance(grip_.getPosition(), getPosition()) <= getRadius()) {
         mystate_ = IDLE;
-    }
-    else
-    {
+    } else {
         moveGrip((getPosition() - grip_.getPosition()).normalised() *
                  getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
         consumeEnergy(getTentacleEnergy() * getProperty(s::TENTACLE_SPEED).get() * dt.asSeconds());
@@ -254,8 +233,7 @@ void TwitchingBacterium::retract(sf::Time dt)
 
 void TwitchingBacterium::eatingState()
 {
-    if(getAppEnv().getNutrimentColliding(*this) == nullptr)
-    {
+    if(getAppEnv().getNutrimentColliding(*this) == nullptr) {
         mystate_ = IDLE;
     }
 }
