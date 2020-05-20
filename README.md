@@ -31,19 +31,19 @@ L'assiette de pétri se trouve dans un laboratoire cabale de la
 coordonner. De nombreux paramètres comme la température où la 
 sensibilité au gradient de bactéries peuvent influencer l'évolution des 
 colonies en modifiant le comportement des nutriments et bactéries. La 
-totalité de l'évolutio
+totalité de l'évolution est limitée à l'assiette qui est en fait un 
+cercle aux parois imfranchissables pour toutes les entités.
 
  
 
 
 
 
-Ces fichiers font références au projet sans les nouvelles bactéries
-créés par les extensions:
 
 ##COMPILATION:
 
 **En ligne de commande:**
+
 Créer un dossier build dans le dossier code //nom dossier à controler ??
 Ouvrir ce dossier dans le terminal et tapper: **cmake ../src**
 *-> Cette commande construit les fichiers de compilation dans ce dossier.*
@@ -55,8 +55,13 @@ Pour le lancer avec un autre fichier de configuration, tapper:
 **./ application nomfichierapp.json** 
 
 **Dans QTCreator:**
-Ouvrir 
 
+Ouvrir ?? COmment faire avec les differents fichier de config ?
+
+
+
+Ces fichiers font références au projet sans les nouvelles bactéries
+créés par les extensions:
 
  - avec le fichier de configuration "simpleapp.json" nous pouvons voir 
 que les simplesbacterium prennent le dessus rapidement. En effet, il n'y
@@ -121,3 +126,23 @@ swarmbacterium 3 sont celles qui tiennent le plus longtemps. En effet,
 c'est le groupe qui a le facteur d'attirance le plus petit, et donc les
 bactéries se font moins "massacrer" par les MadBacterium étant donné
 qu'elles sont moins entassées.
+
+
+
+
+##EXTENSIONS:
+
+Nous avons mis en place dans notre assiette de pétri deux mécanismes 
+extérieurs pouvant influancer l'évolution des bactéries:
+ - un spray de désinfectant peut être appliqué dans l'assiette : il 
+ neutralise toutes les entités qui rentrent en contact avec le liquide.
+ - une autre touche peut aussi provoquer un flash de radiations UV qui 
+ fait muter les bactéries présentent sur l'assiette.
+
+Nous avons aussi mis en place un compteur sur l'écran qui affiche le 
+temps écoulé dans la simulation, s'adaptant aux pauses ou autre 
+manipulation dans app.json.
+
+Nous avons introduit deux types supplémentaires de bactéries:
+ - les PoisonousBacterium
+ - les MadBacterium
