@@ -8,10 +8,12 @@ Spray::Spray(const Vec2d& poscenter)
     :CircularBody(poscenter, getConfig()["size"].toDouble()),
      transparency_(255)
 {
-//    sprayAudio_.loadFromFile(getApp().getResPath() + getConfig()["audio"].toString());
-//    spray_.setBuffer(sprayAudio_);
-//    spray_.setVolume(100);
-//    spray_.play();
+    if (sprayAudio_.loadFromFile(getApp().getResPath() + getConfig()["audio"].toString()))
+    {
+        spray_.setBuffer(sprayAudio_);
+        spray_.setVolume(100);
+        spray_.play();
+    }
 }
 
 j::Value& Spray::getConfig() const

@@ -280,14 +280,14 @@ void PetriDish::flash()
     }
     isflashed_ = true;
     //A tester ??
-//    sf::SoundBuffer flashAudio;
-//    if(flashAudio.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
-//    {
-//        sf::Sound flash;
-//        flash.setBuffer(flashAudio);
-//        flash.setVolume(100);
-//        flash.play();
-//    }
+
+    if(flashAudio_.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
+    {
+
+        flash_.setBuffer(flashAudio_);
+        flash_.setVolume(100);
+        flash_.play();
+    }
 }
 
 void PetriDish::unflash(sf::Time dt)
