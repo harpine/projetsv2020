@@ -6,20 +6,14 @@
 
 Spray::Spray(const Vec2d& poscenter)
     :CircularBody(poscenter, getConfig()["size"].toDouble()),
-      transparency_(255)
+     transparency_(255)
 {
 
     sprayAudio_.loadFromFile(getApp().getResPath() + getConfig()["audio"].toString());
     spray_.setBuffer(sprayAudio_);
+    spray_.setVolume(100);
     spray_.play();
 }
-
-
-//    sf::Music music;
-//    music.openFromFile(getApp().getResPath() + getConfig()["audio"].toString());
-//    music.setVolume(100);
-//    music.play();
-//    sf::SoundBuffer* sprayAudio = new sf::SoundBuffer();
 
 j::Value& Spray::getConfig() const
 {
@@ -39,12 +33,10 @@ void Spray::drawOn(sf::RenderTarget& target) const
 
 void Spray::update(sf::Time dt)
 {
-    if (dt != sf::Time::Zero)
-    {
+    if (dt != sf::Time::Zero) {
         double toSubtract(255/(getConfig()["fading time"].toDouble()/dt.asSeconds()));
 
-        if (dt != sf::Time::Zero and transparency_ > toSubtract)
-        {
+        if (dt != sf::Time::Zero and transparency_ > toSubtract) {
             transparency_ -= toSubtract;
         }
     }

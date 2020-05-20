@@ -14,7 +14,7 @@ int Poison::compteur_ = 0;
 //Constructeurs et destructeur:
 Poison::Poison(const Vec2d& poscenter)
     :CircularBody(poscenter, getConfig()["quantity"].toDouble()/getConfig()["factor size division"].toDouble()),
-      color_(getConfig()["color"]), quantity_(getConfig()["quantity"].toDouble())
+     color_(getConfig()["color"]), quantity_(getConfig()["quantity"].toDouble())
 {
     compteur_+= 1;
 }
@@ -26,7 +26,7 @@ Poison::~Poison()
 
 Poison::Poison(const Poison& other)
     :CircularBody (other.getPosition(), other.getRadius()),
-      color_(other.color_), quantity_(other.quantity_)
+     color_(other.color_), quantity_(other.quantity_)
 {
     compteur_ += 1;
 }
@@ -63,10 +63,9 @@ void Poison::drawOn(sf::RenderTarget& target) const
     auto const circle = buildCircle(getPosition(), getRadius(), color_.get());
     target.draw(circle);
 
-    if (isDebugOn())
-    {
+    if (isDebugOn()) {
         sf::Text const texte = buildText(std::to_string((int)(quantity_)),
-                            Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
+                                         Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
                                          getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
     }
@@ -75,8 +74,7 @@ void Poison::drawOn(sf::RenderTarget& target) const
 Quantity Poison::eatenBy(Bacterium& bact)
 {
     Quantity quantity(quantity_ * bact.eatablePoison(*this));
-    if  (quantity >0)
-    {
+    if  (quantity >0) {
         eatPoison();
     }
     return (quantity);

@@ -16,16 +16,16 @@ double PoisonousBacterium::totalSpeed_ = 0;
 //Constructeur et destructeur:
 PoisonousBacterium::PoisonousBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
-      getConfig()["energy"]["min"].toDouble()),
-     poscenter,
-     Vec2d::fromRandomAngle().normalised(),
-     uniform(getConfig()["radius"]["max"].toDouble(),
-      getConfig()["radius"]["min"].toDouble()),
-     MutableColor()),
+                       getConfig()["energy"]["min"].toDouble()),
+               poscenter,
+               Vec2d::fromRandomAngle().normalised(),
+               uniform(getConfig()["radius"]["max"].toDouble(),
+                       getConfig()["radius"]["min"].toDouble()),
+               MutableColor()),
      probability_(), tumbleClock_(sf::Time::Zero), poisonClock_(sf::Time::Zero)
 {
     addProperty(s::SPEED, MutableNumber(getSpeedConfig()["initial"].toDouble(),
-                getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), true, 5));
+                                        getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), true, 5));
     //nous avons utilisé un MutableNumber général, afin que la vitesse ne puisse pas
     //descendre à 0 (et donc la bactérie être immortelle en ne bougeant plus: développement
     //observé car cela lui est favorable) nous avons pris 5 afin d'en avoir le retour visuel.
@@ -51,8 +51,8 @@ PoisonousBacterium::~PoisonousBacterium()
 
 PoisonousBacterium::PoisonousBacterium(const PoisonousBacterium& other)
     :Bacterium(other),
-      probability_(other.probability_),
-      tumbleClock_(other.tumbleClock_)
+     probability_(other.probability_),
+     tumbleClock_(other.tumbleClock_)
 {
     compteur_ += 1;
 }
@@ -87,16 +87,14 @@ Vec2d PoisonousBacterium::getSpeedVector() const
 
 double PoisonousBacterium::getAverageBetter()
 {
-    if (compteur_ == 0)
-    {
+    if (compteur_ == 0) {
         return 0;
     }
     return totalBetter_/compteur_;
 }
 double PoisonousBacterium::getAverageWorse()
 {
-    if (compteur_ == 0)
-    {
+    if (compteur_ == 0) {
         return 0;
     }
     return totalWorse_/compteur_;
@@ -126,19 +124,17 @@ Vec2d PoisonousBacterium::f(Vec2d position, Vec2d speed) const
 void PoisonousBacterium::move(sf::Time dt)
 {
     DiffEqResult result(stepDiffEq(getPosition(), getSpeedVector(), dt,
-               *this));
+                                   *this));
     //this est une DiffEqFunction
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
     //distance renvoie length des 2 Vec2d
 
-    if ((result.position - getPosition()).lengthSquared() > 0.001)
-    {
+    if ((result.position - getPosition()).lengthSquared() > 0.001) {
         this->CircularBody::move((result.position - getPosition()));
         //move est moins intuitif mais meilleur pour la hiérarchie des classes
     }
 
-    if(tumbleAttempt(dt))
-    {
+    if(tumbleAttempt(dt)) {
         tumble();
     }
 }
@@ -151,11 +147,10 @@ void PoisonousBacterium::drawOn(sf::RenderTarget& target) const
     // adapte la taille du Sprite au rayon du nutriment:
     nutrimentSprite.setScale(2 * getRadius() / texture.getSize().x, 2 * getRadius() / texture.getSize().y);
     target.draw(nutrimentSprite);
-    if (isDebugOn()) //mode debug
-    {
+    if (isDebugOn()) { //mode debug
         int energy(getEnergy());
         sf::Text const texte = buildText(std::to_string(energy),
-                            Vec2d(getPosition().x - 5, getPosition().y + getRadius() + 10),
+                                         Vec2d(getPosition().x - 5, getPosition().y + getRadius() + 10),
                                          getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
     }
@@ -164,8 +159,7 @@ void PoisonousBacterium::drawOn(sf::RenderTarget& target) const
 void PoisonousBacterium::update(sf::Time dt)
 {
     Bacterium::update(dt);
-    if (canPoison(dt))
-    {
+    if (canPoison(dt)) {
         putPoison();
     }
 }
@@ -194,7 +188,7 @@ bool PoisonousBacterium::canPoison(sf::Time dt)
 {
     poisonClock_ += dt;
     if (poisonClock_.asSeconds() >= getConfig()["poison delay"].toDouble()
-            and getEnergy() >= (getEnergylosedByPoison() + 10))
+        and getEnergy() >= (getEnergylosedByPoison() + 10))
         //les bactéries n'ont pas l'énergie de déposer du poison
         //si leur énergie est inférieure à 20
     {
@@ -217,12 +211,9 @@ bool PoisonousBacterium::tumbleAttempt(sf::Time dt)
     updateScore();
     tumbleClock_ += dt;
 
-    if (getScore() >= ancien_score)
-    {
+    if (getScore() >= ancien_score) {
         lambda = getProperty("tumble better").get();
-    }
-    else
-    {
+    } else {
         lambda = getProperty("tumble worse").get();
     }
 
@@ -232,12 +223,9 @@ bool PoisonousBacterium::tumbleAttempt(sf::Time dt)
 
 void PoisonousBacterium::tumble()
 {
-    if (getConfig()["tumble"]["algo"].toString() == "single random vector")
-    {
+    if (getConfig()["tumble"]["algo"].toString() == "single random vector") {
         setDirection(Vec2d::fromRandomAngle());
-    }
-    else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos)
-    {
+    } else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos) {
         bestOfN(std::stoi(getConfig()["tumble"]["algo"].toString().substr(8, 2)));
         //permet de trouver une meilleure position parmis le nombre donné (entre 1 et 99)
     }
