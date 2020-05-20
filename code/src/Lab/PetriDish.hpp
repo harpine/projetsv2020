@@ -66,6 +66,10 @@ public:
     void reset();
     //Fonction qui irradie les bactéries et les fait muter par un flash UV
     void flash();
+    //DrawOn flash
+    void drawOnFlash(sf::RenderTarget& targetWindow) const;
+    //Permet l'arrêt du flash
+    void unflash(sf::Time dt);
 
     //Pour la température:
 
@@ -101,6 +105,8 @@ private:
     double temperature_;
     double exponent_;
     double bacteriaExponent_;
+    bool isflashed_;
+    sf::Clock flashClock_;
 
     //Méthodes privées:
     std::unordered_map<std::string, double> fetchGeneralData() const;

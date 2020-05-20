@@ -2,12 +2,13 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":5,
+         "factor":0.5,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
 	"background" : "sand.png",
 	"debug background" : "sand.png",
+        "flash" : "flash.png",
 	"size"       : 1000
     },
     "generator" : {

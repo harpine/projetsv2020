@@ -165,6 +165,7 @@ bool PetriDish::doesCollideWithSpray(const CircularBody& body) const
 
 void PetriDish::update(sf::Time dt)
 {
+    unflash(dt);
     for (auto& nutriment : nutriments_) {
         nutriment->update(dt);
 
@@ -232,6 +233,10 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
     for (size_t i(0); i< sprays_.size(); ++i) {
         sprays_[i]->drawOn(targetWindow);
     }
+    if (isflashed_)
+    {
+        drawOnFlash(targetWindow);
+    }
 }
 
 void PetriDish::reset()
@@ -264,6 +269,7 @@ void PetriDish::reset()
 
 void PetriDish::flash()
 {
+    flashClock_.restart();
     for(auto& bacterium : bacteria_)
     {
         if (bacterium != nullptr)
@@ -271,6 +277,25 @@ void PetriDish::flash()
             bacterium->mutate();
         }
     }
+    isflashed_ = true;
+}
+
+void PetriDish::unflash(sf::Time dt)
+{
+    if (flashClock_.getElapsedTime() > 3*dt)
+    {
+        isflashed_ = false;
+    }
+}
+
+void PetriDish::drawOnFlash(sf::RenderTarget& targetWindow) const
+{
+    int taille_graphique(6);
+    auto const& texture = getAppTexture(getAppConfig()["simulation"]["flash"].toString());
+    auto flashSprite = buildSprite(getApp().getCentre(), taille_graphique, texture);
+    // adapte la taille du Sprite au rayon du spray:
+    flashSprite.setScale(getApp().getLabSize().x, getApp().getLabSize().y);
+    targetWindow.draw(flashSprite);
 }
 
 //Pour la température:
