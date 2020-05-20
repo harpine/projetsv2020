@@ -71,6 +71,7 @@ public:
     const sf::Time  simulation_time_max_dt;
     const std::string simulation_background;
     const std::string simulation_debug_background;
+    const std::string simulation_flash;
     const int simulation_size;
 
     // generator

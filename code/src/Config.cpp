@@ -19,6 +19,7 @@ Config::Config(std::string path) : mConfig(j::readFromFile(path))
     , simulation_time_max_dt(sf::seconds(mConfig["simulation"]["time"]["max dt"].toDouble()))
     , simulation_background(mConfig["simulation"]["background"].toString())
     , simulation_debug_background(mConfig["simulation"]["debug background"].toString())
+    , simulation_flash(mConfig["simulation"]["flash"].toString())
     , simulation_size(mConfig["simulation"]["size"].toInt())
 // generator
     , generator_nutriment_delay(mConfig["generator"]["nutriment"]["delay"].toDouble())

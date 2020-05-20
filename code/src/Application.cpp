@@ -74,7 +74,7 @@ Vec2d getSimulationPosition()
 Vec2d getControlSize()
 {
     auto width = getShortConfig().window_simulation_width/2;
-    auto height = getShortConfig().window_simulation_height/3;
+    auto height = getShortConfig().window_simulation_height/4;
     return { width, height };
 }
 
@@ -96,14 +96,14 @@ Vec2d getControlPosition()
 Vec2d getHelpSize()
 {
     auto width = getShortConfig().window_simulation_width;
-    auto height = getShortConfig().window_simulation_height*2/3.;
+    auto height = getShortConfig().window_simulation_height*3/4.;
     return { width, height };
 }
 
 Vec2d getHelpPosition()
 {
     return { getShortConfig().window_simulation_width,
-             getShortConfig().window_simulation_height/3 };
+             getShortConfig().window_simulation_height/4 };
 }
 /*!
  * @brief Create a view with the given properties
@@ -332,7 +332,7 @@ void Application::initHelpBox()
     ss << ifs.rdbuf();
 
     helpText = buildText(ss.str(),
-                         Vec2d(20,0),
+                         Vec2d(20, 0), //position helpbox
                          getAppFont(),
                          12,
                          sf::Color::Black);
@@ -529,6 +529,13 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
             mCurrentControl = static_cast<Control>((mCurrentControl + 1) % Control::NB_CONTROLS);
 
             break;
+
+//        case sf::Keyboard::F: ??
+//            getEnv().flash();
+//            mSimulationBackground.setTexture(&getAppTexture(getShortConfig().simulation_background)
+//                                             , true);
+
+//            break;
 
         case sf::Keyboard::PageDown: // increase current control
 
