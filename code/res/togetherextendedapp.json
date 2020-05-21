@@ -8,7 +8,8 @@
       },
 	"background" : "sand.png",
 	"debug background" : "sand.png",
-	"size"       : 1000
+	"size"       : 1000,
+        "music" : "music.wav"
     },
     "generator" : {
         "nutriment" : {
@@ -99,7 +100,16 @@
         "quantity" : 20,
         "factor size division" : 4
     },
-
+    "spray" : {
+        "texture" : "spray.png",
+        "audio" : "spray.wav",
+        "size" : 100,
+        "fading time" : 3
+    },
+    "flash" : {
+        "audio" : "flash.wav",
+        "texture" : "flash.png"
+    },
     "petri dish" : {
         "gradient" : {
             "exponent" : {
@@ -572,8 +582,8 @@
         "antialiasing level" : 4,
         "title" : "INFOSV Simulation",
         "simulation" : {
-	    "width":500,
-            "height":500
+	    "width":600,
+            "height":600
          },
         "stats" : { "width" : 200 }
     },
