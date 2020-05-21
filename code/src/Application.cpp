@@ -163,6 +163,17 @@ Application::Application(int argc, char const** argv)
     mLabBackground.setTexture(&getAppTexture(getShortConfig().simulation_background));
 
     mSimulationBackground = mLabBackground;
+
+    if(music_.openFromFile(getResPath()+ getShortConfig().music))
+    {
+        music_.setVolume(25);
+        music_.setLoop(true);
+    }
+    else
+    {
+        std::cerr << "Couldn't load music" << std::endl;
+    }
+
 }
 
 Application::~Application()
@@ -530,12 +541,16 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
 
             break;
 
-//        case sf::Keyboard::F: ??
-//            getEnv().flash();
-//            mSimulationBackground.setTexture(&getAppTexture(getShortConfig().simulation_background)
-//                                             , true);
-
-//            break;
+        case sf::Keyboard::A:
+            if (music_.getStatus() == sf::SoundSource::Status::Playing)
+            {
+                music_.pause();
+            }
+            else
+            {
+                music_.play();
+            }
+            break;
 
         case sf::Keyboard::PageDown: // increase current control
 

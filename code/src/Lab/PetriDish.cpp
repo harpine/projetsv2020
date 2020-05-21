@@ -23,7 +23,13 @@ PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
       exponent_((getAppConfig()[s::PETRI_DISH]["gradient"]["exponent"]["max"].toDouble()
                  + getAppConfig()[s::PETRI_DISH]["gradient"]["exponent"]["min"].toDouble()) / 2),
       bacteriaExponent_(getAppConfig()[s::PETRI_DISH]["gradient"]["bacteria exponent"].toDouble())
-{}
+{
+    if(flashAudio_.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
+    {
+        flash_.setBuffer(flashAudio_);
+        flash_.setVolume(75);
+    }
+}
 
 PetriDish::~PetriDish()
 {
@@ -279,15 +285,7 @@ void PetriDish::flash()
         }
     }
     isflashed_ = true;
-    //A tester ??
-
-    if(flashAudio_.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
-    {
-
-        flash_.setBuffer(flashAudio_);
-        flash_.setVolume(100);
-        flash_.play();
-    }
+    flash_.play();
 }
 
 void PetriDish::unflash(sf::Time dt)

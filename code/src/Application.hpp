@@ -340,6 +340,8 @@ private:
     sf::Text helpText;
     sf::RectangleShape helpBox;
 
+    //Music
+    sf::Music music_;
     // display of stats
     bool isStatsOn;
 };

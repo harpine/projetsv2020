@@ -10,6 +10,7 @@ Esc	: close window
 C	: refresh config
 Arrows	: move simulation
 	view
+A	: Play/pause music
 Tab	: switch to next
 	control
 PageUp	: increase CC
@@ -17,10 +18,10 @@ PageDown  : decrease CC
 S	  : add simple bacterium
 T	: add TwitchingMotility
 	bacterium at MP
-1-2	: add swarm bacterium
-	  of type 1-2 at MP
+1-2-3-4  : add swarm bacterium
+	  of type 1-2-3-4 at MP
 P	: add PoisonousBacterium
 M	: add Madbacterium
 H	: add Random Bacterium
 K	: Spray
-F	: Irradiate
+F	: Flash UV

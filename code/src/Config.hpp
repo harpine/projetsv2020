@@ -63,16 +63,14 @@ public:
     const sf::Color debug_text_color = sf::Color::White;
     const size_t default_debug_text_size = 20;
 
-
     //simulation
-
     const double  simulation_time_factor;
     const double  simulation_fixed_step;
     const sf::Time  simulation_time_max_dt;
     const std::string simulation_background;
     const std::string simulation_debug_background;
-    const std::string simulation_flash;
     const int simulation_size;
+    std::string music;
 
     // generator
     const double generator_nutriment_delay;

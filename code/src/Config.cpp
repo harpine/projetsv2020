@@ -19,8 +19,8 @@ Config::Config(std::string path) : mConfig(j::readFromFile(path))
     , simulation_time_max_dt(sf::seconds(mConfig["simulation"]["time"]["max dt"].toDouble()))
     , simulation_background(mConfig["simulation"]["background"].toString())
     , simulation_debug_background(mConfig["simulation"]["debug background"].toString())
-    , simulation_flash(mConfig["simulation"]["flash"].toString())
     , simulation_size(mConfig["simulation"]["size"].toInt())
+    , music(mConfig["simulation"]["music"].toString())
 // generator
     , generator_nutriment_delay(mConfig["generator"]["nutriment"]["delay"].toDouble())
     , generator_nutriment_prob(mConfig["generator"]["nutriment"]["prob"].toDouble())
@@ -40,8 +40,6 @@ Config::Config(std::string path) : mConfig(j::readFromFile(path))
     ,nutrimentB_resistance_factor(mConfig["nutriments"]["B"]["resistance factor"].toDouble())
     ,nutrimentB_poison_factor(mConfig["nutriments"]["B"]["poison factor"].toDouble())
     ,nutrimentB_nutritive_factor(mConfig["nutriments"]["B"]["nutritive factor"].toDouble())
-
-//,nutrimentB_poison_factor_poisonous_bacterium(mConfig["nutriments"]["B"]["poisonous factor poisonous bacterium"].toDouble())
 {}
 
 // TODO : getter for debug
