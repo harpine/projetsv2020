@@ -2,13 +2,12 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":10,
+         "factor":1,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },
 	"background" : "sand.png",
 	"debug background" : "sand.png",
-        "flash" : "flash.png",
         "size"       : 1000,
         "music" : "music.wav"
     },
@@ -108,7 +107,8 @@
         "fading time" : 3
     },
     "flash" : {
-        "audio" : "flash.wav"
+        "audio" : "flash.wav",
+        "texture" : "flash.png"
     },
     "petri dish" : {
         "gradient" : {

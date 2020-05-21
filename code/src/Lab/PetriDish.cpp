@@ -299,7 +299,7 @@ void PetriDish::unflash(sf::Time dt)
 void PetriDish::drawOnFlash(sf::RenderTarget& targetWindow) const
 {
     int taille_graphique(6);
-    auto const& texture = getAppTexture(getAppConfig()["simulation"]["flash"].toString());
+    auto const& texture = getAppTexture(getAppConfig()["flash"]["texture"].toString());
     auto flashSprite = buildSprite(getApp().getCentre(), taille_graphique, texture);
     // adapte la taille du Sprite au rayon du spray:
     flashSprite.setScale(getApp().getLabSize().x, getApp().getLabSize().y);
