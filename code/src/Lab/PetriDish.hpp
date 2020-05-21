@@ -107,8 +107,8 @@ private:
     double bacteriaExponent_;
     bool isflashed_;
     sf::Clock flashClock_;
-    sf::SoundBuffer flashAudio_;
-    sf::Sound flash_;
+//    sf::SoundBuffer flashAudio_;
+//    sf::Sound flash_;
 
     //Méthodes privées:
     std::unordered_map<std::string, double> fetchGeneralData() const;

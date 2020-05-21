@@ -30,8 +30,8 @@ public:
 private :
     sf::Clock clock_;
     int transparency_;
-    sf::SoundBuffer sprayAudio_;
-    sf::Sound spray_;
+//    sf::SoundBuffer sprayAudio_;
+//    sf::Sound spray_;
 };
 
 #endif // SPRAY_HPP

@@ -2,7 +2,7 @@
     "debug" : true,
     "simulation":{
       "time":{
-         "factor":3,
+         "factor":1,
          "max dt":0.05,
 	  "fixed step" : 0.01
       },

@@ -279,20 +279,20 @@ void PetriDish::flash()
         }
     }
     isflashed_ = true;
-    //A tester ??
+//    //A tester ??
 
-    if(flashAudio_.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
-    {
+//    if(flashAudio_.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
+//    {
 
-        flash_.setBuffer(flashAudio_);
-        flash_.setVolume(100);
-        flash_.play();
-    }
+//        flash_.setBuffer(flashAudio_);
+//        flash_.setVolume(100);
+//        flash_.play();
+//    }
 }
 
 void PetriDish::unflash(sf::Time dt)
 {
-    if (flashClock_.getElapsedTime().asSeconds() > 5*dt.asSeconds())
+    if (flashClock_.getElapsedTime().asSeconds() > 5*dt.asSeconds()) //flash visible même quand le temps est accéléré
     {
         isflashed_ = false;
     }
