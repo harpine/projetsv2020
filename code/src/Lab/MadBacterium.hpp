@@ -57,6 +57,8 @@ public:
     virtual Quantity attackedBy(MadBacterium& madbact) override;
     //renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison) override;
+    //reset les statistiques (hormis compteur)
+    static void resetBactStat();
 
 private:
 

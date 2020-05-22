@@ -261,3 +261,10 @@ Quantity TwitchingBacterium::eatablePoison(Poison& poison)
 {
     return poison.eatenBy(*this);
 }
+
+void TwitchingBacterium::resetBactStat()
+{
+    totalSpeed_ = 0;
+    totalTentacleSpeed_ =0;
+    totalTentacleLength_ = 0;
+}

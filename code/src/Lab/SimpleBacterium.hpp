@@ -52,6 +52,8 @@ public:
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
     //renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison);
+    //reset les statistiques (hormis compteur)
+    static void resetBactStat();
 
 private:
     //Attributs:

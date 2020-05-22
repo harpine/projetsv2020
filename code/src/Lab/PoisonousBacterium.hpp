@@ -56,6 +56,8 @@ public:
     bool canPoison(sf::Time dt);
     //pose un poison
     void putPoison();
+    //reset les statistiques (hormis compteur)
+    static void resetBactStat();
 
 private:
     //probabilité de la bactérie à basculer

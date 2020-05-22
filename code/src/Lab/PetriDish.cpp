@@ -304,6 +304,12 @@ void PetriDish::reset()
     }
     poisons_.clear();
 
+    for(auto& spray: sprays_)
+    {
+        delete spray;
+    }
+    sprays_.clear();
+
     resetTemperature();
     resetGradientExponent();
 }
@@ -318,6 +324,7 @@ void PetriDish::flash()
             bacterium->mutate();
         }
     }
+    recalculateStats();
     isflashed_ = true;
     flash_.play();
 }
@@ -402,6 +409,22 @@ void PetriDish::decreaseGradientExponent()
 void PetriDish::resetGradientExponent()
 {
     exponent_ = (getAppConfig()[s::PETRI_DISH]["gradient"]["exponent"]["max"].toDouble() + getAppConfig()[s::PETRI_DISH]["gradient"]["exponent"]["min"].toDouble()) / 2;
+}
+
+void PetriDish::recalculateStats()
+{
+    MadBacterium::resetBactStat();
+    PoisonousBacterium::resetBactStat();
+    SimpleBacterium::resetBactStat();
+    //les swarmbacterium n'ont pas de paramètres mutables
+    //donc il est inutile de recharger leurs statistiques
+    TwitchingBacterium::resetBactStat();
+
+    for (auto bacterium: bacteria_)
+    {
+        bacterium->updateStats();
+    }
+    //???
 }
 
 //Pour les statistiques:

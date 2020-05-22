@@ -47,7 +47,7 @@ private:
     //Attributs
     Swarm* swarm_;
     static int compteur_;
-    static double totalspeed_;
+    static double totalSpeed_;
 };
 
 #endif // SWARMBACTERIUM_HPP

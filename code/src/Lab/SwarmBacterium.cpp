@@ -11,7 +11,7 @@
 #include <Random/Random.hpp>
 
 int SwarmBacterium::compteur_ = 0;
-double SwarmBacterium::totalspeed_ = 0;
+double SwarmBacterium::totalSpeed_ = 0;
 
 //Constructeur et destructeur:
 SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
@@ -25,14 +25,14 @@ SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
      swarm_(swarm)
 {
     swarm_->addSwarmBacterium(this);
-    totalspeed_ += getSpeedVector().length();
+    totalSpeed_ += getSpeedVector().length();
     compteur_ += 1;
 }
 
 SwarmBacterium::~SwarmBacterium()
 {
     swarm_->removeSwarmBacterium(this);
-    totalspeed_ -= getSpeedVector().length();
+    totalSpeed_ -= getSpeedVector().length();
     compteur_ -= 1;
 }
 
@@ -40,7 +40,7 @@ SwarmBacterium::SwarmBacterium(const SwarmBacterium& other)
     :Bacterium(other),
      swarm_(other.swarm_)
 {
-    totalspeed_ += getSpeedVector().length();
+    totalSpeed_ += getSpeedVector().length();
     compteur_ += 1;
 }
 
@@ -67,7 +67,7 @@ int SwarmBacterium::getCompteur()
 
 double SwarmBacterium::getTotalSpeed()
 {
-    return totalspeed_;
+    return totalSpeed_;
 }
 
 //Autres méthodes:

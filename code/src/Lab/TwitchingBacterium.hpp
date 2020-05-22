@@ -59,6 +59,8 @@ public:
     //renvoie la quantité de nutriment consommée en fonction du nutriment
     virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
+    //reset les statistiques (hormis compteur)
+    static void resetBactStat();
 
 private:
     //Attributs:

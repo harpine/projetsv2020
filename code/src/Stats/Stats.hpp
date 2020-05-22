@@ -8,18 +8,18 @@
 class Stats : public Drawable, public Updatable
 {
 public:
-    //setter:
+    //Setter:
     //met le currentID_ à jour
     void setActive(const int newId);
 
-    //autres méthodes:
-    //Retourne le titre du graph courant
+    //Autres méthodes:
+    //retourne le titre du graph courant
     std::string getCurrentTitle() const;
-    //Permet de passer au graph suivant
+    //permet de passer au graph suivant
     void next();
-    //Permet de passer au graph précédent
+    //permet de passer au graph précédent
     void previous();
-    //Permet de dessiner le graphe
+    //permet de dessiner le graphe
     void drawOn(sf::RenderTarget& target) const;
     //reset les graphs
     void reset();

@@ -91,6 +91,8 @@ public:
     void decreaseGradientExponent();
     //réinitialise la puissance à sa valeur par défaut
     void resetGradientExponent();
+    //recalcule les stats
+    void recalculateStats();
 
     //Pour les statistiques:
     std::unordered_map<std::string, double> fetchData(const std::string & title) const;

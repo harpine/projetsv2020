@@ -250,3 +250,10 @@ Quantity MadBacterium::eatablePoison(Poison& poison)
 {
     return poison.eatenBy(*this);
 }
+
+void MadBacterium::resetBactStat()
+{
+    totalSpeed_ = 0;
+    totalWorse_ = 0;
+    totalBetter_ =0;
+}

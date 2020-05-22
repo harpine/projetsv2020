@@ -215,6 +215,13 @@ void PoisonousBacterium::putPoison()
     setEnergy(getEnergy() - getEnergylosedByPoison());
 }
 
+void PoisonousBacterium::resetBactStat()
+{
+    totalSpeed_ = 0;
+    totalWorse_ = 0;
+    totalBetter_ =0;
+}
+
 bool PoisonousBacterium::tumbleAttempt(sf::Time dt)
 {
     double lambda(0);
