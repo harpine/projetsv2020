@@ -29,9 +29,9 @@ public:
     virtual j::Value const& getConfig() const = 0;
     //permet de fixer la quantité du nutriment
     void setQuantity(Quantity newquantity);
-    //Retourne la quantité du nutriment
+    //retourne la quantité du nutriment
     Quantity getQuantity() const;
-    //Renvoie le nombre d'instances
+    //renvoie le nombre d'instances
     static int getCompteur();
 
     //Autres méthodes:
@@ -48,7 +48,7 @@ public:
     bool isDepleted() const;
 
     //Méthodes pour se nourrir:
-    //Calculent pour chaque type de bactérie la quantité cédée par le nutriment
+    //calculent pour chaque type de bactérie la quantité cédée par le nutriment
     virtual Quantity eatenBy(Bacterium& bact) = 0;
     virtual Quantity eatenBy(SimpleBacterium& bact) = 0;
     virtual Quantity eatenBy(TwitchingBacterium& bact) = 0;

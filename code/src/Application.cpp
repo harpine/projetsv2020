@@ -261,7 +261,7 @@ void Application::run()
                 getStats().update(dt);
                 onUpdate(dt);
                 --nbCycles;
-                mLab->setTime(dt);
+                mLab->addTime(dt);
 
             }
         }

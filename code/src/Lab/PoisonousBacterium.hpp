@@ -16,6 +16,7 @@ public:
     void updateStats() override;
 
     //Getters & setters:
+
     //permet de simplifier l'accès aux configurations
     virtual j::Value& getConfig() const override;
     j::Value& getWorseConfig() const;
@@ -30,7 +31,7 @@ public:
     static double getTotalSpeed();
     //renvoie le nombre d'instances existantes
     static int getCompteur();
-    //Renvoie la quantité d'énergie perdue en déposant du poison
+    //renvoie la quantité d'énergie perdue en déposant du poison
     //(quantity de poison à déposer * facteur)
     double getEnergylosedByPoison() const;
 
@@ -38,22 +39,22 @@ public:
 
     //calcul de la force
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
-    //permet à une bactérie de se déplacer
+    //permet à la bactérie de se déplacer
     virtual void move(sf::Time dt) override;
-    //copie une bactérie
+    //copie la bactérie
     virtual Bacterium* copie() override;
-    //représentation graphique de la bactérie simple
+    //représentation graphique de la bactérie poisonneuse
     virtual void drawOn(sf::RenderTarget& target) const override;
-    //permet de mettre à jour les données et actions de la bactérie simple
+    //permet de mettre à jour les données et actions de la bactérie poisonneuse
     virtual void update(sf::Time dt) override;
     //renvoie la quantité de nutriment consommée en fonction du nutriment
     virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
-    //Renvoie les effets du poison sur les bactéries selon leur type
+    //renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison) override;
-    //Renvoie true si la bactérie peut poser du poison
+    //renvoie true si la bactérie peut poser du poison
     bool canPoison(sf::Time dt);
-    //Pose un poison
+    //pose un poison
     void putPoison();
 
 private:
@@ -61,7 +62,7 @@ private:
     double probability_;
     //compteur stockant le temps écoulé depuis le dernier basculement
     sf::Time tumbleClock_;
-    //compteur stocka
+    //compteur stockant le temps écoulé depuis la dernière pose de poison
     sf::Time poisonClock_;
     //compteur du nombre d'instances existantes
     static int compteur_;

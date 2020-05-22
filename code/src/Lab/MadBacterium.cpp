@@ -122,7 +122,9 @@ void MadBacterium::drawOn(sf::RenderTarget& target) const
     madBacteriumSprite.setScale(2 * getRadius() / texture.getSize().x, 2 * getRadius() / texture.getSize().y);
     target.draw(madBacteriumSprite);
 
-    if (isDebugOn()) { //mode debug
+    if (isDebugOn())
+    {
+        //mode debug
         sf::Text const texte = buildText(std::to_string(int(getEnergy())),
                                          Vec2d(getPosition().x - 5, getPosition().y + getRadius() + 10),
                                          getAppFont(), 15, sf::Color::Black);
@@ -135,7 +137,8 @@ void MadBacterium::eat(bool isEating)
     if (getAppEnv().getBacteriumColliding(*this) != nullptr
         and !getAbstinence()
         and getMealClock() >= getMealDelay()
-        and !isEating) {
+        and !isEating)
+    {
         Quantity eaten(getAppEnv().getBacteriumColliding(*this)->attackedBy(*this));
         setEnergy(getEnergy() + eaten);
         setMealClock(sf::Time::Zero);
@@ -149,9 +152,10 @@ void MadBacterium::move(sf::Time dt)
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
     //distance renvoie length des 2 Vec2d
 
-    if ((result.position - getPosition()).lengthSquared() > 0.001) {
+    if ((result.position - getPosition()).lengthSquared() > 0.001)
+    {
         CircularBody::move((result.position - getPosition()));
-        //move est moins intuitif mais meilleur pour la hiérarchie des classes
+        //move est moins intuitif que setPosition() mais meilleur pour la hiérarchie des classes
     }
 
     if(tumbleAttempt(dt)) {
@@ -178,9 +182,12 @@ bool MadBacterium::tumbleAttempt(sf::Time dt)
 
 void MadBacterium::tumble()
 {
-    if (getConfig()["tumble"]["algo"].toString() == "single random vector") {
+    if (getConfig()["tumble"]["algo"].toString() == "single random vector")
+    {
         setDirection(Vec2d::fromRandomAngle());
-    } else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos) {
+    }
+    else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos)
+    {
         bestOfN(std::stoi(getConfig()["tumble"]["algo"].toString().substr(8, 2)));
         //permet de trouver une meilleure position parmis le nombre donné (entre 1 et 99)
     }

@@ -52,7 +52,7 @@ Poison* Lab::getPoisonColliding(const CircularBody &body) const
     return petridish_.getPoisonColliding(body);
 }
 
-void Lab::setTime(const sf::Time toAdd)
+void Lab::addTime(const sf::Time toAdd)
 {
     time_ += toAdd;
 }

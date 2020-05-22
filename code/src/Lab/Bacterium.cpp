@@ -21,14 +21,14 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
 {}
 
 Bacterium::Bacterium(const Bacterium& other)
-    :CircularBody(other),
-     color_(other.color_),
-     direction_(other.direction_),
-     angle_(other.angle_),
-     abstinence_(other.abstinence_),
-     energy_(other.energy_),
-     mutableParameters_(other.mutableParameters_),
-     score_(other.score_)
+    : CircularBody(other),
+      color_(other.color_),
+      direction_(other.direction_),
+      angle_(other.angle_),
+      abstinence_(other.abstinence_),
+      energy_(other.energy_),
+      mutableParameters_(other.mutableParameters_),
+      score_(other.score_)
 {}
 
 //Getters et setters:
@@ -69,9 +69,12 @@ Vec2d Bacterium::getDirection() const
 
 void Bacterium::addProperty(const std::string& key,MutableNumber mutablenumber)
 {
-    if (mutableParameters_.find(key) != mutableParameters_.end()) {
+    //find renvoie la paire reliée à la clé
+    if (mutableParameters_.find(key) != mutableParameters_.end())
+    {
         throw std::invalid_argument("ce paramètre existe déjà");
     }
+
     mutableParameters_[key] = mutablenumber;
 }
 
@@ -80,7 +83,9 @@ MutableNumber Bacterium::getProperty(const std::string& key) const
     auto pair = mutableParameters_.find(key);
     //pair -> first = key, pair->second = valeur
 
-    if (pair == mutableParameters_.end()) { //si key n'existe pas
+    if (pair == mutableParameters_.end())
+    {
+        //si key n'existe pas
         throw std::out_of_range("ce paramètre mutable n'existe pas");
     }
 
@@ -186,13 +191,15 @@ void Bacterium::eat(bool isEating)
 {
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
         and !abstinence_
-        and clock_ >= getMealDelay() and !isEating) {
+        and clock_ >= getMealDelay() and !isEating)
+    {
         Quantity eaten(getAppEnv().getNutrimentColliding(*this)->eatenBy(*this));
         energy_ += eaten;
         isEating = true;
     }
 
-    if (isEating) {
+    if (isEating)
+    {
         clock_ = sf::Time::Zero ;
     }
 }
@@ -200,9 +207,11 @@ void Bacterium::eat(bool isEating)
 bool Bacterium::eatPoison()
 {
     bool isEating(false);
-    if (getAppEnv().getPoisonColliding(*this) != nullptr and clock_ >= getMealDelay()) {
+    if (getAppEnv().getPoisonColliding(*this) != nullptr and clock_ >= getMealDelay())
+    {
         Quantity eaten(getAppEnv().getPoisonColliding(*this)->eatenBy(*this));
-        if (eaten> 0) {
+        if (eaten > 0)
+        {
             energy_ -= (eaten);
             isEating = true;
         }
@@ -212,7 +221,8 @@ bool Bacterium::eatPoison()
 
 Bacterium* Bacterium::clone()
 {
-    if (energy_ >= getDivisionEnergy()) {
+    if (energy_ >= getDivisionEnergy())
+    {
         energy_/=2;
         Bacterium* nouvelle(copie());
         nouvelle->mutate();
@@ -248,10 +258,12 @@ void Bacterium::bestOfN(int n)
     Vec2d finalDirection(direction_);
     double score(score_);
 
-    for (int i(0); i < n ; ++i) {
+    for (int i(0); i < n ; ++i)
+    {
         direction = Vec2d::fromRandomAngle().normalised();
 
-        if (getAppEnv().getPositionScore(getPosition()+direction) > score) {
+        if (getAppEnv().getPositionScore(getPosition()+direction) > score)
+        {
             score = getAppEnv().getPositionScore(getPosition()+direction);
             finalDirection = direction;
         }
@@ -263,7 +275,8 @@ Quantity Bacterium::takeEnergy(const Quantity totake)
 {
     double taken(energy_);
 
-    if (totake <= taken) {
+    if (totake <= taken)
+    {
         taken = totake;
     }
 

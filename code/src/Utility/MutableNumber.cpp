@@ -33,7 +33,8 @@ void MutableNumber::set(double value)
 //Autres méthodes:
 void MutableNumber::mutate()
 {
-    if (bernoulli(probability_)) {
+    if (bernoulli(probability_))
+    {
         value_ = controlvalue(value_ + normal(0, sigma_*sigma_));
     }
 }
@@ -72,9 +73,12 @@ MutableNumber MutableNumber::positive(j::Value const& config, bool hasMax, doubl
 //Méthode privée:
 double MutableNumber::controlvalue(double value)
 {
-    if (inf_ and value<infval_) {
+    if (inf_ and value<infval_)
+    {
         value= infval_;
-    } else if (sup_ and value > supval_) {
+    }
+    else if (sup_ and value > supval_)
+    {
         value = supval_;
     }
 

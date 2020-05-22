@@ -39,7 +39,7 @@ protected:
     void setRadius(const double radius);
 
     //Autre méthode:
-    //déplace le centre du cercle de la "distance" v
+    //déplace le centre du vecteur v
     void move(const Vec2d& v);
 
 private:

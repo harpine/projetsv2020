@@ -24,7 +24,8 @@ sf::Color MutableColor::get() const
 //Autre méthode:
 void MutableColor::mutate()
 {
-    for (auto& color: rgba_) {
+    for (auto& color: rgba_)
+    {
         color.mutate();
     }
 }

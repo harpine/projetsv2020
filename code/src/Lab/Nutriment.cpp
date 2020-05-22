@@ -79,7 +79,9 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
     nutrimentSprite.setScale(2 * getRadius() / texture.getSize().x, 2 * getRadius() / texture.getSize().y);
     target.draw(nutrimentSprite);
 
-    if (isDebugOn()) { //mode debug
+    if (isDebugOn())
+    {
+        //mode debug
         sf::Text const texte = buildText(std::to_string((int)(quantity_)),
                                          Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
                                          getAppFont(), 15, sf::Color::Black);
@@ -89,7 +91,8 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
 
 void Nutriment::update(sf::Time dt)
 {
-    if (canGrow()) {
+    if (canGrow())
+    {
         double speed(getConfig()["growth"][s::SPEED].toDouble());
         auto growth = speed * dt.asSeconds();
         quantity_ += growth;

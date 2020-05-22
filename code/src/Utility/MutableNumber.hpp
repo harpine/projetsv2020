@@ -21,6 +21,7 @@ public:
     void set(double value);
 
     //Autres méthodes:
+
     // modifie la valeur du nombre de façon aléatoire
     void mutate();
 

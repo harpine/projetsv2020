@@ -48,7 +48,7 @@ void Poison::eatPoison()
     setRadius(quantity_);
 }
 
-bool Poison::iseaten()
+bool Poison::iseaten() const
 {
     return quantity_<= 0;
 }
@@ -74,7 +74,8 @@ void Poison::drawOn(sf::RenderTarget& target) const
 Quantity Poison::eatenBy(Bacterium& bact)
 {
     Quantity quantity(quantity_ * bact.eatablePoison(*this));
-    if  (quantity >0) {
+    if  (quantity >0)
+    {
         eatPoison();
     }
     return (quantity);

@@ -26,7 +26,7 @@ public:
     static int getCompteur();
     //renvoie la somme des vitesses des swarmbacteriums existantes
     static double getTotalSpeed();
-    //Renvoie les effets du poison sur les bactéries selon leur type
+    //renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison) override;
 
     //Autres méthodes:
@@ -39,7 +39,7 @@ public:
     virtual void move(sf::Time dt) override;
     //modélise la force d'attraction des bactéries
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
-    //renvoie la quantité de nutriment consommée en fonction du nutriment
+    //renvoient la quantité de nutriment consommée en fonction du nutriment
     virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
 

@@ -82,7 +82,7 @@ Quantity TwitchingBacterium::getDisplacementEnergy() const
 
 j::Value& TwitchingBacterium::getTentacleSpeed() const
 {
-    return getConfig()["tentacle"]["speed"];
+    return getConfig()["tentacle"][s::SPEED];
 }
 
 j::Value& TwitchingBacterium::getTentacleLength() const
@@ -97,7 +97,8 @@ int TwitchingBacterium::getCompteur()
 
 double TwitchingBacterium::getAverageTentacleLength()
 {
-    if (compteur_ == 0) {
+    if (compteur_ == 0)
+    {
         return 0;
     }
     return (totalTentacleLength_ / compteur_);
@@ -105,7 +106,8 @@ double TwitchingBacterium::getAverageTentacleLength()
 
 double TwitchingBacterium::getAverageTentacleSpeed()
 {
-    if (compteur_ == 0) {
+    if (compteur_ == 0)
+    {
         return 0;
     }
     return (totalTentacleSpeed_ / compteur_);
@@ -140,32 +142,39 @@ void TwitchingBacterium::moveGrip(const Vec2d& v)
 
 void TwitchingBacterium::move(sf::Time dt)
 {
-    switch (mystate_) {
-    case IDLE : {
-        idle();
-        break;
-    }
-    case WAIT_TO_DEPLOY : {
-        waitToDeploy();
-        break;
-    }
-    case DEPLOY : {
-        deploy(dt);
-        break;
-    }
-    case ATTRACT : {
-        attract(dt);
-        break;
-    }
-    case RETRACT : {
-        retract(dt);
-        break;
-    }
+    switch (mystate_)
+    {
+        case IDLE :
+        {
+            idle();
+            break;
+        }
+        case WAIT_TO_DEPLOY :
+        {
+            waitToDeploy();
+            break;
+        }
+        case DEPLOY :
+        {
+            deploy(dt);
+            break;
+        }
+        case ATTRACT :
+        {
+            attract(dt);
+            break;
+        }
+        case RETRACT :
+        {
+            retract(dt);
+            break;
+        }
 
-    case EAT : {
-        eatingState();
-        break;
-    }
+        case EAT :
+        {
+            eatingState();
+            break;
+        }
     }
 }
 

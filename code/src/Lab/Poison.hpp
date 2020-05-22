@@ -26,19 +26,21 @@ public:
     //permet d'accéder aux configs des poisons sans
     //devoir écrire ["poison"]
     j::Value& getConfig() const;
-    //Retourne la quantité du nutriment
+    //retourne la quantité du nutriment
     Quantity getQuantity() const;
     //permet de manger le poison
     void eatPoison();
-    //Renvoie si le poison a été mangé ou non
-    bool iseaten();
-    //Renvoie le nombre d'instances
+    //renvoie si le poison a été mangé ou non
+    bool iseaten() const;
+    //renvoie le nombre d'instances
     static int getCompteur();
+
     //Autres méthodes:
+    //permet de dessiner un poison
     void drawOn(sf::RenderTarget &target) const override;
-    //Calculent pour chaque type de bactérie la quantité cédée par le poison
+    //calculent pour chaque type de bactérie la quantité cédée par le poison
     virtual Quantity eatenBy(Bacterium& bact);
-    //appel eatablePoison qui appelle par polymorphisme les eatenBy ci dessous
+    //(appelle eatablePoison qui appelle par polymorphisme les eatenBy ci dessous)
     virtual Quantity eatenBy(SimpleBacterium& bact);
     virtual Quantity eatenBy(TwitchingBacterium& bact);
     virtual Quantity eatenBy(SwarmBacterium& bact);

@@ -21,7 +21,7 @@ public:
     j::Value& getConfig() const;
     //retourne l'id du groupe
     std::string getId() const;
-    //retourner si la bactérie en paramètre est leader ou non
+    //retourne si la bactérie en paramètre est leader ou non
     bool isLeader(const SwarmBacterium* swarmbacterium) const;
     //retourne si le swarm a un leader ou non
     bool hasNoLeader();
