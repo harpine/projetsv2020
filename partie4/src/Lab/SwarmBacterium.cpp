@@ -10,12 +10,12 @@
 //Constructeur et destructeur:
 SwarmBacterium::SwarmBacterium(const Vec2d& poscenter, Swarm*& swarm)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
-     getConfig()["energy"]["min"].toDouble()),
-     poscenter,
-     Vec2d::fromRandomAngle(),
-     uniform(getConfig()["radius"]["max"].toDouble(),
-     getConfig()["radius"]["min"].toDouble()),
-     swarm->getInitialColor()),
+                       getConfig()["energy"]["min"].toDouble()),
+               poscenter,
+               Vec2d::fromRandomAngle(),
+               uniform(getConfig()["radius"]["max"].toDouble(),
+                       getConfig()["radius"]["min"].toDouble()),
+               swarm->getInitialColor()),
      swarm_(swarm)
 {
     swarm_->addSwarmBacterium(this);
@@ -49,8 +49,7 @@ void SwarmBacterium::drawOn(sf::RenderTarget& target) const
 {
     Bacterium::drawOn(target);
 
-    if (isDebugOn() and swarm_->isLeader(this))
-    {
+    if (isDebugOn() and swarm_->isLeader(this)) {
         auto border = buildAnnulus(getPosition(), getRadius() + 20, sf::Color::Red, 3);
         target.draw(border);
         swarm_->drawDebug(target); //lignes entre bactéries d'un même swarm
@@ -64,22 +63,19 @@ void SwarmBacterium::move(sf::Time dt)
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
     //distance renvoie length des 2 Vec2d
 
-    if ((result.position - getPosition()).lengthSquared() > 0.001)
-    {
+    if ((result.position - getPosition()).lengthSquared() > 0.001) {
         this->CircularBody::move((result.position - getPosition()));
         //move est moins intuitif mais meilleur pour la hiérarchie des classes
     }
 
-    if (swarm_->isLeader(this))
-    {
+    if (swarm_->isLeader(this)) {
         bestOfN(20);
     }
 }
 
 Vec2d SwarmBacterium::f(Vec2d position, Vec2d speed) const
 {
-    if (swarm_->hasNoLeader())
-    {
+    if (swarm_->hasNoLeader()) {
         return Vec2d();
     }
 

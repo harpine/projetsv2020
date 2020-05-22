@@ -19,11 +19,10 @@ Bacterium::Bacterium(const Quantity energy, const Vec2d& poscenter,
 {}
 
 Bacterium::Bacterium(const Bacterium& other)
-    :Bacterium(other.energy_ ,other.getPosition(), other.direction_,
+    :Bacterium(other.energy_,other.getPosition(), other.direction_,
                other.getRadius(),other.color_)
 {
-    for (auto pair : other.mutableParameters_)
-    {
+    for (auto pair : other.mutableParameters_) {
         mutableParameters_ = other.mutableParameters_;
     }
 }
@@ -56,8 +55,7 @@ Vec2d Bacterium::getDirection() const
 
 void Bacterium::addProperty(const std::string& key,MutableNumber mutablenumber)
 {
-    if (mutableParameters_.find(key) != mutableParameters_.end())
-    {
+    if (mutableParameters_.find(key) != mutableParameters_.end()) {
         throw std::invalid_argument("ce paramètre existe déjà");
     }
     mutableParameters_[key] = mutablenumber;
@@ -68,8 +66,7 @@ MutableNumber Bacterium::getProperty(const std::string& key) const
     auto pair = mutableParameters_.find(key);
     //pair -> first = key, pair->second = valeur
 
-    if (pair == mutableParameters_.end()) //si key n'existe pas
-    {
+    if (pair == mutableParameters_.end()) { //si key n'existe pas
         throw std::out_of_range("ce paramètre mutable n'existe pas");
     }
     return pair->second;
@@ -101,10 +98,9 @@ void Bacterium::drawOn(sf::RenderTarget& target) const
     target.draw(circle);
     //Dessine une bactérie circulaire.
 
-    if (isDebugOn()) //mode debug
-    {
+    if (isDebugOn()) { //mode debug
         sf::Text const texte = buildText(std::to_string(int(energy_)),
-                            Vec2d(getPosition().x - 5, getPosition().y + getRadius() + 10),
+                                         Vec2d(getPosition().x - 5, getPosition().y + getRadius() + 10),
                                          getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
     }
@@ -115,11 +111,11 @@ void Bacterium::update(sf::Time dt)
     clock_ += dt;
     move(dt);
     if (getAppEnv().doesCollideWithDish(*this) and
-            (getPosition()-getAppEnv().getCenter()).dot(direction_)/
-            ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) < 1 and
-            (getPosition()-getAppEnv().getCenter()).dot(direction_)/
-            ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) > 0)
-    //pour améliorer les collisions en évitant le problème des bactéries blockées dans la paroi
+        (getPosition()-getAppEnv().getCenter()).dot(direction_)/
+        ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) < 1 and
+        (getPosition()-getAppEnv().getCenter()).dot(direction_)/
+        ((getPosition()-getAppEnv().getCenter()).length()*direction_.length()) > 0)
+        //pour améliorer les collisions en évitant le problème des bactéries blockées dans la paroi
     {
         direction_ *= -1;
     }
@@ -130,9 +126,8 @@ void Bacterium::update(sf::Time dt)
 void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJOUTE
 {
     if (getAppEnv().getNutrimentColliding(*this) != nullptr
-            and !abstinence_
-            and clock_ >= getMealDelay())
-    {
+        and !abstinence_
+        and clock_ >= getMealDelay()) {
         energy_ += getAppEnv().getNutrimentColliding(*this)->takeQuantity(getMealQuantity());
         clock_ = sf::Time::Zero ;
     }
@@ -140,8 +135,7 @@ void Bacterium::eat()   //VOIR SI POLYMORPHISME FONCTIONNE ET SI DT DOIT ETRE AJ
 
 Bacterium* Bacterium::clone()
 {
-    if (energy_ >= getDivisionEnergy())
-    {
+    if (energy_ >= getDivisionEnergy()) {
         energy_/=2;
         Bacterium* nouvelle(copie());
         nouvelle->mutate();
@@ -153,7 +147,7 @@ Bacterium* Bacterium::clone()
 
 bool Bacterium::death() const
 {
-   return (energy_ <= 0) ;
+    return (energy_ <= 0) ;
 }
 
 void Bacterium::consumeEnergy(const Quantity qt)
@@ -163,8 +157,7 @@ void Bacterium::consumeEnergy(const Quantity qt)
 
 void Bacterium::mutate()
 {
-    for (auto& pair: mutableParameters_)
-    {
+    for (auto& pair: mutableParameters_) {
         pair.second.mutate();
     }
     color_.mutate();

@@ -10,8 +10,7 @@ Nutriment::Nutriment(const Quantity quantity, const Vec2d& poscenter)
 Quantity Nutriment::takeQuantity(const Quantity totake)
 {
     double taken(quantity_);
-    if (totake <= quantity_)
-    {
+    if (totake <= quantity_) {
         taken = totake;
     }
     quantity_ -= taken;
@@ -21,12 +20,9 @@ Quantity Nutriment::takeQuantity(const Quantity totake)
 
 void Nutriment::setQuantity(Quantity newquantity)
 {
-    if (newquantity >= 0)
-    {
+    if (newquantity >= 0) {
         quantity_= newquantity;
-    }
-    else
-    {
+    } else {
         quantity_ = 0;
     }
     setRadius(quantity_);
@@ -47,10 +43,9 @@ void Nutriment::drawOn(sf::RenderTarget& target) const
     nutrimentSprite.setScale(2 * getRadius() / texture.getSize().x, 2 * getRadius() / texture.getSize().y);
     target.draw(nutrimentSprite);
 
-    if (isDebugOn()) //mode debug
-    {
+    if (isDebugOn()) { //mode debug
         sf::Text const texte = buildText(std::to_string((int)(quantity_)),
-                            Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
+                                         Vec2d(getPosition().x -5, getPosition().y +  getRadius()+10),
                                          getAppFont(), 15, sf::Color::Black);
         target.draw(texte);
     }
@@ -66,10 +61,10 @@ void Nutriment::update(sf::Time dt)
     if (canGrow()) //fait les tests avant la croissance et non après...
         //(le nutriment peut grandir un pas de trop) à améliorer?
     {
-    double speed(getConfig()["growth"]["speed"].toDouble());
-    auto growth = speed * dt.asSeconds();
-    quantity_ += growth;
-    setRadius(quantity_);
+        double speed(getConfig()["growth"]["speed"].toDouble());
+        auto growth = speed * dt.asSeconds();
+        quantity_ += growth;
+        setRadius(quantity_);
     }
 }
 

@@ -16,9 +16,9 @@
 //Constructeur et destructeur:
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
-     temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble()),
-     exponent_((getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble()
-                + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2)
+      temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble()),
+      exponent_((getAppConfig()["petri dish"]["gradient"]["exponent"]["max"].toDouble()
+                 + getAppConfig()["petri dish"]["gradient"]["exponent"]["min"].toDouble()) / 2)
 {}
 
 PetriDish::~PetriDish()
@@ -39,10 +39,8 @@ double PetriDish::getGradientExponent() const
 
 Swarm* PetriDish::getSwarmWithId(const std::string& id) const
 {
-    for (auto swarm: swarms_)
-    {
-        if (swarm->getId() == id)
-        {
+    for (auto swarm: swarms_) {
+        if (swarm->getId() == id) {
             return swarm;
         }
     }
@@ -53,10 +51,8 @@ Swarm* PetriDish::getSwarmWithId(const std::string& id) const
 //Ajouts:
 bool PetriDish::addBacterium(Bacterium* bacterium)
 {
-    if (bacterium != nullptr)
-    {
-        if (contains(*bacterium))
-        {
+    if (bacterium != nullptr) {
+        if (contains(*bacterium)) {
             bacteria_.push_back(bacterium);
             return true;
         }
@@ -70,10 +66,8 @@ bool PetriDish::addBacterium(Bacterium* bacterium)
 
 bool PetriDish::addNutriment(Nutriment* nutriment)
 {
-    if (nutriment != nullptr)
-    {
-        if (contains(*nutriment))
-        {
+    if (nutriment != nullptr) {
+        if (contains(*nutriment)) {
             nutriments_.push_back(nutriment);
             return true;
         }
@@ -87,8 +81,7 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
 
 void PetriDish::addSwarm(Swarm *swarm)
 {
-    if (swarm != nullptr)
-    {
+    if (swarm != nullptr) {
         swarms_.push_back(swarm);
     }
 }
@@ -96,10 +89,8 @@ void PetriDish::addSwarm(Swarm *swarm)
 //Autres méthodes:
 Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
 {
-    for (auto& nutriment : nutriments_)
-    {
-        if (nutriment->isColliding(body))
-        {
+    for (auto& nutriment : nutriments_) {
+        if (nutriment->isColliding(body)) {
             return nutriment;
         }
     }
@@ -109,12 +100,10 @@ Nutriment* PetriDish::getNutrimentColliding(const CircularBody& body) const
 
 void PetriDish::update(sf::Time dt)
 {
-    for (auto& nutriment : nutriments_)
-    {
+    for (auto& nutriment : nutriments_) {
         nutriment->update(dt);
 
-        if ((*nutriment).isDepleted())
-        {
+        if ((*nutriment).isDepleted()) {
             delete nutriment;
             nutriment = nullptr;
         }
@@ -124,12 +113,10 @@ void PetriDish::update(sf::Time dt)
 
     std::vector<Bacterium*> cloned;
 
-    for (auto& bacterium : bacteria_)
-    {
+    for (auto& bacterium : bacteria_) {
         bacterium->update(dt);
         cloned.push_back(bacterium->clone());
-        if (bacterium->isDead())
-        {
+        if (bacterium->isDead()) {
             delete bacterium;
             bacterium = nullptr;
         }
@@ -140,8 +127,7 @@ void PetriDish::update(sf::Time dt)
 
     bacteria_.erase(std::remove(bacteria_.begin(), bacteria_.end(), nullptr), bacteria_.end());
 
-    for (auto& swarm: swarms_)
-    {
+    for (auto& swarm: swarms_) {
         swarm->updateLeader();
     }
 }
@@ -151,12 +137,10 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
     auto border = buildAnnulus(getPosition(), getRadius(), sf::Color::Black, 5);
     targetWindow.draw(border);
 
-    for (size_t i(0); i< nutriments_.size(); ++i)
-    {
+    for (size_t i(0); i< nutriments_.size(); ++i) {
         nutriments_[i]->drawOn(targetWindow);
     }
-    for (size_t i(0); i< bacteria_.size(); ++i)
-    {
+    for (size_t i(0); i< bacteria_.size(); ++i) {
         bacteria_[i]->drawOn(targetWindow);
     }
 
@@ -165,21 +149,18 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
 void PetriDish::reset()
 {
     //Désalloue la mémoire occupée par les bactéries, puis vide l'ensemble des bactéries.
-    for (auto& bacterium : bacteria_)
-    {
+    for (auto& bacterium : bacteria_) {
         delete bacterium;
     }
     bacteria_.clear();
 
     //Désalloue la mémoire occupée par les nutriments, puis vide l'ensemble des nutriments.
-    for (auto& nutriment : nutriments_)
-    {
+    for (auto& nutriment : nutriments_) {
         delete nutriment;
     }
     nutriments_.clear();
 
-    for (auto& swarm : swarms_)
-    {
+    for (auto& swarm : swarms_) {
         delete swarm;
     }
     swarms_.clear();
@@ -196,7 +177,7 @@ void PetriDish::increaseTemperature()
 
 void PetriDish::decreaseTemperature()
 {
-  temperature_ -= getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
+    temperature_ -= getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
 }
 
 void PetriDish::resetTemperature()
@@ -209,8 +190,7 @@ double PetriDish::getPositionScore(const Vec2d& p) const
 {
     double score(0);
 
-    for (auto& nutriment : nutriments_)
-    {
+    for (auto& nutriment : nutriments_) {
         score += nutriment->getQuantity() / std::pow((distance(p, nutriment->getPosition())), exponent_);
     }
 
@@ -235,48 +215,38 @@ void PetriDish::resetGradientExponent()
 //Pour les statistiques:
 std::unordered_map<std::string, double> PetriDish::fetchData(const std::string & title) const
 {
-    if (title == s::GENERAL)
-    {
+    if (title == s::GENERAL) {
         int simple(SimpleBacterium::getCompteur());
         int twitching(TwitchingBacterium::getCompteur());
         int swarmbact(SwarmBacterium::getCompteur());
         int nutriment(Nutriment::getCompteur());
         std::unordered_map<std::string, double> new_data;
         new_data = {{"simple bacteria", simple}, {"twitching bacteria", twitching},
-                    {"swarm bacteria", swarmbact},{"nutriment sources", nutriment},
-                    {"temperature", temperature_}};
+            {"swarm bacteria", swarmbact},{"nutriment sources", nutriment},
+            {"temperature", temperature_}
+        };
         return new_data;
-    }
-    else if (title == s::NUTRIMENT_QUANTITY)
-    {
+    } else if (title == s::NUTRIMENT_QUANTITY) {
         Quantity totalQuantity(0);
-        for (auto& nutriment : nutriments_)
-        {
+        for (auto& nutriment : nutriments_) {
             totalQuantity += nutriment->getQuantity();
         }
         std::unordered_map<std::string, double> new_data;
         new_data = {{"nutriment quantity", totalQuantity}};
         return new_data;
-    }
-    else if (title == s::SIMPLE_BACTERIA)
-    {
+    } else if (title == s::SIMPLE_BACTERIA) {
         double averagebetter(SimpleBacterium::getAverageBetter());
         double averageworse(SimpleBacterium::getAverageWorse());
         return std::unordered_map<std::string, double>({{"tumble better prob", averagebetter},{"tumble worse prob", averageworse}});
-    }
-    else if (title == s::TWITCHING_BACTERIA)
-    {
+    } else if (title == s::TWITCHING_BACTERIA) {
         double tentacleLength(TwitchingBacterium::getAverageTentacleLength());
         double tentacleSpeed(TwitchingBacterium::getAverageTentacleSpeed());
         return std::unordered_map<std::string, double> ({{"tentacle length", tentacleLength}, {"tentacle speed", tentacleSpeed}});
-    }
-    else if (title == s::BACTERIA)
-    {
+    } else if (title == s::BACTERIA) {
         double speed(0);
-        if (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur() != 0)
-        {
+        if (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur() != 0) {
             speed = (SimpleBacterium::getTotalSpeed() + SwarmBacterium::getTotalSpeed() + TwitchingBacterium::getTotalSpeed()) /
-                         (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur());
+                    (SimpleBacterium::getCompteur() + SwarmBacterium::getCompteur() + TwitchingBacterium::getCompteur());
         }
 
         return std::unordered_map<std::string, double>({{"speed", speed}});

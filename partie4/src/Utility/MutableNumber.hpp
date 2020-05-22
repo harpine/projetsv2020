@@ -32,7 +32,7 @@ public:
     static MutableNumber probability(j::Value const& config);
     //créé un MutableNumber dont la valeur minimale est plafonnée à 0
     static MutableNumber positive(double initialValue, double mutationProbability,
-             double sigma, bool hasMax=false, double max=0.);
+                                  double sigma, bool hasMax=false, double max=0.);
     //fait la même chose que la précédente mais en tirant les autres valeur de Config
     static MutableNumber positive(j::Value const& config, bool hasMax=false, double max=0.);
 

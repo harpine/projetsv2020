@@ -6,8 +6,8 @@
 //Constructeur:
 Lab::Lab()
     :petridish_(getApp().getCentre(), (getApp().getLabSize().x * 0.95)/2)
-    /*Positonne l'assiette de pétri au centre de la fenêtre graphique
-    avec un diamètre occupant 95% de la largeur de la fenêtre */
+     /*Positonne l'assiette de pétri au centre de la fenêtre graphique
+     avec un diamètre occupant 95% de la largeur de la fenêtre */
 {}
 
 //Getters:
@@ -79,7 +79,7 @@ double Lab::getTemperature() const
     return petridish_.getTemperature();
 }
 
- void Lab::increaseTemperature()
+void Lab::increaseTemperature()
 {
     petridish_.increaseTemperature();
 }
