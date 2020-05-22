@@ -341,7 +341,7 @@ private:
     sf::RectangleShape helpBox;
 
     //Music
-    sf::Music music_;
+//    sf::Music music_;
     // display of stats
     bool isStatsOn;
 };
