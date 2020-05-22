@@ -36,7 +36,7 @@ public:
 
     //Getters et setters:
 
-    //renvoie l'energie nécessaire à la division
+    //renvoie l'énergie nécessaire à la division
     Quantity getDivisionEnergy() const;
     //renvoie le "meal" "delay"
     sf::Time getMealDelay() const;
@@ -50,80 +50,77 @@ public:
     virtual j::Value& getSpeedConfig() const;
     //renvoie la direction de la bactérie
     Vec2d getDirection() const;
-    //Ajouter un paramètre mutable
+    //ajoute un paramètre mutable
     virtual void addProperty(const std::string& key, MutableNumber mutablenumber);
-    //Permet de retrouver une valeur mutable associée à une clé donnée
+    //permet de retrouver une valeur mutable associée à une clé donnée
     virtual MutableNumber getProperty(const std::string& key) const;
-    //Met à jour la direction de la bactérie
+    //met à jour la direction de la bactérie
     void setDirection(const Vec2d& direction);
-    //Renvoie la couleur de la bactérie
+    //renvoie la couleur de la bactérie
     MutableColor getColor() const;
-    //Renvoie l'angle de la direction de la bactérie
+    //renvoie l'angle de la direction de la bactérie
     double getAngle() const;
-    //Met à jour l'angle de direction de la bactérie
+    //met à jour l'angle de direction de la bactérie
     void setAngle(const double angle);
-    //Méthode virtuelle pure. Chaque type de bactérie crée son raccourci
+    //méthode virtuelle pure. Chaque type de bactérie crée son raccourci
     //pour atteindre ses paramètres.
     virtual j::Value& getConfig() const = 0;
-    //Renvoie le score de la position de la bactérie
+    //renvoie le score de la position de la bactérie
     double getScore() const;
-    //Renvoie l'énergie d'une bactérie
+    //renvoie l'énergie d'une bactérie
     Quantity getEnergy() const;
-    //Renvoie l'énergie d'une bactérie selon son influence sur le gradient de bactérie.
-    //Méthode qui s'adapte à la bactérie en question en fonction de app.json
+    //renvoie l'énergie d'une bactérie selon son influence sur le gradient de bactérie.
+    //méthode qui s'adapte à la bactérie en question en fonction de app.json
     Quantity getEnergyForScore() const;
-    //Met à jour l'énergie
+    //met à jour l'énergie
     void setEnergy(Quantity energy);
-    //Renvoie le temps écoulé depuis le dernier repas
+    //renvoie le temps écoulé depuis le dernier repas
     sf::Time getMealClock() const;
-    //Met à jour le temps écoulé depuis le dernier repas
+    //met à jour le temps écoulé depuis le dernier repas
     void setMealClock(sf::Time newTime);
-    //Renvoie l'état d'abstinence
+    //renvoie l'état d'abstinence
     bool getAbstinence() const;
 
     //Autres méthodes:
 
-    //Met à jour le score à partir de la position de la bactérie
+    //met à jour le score à partir de la position de la bactérie
     void updateScore();
-    //Permet de représenter graphiquement un bactérie. Méthode virtuelle.
+    //permet de représenter graphiquement un bactérie
     virtual void drawOn(sf::RenderTarget& target) const;
-    //Calcule l'évolution d'une bactérie après un pas de temps.
-    //Méthode virtuelle.
+    //calcule l'évolution d'une bactérie après un pas de temps
     virtual void update(sf::Time dt);
-    //Calcule le dépplacement d'une bactérie après un pas de temps.
-    //Méthode virtuelle pure.
+    //calcule le déplacement d'une bactérie après un pas de temps
     virtual void move(sf::Time dt) = 0;
-    //Permet à la bactérie de se nourrir si possible dans l'assiette
-    virtual void eat(bool isEating); //le bool permet de gérer l'horloge hors de la fonction
-    //en tenant compte du poison
-    //Permet à la bactérie de manger du poison
+    //permet à la bactérie de se nourrir si possible dans l'assiette
+    //le bool permet de prendre le poison en compte devant le nutriment en cas de conflit
+    virtual void eat(bool isEating);
+    //permet à la bactérie de manger du poison
     bool eatPoison();
-    //Division de la bactérie en deux bactéries identiques.
+    //division de la bactérie en deux bactéries identiques.
     virtual Bacterium* clone();
-    //Indique si la bactérie est morte ou non, c'est-à-dire si son niveau
+    //indique si la bactérie est morte ou non, c'est-à-dire si son niveau
     //d'energie (energy_) est nul ou inférieur à 0.
     bool isDead() const;
-    //Décrémente l'energie de la bactérie d'une quantité donnée
+    //décrémente l'energie de la bactérie d'une quantité donnée
     void consumeEnergy(const Quantity qt);
-    //Mute la bactérie.
+    //mute la bactérie.
     void mutate();
-    //Permet de copier une bactérie
+    //permet de copier une bactérie
     virtual Bacterium* copie() = 0;
-    //Modifie la direction que prend la bactérie en fonction
+    //modifie la direction que prend la bactérie en fonction
     //du score de N possibilités
     virtual void bestOfN(int n);
-    //Permet de mimer un polymorphisme sur les bacteries dans les Nutriment.
-    //Renvoie la quantité prélevée au nutriment selon le type de bactérie.
-    //Méthode vitruelle pure.
+    //permet de mimer un polymorphisme sur les bacteries dans les Nutriment.
+    //renvoie la quantité prélevée au nutriment selon le type de bactérie.
     virtual Quantity eatableQuantity(NutrimentA& nutriment) = 0;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) = 0;
-    //Permet de diminuer l'énergie de la bactérie et renvoie la quantité
+    //permet de diminuer l'énergie de la bactérie et renvoie la quantité
     //effectivement disponible
     Quantity takeEnergy(const Quantity totake);
-    //Permet un comportement différencié d'attaque des MadBActerium vis-à-vis
+    //permet un comportement différencié d'attaque des MadBActeria vis-à-vis
     //du type de bactérie attaqué
     virtual Quantity attackedBy(MadBacterium& madbact);
-    //Renvoie les effets du poison sur les bactéries selon leur type
+    //renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison) = 0;
 
 private:

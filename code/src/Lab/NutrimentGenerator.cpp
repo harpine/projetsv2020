@@ -15,7 +15,8 @@ void NutrimentGenerator::update(sf::Time dt)
 {
     compteur_ += dt;
 
-    if (compteur_ > sf::seconds(getAppConfig()["generator"]["nutriment"]["delay"].toDouble())) {
+    if (compteur_ > sf::seconds(getAppConfig()["generator"]["nutriment"]["delay"].toDouble()))
+    {
         compteur_ = sf::Time::Zero;
         Nutriment* nutriment(choose());
         getAppEnv().addNutriment(nutriment);
@@ -28,7 +29,8 @@ Nutriment* NutrimentGenerator::choose()
     Vec2d center(normal(tailleEnv.x/2, (tailleEnv.x/4 *tailleEnv.x/4)),
                  normal(tailleEnv.y/2, (tailleEnv.y/4 *tailleEnv.y/4)));
 
-    if (bernoulli(getAppConfig()["generator"]["nutriment"]["prob"].toDouble())) {
+    if (bernoulli(getAppConfig()["generator"]["nutriment"]["prob"].toDouble()))
+    {
         Quantity quantity(uniform(getShortConfig().nutrimentA_min_qty,
                                   getShortConfig().nutrimentA_max_qty));
         return new NutrimentA(quantity, center);

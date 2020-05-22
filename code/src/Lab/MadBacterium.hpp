@@ -18,9 +18,9 @@ public:
     //Getters et setters:
     //permet de simplifier l'accès aux configurations
     virtual j::Value& getConfig() const override;
-    //Retourne le vecteur de vitesse
+    //retourne le vecteur de vitesse
     Vec2d getSpeedVector() const;
-    //Facilite l'accès aux configuration better et worse pour le basculement
+    //facilite l'accès aux configuration better et worse pour le basculement
     j::Value& getWorseConfig() const;
     j::Value& getBetterConfig() const;
     //renvoie le nombre d'instances existantes
@@ -35,27 +35,27 @@ public:
     //Autres méthodes:
     //dessine les bactéries dans la boîte de petri
     virtual void drawOn(sf::RenderTarget& target) const override;
-    //Permet à la bactérie de se nourrir d'autres bactéries si possible
+    //permet à la bactérie de se nourrir d'autres bactéries si possible
     virtual void eat(bool isEating) override;
-    //Permet de faire déplacer la bactérie en fonction du gradient de bactéries
+    //permet de faire déplacer la bactérie en fonction du gradient de bactéries
     virtual void move(sf::Time dt) override;
-    //Met à jour le score de bactéries
+    //met à jour le score de bactéries
     void updateBacteriaScore();
-    //Permet de copier une bactérie
+    //permet de copier une bactérie
     virtual Bacterium* copie() override;
-    //Méthodes retournant 0 est indifférente aux nutriments
+    //méthodes retournant 0 car est indifférente aux nutriments
     virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
     virtual Vec2d f(Vec2d position, Vec2d speed) const override;
-    //Permet de mettre à jour la bactérie et son gradient de bactérie
+    //permet de mettre à jour la bactérie et son gradient de bactérie
     virtual void update(sf::Time dt) override;
-    //Redefinition polymorphique de bestOfN par rapport au gradient
+    //redéfinition polymorphique de bestOfN par rapport au gradient
     //de bactéries à présent
     virtual void bestOfN(int n) override;
-    //Permet un comportement différencié d'attaque des MadBacteria vis-à-vis
+    //permet un comportement différencié d'attaque des MadBacteria vis-à-vis
     //des MadBacteria elles-mêmes
     virtual Quantity attackedBy(MadBacterium& madbact) override;
-    //Renvoie les effets du poison sur les bactéries selon leur type
+    //renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison) override;
 
 private:

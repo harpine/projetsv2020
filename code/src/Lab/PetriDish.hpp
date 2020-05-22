@@ -18,28 +18,28 @@ class PetriDish : public CircularBody, public Drawable, public Updatable
 public:
     //Constructeurs et destructeurs:
 
-    //Constructeur
+    //constructeur
     PetriDish(const Vec2d& poscenter, const double radius);
-    //Interdiction de copie d'une assiette de pétri
+    //interdiction de copie d'une assiette de pétri
     PetriDish(const PetriDish& p) = delete;
-    //Destruction de l'assiette de pétri ainsi que des nutriments et bactéries qui l'habitent
+    //destruction de l'assiette de pétri ainsi que des nutriments et bactéries qui l'habitent
     ~PetriDish();
 
-    //Getters et setters:
+    //Getters:
     double getTemperature() const;
     double getGradientExponent() const;
     Swarm* getSwarmWithId(const std::string& id) const;
 
-    //Surcharges d'operateurs:
+    //Surcharges d'opérateurs:
 
-    //Interdiction d'affectation entre assiettes de pétri
+    //interdiction d'affectation entre assiettes de pétri
     PetriDish& operator=(const PetriDish& p) = delete;
 
     //Ajouts:
 
-    //Ajoute une bactérie à l'ensemble de bactéries de l'assiette
+    //ajoute une bactérie à l'ensemble de bactéries de l'assiette
     bool addBacterium(Bacterium* bacterium);
-    //Ajoute un nutriment à l'ensemble des nutriments de l'assiette
+    //ajoute un nutriment à l'ensemble des nutriments de l'assiette
     bool addNutriment(Nutriment* nutriment);
     //ajoute un swarm à à l'ensemble des groupes (swarms) de l'assiette
     void addSwarm (Swarm* swarm);
@@ -58,38 +58,38 @@ public:
     Poison* getPoisonColliding(const CircularBody& body) const;
     //retourne si un spray est en collision avec body
     bool doesCollideWithSpray(const CircularBody& body) const;
-    //Fait évoluer l'assiette de pétri à chaque intervalle de temps
+    //fait évoluer l'assiette de pétri à chaque intervalle de temps
     void update(sf::Time dt);
-    //Représentation graphique de l'assiette de pétri et de ses contenants
+    //représentation graphique de l'assiette de pétri et de ses contenants
     void drawOn(sf::RenderTarget& targetWindow) const;
-    //Supprime nutriments et bactéries de l'assiette, réinitialise la température
+    //supprime nutriments et bactéries de l'assiette, réinitialise la température
     void reset();
-    //Fonction qui irradie les bactéries et les fait muter par un flash UV
+    //fonction qui irradie les bactéries et les fait muter par un flash UV
     void flash();
-    //DrawOn flash
+    //drawOn flash
     void drawOnFlash(sf::RenderTarget& targetWindow) const;
-    //Permet l'arrêt du flash
+    //permet l'arrêt du flash
     void unflash(sf::Time dt);
 
     //Pour la température:
 
-    //Permet de modifier la température de la boîte de petri
+    //permet de modifier la température de la boîte de petri
     void increaseTemperature();
     void decreaseTemperature();
-    //Réinitialise la température à sa valeur par défaut
+    //réinitialise la température à sa valeur par défaut
     void resetTemperature();
 
     //Pour le score d'une position:
 
     //retourne le score associé à une position donnée
     double getPositionScore(const Vec2d& p) const;
-    //retourne le score pour le gradient de bactérie. La sensibilité du score à une
+    //retourne le score pour le gradient de bactérie. La sensibilité du score envers une
     //bactérie peut varier polymorphiquement
     double getPositionBacteriaScore(const Vec2d& p) const;
-    //Permet de modifier la température de la boîte de pétri
+    //permet de modifier la température de la boîte de pétri
     void increaseGradientExponent();
     void decreaseGradientExponent();
-    //Réinitialise la puissance à sa valeur par défaut
+    //réinitialise la puissance à sa valeur par défaut
     void resetGradientExponent();
 
     //Pour les statistiques:
@@ -107,10 +107,10 @@ private:
     double bacteriaExponent_;
     bool isflashed_;
     sf::Clock flashClock_;
-//    sf::SoundBuffer flashAudio_;
-//    sf::Sound flash_;
+    sf::SoundBuffer flashAudio_;
+    sf::Sound flash_;
 
-    //Méthodes privées:
+    //Méthodes privées pour les statistiques:
     std::unordered_map<std::string, double> fetchGeneralData() const;
     std::unordered_map<std::string, double> fetchNutrimentQuantityData() const;
     std::unordered_map<std::string, double> fetchSimpleBacteriaData() const;

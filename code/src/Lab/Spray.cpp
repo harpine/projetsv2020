@@ -34,10 +34,12 @@ void Spray::drawOn(sf::RenderTarget& target) const
 
 void Spray::update(sf::Time dt)
 {
-    if (dt != sf::Time::Zero) {
+    if (dt != sf::Time::Zero)
+    {
         double toSubtract(255/(getConfig()["fading time"].toDouble()/dt.asSeconds()));
 
-        if (dt != sf::Time::Zero and transparency_ > toSubtract) {
+        if (dt != sf::Time::Zero and transparency_ > toSubtract)
+        {
             transparency_ -= toSubtract;
         }
     }

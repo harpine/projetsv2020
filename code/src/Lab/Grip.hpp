@@ -12,7 +12,7 @@ public:
 
     //Autres méthodes:
 
-    //Déplace le grapin d'un vecteur v
+    //déplace le grapin d'un vecteur v
     void move(const Vec2d& v);
 };
 

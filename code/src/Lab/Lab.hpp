@@ -32,25 +32,24 @@ public:
     //retourne le poison de l'assiette en collision avec le body
     Poison* getPoisonColliding(const CircularBody& body) const;
     //met à jour le temps;
-    void setTime(const sf::Time toAdd);
+    void addTime(const sf::Time toAdd);
 
-    //Dessine Lab
+    //dessine Lab
     void drawOn(sf::RenderTarget& targetWindow) const;
-    //Fait évoluer Lab
+    //fait évoluer Lab
     void update(sf::Time dt);
-    //Vide l'assiette de pétri associée à Lab et réinitialise la température
+    //vide l'assiette de pétri associée à Lab et réinitialise la température
     void reset();
-    //Réinitialise la température et la puissance du gradient
+    //réinitialise la température et la puissance du gradient
     void resetControls();
-    //Irradie les bactérie de l'assiette et les fait muter
+    //irradie les bactérie de l'assiette et les fait muter par un flash UV
     void flash();
 
     //Ajouts/retranchements:
 
-
     //ajoute un nutriment à l'assiette de petri
     void addNutriment(Nutriment* nutriment);
-    //ajoute un nutriment à l'assiette de petri
+    //ajoute une bactérie à l'assiette de petri
     void addBacterium(Bacterium* bacterium);
     //ajoute un swarm à l'assiette de petri
     void addSwarm(Swarm* swarm);
@@ -61,12 +60,12 @@ public:
 
     //Pour la température:
 
-    //Retourne la température de la boîte de petri
+    //retourne la température de la boîte de petri
     double getTemperature() const;
-    //Permet de modifier la température de la boîte de petri
+    //permet de modifier la température de la boîte de petri
     void increaseTemperature();
     void decreaseTemperature();
-    //Réinitialise la température avec la valeur par défaut
+    //réinitialise la température avec la valeur par défaut
     void resetTemperature();
 
     //Pour le score de la position:
@@ -76,15 +75,15 @@ public:
     //retourne le score de bactéries d'une position donnée
     double getPositionBacteriaScore(const Vec2d& p) const;
     double getGradientExponent() const;
-    //Permet de modifier la température de la boîte de pétri
+    //permet de modifier la température de la boîte de pétri
     void increaseGradientExponent();
     void decreaseGradientExponent();
-    //Réinitialise la puissance à sa valeur par défaut
+    //réinitialise la puissance à sa valeur par défaut
     void resetGradientExponent();
 
     //Pour les statistiques:
 
-    //Renvoie les nouvelles données pour un graphe donné
+    //renvoie les nouvelles données pour un graphe donné
     std::unordered_map<std::string, double> fetchData(const std::string & title) const;
 
 private:
@@ -94,7 +93,7 @@ private:
     sf::Time time_; //temps écoulé dans la simulation
 
     //Méthodes:
-    //Inscrit le temps écoulé depuis le début de la simulation
+    //inscrit le temps écoulé depuis le début de la simulation
     void drawOnTime(sf::RenderTarget& targetWindow) const;
 
 };

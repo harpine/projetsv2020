@@ -13,7 +13,8 @@ Swarm::Swarm(const std::string& mId)
 
 Swarm::~Swarm()
 {
-    for (auto& swarmbacterium: swarmbacteria_) {
+    for (auto& swarmbacterium: swarmbacteria_)
+    {
         delete swarmbacterium;
         swarmbacterium = nullptr;
     }
@@ -43,7 +44,7 @@ bool Swarm::isLeader(const SwarmBacterium* swarmbacterium) const
 
 bool Swarm::hasNoLeader()
 {
-    return ( leader_==nullptr);
+    return (leader_==nullptr);
 }
 Vec2d Swarm::getPositionLeader() const
 {
@@ -52,16 +53,19 @@ Vec2d Swarm::getPositionLeader() const
 
 void Swarm::addSwarmBacterium(SwarmBacterium* swarmbacterium)
 {
-    if (swarmbacterium != nullptr) {
+    if (swarmbacterium != nullptr)
+    {
         swarmbacteria_.push_back(swarmbacterium);
     }
 }
 
 void Swarm::removeSwarmBacterium(SwarmBacterium* swarmbacterium)
 {
-    if (isLeader(swarmbacterium)) {
+    if (isLeader(swarmbacterium))
+    {
         updateLeader();
     }
+
     swarmbacteria_.erase(std::remove(swarmbacteria_.begin(), swarmbacteria_.end(), swarmbacterium), swarmbacteria_.end());
 }
 
@@ -71,10 +75,12 @@ void Swarm::updateLeader()
     double score(0);
     double current(0);
 
-    for (auto& swarmbacterium: swarmbacteria_) {
+    for (auto& swarmbacterium: swarmbacteria_)
+    {
         current = swarmbacterium->getScore();
 
-        if (current > score) {
+        if (current > score)
+        {
             score = current;
             best = swarmbacterium;
         }
@@ -86,17 +92,26 @@ void Swarm::drawDebug(sf::RenderTarget& targetWindow) //ne marche que s'il n'y a
 {
     sf::Color couleur(sf::Color::Black); //noir par défaut
 
-    if (mId_ == "1") {
+    if (mId_ == "1")
+    {
         couleur = sf::Color::Green;
-    } else if (mId_ == "2") {
+    }
+    else if (mId_ == "2")
+    {
         couleur = sf::Color::Cyan;
-    } else if (mId_ == "3") {
+    }
+    else if (mId_ == "3")
+    {
         couleur = sf::Color::Yellow;
-    } else if (mId_ == "4") {
+    }
+    else if (mId_ == "4")
+    {
         couleur = sf::Color(127, 0, 64);
     }
-    for (size_t i(0); i < swarmbacteria_.size(); ++i) {
-        if (i>0) {
+    for (size_t i(0); i < swarmbacteria_.size(); ++i)
+    {
+        if (i>0)
+        {
             auto line = buildLine(swarmbacteria_[i]->getPosition(), swarmbacteria_[i-1]->getPosition(), couleur, 1.5);
             targetWindow.draw(line);
         }

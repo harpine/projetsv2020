@@ -21,7 +21,7 @@ public:
     //Getters & setters:
     //permet de simplifier l'accès aux configurations
     virtual j::Value& getConfig() const override;
-    //Facilite l'accès aux configuration better et worse pour le basculement
+    //facilite l'accès aux configuration better et worse pour le basculement
     j::Value& getWorseConfig() const;
     j::Value& getBetterConfig() const;
     //renvoie la vitesse courante (direction * une valeur)
@@ -50,7 +50,7 @@ public:
     //renvoie la quantité de nutriment consommée en fonction du nutriment
     virtual Quantity eatableQuantity(NutrimentA& nutriment) override;
     virtual Quantity eatableQuantity(NutrimentB& nutriment) override;
-    //Renvoie les effets du poison sur les bactéries selon leur type
+    //renvoie les effets du poison sur les bactéries selon leur type
     virtual Quantity eatablePoison(Poison& poison);
 
 private:

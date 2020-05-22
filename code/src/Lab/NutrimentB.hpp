@@ -14,7 +14,7 @@ public:
 
     //Autres méthodes :
 
-    //Redéfinition des méthodes virtuelles permettant de calculer
+    //redéfinition des méthodes virtuelles permettant de calculer
     //la quantité cédée par le nutriment
     virtual Quantity eatenBy(Bacterium& bact) override;
     virtual Quantity eatenBy(SimpleBacterium& bact) override;

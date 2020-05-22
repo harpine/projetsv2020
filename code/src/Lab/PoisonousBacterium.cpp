@@ -22,7 +22,9 @@ PoisonousBacterium::PoisonousBacterium(const Vec2d& poscenter)
                uniform(getConfig()["radius"]["max"].toDouble(),
                        getConfig()["radius"]["min"].toDouble()),
                MutableColor()),
-     probability_(), tumbleClock_(sf::Time::Zero), poisonClock_(sf::Time::Zero)
+     probability_(),
+     tumbleClock_(sf::Time::Zero),
+     poisonClock_(sf::Time::Zero)
 {
     addProperty(s::SPEED, MutableNumber(getSpeedConfig()["initial"].toDouble(),
                                         getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), true, 5));
@@ -87,14 +89,16 @@ Vec2d PoisonousBacterium::getSpeedVector() const
 
 double PoisonousBacterium::getAverageBetter()
 {
-    if (compteur_ == 0) {
+    if (compteur_ == 0)
+    {
         return 0;
     }
     return totalBetter_/compteur_;
 }
 double PoisonousBacterium::getAverageWorse()
 {
-    if (compteur_ == 0) {
+    if (compteur_ == 0)
+    {
         return 0;
     }
     return totalWorse_/compteur_;
@@ -129,12 +133,14 @@ void PoisonousBacterium::move(sf::Time dt)
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
     //distance renvoie length des 2 Vec2d
 
-    if ((result.position - getPosition()).lengthSquared() > 0.001) {
-        this->CircularBody::move((result.position - getPosition()));
+    if ((result.position - getPosition()).lengthSquared() > 0.001)
+    {
+        CircularBody::move((result.position - getPosition()));
         //move est moins intuitif mais meilleur pour la hiérarchie des classes
     }
 
-    if(tumbleAttempt(dt)) {
+    if(tumbleAttempt(dt))
+    {
         tumble();
     }
 }
@@ -147,7 +153,10 @@ void PoisonousBacterium::drawOn(sf::RenderTarget& target) const
     // adapte la taille du Sprite au rayon du nutriment:
     nutrimentSprite.setScale(2 * getRadius() / texture.getSize().x, 2 * getRadius() / texture.getSize().y);
     target.draw(nutrimentSprite);
-    if (isDebugOn()) { //mode debug
+
+    if (isDebugOn())
+    {
+        //mode debug
         int energy(getEnergy());
         sf::Text const texte = buildText(std::to_string(energy),
                                          Vec2d(getPosition().x - 5, getPosition().y + getRadius() + 10),
@@ -159,7 +168,8 @@ void PoisonousBacterium::drawOn(sf::RenderTarget& target) const
 void PoisonousBacterium::update(sf::Time dt)
 {
     Bacterium::update(dt);
-    if (canPoison(dt)) {
+    if (canPoison(dt))
+    {
         putPoison();
     }
 }
@@ -190,7 +200,8 @@ bool PoisonousBacterium::canPoison(sf::Time dt)
     if (poisonClock_.asSeconds() >= getConfig()["poison delay"].toDouble()
         and getEnergy() >= (getEnergylosedByPoison() + 10))
         //les bactéries n'ont pas l'énergie de déposer du poison
-        //si leur énergie est inférieure à 20
+        //si leur énergie est inférieure à la quantité à déposer
+        //multipliée par un facteur + 10
     {
         poisonClock_ = sf::Time::Zero;
         return true;
@@ -211,9 +222,12 @@ bool PoisonousBacterium::tumbleAttempt(sf::Time dt)
     updateScore();
     tumbleClock_ += dt;
 
-    if (getScore() >= ancien_score) {
+    if (getScore() >= ancien_score)
+    {
         lambda = getProperty("tumble better").get();
-    } else {
+    }
+    else
+    {
         lambda = getProperty("tumble worse").get();
     }
 
@@ -223,11 +237,13 @@ bool PoisonousBacterium::tumbleAttempt(sf::Time dt)
 
 void PoisonousBacterium::tumble()
 {
-    if (getConfig()["tumble"]["algo"].toString() == "single random vector") {
+    if (getConfig()["tumble"]["algo"].toString() == "single random vector")
+    {
         setDirection(Vec2d::fromRandomAngle());
-    } else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos) {
+    }
+    else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos)
+    {
         bestOfN(std::stoi(getConfig()["tumble"]["algo"].toString().substr(8, 2)));
-        //permet de trouver une meilleure position parmis le nombre donné (entre 1 et 99)
     }
     tumbleClock_ = sf::Time::Zero;
 }
