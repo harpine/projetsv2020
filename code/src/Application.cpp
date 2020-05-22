@@ -164,13 +164,10 @@ Application::Application(int argc, char const** argv)
 
     mSimulationBackground = mLabBackground;
 
-    if(music_.openFromFile(getResPath()+ getShortConfig().music))
-    {
+    if(music_.openFromFile(getResPath()+ getShortConfig().music)) {
         music_.setVolume(25);
         music_.setLoop(true);
-    }
-    else
-    {
+    } else {
         std::cerr << "Couldn't load music" << std::endl;
     }
 
@@ -542,12 +539,9 @@ void Application::handleEvent(sf::Event event, sf::RenderWindow& window)
             break;
 
         case sf::Keyboard::A:
-            if (music_.getStatus() == sf::SoundSource::Status::Playing)
-            {
+            if (music_.getStatus() == sf::SoundSource::Status::Playing) {
                 music_.pause();
-            }
-            else
-            {
+            } else {
                 music_.play();
             }
             break;

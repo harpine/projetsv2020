@@ -82,6 +82,8 @@ le nom de fichier de configuration voulu.
 
 ## FICHIERS DE CONFIGURATION PARTICULIERS:
 
+Tous les tests ont été effectués à température 25°C et à 
+"gradient exponent" 0.8, pendant 2 minutes en moyenne.
 Ces fichiers font références au projet sans les extensions:
 
  - avec le fichier de configuration "simpleapp.json", nous pouvons voir 

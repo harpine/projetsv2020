@@ -11,12 +11,12 @@
 //Constructeur:
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
-      getConfig()["energy"]["min"].toDouble()),
-     poscenter,
-     Vec2d::fromRandomAngle().normalised(),
-     uniform(getConfig()["radius"]["max"].toDouble(),
-      getConfig()["radius"]["min"].toDouble()),
-     getConfig()["color"]),
+                       getConfig()["energy"]["min"].toDouble()),
+               poscenter,
+               Vec2d::fromRandomAngle().normalised(),
+               uniform(getConfig()["radius"]["max"].toDouble(),
+                       getConfig()["radius"]["min"].toDouble()),
+               getConfig()["color"]),
      t_flagelle_(uniform(0.0, PI)),
      probability_()
 {
@@ -60,19 +60,17 @@ Vec2d SimpleBacterium::f(Vec2d position, Vec2d speed) const
 void SimpleBacterium::move(sf::Time dt)
 {
     DiffEqResult result(stepDiffEq(getPosition(), getSpeedVector(), dt,
-               *this));
+                                   *this));
     //this est une DiffEqFunction
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
     //distance renvoie length des 2 Vec2d
 
-    if ((result.position - getPosition()).lengthSquared() > 0.001)
-    {
+    if ((result.position - getPosition()).lengthSquared() > 0.001) {
         this->CircularBody::move((result.position - getPosition()));
         //move est moins intuitif mais meilleur pour la hiérarchie des classes
     }
 
-    if(tumbleAttempt(dt))
-    {
+    if(tumbleAttempt(dt)) {
         tumble();
     }
 }
@@ -84,12 +82,9 @@ bool SimpleBacterium::tumbleAttempt(sf::Time dt)
     updateScore();
     tumbleClock_ += dt;
 
-    if (getScore() >= ancien_score)
-    {
+    if (getScore() >= ancien_score) {
         lambda = getProperty("tumble better").get();
-    }
-    else
-    {
+    } else {
         lambda = getProperty("tumble worse").get();
     }
 
@@ -99,12 +94,9 @@ bool SimpleBacterium::tumbleAttempt(sf::Time dt)
 
 void SimpleBacterium::tumble()
 {
-    if (getConfig()["tumble"]["algo"].toString() == "single random vector")
-    {
+    if (getConfig()["tumble"]["algo"].toString() == "single random vector") {
         setDirection(Vec2d::fromRandomAngle());
-    }
-    else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos)
-    {
+    } else if(getConfig()["tumble"]["algo"].toString().find("best of ") != std::string::npos) {
         bestOfN(std::stoi(getConfig()["tumble"]["algo"].toString().substr(8, 2)));
         //permet de trouver une meilleure position parmis le nombre donné (entre 1 et 99)
     }
@@ -121,8 +113,7 @@ void SimpleBacterium::drawOnFlagelle(sf::RenderTarget &target) const
 {
     auto flagelle = sf::VertexArray(sf::TrianglesStrip);
     flagelle.append({{0, 0}, getColor().get()});
-    for (int i(1); i <= 30 ; ++i)
-    {
+    for (int i(1); i <= 30 ; ++i) {
         float x(-i * getRadius() / 10.0);
         float y(getRadius() * std::sin(t_flagelle_) * std::sin(2 * i / 10.0));
         flagelle.append({{x, y}, getColor().get()});

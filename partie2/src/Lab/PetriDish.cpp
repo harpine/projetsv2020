@@ -8,8 +8,10 @@
 
 PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
     : CircularBody(poscenter, radius),
-     temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble())
-{std::cerr << poscenter;}
+      temperature_(getAppConfig()["petri dish"]["temperature"]["default"].toDouble())
+{
+    std::cerr << poscenter;
+}
 
 PetriDish::~PetriDish()
 {
@@ -30,8 +32,7 @@ bool PetriDish::addBacterium(Bacterium* bacterium)
 
 bool PetriDish::addNutriment(Nutriment* nutriment)
 {
-    if (contains(*nutriment))
-    {
+    if (contains(*nutriment)) {
         nutriments_.push_back(nutriment);
         return true;
     }
@@ -40,9 +41,8 @@ bool PetriDish::addNutriment(Nutriment* nutriment)
 
 void PetriDish::update(sf::Time dt)
 {
-    for (auto nutriment : nutriments_)
-    {
-       (*nutriment).update(dt);
+    for (auto nutriment : nutriments_) {
+        (*nutriment).update(dt);
     }
     //A remplir : fonciton qui fait evoluer toutes les bacteries/nutriments)
     //à chaque pas de temps
@@ -52,8 +52,7 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
 {
     auto border = buildAnnulus(getPosition(), getRadius(), sf::Color::Black, 5);
     targetWindow.draw(border);
-    for (size_t i(0); i< nutriments_.size(); ++i)
-    {
+    for (size_t i(0); i< nutriments_.size(); ++i) {
         nutriments_[i]->drawOn(targetWindow);
     }
 }
@@ -61,15 +60,13 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
 void PetriDish::reset()
 {
     //Désalloue la mémoire occupée par les bactéries, puis vide l'ensemble des bactéries.
-    for (auto& bacterium : bacteria_)
-    {
+    for (auto& bacterium : bacteria_) {
         delete bacterium;
     }
     bacteria_.clear();
 
     //Désalloue la mémoire occupée par les nutriments, puis vide l'ensemble des nutriments.
-    for (auto& nutriment : nutriments_)
-    {
+    for (auto& nutriment : nutriments_) {
         delete nutriment;
     }
     nutriments_.clear();
@@ -83,7 +80,7 @@ void PetriDish::increaseTemperature()
 
 void PetriDish::decreaseTemperature()
 {
-  temperature_ -= getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
+    temperature_ -= getAppConfig()["petri dish"]["temperature"]["delta"].toDouble();
 }
 
 void PetriDish::resetTemperature()

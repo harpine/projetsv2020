@@ -8,8 +8,7 @@ Spray::Spray(const Vec2d& poscenter)
     :CircularBody(poscenter, getConfig()["size"].toDouble()),
      transparency_(255)
 {
-    if (sprayAudio_.loadFromFile(getApp().getResPath() + getConfig()["audio"].toString()))
-    {
+    if (sprayAudio_.loadFromFile(getApp().getResPath() + getConfig()["audio"].toString())) {
         spray_.setBuffer(sprayAudio_);
         spray_.setVolume(100);
         spray_.play();

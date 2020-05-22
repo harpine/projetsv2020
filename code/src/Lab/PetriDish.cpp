@@ -24,8 +24,7 @@ PetriDish::PetriDish(const Vec2d& poscenter, const double radius)
                  + getAppConfig()[s::PETRI_DISH]["gradient"]["exponent"]["min"].toDouble()) / 2),
       bacteriaExponent_(getAppConfig()[s::PETRI_DISH]["gradient"]["bacteria exponent"].toDouble())
 {
-    if(flashAudio_.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString()))
-    {
+    if(flashAudio_.loadFromFile(getApp().getResPath() + getAppConfig()["flash"]["audio"].toString())) {
         flash_.setBuffer(flashAudio_);
         flash_.setVolume(75);
     }
@@ -102,9 +101,7 @@ void PetriDish::addSpray(Spray* spray)
 {
     if (spray!= nullptr and contains(*spray)) {
         sprays_.push_back(spray);
-    }
-    else
-    {
+    } else {
         delete spray;
     }
 }
@@ -240,8 +237,7 @@ void PetriDish::drawOn(sf::RenderTarget& targetWindow) const
     for (size_t i(0); i< sprays_.size(); ++i) {
         sprays_[i]->drawOn(targetWindow);
     }
-    if (isflashed_)
-    {
+    if (isflashed_) {
         drawOnFlash(targetWindow);
     }
 }
@@ -277,10 +273,8 @@ void PetriDish::reset()
 void PetriDish::flash()
 {
     flashClock_.restart();
-    for(auto& bacterium : bacteria_)
-    {
-        if (bacterium != nullptr)
-        {
+    for(auto& bacterium : bacteria_) {
+        if (bacterium != nullptr) {
             bacterium->mutate();
         }
     }
@@ -290,8 +284,7 @@ void PetriDish::flash()
 
 void PetriDish::unflash(sf::Time dt)
 {
-    if (flashClock_.getElapsedTime().asSeconds() > 5*dt.asSeconds())
-    {
+    if (flashClock_.getElapsedTime().asSeconds() > 5*dt.asSeconds()) {
         isflashed_ = false;
     }
 }

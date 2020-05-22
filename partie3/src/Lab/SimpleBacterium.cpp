@@ -10,12 +10,12 @@
 
 SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     :Bacterium(uniform(getConfig()["energy"]["max"].toDouble(),
-      getConfig()["energy"]["min"].toDouble()),
-     poscenter,
-     Vec2d::fromRandomAngle(),
-     uniform(getConfig()["radius"]["max"].toDouble(),
-      getConfig()["radius"]["min"].toDouble()),
-     getConfig()["color"]),
+                       getConfig()["energy"]["min"].toDouble()),
+               poscenter,
+               Vec2d::fromRandomAngle(),
+               uniform(getConfig()["radius"]["max"].toDouble(),
+                       getConfig()["radius"]["min"].toDouble()),
+               getConfig()["color"]),
      t_flagelle_(uniform(0.0, PI)),
      probability_()
 {
@@ -24,7 +24,7 @@ SimpleBacterium::SimpleBacterium(const Vec2d& poscenter)
     //getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble())
 
     addProperty("speed", MutableNumber(getSpeedConfig()["initial"].toDouble(),
-            getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), 1));
+                                       getSpeedConfig()["rate"].toDouble(), getSpeedConfig()["sigma"].toDouble(), 1));
 
     addProperty("tumble better",MutableNumber(getBetterConfig()["initial"].toDouble(),
                 getBetterConfig()["rate"].toDouble(), getBetterConfig()["sigma"].toDouble(), 1));
@@ -68,12 +68,11 @@ Vec2d SimpleBacterium::getSpeedVector() const
 void SimpleBacterium::move(sf::Time dt)
 {
     DiffEqResult result(stepDiffEq(getPosition(), getSpeedVector(), dt,
-               *this));
+                                   *this));
     //this est une DiffEqFunction
     consumeEnergy(getDisplacementEnergy()* distance(result.position, getPosition()));
     //distance renvoie length des 2 Vec2d
-    if ((result.position - getPosition()).lengthSquared() > 0.001)
-    {
+    if ((result.position - getPosition()).lengthSquared() > 0.001) {
         this->CircularBody::move(result.position - getPosition());
         //setPosition(result.position); //plus simple que de passer par la méthode move() de
         //circularbody étant donnée que result contient la
@@ -81,8 +80,7 @@ void SimpleBacterium::move(sf::Time dt)
         //set vitesse??
     }
 
-    if(tumbleAttempt(dt))
-    {
+    if(tumbleAttempt(dt)) {
         tumble();
     }
 }
@@ -93,12 +91,9 @@ bool SimpleBacterium::tumbleAttempt(sf::Time dt)
     double ancien_score(score_);
     score_ = getAppEnv().getPositionScore(getPosition());
     tumbleClock_ += dt;
-    if (score_ >= ancien_score)
-    {
+    if (score_ >= ancien_score) {
         lambda = getProperty("tumble better").get();
-    }
-    else
-    {
+    } else {
         lambda = getProperty("tumble worse").get();
     }
     probability_ = 1 - exp(-tumbleClock_.asSeconds()/lambda);
@@ -107,20 +102,15 @@ bool SimpleBacterium::tumbleAttempt(sf::Time dt)
 
 void SimpleBacterium::tumble()
 {
-    if (getConfig()["tumble"]["algo"] == "single random vector")
-    {
+    if (getConfig()["tumble"]["algo"] == "single random vector") {
         setDirection(Vec2d::fromRandomAngle());
-    }
-    else if(getConfig()["tumble"]["algo"] == "best of 20")
-    {
+    } else if(getConfig()["tumble"]["algo"] == "best of 20") {
         Vec2d direction(getDirection());
         Vec2d finalDirection(getDirection());
         double score(score_);
-        for (int i(0); i <=20 ; ++i)
-        {
+        for (int i(0); i <=20 ; ++i) {
             direction = Vec2d::fromRandomAngle();
-            if (getAppEnv().getPositionScore(getPosition()+direction) > score)
-            {
+            if (getAppEnv().getPositionScore(getPosition()+direction) > score) {
                 score = getAppEnv().getPositionScore(getPosition()+direction);
                 finalDirection = direction;
             }
@@ -140,8 +130,7 @@ void SimpleBacterium::drawOnFlagelle(sf::RenderTarget &target) const
 {
     auto flagelle = sf::VertexArray(sf::TrianglesStrip);
     flagelle.append({{0, 0}, getColor().get()});
-    for (int i(1); i <= 30 ; ++i)
-    {
+    for (int i(1); i <= 30 ; ++i) {
         float x(-i * getRadius() / 10.0);
         float y(getRadius() * std::sin(t_flagelle_) * std::sin(2 * i / 10.0));
         flagelle.append({{x, y}, getColor().get()});

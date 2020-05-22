@@ -26,7 +26,7 @@ double CircularBody::getRadius() const
 bool CircularBody::contains(const CircularBody& other) const
 {
     return (other.radius_ <= radius_ and
-        distance(poscenter_, other.poscenter_) <= std::abs(radius_ - other.radius_));
+            distance(poscenter_, other.poscenter_) <= std::abs(radius_ - other.radius_));
 }
 
 bool CircularBody::isColliding(const CircularBody& other) const
