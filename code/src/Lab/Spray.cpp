@@ -34,6 +34,8 @@ void Spray::drawOn(sf::RenderTarget& target) const
 
 void Spray::update(sf::Time dt)
 {
+    compteur_ += dt;
+
     if (dt != sf::Time::Zero)
     {
         double toSubtract(255/(getConfig()["fading time"].toDouble()/dt.asSeconds()));
@@ -47,5 +49,5 @@ void Spray::update(sf::Time dt)
 
 bool Spray::hasFaded() const
 {
-    return clock_.getElapsedTime().asSeconds() > getConfig()["fading time"].toDouble();
+    return compteur_.asSeconds() > getConfig()["fading time"].toDouble();
 }

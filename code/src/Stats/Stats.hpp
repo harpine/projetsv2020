@@ -20,7 +20,7 @@ public:
     //permet de passer au graph précédent
     void previous();
     //permet de dessiner le graphe
-    void drawOn(sf::RenderTarget& target) const;
+    void drawOn(sf::RenderTarget& target) const override;
     //reset les graphs
     void reset();
     //ajoute un graph

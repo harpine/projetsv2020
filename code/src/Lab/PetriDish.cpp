@@ -424,7 +424,6 @@ void PetriDish::recalculateStats()
     {
         bacterium->updateStats();
     }
-    //???
 }
 
 //Pour les statistiques:
