@@ -28,7 +28,7 @@ public:
 
 
 private :
-    sf::Clock clock_; //Il faut un sf time appelé avec un dt ???
+    sf::Time compteur_;
     int transparency_;
     sf::SoundBuffer sprayAudio_;
     sf::Sound spray_;
