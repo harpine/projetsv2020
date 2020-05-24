@@ -1,3 +1,15 @@
+**Compilation en ligne de commande:**
+
+- Créer un dossier build dans le dossier partie6
+- Ouvrir ce dossier dans le terminal et tapper: **cmake ../src**
+*-> Cette commande construit les fichiers de compilation dans ce dossier.*
+- Une fois la commande exécutée, tapper: **make application**
+*-> Cette commande va compiler le code à partir de l'exécutable*
+- Pour lancer le programme tapper: **./ application**
+*-> Cette commande va lancer le programme avec le app.json par défaut.*
+- Pour le lancer avec un autre fichier de configuration, tapper: 
+**./ application nomfichierapp.json** 
+
 **Qu'est-ce que nous avons fait:**
 
 - modélisation d'une culture de bactérie dans assiette de petri			--- trouver app.json apte à simuler
