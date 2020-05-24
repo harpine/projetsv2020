@@ -172,3 +172,15 @@ Nous avons ajouté l'affichage du temps en format mm:ss sur la simulation
 et avons ajouté 2 autres types de swarm. Nous avons réglé quelques 
 problèmes mineurs et amélioré la modularisation de notre code.
 Nous allons nous attaquer au fichier README tout prochainement.
+
+### **Semaine 10**
+
+Nous avons ajouté un spray désinfectant éliminant toutes les entités 
+entrant en contact avec le liquide. Nous avons aussi ajouté un flash UV
+faisant muter toutes les bactéries de l'assiette.
+Nous avons accompagné le spray et le flash par un effet sonore et
+ajouté une musique de fond à la simulation.
+Nous avons finalisé le readme, contrôlé que le code compile sur la VM, 
+(bien que le son n'est pas rediffusé). 
+Nous avons fixé quelques problèmes mineurs. Nous préparons actuellement
+les fichiers à rendre sous format zip.

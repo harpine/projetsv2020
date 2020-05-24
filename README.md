@@ -1,47 +1,57 @@
-# projetsv2020
+# Projet SV 2020, directives données par Jamila Sam
 
 ## Groupe 38, Aline Brunner et Helena Binková, coachées par Sébastien Gachoud
 
-
-Notre projet contient des options sonores comme complément qui nous on 
+Notre projet contient des options sonores comme complément qui nous ont 
 paru intéressantes mais qui ne fonctionnent pas sur les machines 
 virtuelles de l'EPFL, car ces machines ne redonnent pas le son. Merci 
 donc si possible de l'exécuter sur une machine physique.
 
-Notre simulation informatique d'une assiette de pétri avec des colonies 
-de bactéries de type différent vise à modéliser leur évolution au cours 
+Notre programme simule une assiette de Petri, peuplée de bactéries de
+différents types. Il vise à modéliser leur évolution au cours 
 du temps.
 
-Les types de bactéries se différencient de part leur couleur, leur 
-action et leur mode de déplacement, qui influencent leur capacité à la 
-survie dans un environnement. Notre projet comprend au total 5 types de 
-bactéries:
- - les batcéries simples en bleu foncé
- - les bactéries à tentacule en rouge
- - les bactéries à comportement de groupe dont la couleur marque 
- l'appartenance à un certain groupe, en vert, cyan, jaune et bordeau
- - les bactéries à poison en orange
- - les bactéries aggressives en violet
-
-Les bactéries se nourrissent de sources de nutriments générées 
-automatiquement dans l'assiette de pétri. Ces sources de nutriments sont 
-consommables et permettent aux bactérie d'augmenter leur niveau 
-d'énergie. On en distingue deux types, selon la couleur. Les bactéries 
-connaissent un comportement différencié selon le nutriment, ce qui leur 
-confère des avantages ou désavantages à la survie. La nutrition compense 
-les pertes d'énergie dûes au déplacement.
-
-Les bactéries ont des modes de déplacement qui diffèrent et qui peuvent 
-donc aussi leur conférer un avantage ou désavantage selon 
-l'environnement. 
-
 L'assiette de pétri se trouve dans un laboratoire qui la contrôle. De 
-nombreux paramètres comme la température où la sensibilité au gradient 
-de bactéries peuvent influencer l'évolution des colonies en modifiant le
-comportement des nutriments et bactéries. La totalité de l'évolution est 
-limitée à l'assiette qui est en fait un cercle aux parois 
-infranchissables pour toutes les entités.
+nombreux paramètres, modifiables directement dans la simulation, comme 
+la température ou la sensibilité au gradient (attraction) de nutriments,
+peuvent influencer l'évolution des colonies. Ceux-ci modifient le 
+comportement des nutriments et bactéries. 
+D'autres paramètres sont modifiables dans le fichier app.json.
+La totalité de l'évolution est limitée à l'assiette dont les rebords 
+sont infranchissables pour toutes les entités. 
 
+Des sources de nutriments générées sont automatiquement dans l'assiette 
+de pétri. On en distingue deux types, selon la couleur (A en vert, 
+B en bleu). 
+
+Les bactéries perdent de l'énergie en se déplaçant avec des modes de 
+déplacement qui diffèrent selon leur type. Elles gagnent de l'énergie en 
+se nourrisant de nutriments. Les bactéries connaissent un comportement 
+différencié selon le nutriment, ce qui leur confère des avantages ou 
+désavantages à la survie. 									
+
+Les types de bactéries se différencient de part leur actionet leur mode 
+de déplacement qui influencent leur capacité à la survie dans un 
+environnement. Notre projet comprend au total 5 types de bactéries 
+(décrites ci-dessous avec leur couleur initiale):						
+ - les batcéries simples (SimpleBacterium) en bleu foncé 
+ - les bactéries à tentacule (TwitchingBacterium) en rouge
+ - les bactéries à comportement de groupe (SwarmBacterium) 
+ dont la couleur marque l'appartenance à un certain groupe, 
+ en vert, cyan, jaune et bordeau
+ - les bactéries à poison (PoisonousBacterium) en orange
+ - les bactéries aggressives (MadBacterium) en violet
+
+Les SimpleBacteria se déplacent individuellement en fonction du gradient
+de nutriments. 
+Les TwitchingBacteria se déplacent à l'aide d'un tentacule qui repère 
+et se fixe aux nutriments et attire la bactérie vers ce nutriment.
+Les SwarmBacteria se déplacent grâce au gradient de nutriments et d'une
+force supplémentaire appliquée le leader de leur "swarm" (groupe). Le
+leader est la SwarmBacterium du groupe se trouvent sur la "meilleure"
+position (celle dont le gradient est le plus fort).
+Les PoisonousBacteria et les MadBacteria seront décrites plus 
+précisément dans les extensions.
 
 ## COMPILATION ET ÉXECUTION:
 
@@ -49,7 +59,7 @@ Ce projet utilise Cmake comme outil de compilation.
 
 **En ligne de commande:**
 
-- Créer un dossier build dans le dossier code //nom dossier à controler ??
+- Créer un dossier build dans le dossier partie6
 - Ouvrir ce dossier dans le terminal et tapper: **cmake ../src**
 *-> Cette commande construit les fichiers de compilation dans ce dossier.*
 - Une fois la commande exécutée, tapper: **make application**
@@ -82,8 +92,11 @@ le nom de fichier de configuration voulu.
 
 ## FICHIERS DE CONFIGURATION PARTICULIERS:
 
-Tous les tests ont été effectués à température 25°C et à 
+Nous avons trouvé les meilleures conditions afin de parvenir à certaines
+situations, en voici quelques exemples.
+Tous les tests ci-dessous ont été effectués à température 25°C et à 
 "gradient exponent" 0.8, pendant 2 minutes en moyenne.
+
 Ces fichiers font références au projet sans les extensions:
 
  - avec le fichier de configuration "simpleapp.json", nous pouvons voir 
@@ -98,7 +111,7 @@ beaucoup, de sorte à leur permettre de proliférer.
 voir que les twitchingbacteria prennent le dessus rapidement. En effet,
 les deux types de nutriments sont présents à fréquence élevée leur 
 permettant de proliférer au détriment des autres bactéries. Celles-ci 
-sont affectées par la présence des nutriments B tandis que les 
+sont affectées par la présence des nutriments bleus tandis que les 			
 twitchingbacteria les perçoivent comme très nutritifs.
 
  - avec le fichier de configuration "swarmapp.json", nous pouvons voir 
@@ -161,7 +174,7 @@ la droite de la simulation.
  appartenant aux Swarms 1, 2, 3, 4 respectivement. 
  - La touche P permet d'ajouter une PoisonousBacterium.
  - La touche M permet d'ajouter une MadBacterium.
- - La touche H permet d'ajouter une bactérie au hasard parmis toutes les
+ - La touche H permet d'ajouter une bactérie au hasard parmi toutes les
  bactéries.
  - La touche K permet de sprayer un peu de désinfectant dans une zone de
  l'assiette, ce qui tue (kill) la totalité des objets en contact.
